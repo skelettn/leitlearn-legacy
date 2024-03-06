@@ -80,7 +80,7 @@ class PacketsController extends AppController
      * @param string|null $query La requête de recherche
      * @return \App\Controller\json
      */
-    public function get(?string $query = null)
+    public function get(?string $query = null, ?string $category = null)
     {
         $this->autoRender = false;
         $this->response = $this->response->withType('application/json');
@@ -92,7 +92,16 @@ class PacketsController extends AppController
         $searchTerm = $this->removeAccents(trim($query));
         $escapedTerm = preg_quote($searchTerm, '/');
 
-        $paquets = $this->Packets->find()->contain(['Keywords'])->toArray();
+        if(!is_null($category)) {
+            $paquets = $this->Packets->find()
+                ->contain(['Keywords'])
+                ->matching('Keywords', function ($q) use ($category) {
+                    return $q->where(['Keywords.word' => $category]);
+                })
+                ->toArray();
+        } else {
+            $paquets = $this->Packets->find()->contain(['Keywords'])->toArray();
+        }
 
         $filteredPaquets = [];
         foreach ($paquets as $paquet) {

@@ -20,7 +20,7 @@
             <div class="explore-categories">
                 <?= $cell = $this->cell('Keywords::display', []) ?>
             </div>
-            <div class="explore-packets"></div>
+            <div class="explore-packets" data-category="<?= $category ?>"></div>
         </div>
     </div>
 </main>

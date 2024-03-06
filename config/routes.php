@@ -111,6 +111,17 @@ return function (RouteBuilder $routes): void {
                 ]
             )
             ->setPass(['query']);
+        $builder->connect(
+            '/explore/get/{query}/{category}',
+            ['controller' => 'Packets', 'action' => 'get']
+        )
+            ->setPatterns(
+                [
+                    'query' => '[a-z0-9\-]+',
+                    'category' => '[a-zA-Z0-9\-]*',
+                ]
+            )
+            ->setPass(['query', 'category']);
 
         $builder->connect(
             '/market/get/{id}',

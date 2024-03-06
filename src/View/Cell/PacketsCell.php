@@ -7,7 +7,7 @@ class PacketsCell extends Cell
 {
     public function display(string $filter, int $logged_user_id = null)
     {
-        $query = $this->fetchTable("Packets")->find()->contain(['Flashcards', 'Users']);
+        $query = $this->fetchTable("Packets")->find()->contain(['Flashcards', 'Users', 'Keywords']);
 
         switch ($filter) {
             case 'trend':
