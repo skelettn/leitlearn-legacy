@@ -65,8 +65,6 @@ echo $this->fetch('content');
 echo $this->element('ia');
 echo $this->element('modals/detail_packet');
 echo $this->element('modals/create_packet');
-echo $this->element('modals/create_flashcard');
-echo $this->element('modals/modify_packet');
 echo $this->element('modals/update_user');
 echo $this->element('modals/update_user_password');
 
@@ -75,7 +73,7 @@ echo $this->element('modals/update_user_password');
 
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script type="module" src="/js/v2/app.js?v=<?= random_int(1000000, 9999999) ?>"></script>
+<script type="module" src="/js/app.js?v=<?= random_int(1000000, 9999999) ?>"></script>
 </body>
 
 </html>

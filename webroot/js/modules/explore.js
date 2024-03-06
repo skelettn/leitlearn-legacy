@@ -31,7 +31,7 @@ export function updateExploreResults(data) {
     explore_packets.empty();
 
     if (data.length === 0) {
-        var noResultElement = $('<span></span>').text('Aucun résultat trouvé');
+        var noResultElement = $('<span class="no-results"></span>').text('Aucun résultat trouvé');
         explore_packets.append(noResultElement);
         return;
     }

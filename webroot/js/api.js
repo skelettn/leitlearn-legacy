@@ -1,11 +1,15 @@
 export const api = async (url, value, second = null) => {
-    console.log(`${url}${value}/${second}`);
     let response;
     try {
-        const response = await fetch(`${url}${value}/${second}`);
-        if($.trim(second) === '') {
-            const response = await fetch(`${url}${value}`);
+        let query;
+        if($.trim(second) !== '') {
+            query = `${url}${value}/${second}`;
+        } else {
+            query = `${url}${value}`;
         }
+
+        const response = await fetch(query);
+
         const data = await response.json();
         return data;
     } catch (error) {

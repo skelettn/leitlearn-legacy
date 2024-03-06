@@ -163,7 +163,7 @@ class PacketsController extends AppController
 
     public function settings(int $id)
     {
-        $this->viewBuilder()->setLayout('default');
+        $this->viewBuilder()->setLayout('play');
 
         $logged_user_uid = AppSingleton::getUser($this->request->getSession())->user_uid;
         $packet_id = htmlspecialchars((string)$id);

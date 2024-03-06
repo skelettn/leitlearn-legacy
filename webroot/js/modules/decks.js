@@ -15,7 +15,6 @@ const fetchDecksFromExplore = () => {
                 if (!explore_container_data || $.trim(explore_container_data) === '') {
                     data = await api('/api/explore/get/', query);
                 } else {
-                    console.log(explore_container_data);
                     data = await api('/api/explore/get/', query, explore_container_data);
                 }
                 updateExploreResults(data);

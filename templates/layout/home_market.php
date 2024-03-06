@@ -69,7 +69,7 @@ echo $this->element('modals/detail_packet');
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script type="module" src="/js/v2/app.js?v=<?= random_int(1000000, 9999999) ?>"></script>
+<script type="module" src="/js/app.js?v=<?= random_int(1000000, 9999999) ?>"></script>
 </body>
 
 </html>

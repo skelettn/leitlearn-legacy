@@ -2,7 +2,7 @@
     <div class="sidebar-container">
         <div class="logo"></div>
         <ul>
-            <li class="page-redirect" data-redirection="/explore">
+            <li class="page-redirect" data-redirection="/explore/p">
                 <span class="material-symbols-rounded">
                     explore
                 </span>
