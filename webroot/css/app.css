@@ -1087,6 +1087,30 @@ footer button:active,
     flex-direction: column;
 }
 
+.protected::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.protected .hidden {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.protected .hidden span {
+    font-size: 40px;
+}
+
 .paquet .title {
     max-width: 210px;
     color: black;

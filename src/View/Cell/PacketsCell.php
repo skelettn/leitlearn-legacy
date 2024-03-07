@@ -40,4 +40,16 @@ class PacketsCell extends Cell
         $this->set('packets', $packets);
         $this->set('display', $display);
     }
+
+    public function protected(int $user_id)
+    {
+        $packets = $this->fetchTable("Packets")
+            ->find()
+            ->contain(['Flashcards', 'Users', 'Keywords'])
+            ->where(['public' => 0, 'user_id' => $user_id])
+            ->all()
+        ;
+
+        $this->set('packets', $packets);
+    }
 }
