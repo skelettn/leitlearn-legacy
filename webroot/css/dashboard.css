@@ -527,6 +527,7 @@ main {
     align-items: center;
     flex-wrap: wrap;
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .dashboard .paquets a {
@@ -578,6 +579,34 @@ main {
 
 .dashboard .actions .action:hover {
     transform: scale(1.1);
+}
+
+.dashboard .friends {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    overflow-y: scroll;
+}
+
+.dashboard .friends .friend {
+    min-width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    border-radius: 50%;
+    background-size: cover !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: var(--main-bg-color);
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.dashboard .friends .friend:active {
+    transform: scale(.95);
+}
+
+.dashboard .friends .friend:last-child {
+    margin-right: 0;
 }
 
 .paquet-header {
