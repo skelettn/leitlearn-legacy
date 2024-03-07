@@ -170,6 +170,7 @@ main {
 }
 
 .dashboard {
+    position: relative;
     margin-left: 250px;
     width: calc(100% - 250px);
     padding: 0 100px 20px;
@@ -631,7 +632,8 @@ main {
     border-radius: 25px;
 }
 
-.paquet-header .actions .action.play {
+.paquet-header .actions .action.play,
+.packet-actions .action {
     width: auto;
     height: auto;
     padding: 8px 15px;

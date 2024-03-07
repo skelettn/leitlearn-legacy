@@ -23,7 +23,10 @@
                 <?= $this->cell('Keywords::selected', []) ?>
             </div>
             <?= $this->Form->hidden('ia', ['value' => 0]); ?>
-            <?= $this->Form->submit('Créer', ['name' => 'create-paquet-submit']) ?>
+            <div class="loader-button">
+                <?= $this->Form->submit('Créer', ['name' => 'create-paquet-submit']) ?>
+                <span class="loader"></span>
+            </div>
             <?= $this->Form->end() ?>
         </div>
     </div>

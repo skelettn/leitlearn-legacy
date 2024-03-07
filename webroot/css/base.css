@@ -55,7 +55,6 @@ textarea {
 input:focus,
 textarea:focus,
 select:focus {
-    border: 2px solid var(--main-bg-color) !important;
     outline: var(--main-bg-color) !important;
 }
 
@@ -196,6 +195,28 @@ form .edit-picture-group label span {
 
 form .edit-picture-group input{
     display: none;
+}
+
+.loader-button {
+    position: relative;
+}
+
+.loader-button span.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12.5px;
+    margin-left: -12.5px;
+    display: none;
+}
+
+.loader {
+    width: 25px;
+    height: 25px;
+    border: 4px solid transparent;
+    border-top-color: black;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
 }
 
 /* Dropdown */
@@ -884,6 +905,16 @@ form .edit-picture-group input{
 
     100% {
         transform: scale(1.1);
+    }
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
     }
 }
 

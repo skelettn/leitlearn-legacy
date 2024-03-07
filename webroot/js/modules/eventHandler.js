@@ -7,6 +7,7 @@ export const initEventHandlers = () => {
     snackbarEventHandler();
     leitlearnLoadingEvent();
     tabsEventHandler();
+    animateFormButtons();
 };
 
 const redirectionsEvent = () => {
@@ -109,3 +110,43 @@ export function setupScrollMenu($scrollMenu) {
         $content.css('transform', `translateX(-${scrollPosition}px)`);
     }
 }
+
+const animateFormButtons = () => {
+    const LOADER_DURATION = 3000;
+
+    $(document).on('click', '.loader-button', function(event) {
+        event.preventDefault();
+
+        const $form = $(this).closest('form');
+        const $button = $(this);
+        const $input = $button.find('input[type="submit"]');
+        const $loader = $button.find('.loader');
+
+        if (validateForm($form)) {
+            $input.val('');
+            $loader.show();
+
+            setTimeout(() => {
+                $input.val('Envoyer');
+                $loader.hide();
+
+                $form.submit();
+            }, LOADER_DURATION);
+        } else {
+            alert("Veuillez remplir tous les champs requis.");
+        }
+    });
+
+    const validateForm = ($form) => {
+        let isValid = true;
+
+        $form.find("[required]").each(function() {
+            if ($(this).val() === "") {
+                isValid = false;
+                return false;
+            }
+        });
+
+        return isValid;
+    };
+};

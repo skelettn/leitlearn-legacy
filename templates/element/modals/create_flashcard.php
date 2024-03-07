@@ -140,9 +140,10 @@
                 </div>
             </div>
 
-
-
-            <?= $this->Form->submit('Créer') ?>
+            <div class="loader-button">
+                <?= $this->Form->submit('Créer') ?>
+                <span class="loader"></span>
+            </div>
             <?= $this->Form->end() ?>
         </div>
     </div>

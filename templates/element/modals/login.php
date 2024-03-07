@@ -18,7 +18,10 @@
                 <?= $this->Form->password('password', ['id' => 'login-password', 'placeholder' => '']) ?>
                 <?= $this->Form->label('login-password', 'Mot de passe') ?>
             </div>
-            <?= $this->Form->submit('Se connecter', ['name' => 'login-submit']) ?>
+            <div class="loader-button">
+                <?= $this->Form->submit('Se connecter', ['name' => 'login-submit']) ?>
+                <span class="loader"></span>
+            </div>
             <small class="policy">
                 En continuant, tu acceptes les <?= $this->Html->link('Conditions d\'utilisation', ['controller' => 'Pages', 'action' => 'terms']) ?> de Leitlearn et confirmes avoir lu les <?= $this->Html->link('Politique de confidentialité', ['controller' => 'Pages', 'action' => 'privacy']) ?> de Leitlearn.
             </small>

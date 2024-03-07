@@ -63,7 +63,10 @@
                 <span class="action-name">Afficher le paquet sur le marché</span>
             </div>
             <?php endif; ?>
-            <?= $this->Form->submit('Enregistrer', ['name' => 'modify-paquet-submit']); ?>
+            <div class="loader-button">
+                <?= $this->Form->submit('Enregistrer', ['name' => 'modify-paquet-submit']); ?>
+                <span class="loader"></span>
+            </div>
             <?= $this->Form->end(); ?>
         </div>
     </div>

@@ -67,10 +67,11 @@
                     ?>
                 </div>
             </div>
-            <?php
-            echo $this->Form->submit('Sauvegarder', ['name' => 'update-submit']);
-            echo $this->Form->end();
-            ?>
+            <div class="loader-button">
+                <?= $this->Form->submit('Sauvegarder', ['name' => 'update-submit']); ?>
+                <span class="loader"></span>
+            </div>
+            <?= $this->Form->end(); ?>
         </div>
     </div>
 </div>

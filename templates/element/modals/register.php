@@ -57,7 +57,10 @@
             <div class="birth">
                 <h3 class="info">Date de naissance</h3>
             </div>
-            <?= $this->Form->submit("S'inscrire", ['name' => 'register-submit']) ?>
+            <div class="loader-button">
+                <?= $this->Form->submit("S'inscrire", ['name' => 'register-submit']) ?>
+                <span class="loader"></span>
+            </div>
             <small class="policy">
                 En continuant, tu acceptes les <?= $this->Html->link('Conditions d\'utilisation', ['controller' => 'Pages', 'action' => 'terms']) ?> de Leitlearn et confirmes avoir lu les <?= $this->Html->link('Politique de confidentialité', ['controller' => 'Pages', 'action' => 'privacy']) ?> de Leitlearn.
             </small>

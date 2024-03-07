@@ -26,9 +26,11 @@
                 <?= $this->Form->text('confirm_new_password', ['id' => 'confirm-new-password', 'placeholder' => '', 'required' => true , 'type' => 'password']) ?>
                 <?= $this->Form->label('confirm-new-password', 'Confirmez votre nouveau mot de passe') ?>
             </div>
-            <?= $this->Form->submit('Modifier le mot de passe', ['name' => 'modify-user-password']) ?>
+            <div class="loader-button">
+                <?= $this->Form->submit('Modifier le mot de passe', ['name' => 'modify-user-password']) ?>
+                <span class="loader"></span>
+            </div>
             <?= $this->Form->end() ?>
-
         </div>
     </div>
 </div>
