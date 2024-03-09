@@ -1,3 +1,9 @@
+<?php
+$this->assign('title', 'Mon profil');
+if ($user->user_uid != $user_data['user_uid']) {
+    $this->assign('title', 'Profil de '.$user->username);
+}
+?>
 <main class="dashboard-container">
     <div class="open-sidebar">
         <span class="material-symbols-rounded">

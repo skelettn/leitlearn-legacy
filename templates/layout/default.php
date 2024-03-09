@@ -15,7 +15,7 @@
  * @var \App\View\AppView $this
  */
 
-$cakeDescription = 'Leitlearn 2.0';
+$cakeDescription = ' - Leitlearn';
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,8 +24,8 @@ $cakeDescription = 'Leitlearn 2.0';
     <?= $this->Html->charset() ?>
     <?= $this->element('meta'); ?>
     <title>
-        <?= $cakeDescription ?>:
         <?= $this->fetch('title') ?>
+        <?= $cakeDescription ?>
     </title>
     <?= $this->Html->meta('icon', 'img/leitlearn_2_logo_white.png') ?>
     <?= $this->Html->css(['base', 'app']) ?>

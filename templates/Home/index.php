@@ -1,3 +1,6 @@
+<?php
+$this->assign('title', 'Apprenez grâce aux flashcards');
+?>
 <header>
     <div class="header-content">
         <div class="logo">

@@ -1,3 +1,6 @@
+<?php
+$this->assign('title', 'Mon dashboard');
+?>
 <main class="dashboard-container">
     <div class="open-sidebar">
         <span class="material-symbols-rounded">

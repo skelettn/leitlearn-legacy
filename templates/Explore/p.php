@@ -1,3 +1,6 @@
+<?php
+$this->assign('title', 'Explorez les paquets');
+?>
 <main>
     <div class="open-sidebar">
         <span class="material-symbols-rounded">
@@ -20,7 +23,9 @@
             <div class="explore-categories">
                 <?= $cell = $this->cell('Keywords::display', []) ?>
             </div>
-            <div class="explore-packets" data-category="<?= $category ?>"></div>
+            <div class="explore-packets" data-category="<?= $category ?>">
+                <?= $cell = $this->cell('Packets::display_explore', [$category]) ?>
+            </div>
         </div>
     </div>
 </main>

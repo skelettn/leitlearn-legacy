@@ -1,3 +1,6 @@
+<?php
+$this->assign('title', $packet->name);
+?>
 <main class="dashboard-container">
     <div class="open-sidebar">
         <span class="material-symbols-rounded">
