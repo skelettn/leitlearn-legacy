@@ -89,7 +89,10 @@
 
 }
 
-.ai .right .flashcards .flashcard .question,
+.ai .right .flashcards .flashcard .question {
+    color: white;
+}
+
 .ai .right .flashcards .flashcard .answer {
     color: rgba(255, 255, 255, .7);
 }
@@ -132,6 +135,32 @@
 
 .ai .right .flashcards .flashcard .answer.ai-skeleton .content {
     filter: blur(0);
+}
+
+.ai .right .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.ai .right .actions .action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, .7);
+    background: #272A2B;
+    cursor: pointer;
+}
+
+.ai .right .actions .action.keep {
+    background: var(--main-bg-color);
+    color: black;
+    margin-right: 0;
 }
 
 @keyframes ai-skeleton-loading {

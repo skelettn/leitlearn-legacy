@@ -228,19 +228,12 @@ $this->assign('title', $packet->name);
             </section>
             <section class="play-hidden">
                 <h2 class="section-title">Paramètres de jeu</h2>
-                <div class="switch-container">
-                    <label class="switch">
-                        <input type="checkbox" id="switch-17">
-                        <span></span>
-                    </label>
-                    <span class="action-name">Activer zone de texte</span>
-                </div>
-                <div class="switch-container">
-                    <label class="switch">
-                            <input type="checkbox" id="switch-10">
-                        <span></span>
-                    </label>
-                    <span class="action-name">Désactiver mode Leitlearn</span>
+                <div class="algorithm">
+                    <div class="icon"></div>
+                    <div class="text">
+                        <p>Méthode par répétition (Leitner)</p>
+                        <span>Algorithme pour apprendre sur une longue période. Basé sur la méthode de Leitner cette méthode vous permet d'apprendre en 7 jours vos cartes efficacement.</span>
+                    </div>
                 </div>
             </section>
         <?php endif; ?>
