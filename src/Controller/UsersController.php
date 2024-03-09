@@ -40,10 +40,8 @@ class UsersController extends AppController
 
         $relation = $this->getRelation($user->id, $this->request->getSession()->read('Auth.id'));
 
-        $dashboard_sidebar_title = 'Profil de ' . $user->username;
-
         $this->viewBuilder()->setLayout('default');
-        $this->set(compact('user', 'relation', 'dashboard_sidebar_title'));
+        $this->set(compact('user', 'relation'));
     }
 
     public function settings()
@@ -202,6 +200,29 @@ class UsersController extends AppController
         }
 
         return null;
+    }
+
+    public function get(string $query)
+    {
+        $this->autoRender = false;
+        $this->response = $this->response->withType('application/json');
+
+        if (empty($query)) {
+            return $this->response->withStringBody(json_encode([]));
+        }
+
+        $searchTerm = $this->removeAccents(trim($query));
+        $escapedTerm = preg_quote($searchTerm, '/');
+
+        if(!is_null($query)) {
+            $users = $this->Users->find()
+                ->contain(['Friends'])
+                ->where(['username LIKE' => '%' . $query . '%'])
+                ->limit(20)
+                ->toArray();
+        }
+
+        return $this->response->withStringBody(json_encode($users));
     }
 
     /**

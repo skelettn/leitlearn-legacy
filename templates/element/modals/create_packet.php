@@ -11,11 +11,11 @@
         <div class="modal-body">
             <?= $this->Form->create(null, ['url' => ['controller' => 'Packets', 'action' => 'create'], 'type' => 'file']) ?>
             <div class="input-group">
-                <?= $this->Form->text('name', ['id' => 'create-name', 'placeholder' => 'Nom du paquet', 'required' => true]) ?>
+                <?= $this->Form->text('name', ['id' => 'create-name', 'placeholder' => '', 'required' => true]) ?>
                 <?= $this->Form->label('create-name', 'Nom du paquet') ?>
             </div>
             <div class="input-group">
-                <?= $this->Form->text('description', ['id' => 'create-description', 'placeholder' => 'Description du paquet', 'required' => true]) ?>
+                <?= $this->Form->text('description', ['id' => 'create-description', 'placeholder' => '', 'required' => true]) ?>
                 <?= $this->Form->label('create-description', 'Description du paquet') ?>
             </div>
             <div class="search-keywords-group">
@@ -24,7 +24,7 @@
             </div>
             <?= $this->Form->hidden('ia', ['value' => 0]); ?>
             <div class="loader-button">
-                <?= $this->Form->submit('Créer', ['name' => 'create-paquet-submit']) ?>
+                <?= $this->Form->submit('Créer le paquet',) ?>
                 <span class="loader"></span>
             </div>
             <?= $this->Form->end() ?>

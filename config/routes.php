@@ -133,5 +133,16 @@ return function (RouteBuilder $routes): void {
                 ]
             )
             ->setPass(['id']);
+
+        $builder->connect(
+            '/users/get/{query}',
+            ['controller' => 'Users', 'action' => 'get']
+        )
+            ->setPatterns(
+                [
+                    'query' => '[a-z0-9\-]+',
+                ]
+            )
+            ->setPass(['query']);
     });
 };

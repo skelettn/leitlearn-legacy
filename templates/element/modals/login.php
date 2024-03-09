@@ -19,7 +19,7 @@
                 <?= $this->Form->label('login-password', 'Mot de passe') ?>
             </div>
             <div class="loader-button">
-                <?= $this->Form->submit('Se connecter', ['name' => 'login-submit']) ?>
+                <?= $this->Form->submit('Se connecter') ?>
                 <span class="loader"></span>
             </div>
             <small class="policy">

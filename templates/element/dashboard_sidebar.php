@@ -1,5 +1,5 @@
 <div class="dashboard-sidebar hidden">
-    <h2 class="title"><?= $dashboard_sidebar_title ?></h2>
+    <h2 class="title"><?= $this->fetch('title') ?></h2>
     <ul class="dashboard-links">
         <li class="dashboard-link page-redirect active" data-redirection="/dashboard">
             <span class="material-symbols-rounded">

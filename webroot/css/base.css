@@ -55,6 +55,7 @@ textarea {
 input:focus,
 textarea:focus,
 select:focus {
+    border: 2px solid var(--main-bg-color);
     outline: var(--main-bg-color) !important;
 }
 

@@ -87,7 +87,7 @@
             <h2 class="paquet-title">Paquets</h2>
             <div class="scroll-menu">
                 <div class="scroll-content">
-                    <?= $cell = $this->cell('Packets::display', ['my_no_ia', $user_data["id"]]) ?>
+                    <?= $cell = $this->cell('Packets::display', ['my_no_ia', $user->id, 'dashboard']) ?>
                 </div>
                 <button class="prev-button scroll-button">
                     <span class="material-symbols-rounded">
@@ -105,7 +105,7 @@
             <h2 class="paquet-title">Réservés aux amis</h2>
             <div class="scroll-menu">
                 <div class="scroll-content">
-                    <?= $cell = $this->cell('Packets::protected', [$user_data["id"]]) ?>
+                    <?= $cell = $this->cell('Packets::protected', [$user->id, 'dashboard']) ?>
                 </div>
                 <button class="prev-button scroll-button">
                     <span class="material-symbols-rounded">
@@ -123,7 +123,7 @@
             <h2 class="paquet-title">Généré avec l'IA</h2>
             <div class="scroll-menu">
                 <div class="scroll-content">
-                    <?= $cell = $this->cell('Packets::display', ['my_ia', $user_data["id"]]) ?>
+                    <?= $cell = $this->cell('Packets::display', ['my_ia', $user->id, 'dashboard']) ?>
                 </div>
                 <button class="prev-button scroll-button">
                     <span class="material-symbols-rounded">

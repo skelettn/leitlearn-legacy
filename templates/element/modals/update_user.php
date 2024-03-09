@@ -28,21 +28,21 @@
 
             <div class="input-flex">
                 <div class="input-group">
-                    <?= $this->Form->input('name', ['id' => 'update-name', 'placeholder' => 'Prénom', 'default' => $user_data['name']]); ?>
+                    <?= $this->Form->input('name', ['id' => 'update-name', 'placeholder' => '', 'default' => $user_data['name']]); ?>
                     <?= $this->Form->label('update-name', 'Prénom') ?>
                 </div>
                 <div class="input-group">
-                    <?= $this->Form->input('last_name', ['id' => 'update-lastname', 'placeholder' => 'Nom de famille', 'default' => $user_data['last_name']]); ?>
+                    <?= $this->Form->input('last_name', ['id' => 'update-lastname', 'placeholder' => '', 'default' => $user_data['last_name']]); ?>
                     <?= $this->Form->label('update-lastname', 'Nom de famille') ?>
                 </div>
             </div>
             <div class="input-group">
-                <?= $this->Form->input('username', ['id' => 'update-username', 'placeholder' => 'Nom d\'utilisateur', 'default' => $user_data['username']]); ?>
+                <?= $this->Form->input('username', ['id' => 'update-username', 'placeholder' => '', 'default' => $user_data['username']]); ?>
                 <?= $this->Form->label('update-username', 'Nom d\'utilisateur') ?>
             </div>
 
             <div class="input-group">
-                <?= $this->Form->input('email', ['id' => 'update-email', 'placeholder' => 'Adresse e-mail', 'default' => $user_data['email']]); ?>
+                <?= $this->Form->input('email', ['id' => 'update-email', 'placeholder' => '', 'default' => $user_data['email']]); ?>
                 <?= $this->Form->label('update-email', 'Adresse e-mail') ?>
             </div>
             <div class="birth">
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="loader-button">
-                <?= $this->Form->submit('Sauvegarder', ['name' => 'update-submit']); ?>
+                <?= $this->Form->submit('Sauvegarder'); ?>
                 <span class="loader"></span>
             </div>
             <?= $this->Form->end(); ?>

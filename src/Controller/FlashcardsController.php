@@ -56,6 +56,7 @@ class FlashcardsController extends AppController
             ->where(['id' => $id])
             ->firstOrFail(); // Problème si n'existe pas
 
+
         if ($this->request->is(['post', 'put'])) {
             $valid = true;
             $user_id = $this->request->getSession()->read('Auth.id');

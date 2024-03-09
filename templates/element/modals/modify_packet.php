@@ -28,7 +28,7 @@
                     [
                         'id' => 'modify-paquet-name',
                         'value' => $packet->name,
-                        'placeholder' => 'Nom du paquet',
+                        'placeholder' => '',
                     ]
                 ); ?>
                 <?= $this->Form->label('modify-paquet-name', 'Nom du paquet') ?>
@@ -39,7 +39,7 @@
                     [
                         'id' => 'modify-paquet-desc',
                         'value' => $packet->description,
-                        'placeholder' => 'Description du paquet',
+                        'placeholder' => '',
                     ]
                 ); ?>
                 <?= $this->Form->label('modify-paquet-desc', 'Description du paquet') ?>
@@ -64,7 +64,7 @@
             </div>
             <?php endif; ?>
             <div class="loader-button">
-                <?= $this->Form->submit('Enregistrer', ['name' => 'modify-paquet-submit']); ?>
+                <?= $this->Form->submit('Enregistrer les modifications'); ?>
                 <span class="loader"></span>
             </div>
             <?= $this->Form->end(); ?>

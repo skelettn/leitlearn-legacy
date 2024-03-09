@@ -73,9 +73,7 @@ class PacketsController extends AppController
 
         $creator = $this->Packets->Users->get($packet->creator_id);
 
-        $dashboard_sidebar_title = $packet->name;
-
-        $this->set(compact('packet', 'date', 'dashboard_sidebar_title', 'handlePlayBtn', 'handleRemainingTime', 'is_private', 'is_my_packet', 'leitlearn_folders', 'creator', 'flashcards_numb'));
+        $this->set(compact('packet', 'date', 'handlePlayBtn', 'handleRemainingTime', 'is_private', 'is_my_packet', 'leitlearn_folders', 'creator', 'flashcards_numb'));
     }
 
     /**
@@ -99,12 +97,16 @@ class PacketsController extends AppController
         if(!is_null($category)) {
             $paquets = $this->Packets->find()
                 ->contain(['Keywords'])
+                ->where(['public' => 1])
                 ->matching('Keywords', function ($q) use ($category) {
                     return $q->where(['Keywords.word' => $category]);
                 })
                 ->toArray();
         } else {
-            $paquets = $this->Packets->find()->contain(['Keywords'])->toArray();
+            $paquets = $this->Packets->find()
+                ->contain(['Keywords'])
+                ->where(['public' => 1])
+                ->toArray();
         }
 
         $filteredPaquets = [];

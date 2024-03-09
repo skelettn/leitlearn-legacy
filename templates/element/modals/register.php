@@ -58,7 +58,7 @@
                 <h3 class="info">Date de naissance</h3>
             </div>
             <div class="loader-button">
-                <?= $this->Form->submit("S'inscrire", ['name' => 'register-submit']) ?>
+                <?= $this->Form->submit("S'inscrire") ?>
                 <span class="loader"></span>
             </div>
             <small class="policy">

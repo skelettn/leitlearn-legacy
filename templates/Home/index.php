@@ -33,7 +33,7 @@
             <h2 class="paquet-title">Tendances</h2>
             <div class="scroll-menu">
                 <div class="scroll-content">
-                    <?= $cell = $this->cell('Packets::display', ['trend', $user_data["id"]]) ?>
+                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
                     <?= $this->Html->link('Voir plus', ['controller' => 'Market', 'action' => ''], ['class' => 'see-more']) ?>
                 </div>
                 <button class="prev-button scroll-button">
@@ -52,7 +52,7 @@
             <h2 class="paquet-title">Généré avec l'IA</h2>
             <div class="scroll-menu">
                 <div class="scroll-content">
-                    <?= $cell = $this->cell('Packets::display', ['ai', $user_data["id"]]) ?>
+                    <?= $cell = $this->cell('Packets::display', ['ai']) ?>
                     <?= $this->Html->link('Voir plus', ['controller' => 'Market', 'action' => ''], ['class' => 'see-more']) ?>
                 </div>
                 <button class="prev-button scroll-button">
@@ -71,7 +71,7 @@
             <h2 class="paquet-title">Les plus importés</h2>
             <div class="scroll-menu">
                 <div class="scroll-content">
-                    <?= $cell = $this->cell('Packets::display', ['import', $user_data["id"]]) ?>
+                    <?= $cell = $this->cell('Packets::display', ['import']) ?>
                     <?= $this->Html->link('Voir plus', ['controller' => 'Market', 'action' => ''], ['class' => 'see-more']) ?>
                 </div>
                 <button class="prev-button scroll-button">

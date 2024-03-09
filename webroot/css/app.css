@@ -714,7 +714,47 @@ button[type=submit],
     font-size: 13px;
 }
 
-.wider .input-group textarea{
+.modal-body .search-users-group input {
+    margin-bottom: 0;
+}
+
+.modal-body .view-users {
+    max-height: 390px;
+    overflow-y: scroll;
+}
+
+.modal-body .view-users .user {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-weight: 500;
+    background: white;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.modal-body .view-users .user:last-child {
+    border: 0;
+}
+
+.modal-body .view-users .user .profile-picture {
+    min-width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-size: cover !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: var(--main-bg-color);
+    cursor: pointer;
+}
+
+.modal-body .view-users .user a {
+    display: flex;
+    margin-left: auto;
+    color: rgba(0, 0, 0, .5);
+}
+
+.wider .input-group textarea {
     margin-bottom: 0;
 }
 

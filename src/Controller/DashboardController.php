@@ -8,8 +8,5 @@ class DashboardController extends AppController
 {
     public function index()
     {
-        $dashboard_sidebar_title = 'Mon dashboard';
-
-        $this->set(compact('dashboard_sidebar_title'));
     }
 }

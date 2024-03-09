@@ -9,8 +9,6 @@ class ExploreController extends AppController
 {
     public function p(string $category = NULL)
     {
-        $dashboard_sidebar_title = 'Explorez';
-
-        $this->set(compact('category', 'dashboard_sidebar_title'));
+        $this->set(compact('category'));
     }
 }

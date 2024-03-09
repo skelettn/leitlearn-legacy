@@ -31,7 +31,7 @@
             <div class="section-header">
                 <h1 class="part-title">Mes amis</h1>
                 <ul class="actions">
-                    <li class="action active modal-btn" data-modal="create-paquet">
+                    <li class="action active modal-btn" data-modal="search-users">
                         Ajouter des amis
                         <span class="material-symbols-rounded">
                             person_add
