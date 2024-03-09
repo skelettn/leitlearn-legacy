@@ -117,7 +117,7 @@ return function (RouteBuilder $routes): void {
         )
             ->setPatterns(
                 [
-                    'query' => '[a-z0-9\-]+',
+                    'query' => '[a-zA-Z0-9\-]*',
                     'category' => '[a-zA-Z0-9\-]*',
                 ]
             )

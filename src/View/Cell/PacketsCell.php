@@ -52,4 +52,24 @@ class PacketsCell extends Cell
 
         $this->set('packets', $packets);
     }
+
+    public function display_explore(string $category = NULL)
+    {
+        if(!is_null($category)) {
+            $packets = $this->fetchTable("Packets")->find()
+                ->contain(['Flashcards', 'Keywords'])
+                ->where(['public' => 1])
+                ->matching('Keywords', function ($q) use ($category) {
+                    return $q->where(['Keywords.word' => $category]);
+                })
+                ->toArray();
+        } else {
+            $packets = $this->fetchTable("Packets")->find()
+                ->contain(['Flashcards'])
+                ->where(['public' => 1])
+                ->toArray();
+        }
+
+        $this->set('packets', $packets);
+    }
 }

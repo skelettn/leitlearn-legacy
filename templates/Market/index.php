@@ -1,3 +1,6 @@
+<?php
+$this->assign('title', 'Marché');
+?>
 <main>
     <div class="container">
         <section class="section-paquet">

@@ -1,3 +1,6 @@
+<?php
+$this->assign('title', 'Paramètres de '.$packet->name);
+?>
 <main>
     <div class="open-sidebar">
         <span class="material-symbols-rounded">
