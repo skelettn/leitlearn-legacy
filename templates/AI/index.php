@@ -13,7 +13,7 @@ $this->assign('title', 'Leitlearn AI');
             <div class="left">
                 <div class="prompt-form">
                     <div class="user-prompt-zone">
-                        <textarea name="" id="" placeholder="Saisissez ce que vous voulez apprendre"></textarea>
+                        <textarea id="leitlearn_ai_input" name="" placeholder="Saisissez ce que vous voulez apprendre"></textarea>
                         <button class="submit" id="leitlearn_ai_submit">
                             <?php
                             echo '

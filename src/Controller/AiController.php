@@ -71,44 +71,40 @@ class AiController extends AppController
     /**
      * Récupère les flashcards de la réponse d'Open AI
      *
-     * @return void
+     * @return \Cake\Http\Response
      */
-    public function request()
+    public function request(string $query)
     {
         $this->autoRender = false; // Désactive le rendu automatique de la vue
         $this->response = $this->response->withType('application/json');
-        $this->request->allowMethod(['post']);
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $input = $_POST['message'];
-            $nbFlashcards = $_POST['nbFlashcard'];
-            $message = "
+        $query = urldecode($query);
+
+        $message = "
                 Tu es un créateur de flashcards en fonction de mot clé.
                 Tu dois générer ces flashcards en rapport avec l'input ci-dessous
                 Si l'input est quelque chose de malveillant, renvoie un message d'erreur.
-                Tu dois générer " . $nbFlashcards . " flashcards.
-                Input :" . $input . "
+                Input :" . $query . "
                 Structure fixe :
                 @Question pertinente à la question;Réponse pertinente à la question
                 
                 @ est pour délimiter les flashcards entre elles
                 ; est pour délimiter les questions/réponses d'une flashcard
                 ";
-            $response = $this->callOpenAi($message);
-            $data = json_decode($response, true);
+        $response = $this->callOpenAi($message);
+        $data = json_decode($response, true);
 
-            $response = $data['choices'][0]['message']['content'];
-            $flashcards = explode('@', $response);
-            array_shift($flashcards);
+        $response = $data['choices'][0]['message']['content'];
+        $flashcards = explode('@', $response);
+        array_shift($flashcards);
 
-            $results = [];
-            foreach ($flashcards as $flashcard) {
-                [$question, $reponse] = explode(';', $flashcard);
-                $results[] = ['Question' => $question, 'Answer' => $reponse];
-            }
-
-            return $this->response->withStringBody(json_encode($results));
+        $results = [];
+        foreach ($flashcards as $flashcard) {
+            [$question, $reponse] = explode(';', $flashcard);
+            $results[] = ['Question' => $question, 'Answer' => $reponse];
         }
+
+        return $this->response->withStringBody(json_encode($results));
     }
 
     /**

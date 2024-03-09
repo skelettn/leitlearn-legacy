@@ -111,6 +111,7 @@ return function (RouteBuilder $routes): void {
                 ]
             )
             ->setPass(['query']);
+
         $builder->connect(
             '/explore/get/{query}/{category}',
             ['controller' => 'Packets', 'action' => 'get']
@@ -141,6 +142,17 @@ return function (RouteBuilder $routes): void {
             ->setPatterns(
                 [
                     'query' => '[a-z0-9\-]+',
+                ]
+            )
+            ->setPass(['query']);
+
+        $builder->connect(
+            '/ai/request/{query}',
+            ['controller' => 'Ai', 'action' => 'request']
+        )
+            ->setPatterns(
+                [
+                    'query' => '.*',
                 ]
             )
             ->setPass(['query']);
