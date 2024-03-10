@@ -1937,8 +1937,6 @@ footer .footer-data .copyright img {
     }
 
     .sidebar ul li {
-        width: 40px;
-        height: 40px;
         margin-bottom: 0;
     }
 
@@ -1983,6 +1981,10 @@ footer .footer-data .copyright img {
     .sidebar ul li.active span,
     .sidebar.subsi-active ul li.active span {
         color: white !important;
+    }
+
+    .sidebar ul li span {
+        font-size: 30px;
     }
 
     .sidebar.dash ul li span,
@@ -2077,7 +2079,7 @@ footer .footer-data .copyright img {
         bottom: 65px !important;
     }
 
-    .ia.ia-open {
+    .ia {
         right: 20px;
         bottom: 65px !important;
     }

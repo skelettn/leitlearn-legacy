@@ -2,9 +2,9 @@
     color: rgba(255, 255, 255, .7);
 }
 
-.ai .ai-container {
+.ai .ai-container .page-content {
     display: flex;
-    flex-wrap: wrap;
+    margin-bottom: 35px;
 }
 
 .ai .ai-container .left,
@@ -178,5 +178,102 @@
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .ai .ai-container .page-content  {
+        flex-direction: column-reverse;
+        margin-bottom: 230px;
+    }
+
+    .ai .header h1 {
+        width: 100%;
+        font-size: 45px;
+    }
+
+    .ai .ai-container .right {
+        width: 100%;
+        margin: 0;
+    }
+
+    .ai .left {
+        position: fixed;
+        bottom: 0;
+        left: 0 !important;
+        width: 100% !important;
+        background: black;
+        z-index: 3;
+    }
+
+    .ai .left .prompt-form .user-prompt-zone,
+    .ai .left .prompt-form .warning {
+        padding: 20px 30px 0 110px;
+    }
+
+    .ai .left .prompt-form .warning {
+        padding-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .ai .left .prompt-form .user-prompt-zone textarea {
+        height: 150px;
+        overflow-y: scroll;
+    }
+
+    .ai .left .prompt-form .user-prompt-zone .submit {
+        right: 40px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .ai .header h1 {
+        padding: 20px 10px;
+        width: 100%;
+        font-size: 35px;
+    }
+
+    .ai .ai-container .page-content  {
+        margin-bottom: 280px;
+    }
+
+    .ai .left {
+        bottom: 50px;
+    }
+
+    .ai .left .prompt-form .user-prompt-zone,
+    .ai .left .prompt-form .warning {
+        padding: 20px 30px 0;
+    }
+
+    .ai .left .prompt-form .warning {
+        padding-top: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .ai .ai-container .page-content {
+        margin-bottom: 230px;
+    }
+
+    .ai .left .prompt-form .user-prompt-zone,
+    .ai .left .prompt-form .warning{
+        padding: 20px 15px 0;
+    }
+
+    .ai .left .prompt-form .warning {
+        padding-top: 0;
+    }
+
+    .ai .left .prompt-form .user-prompt-zone textarea {
+        height: 100px;
+    }
+
+    .ai .left .prompt-form .user-prompt-zone .submit {
+        right: 25px;
+    }
+
+    .ai .left .prompt-form .warning {
+        font-size: 11px;
     }
 }
