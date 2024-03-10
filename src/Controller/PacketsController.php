@@ -317,6 +317,61 @@ class PacketsController extends AppController
     }
 
     /**
+     * Récupère les données et insère le paquet et les flashcards
+     *
+     * @return \Cake\Http\Response
+     */
+    public function aiResponse(): \Cake\Http\Response
+    {
+        $this->autoRender = false; // Désactive le rendu automatique de la vue
+        $this->response = $this->response->withType('application/json');
+        $this->request->allowMethod(['post']);
+
+        if ($this->request->is(['post', 'put'])) {
+            $flashcards = json_decode($this->request->getData('flashcards'), true);
+            $packet_name = $this->request->getData('query');
+
+            $response = ['status' => 'success'];
+            $this->insert(AppSingleton::getUser($this->request->getSession())->id, $packet_name, $flashcards, [$packet_name]);
+        }
+
+        return $this->response->withStringBody(json_encode($response));
+    }
+
+    /**
+     * Insère le paquet, les flashcards et les mots clés
+     *
+     * @param int $id
+     * @param string $name
+     * @param array $flashcards
+     * @param array $keywords
+     * @return void
+     */
+    public function insert(int $id, string $name, array $flashcards, array $keywords)
+    {
+        $data = [
+            'name' => $name,
+            'ia' => 1,
+            'user_id' => $id,
+            'creator_id' => $id,
+        ];
+
+        $packet = $this->Packets->newEntity($data);
+
+        if ($this->Packets->save($packet)) {
+            $latestPaquetID = $this->getLastPacket();
+
+            foreach ($flashcards as $fl) {
+                $fl['packet_id'] = $latestPaquetID;
+
+                $flashcard = $this->Packets->Flashcards->newEmptyEntity();
+                $flashcard = $this->Packets->Flashcards->patchEntity($flashcard, $fl);
+                $this->Packets->Flashcards->save($flashcard);
+            }
+        }
+    }
+
+    /**
      * Import packet to user's dashboard
      *
      * @return \Cake\Http\Response
