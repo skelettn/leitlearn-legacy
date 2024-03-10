@@ -1,220 +1,154 @@
+import {api} from "../api.js";
+
 /**
  * Leitlearn AI
  *
  * Description:
  * Ce script gère les fonctionnalités principales du chatbot Leitlearn AI,
  *
- * Auteur: Leitlearn
+ * Auteur: Kilian Peyron
  * Version: 2.0
- * Date de création: 10 Janvier 2024
+ * Date de création: 9 mars 2024
  *
  * @license Usage privé uniquement. Toute utilisation, reproduction
  * ou distribution est strictement interdite sans autorisation préalable.
  *
  * -------------------------------------------------------------------------
  */
+let csrfToken = document.body.dataset.csrfToken;
 
-var csrfToken = document.body.dataset.csrfToken;
 export const initAi = () => {
-    $('#ai-create-submit').hide();
-
-    eventOpeningAI();
-    welcomeMessage();
-    aiRequestApiEvent();
-    aiSubmitEvent();
+    aiRequestEvent();
 };
 
-/**
- * Gère l'ouverture et la fermeture du modal de Leitlearn AI
- * @param {string} nom - Le nom de la personne à saluer.
- * @throws {Error} Si le nom n'est pas fourni.
- */
-const eventOpeningAI = () => {
-    const ia_open = $(".ia-open");
-    const ia = $(".ia-chatbot");
-    const ia_hide = $("#ia-hide");
+const aiRequestEvent = async () => {
+    $('#leitlearn_ai_submit').on("click", async function () {
+        $(this).hide();  // Utilisez "this" pour faire référence à l'élément cliqué
+        loadingEvent();
+        let responses = await aiSendRequest();
+        removeLoading();
+        displayResponses(responses);
+        displayActions();
+    });
+}
 
-    if (ia_open.length > 0 && ia_hide.length > 0 && ia.length > 0) {
-        ia_open.on('click', function() {
-            ia.addClass('show');
-        });
+async function aiSendRequest() {
+    let query = $('#leitlearn_ai_input').val();
+    return await api('/api/ai/request/', query);
+}
 
-        ia_hide.on('click', function() {
-            ia.removeClass('show');
-        });
+async function loadingEvent() {
+    for (let i = 1; i <= 5; i++) {
+        const flashcard = createFlashcard("ai-skeleton", "ai-skeleton");
+        $(".ai-flashcards").append(flashcard);
+
+        setTimeout(function () {
+            flashcard.addClass('show');
+        }, 150);
     }
+
+    const loadingMessage = createLoadingMessage();
+    $('#ai-results').append(loadingMessage);
 }
 
-/**
- * Gestion de l'animation des messages
- * @param {string} element - Message à animer
- * @throws {Error} Aucun message n'a été fourni
- */
-const animateMessage = (element) => {
-    var message = $(element).text();
-    $(element).empty();
-    for (var i = 0; i < message.length; i++) {
-        $(element).append('<span style="display: none;">' + message[i] + '</span>');
-        $(element).find('span:last').delay(50 * i).fadeIn(50);
-    }
+const removeLoading = () => {
+    $('.ai-flashcard').each(function () {
+        const flashcard = $(this);
+        flashcard.removeClass('show');
+        setTimeout(function () {
+            flashcard.remove();
+        }, 100);
+    });
+    $('.loading').remove();
 }
 
-/**
- * Création du message
- * @param {string} className - Classe du message
- * @param {boolean} isAI - Si le message est une réponse de l'IA
- * @param {string} text - Contenu du message
- * @throws {Error} Aucun message n'a été fourni
- */
-const createMessage = (className, isAI, text) => {
-    var messageContainer = $('<div>').addClass('message').addClass(className);
-    var userSection = $('<div>').addClass('user');
-    var profilePictureClass = isAI ? 'profile-picture user-ia' : 'profile-picture';
-    var profilePicture = $('<div>').addClass(profilePictureClass);
-    userSection.append(profilePicture);
-    var contentSection = $('<div>').addClass('content message-animation').text(text);
-    messageContainer.append(userSection);
-    messageContainer.append(contentSection);
+const displayResponses = (response) => {
+    $.each(response, function(index, element) {
+        let flashcard = createFlashcard("question", "content show", element.Question, element.Answer);
+        $(".ai-flashcards").append(flashcard);
 
-    return messageContainer;
+        setTimeout(function () {
+            flashcard.addClass('show');
+        }, 150);
+    });
 }
 
-/**
- * Création de la flashcard
- * @param {string} question - Question de la flashcard
- * @param {boolean} answer - Réponse de la flashcard
- * @throws {Error} Une erreur est survenue
- */
-const createFlashcard = (question, answer) => {
-    var messageContainer = $('<div>').addClass('ai-flashcard');
-    var questionSection = $('<div>').addClass('ai-flashcard-content').addClass('ai-flashcard-question').text('Question: ' + question);
-    var answerSection = $('<div>').addClass('ai-flashcard-content').addClass('ai-flashcard-answer').text('Answer: ' + answer);
+const createFlashcard = (questionClass, answerClass, question = "", answer = "") => {
+    const flashcard = $("<div>").addClass("flashcard ai-flashcard");
 
-    messageContainer.append(questionSection, answerSection);
+    const flashcard_question = $("<div>").addClass(questionClass).text(question);
+    flashcard.append(flashcard_question);
 
-    return messageContainer;
+    const flashcard_answer = $("<div>").addClass("answer " + answerClass).text(answer);
+    flashcard.append(flashcard_answer);
+
+    return flashcard;
 }
 
-/**
- * Ajoute le message au chat
- * @param {string} messageElement - Message
- * @throws {Error} Aucun message n'a été fourni
- */
-const appendMessageToChat = (messageElement) => {
-    $('.chat').append(messageElement);
-    animateMessage(messageElement.find('.content'));
+const createLoadingMessage = () => {
+    const loadingMessage = document.createElement('div');
+    loadingMessage.classList.add('loading', 'show');
+    loadingMessage.innerHTML = '<?xml version="1.0" encoding="utf-8"?><svg fill="#FFFFFF" width="25px" height="25px" viewBox="0 0 512 512" id="icons" xmlns="http://www.w3.org/2000/svg"><path d="M208,512a24.84,24.84,0,0,1-23.34-16l-39.84-103.6a16.06,16.06,0,0,0-9.19-9.19L32,343.34a25,25,0,0,1,0-46.68l103.6-39.84a16.06,16.06,0,0,0,9.19-9.19L184.66,144a25,25,0,0,1,46.68,0l39.84,103.6a16.06,16.06,0,0,0,9.19,9.19l103,39.63A25.49,25.49,0,0,1,400,320.52a24.82,24.82,0,0,1-16,22.82l-103.6,39.84a16.06,16.06,0,0,0-9.19,9.19L231.34,496A24.84,24.84,0,0,1,208,512Zm66.85-254.84h0Z"/><path d="M88,176a14.67,14.67,0,0,1-13.69-9.4L57.45,122.76a7.28,7.28,0,0,0-4.21-4.21L9.4,101.69a14.67,14.67,0,0,1,0-27.38L53.24,57.45a7.31,7.31,0,0,0,4.21-4.21L74.16,9.79A15,15,0,0,1,86.23.11,14.67,14.67,0,0,1,101.69,9.4l16.86,43.84a7.31,7.31,0,0,0,4.21,4.21L166.6,74.31a14.67,14.67,0,0,1,0,27.38l-43.84,16.86a7.28,7.28,0,0,0-4.21,4.21L101.69,166.6A14.67,14.67,0,0,1,88,176Z"/><path d="M400,256a16,16,0,0,1-14.93-10.26l-22.84-59.37a8,8,0,0,0-4.6-4.6l-59.37-22.84a16,16,0,0,1,0-29.86l59.37-22.84a8,8,0,0,0,4.6-4.6L384.9,42.68a16.45,16.45,0,0,1,13.17-10.57,16,16,0,0,1,16.86,10.15l22.84,59.37a8,8,0,0,0,4.6,4.6l59.37,22.84a16,16,0,0,1,0,29.86l-59.37,22.84a8,8,0,0,0-4.6,4.6l-22.84,59.37A16,16,0,0,1,400,256Z"/></svg> Leitlearn Ai recherche des cartes pour vous...';
+
+    return loadingMessage;
 }
 
-const appendFlashcardToChat = (flashcard) => {
-    $('.chat').append(flashcard);
+const displayActions = () => {
+    const actions = $("<div>").addClass("actions");
+    const reload = $("<div>").addClass("action update").html('<span class="material-symbols-rounded">restart_alt</span>');
+    const keep = $("<div>").addClass("action keep").html('<span class="material-symbols-rounded">done</span>');
+
+    $('#ai-results').append(actions);
+    actions.append(reload, keep);
+
+    reload.on("click", resetAndReload);
+    keep.on("click", createDeck);
 }
 
-/**
- * Envoie un message en attente de la réponse
- */
-const waitingMessage = () => {
-    var messageText = "...";
-    var newMessageAI = createMessage('message-left', true, messageText);
-    appendMessageToChat(newMessageAI);
-}
+const resetAndReload = async () => {
+    $('.ai-flashcards').empty();
+    $('#ai-results .actions').remove();
 
-const errorMessage = () => {
-    var messageText = "Un problème est survenue avec votre demande, merci de recharger la page.";
-    var newMessageAI = createMessage('message-left', true, messageText);
-    appendMessageToChat(newMessageAI);
-}
+    loadingEvent();
+    let responses = await aiSendRequest();
+    removeLoading();
+    displayResponses(responses);
+    displayActions();
+};
 
-const welcomeMessage = () => {
-    var messageText = "Bienvenue sur Leitlearn AI, indiquez-moi sur quel sujet vous souhaitez obtenir votre paquet (par exemple : Seconde Guerre Mondiale, Fonctions mathématiques...)";
-    var newMessageAI = createMessage('message-left', true, messageText);
-    appendMessageToChat(newMessageAI);
-}
+const createDeck = () => {
+    let flashcards = [];
+    let aiFlashcards = $('.flashcards').children();
 
-const aiRequestApiEvent = () => {
-    $("#ai-request-submit").click(function(event) {
-        event.preventDefault();
-        var aiRequestValue = $("#ai-request").val();
-        var aiRequestNumber = $("#ai-number-requested").val();
-        var userMessageText = "Je veux " + aiRequestNumber + " flashcards pour le sujet : " + aiRequestValue;
-        var newUserMessage = createMessage('message-right', false, userMessageText);
-        appendMessageToChat(newUserMessage);
+    aiFlashcards.each(function(index, flashcard) {
+        let question = $(flashcard).find('.question').text().trim();
+        let answer = $(flashcard).find('.content').text().trim();
+        question = question.replace('question:', '').trim();
+        answer = answer.replace('answer:', '').trim();
 
-        $('#ai-input-group').hide();
-        $('#ai-request-submit').hide();
-        $('#ai-create-submit').show();
-        $('#ai-create-submit').prop('disabled', true);
-
-        setTimeout(waitingMessage, 4000);
-
-        var formData = {
-            _csrfToken: csrfToken,
-            message: aiRequestValue,
-            nbFlashcard: aiRequestNumber
-        };
-
-
-        if (aiRequestNumber <= 10) {
-            $.ajax({
-                type: "POST",
-                url: "/ai/request",
-                data: formData,
-                success: function(response) {
-                    console.log(response);
-                    if (response && response.length > 0) {
-                        function displayResponses() {
-                            $.each(response, function(index, element) {
-                                var flashcard = createFlashcard(element.Question, element.Answer);
-                                appendFlashcardToChat(flashcard);
-                                $('#ai-create-submit').prop('disabled', false);
-                            });
-                        }
-                        setTimeout(displayResponses, 5000);
-                    } else {
-                        errorMessage();
-                    }
-                },
-                error: function(response) {},
-            });
-        } else {
-            errorMessage();
+        if (question !== "" && answer !== "") {
+            let flashcardObject = {
+                question: question,
+                answer: answer
+            };
+            flashcards.push(flashcardObject);
         }
     });
-}
 
-const aiSubmitEvent = () => {
-    $("#ai-create-submit").click(function(event) {
-        var tableFlashcard = [];
-        var aiFlashcards = $('[class^="ai-flashcard"]');
+    let query = $('#leitlearn_ai_input').val();
+    let data = {
+        _csrfToken: csrfToken,
+        flashcards: JSON.stringify(flashcards),
+        query: query,
+    };
 
-        aiFlashcards.each(function(index, flashcard) {
-            var question = $(flashcard).find('.ai-flashcard-question').text().trim();
-            var answer = $(flashcard).find('.ai-flashcard-answer').text().trim();
-            question = question.replace('Question:', '').trim();
-            answer = answer.replace('Answer:', '').trim();
-
-            if (question !== "" && answer !== "") {
-                var flashcardObject = {
-                    question: question,
-                    answer: answer
-                };
-                tableFlashcard.push(flashcardObject);
-            }
-        });
-
-        var inputValue = $("#ai-request").val();
-        var dataToSend = {
-            _csrfToken: csrfToken,
-            flashcardsArray: JSON.stringify(tableFlashcard),
-            input: inputValue
-        };
-
-        $.ajax({
-            type: "POST",
-            url: "/ai/response",
-            data: dataToSend,
-            success: function(response) {
-                window.location.href = "/dashboard";
-            },
-        });
+    $.ajax({
+        type: "POST",
+        url: "/packets/aiResponse",
+        data: data,
+        success: function(response) {
+            window.location.href = "/dashboard";
+        },
     });
+
 }
