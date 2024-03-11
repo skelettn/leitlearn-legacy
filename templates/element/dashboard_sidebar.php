@@ -40,7 +40,7 @@
         </li>
         <!-- If admin <li class="dashboard-link page-redirect" data-redirection="/admin">Administrateur</li> -->
     </ul>
-    <div class="user">
+    <div class="user dashboard-sidebar-user">
         <div class="user-detail">
             <div class="user-modal leitlearn_dashboard_sidebar_open_user_detail_displayed">
                 <ul class="links">
