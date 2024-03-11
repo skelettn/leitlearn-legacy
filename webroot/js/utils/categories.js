@@ -2,103 +2,103 @@ export const fetchCategoryIcon = (query) => {
     const categoryData = {
         'Mathematiques': {
             icon: 'function',
-            primaryColor: '#3498DB', // Bleu
-            secondaryColor: '#AED6F1' // Bleu clair
+            primaryColor: '#0074D9',
+            secondaryColor: '#B3E0FF'
         },
         'Langues': {
-            icon: 'function',
-            primaryColor: '#17A589', // Vert emeraude
-            secondaryColor: '#82E0AA' // Vert clair
+            icon: 'translate',
+            primaryColor: '#2ECC40',
+            secondaryColor: '#DFF9E2'
         },
         'Histoire': {
-            icon: 'function',
-            primaryColor: '#884EA0', // Violet
-            secondaryColor: '#D2B4DE' // Violet clair
+            icon: 'history_edu',
+            primaryColor: '#FF4136',
+            secondaryColor: '#FFC3B0'
         },
         'Geographie': {
-            icon: 'function',
-            primaryColor: '#F39C12', // Orange
-            secondaryColor: '#FAD02E' // Jaune clair
+            icon: 'public',
+            primaryColor: '#FF851B',
+            secondaryColor: '#FFD8B2'
         },
         'Litterature': {
-            icon: 'function',
-            primaryColor: '#E74C3C', // Rouge
-            secondaryColor: '#F5B7B1' // Rouge clair
+            icon: 'book',
+            primaryColor: '#B10DC9',
+            secondaryColor: '#E8CEF7'
         },
         'Arts': {
-            icon: 'function',
-            primaryColor: '#E67E22', // Orange
-            secondaryColor: '#FAD02E' // Jaune clair
+            icon: 'palette',
+            primaryColor: '#FFDC00',
+            secondaryColor: '#FFF8C6'
         },
         'Musique': {
-            icon: 'function',
-            primaryColor: '#D35400', // Rouge orange
-            secondaryColor: '#F5B7B1' // Rouge clair
+            icon: 'music_note',
+            primaryColor: '#FF6300',
+            secondaryColor: '#FFD1B2'
         },
         'Sociales': {
-            icon: 'function',
-            primaryColor: '#9B59B6', // Violet
-            secondaryColor: '#D2B4DE' // Violet clair
+            icon: 'groups',
+            primaryColor: '#7D3C98',
+            secondaryColor: '#D8B4E2'
         },
         'Programmation': {
-            icon: 'function',
-            primaryColor: '#27AE60', // Vert emeraude
-            secondaryColor: '#82E0AA' // Vert clair
+            icon: 'code',
+            primaryColor: '#39CCCC',
+            secondaryColor: '#B2EBF2'
         },
         'Psychologie': {
-            icon: 'function',
-            primaryColor: '#1F618D', // Bleu fonce
-            secondaryColor: '#3498DB' // Bleu clair
+            icon: 'psychology',
+            primaryColor: '#001F3F',
+            secondaryColor: '#428BCA'
         },
         'Philosophie': {
-            icon: 'function',
-            primaryColor: '#9B59B6', // Violet
-            secondaryColor: '#D2B4DE' // Violet clair
+            icon: 'light',
+            primaryColor: '#4B0082',
+            secondaryColor: '#9678D3'
         },
         'Economie': {
-            icon: 'function',
-            primaryColor: '#F39C12', // Orange
-            secondaryColor: '#FAD02E' // Jaune clair
+            icon: 'account_balance',
+            primaryColor: '#FF851B',
+            secondaryColor: '#FFD8B2'
         },
         'Biologie': {
-            icon: 'function',
-            primaryColor: '#27AE60', // Vert emeraude
-            secondaryColor: '#82E0AA' // Vert clair
+            icon: 'biotech',
+            primaryColor: '#39CCCC',
+            secondaryColor: '#B2EBF2'
         },
         'Chimie': {
-            icon: 'function',
-            primaryColor: '#E67E22', // Orange
-            secondaryColor: '#FAD02E' // Jaune clair
+            icon: 'science',
+            primaryColor: '#FFDC00',
+            secondaryColor: '#FFF8C6'
         },
         'Cuisine': {
-            icon: 'function',
-            primaryColor: '#D35400', // Rouge orange
-            secondaryColor: '#F5B7B1' // Rouge clair
+            icon: 'skillet',
+            primaryColor: '#FF6300',
+            secondaryColor: '#FFD1B2'
         },
         'Sante': {
-            icon: 'function',
-            primaryColor: '#27AE60', // Vert emeraude
-            secondaryColor: '#82E0AA' // Vert clair
+            icon: 'spa',
+            primaryColor: '#39CCCC',
+            secondaryColor: '#B2EBF2'
         },
         'Sport': {
-            icon: 'function',
-            primaryColor: '#1F618D', // Bleu fonce
-            secondaryColor: '#3498DB' // Bleu clair
+            icon: 'fitness_center',
+            primaryColor: '#001F3F',
+            secondaryColor: '#428BCA'
         },
         'Technologie': {
-            icon: 'function',
-            primaryColor: '#34495E', // Gris bleu
-            secondaryColor: '#BDC3C7' // Gris clair
+            icon: 'devices',
+            primaryColor: '#34495E',
+            secondaryColor: '#BDC3C7'
         },
         'Cinema': {
-            icon: 'function',
-            primaryColor: '#E74C3C', // Rouge
-            secondaryColor: '#F5B7B1' // Rouge clair
+            icon: 'movie',
+            primaryColor: '#B10DC9',
+            secondaryColor: '#E8CEF7'
         },
         'Science': {
             icon: 'genetics',
-            primaryColor: '#8E44AD', // Pourpre
-            secondaryColor: '#D2B4DE' // Violet clair
+            primaryColor: '#8E44AD',
+            secondaryColor: '#D8B4E2'
         },
     };
 
