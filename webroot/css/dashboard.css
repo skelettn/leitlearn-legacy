@@ -94,7 +94,7 @@ main {
     margin-right: 7px;
 }
 
-.dashboard-sidebar .user .user-detail .displayed {
+.user.dashboard-sidebar-user .displayed {
     display: flex;
     align-items: center;
     padding: 5px 12px 5px 5px;
@@ -102,28 +102,28 @@ main {
     transition: all .3s;
 }
 
-.dashboard-sidebar .user .user-detail .displayed:hover {
+.user.dashboard-sidebar-user .displayed:hover {
     background: rgba(0, 0, 0, .125);
 }
 
-.dashboard-sidebar .user .avatar {
+.user.dashboard-sidebar-user  .avatar {
     width: 40px;
     height: 40px;
     background: red;
     border-radius: 50%;
 }
 
-.dashboard-sidebar .user .detail {
+.user.dashboard-sidebar-user .detail {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
 }
 
-.dashboard-sidebar .user .detail span {
+.user.dashboard-sidebar-user .detail span {
     font-weight: 500;
 }
 
-.dashboard-sidebar .user .detail span:nth-child(2) {
+.user.dashboard-sidebar-user .detail span:nth-child(2) {
     font-size: 13px;
 }
 
@@ -915,24 +915,35 @@ main {
     width: 50%;
 }
 
-.open-sidebar {
+.fixed-nav-mobile {
+    display: none;
     position: fixed;
-    left: 20px;
-    top: 10px;
-    display: flex;
+    left: 0;
+    top: 0;
     align-items: center;
-    justify-content: center;
-    padding: 10px;
-    height: 50px;
-    width: 50px;
-    background: var(--main-bg-color);
-    color: black;
-    border-radius: 50%;
-    cursor: pointer;
+    width: 100%;
+    padding: 10px 15px;
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    z-index: 5;
 }
 
-.open-sidebar span {
+.fixed-nav-mobile .open-sidebar {
+    display: flex;
+}
+
+.fixed-nav-mobile .open-sidebar span {
     font-size: 30px;
+}
+
+.fixed-nav-mobile .logo {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+}
+
+.fixed-nav-mobile .user.fixed-nav {
+    margin-left: auto;
 }
 
 /* Documentation */
@@ -1211,13 +1222,6 @@ main {
 
 }
 
-
-
-
-
-
-
-
 @media screen and (max-width: 1400px) {
     .game .card {
         height: 350px;
@@ -1343,20 +1347,20 @@ main {
     }
 
     .dashboard {
-        margin: 0 0 70px 0;
+        margin: 60px 0 70px 0;
         padding: 20px;
         width: calc(100%);
     }
 
-    .open-sidebar {
-        z-index: 6;
+    .fixed-nav-mobile {
+        display: flex;
     }
 
     .dashboard-sidebar {
         left: 0;
-        width: 250px;
+        width: 100%;
         margin-left: -100%;
-        padding-top: 60px;
+        padding: 75px 15px 0;
         background: white;
         border-right: 1px solid rgba(0, 0, 0, .075);
         transition: all .3s;

@@ -2,11 +2,7 @@
 $this->assign('title', 'Paramètres de compte');
 ?>
 <main>
-    <div class="open-sidebar">
-        <span class="material-symbols-rounded">
-            apps
-        </span>
-    </div>
+    <?= $this->element('dashboard_fixed_mobile') ?>
     <div class="container dashboard">
         <h1 class="title part-title">Mon Compte</h1>
         <div class="infos general">

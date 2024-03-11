@@ -5,11 +5,7 @@ if ($user->user_uid != $user_data['user_uid']) {
 }
 ?>
 <main class="dashboard-container">
-    <div class="open-sidebar">
-        <span class="material-symbols-rounded">
-            apps
-        </span>
-    </div>
+    <?= $this->element('dashboard_fixed_mobile') ?>
     <div class="container dashboard">
         <div class="profile">
             <div class="profile-data">

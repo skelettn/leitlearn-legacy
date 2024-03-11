@@ -2,11 +2,7 @@
 $this->assign('title', 'Explorez les paquets');
 ?>
 <main>
-    <div class="open-sidebar">
-        <span class="material-symbols-rounded">
-            apps
-        </span>
-    </div>
+    <?= $this->element('dashboard_fixed_mobile') ?>
     <div class="container dashboard">
         <h1 class="title part-title">Explorez</h1>
         <div class="explore">
