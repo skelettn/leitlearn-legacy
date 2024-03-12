@@ -1,44 +1,48 @@
 <div class="dashboard-sidebar hidden">
     <h2 class="title"><?= $this->fetch('title') ?></h2>
     <ul class="dashboard-links">
-        <li class="dashboard-link page-redirect active" data-redirection="/dashboard">
-            <span class="material-symbols-rounded">
-             space_dashboard
-            </span>
-            Mon dashboard
+        <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/dashboard' ? 'active' : '' ?>">
+            <?= $this->Html->link(
+                '<span class="material-symbols-rounded">space_dashboard</span> Mon dashboard',
+                '/dashboard',
+                ['escapeTitle' => false]
+            ); ?>
         </li>
-        <li class="dashboard-link page-redirect" data-redirection="/users/view/<?= $user_data['user_uid'] ?>">
-            <span class="material-symbols-rounded">
-             account_circle
-            </span>
-            Mon profil
+        <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/users/view/' . $user_data['user_uid'] ? 'active' : '' ?>">
+            <?= $this->Html->link(
+                '<span class="material-symbols-rounded">account_circle</span> Mon profil',
+                '/users/view/' . $user_data['user_uid'],
+                ['escapeTitle' => false]
+            ); ?>
         </li>
-        <li class="dashboard-link page-redirect" data-redirection="/stats">
-            <span class="material-symbols-rounded">
-            equalizer
-            </span>
-            Statistiques
+        <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/stats' ? 'active' : '' ?>">
+            <?= $this->Html->link(
+                '<span class="material-symbols-rounded">equalizer</span> Statistiques',
+                '/stats',
+                ['escapeTitle' => false]
+            ); ?>
         </li>
-        <li class="dashboard-link page-redirect" data-redirection="/users/settings">
-            <span class="material-symbols-rounded">
-                settings
-            </span>
-            Paramètres de compte
+        <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/users/settings' ? 'active' : '' ?>">
+            <?= $this->Html->link(
+                '<span class="material-symbols-rounded">settings</span> Paramètres de compte',
+                '/users/settings',
+                ['escapeTitle' => false]
+            ); ?>
         </li>
-        <li class="dashboard-link page-redirect" data-redirection="/docs">
-            <span class="material-symbols-rounded">
-                support
-            </span>
-            Besoin d'aide ?
+        <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/docs' ? 'active' : '' ?>">
+            <?= $this->Html->link(
+                '<span class="material-symbols-rounded">support</span> Besoin d\'aide ?',
+                '/docs',
+                ['escapeTitle' => false]
+            ); ?>
         </li>
-        <li class="dashboard-link page-redirect" data-redirection="/logout">
+        <li class="dashboard-link">
             <?= $this->Form->postLink(
                 '<span class="material-symbols-rounded">logout</span> Déconnexion',
                 ['controller' => 'Users', 'action' => 'logout'],
                 ['escapeTitle' => false]
             ) ?>
         </li>
-        <!-- If admin <li class="dashboard-link page-redirect" data-redirection="/admin">Administrateur</li> -->
     </ul>
     <div class="user dashboard-sidebar-user">
         <div class="user-detail">

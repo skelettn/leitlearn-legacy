@@ -58,9 +58,14 @@ $this->assign('title', 'Paramètres de compte');
             </div>
             <div class="info">
                 <p>Suppression de compte</p>
-                <form action="delete-account" method="post">
-                    <button type="submit" name="delete-account-submit">Supprimer</button>
-                </form>
+                <?= $this->Form->postLink(
+                    '<button type="submit">Supprimer</button>',
+                    ['controller' => 'Users', 'action' => 'delete'],
+                    [
+                        'confirm' => 'Êtes-vous sur de vouloir supprimer votre compte ?',
+                        'escapeTitle' => false,
+                    ]
+                ) ?>
             </div>
         </div>
     </div>

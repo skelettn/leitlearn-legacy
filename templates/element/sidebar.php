@@ -2,37 +2,41 @@
     <div class="sidebar-container">
         <div class="logo"></div>
         <ul>
-            <li class="page-redirect" data-redirection="/explore/p">
-                <span class="material-symbols-rounded">
-                    explore
-                </span>
+            <li class="<?= $this->getRequest()->getRequestTarget() === '/explore/p' ? 'active' : '' ?>">
+                <?= $this->Html->link(
+                    '<span class="material-symbols-rounded">explore</span>',
+                    '/explore/p',
+                    ['escapeTitle' => false]
+                ); ?>
             </li>
-            <li class="page-redirect" data-redirection="/home">
-                <span class="material-symbols-rounded" style="font-variation-settings: 'FILL';">
-                    home
-                </span>
+            <li class="<?= $this->getRequest()->getRequestTarget() === '/home' ? 'active' : '' ?>">
+                <?= $this->Html->link(
+                    '<span class="material-symbols-rounded">home</span>',
+                    '/home',
+                    ['escapeTitle' => false]
+                ); ?>
             </li>
-            <li class="page-redirect" data-redirection="/market">
-                <span class="material-symbols-rounded" style="font-variation-settings: 'FILL';">
-                    local_mall
-                </span>
+            <li class="<?= $this->getRequest()->getRequestTarget() === '/market' ? 'active' : '' ?>">
+                <?= $this->Html->link(
+                    '<span class="material-symbols-rounded">local_mall</span>',
+                    '/market',
+                    ['escapeTitle' => false]
+                ); ?>
             </li>
-            <li class="page-redirect modal-btn" data-modal="turbo-modal">
-                <span class="material-symbols-rounded">
-                    rocket_launch
-                </span>
+            <li class="modal-btn" data-modal="turbo-modal">
+                <span class="material-symbols-rounded">rocket_launch</span>
             </li>
-            <?php if(!$is_logged) : ?>
+            <?php if (!$is_logged) : ?>
                 <li class="modal-btn" data-modal="login-modal">
-                    <span class="material-symbols-rounded" style="font-variation-settings: 'FILL';">
-                        person
-                    </span>
+                    <span class="material-symbols-rounded" style="font-variation-settings: 'FILL';">person</span>
                 </li>
             <?php else: ?>
-                <li class="page-redirect" data-redirection="/dashboard">
-                    <span class="material-symbols-rounded" style="font-variation-settings: 'FILL';">
-                        person
-                    </span>
+                <li class="<?= $this->getRequest()->getRequestTarget() === '/dashboard' ? 'active' : '' ?>">
+                    <?= $this->Html->link(
+                        '<span class="material-symbols-rounded">person</span>',
+                        '/dashboard',
+                        ['escapeTitle' => false]
+                    ); ?>
                 </li>
             <?php endif; ?>
         </ul>

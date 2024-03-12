@@ -7,8 +7,17 @@
     background-image: url('/img/leitlearn_2_logo.png');
 }
 
-.sidebar ul li {
+.sidebar ul li,
+.sidebar ul li a {
     color: black;
+}
+
+.sidebar ul li.active {
+    background: black;
+}
+
+.sidebar ul li.active span {
+    color: white;
 }
 
 body {
@@ -57,11 +66,13 @@ main {
     opacity: 0;
     transform: translateY(10px);
     transition: opacity .3s ease, transform .3s ease;
+    z-index: -1;
 }
 
 .dashboard-sidebar .user .user-detail .user-modal.show {
     opacity: 1;
-    transform: translateY(0)
+    transform: translateY(0);
+    z-index: 1;
 }
 
 .dashboard-sidebar .user .user-detail .user-modal .links {
@@ -109,7 +120,7 @@ main {
 .user.dashboard-sidebar-user  .avatar {
     width: 40px;
     height: 40px;
-    background: red;
+    background: white;
     border-radius: 50%;
 }
 
