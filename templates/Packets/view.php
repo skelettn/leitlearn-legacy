@@ -32,15 +32,19 @@ $this->assign('title', $packet->name);
                     <p class="<?= $handleRemainingTime ?>" id="remainingTime"></p>
                     <?php endif; ?>
                 <?php elseif (!$is_my_packet && !$is_private) : ?>
-                    <form action="/import-paquet" method="post">
-                        <input type="hidden" name="paquet-id" value="<?= $packet->idPacket; ?>">
-                        <button class="action play">
-                            Importer le paquet
-                            <span class="material-symbols-rounded">
-                                cloud_upload
-                            </span>
-                        </button>
-                    </form>
+                    <?= $this->Form->postLink(
+                        '<button class="action play">
+                                Importer le paquet
+                                <span class="material-symbols-rounded">
+                                      cloud_upload
+                                </span>
+                              </button>',
+                        ['controller' => 'Packets', 'action' => 'import', $packet->id],
+                        [
+                            'confirm' => 'Êtes-vous sur de vouloir importer le paquet ?',
+                            'escapeTitle' => false,
+                        ]
+                    ) ?>
                 <?php endif; ?>
             </div>
         </div>
