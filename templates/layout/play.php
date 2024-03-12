@@ -32,9 +32,10 @@ $cakeDescription = ' - Leitlearn';
     <?= $this->Html->css(['dashboard']) ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
-    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.js"></script>
 </head>
 
 <body data-csrf-token="<?= $this->request->getAttribute('csrfToken'); ?>">
@@ -70,6 +71,7 @@ echo $this->element('modals/modify_packet');
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="module" src="/js/app.js?v=<?= random_int(1000000, 9999999) ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+
 </body>
 
 </html>
