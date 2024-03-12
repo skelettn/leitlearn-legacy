@@ -60,7 +60,9 @@ $this->assign('title', $packet->name);
                         <div class="card <?= $firstCard ? 'active' : '' ?> flipped-card">
                             <?php if (($is_private && $is_my_packet) || (!$is_private)) : ?>
                                 <div class="card-front">
-                                    <p><?= $flashcard->question ?></p>
+                                    <div class="content-flashcard">
+                                        <p><?= $flashcard->question ?></p>
+                                    </div>
                                     <?php
                                     if ($flashcard->media != null) :
                                         $ext = pathinfo($flashcard->media, PATHINFO_EXTENSION);
@@ -75,7 +77,9 @@ $this->assign('title', $packet->name);
                                     ?>
                                 </div>
                                 <div class="card-back">
-                                    <p><?= $flashcard->answer ?></p>
+                                    <div class="content-flashcard">
+                                        <p><?= $flashcard->question ?></p>
+                                    </div>
                                 </div>
                             <?php else :
                                 ?>
