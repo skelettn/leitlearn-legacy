@@ -381,10 +381,13 @@ class PacketsController extends AppController
      *
      * @return \Cake\Http\Response
      */
-    public function import(): ?\Cake\Http\Response
+    public function import($packet_id = null): ?\Cake\Http\Response
     {
         if ($this->request->is(['post', 'put'])) {
-            $packet_id = $this->request->getData()['packet_id'];
+            if(isset($this->request->getData()['packet_id'])) {
+                $packet_id = $this->request->getData()['packet_id'];
+            }
+
             $valid = true;
 
             try {
@@ -408,7 +411,10 @@ class PacketsController extends AppController
                     $this->Packets->save($packet);
 
                     $last_id = $this->getLastPacket();
-                    $flashcards = $this->Packets->Flashcards->find()->where(['packet_id' => $packet_data['id']])->toArray();
+                    $flashcards = $this->Packets->Flashcards
+                        ->find()
+                        ->where(['packet_id' => $packet_data['id']])
+                        ->toArray();
 
                     foreach ($flashcards as $flashcard) {
                         $data  = [
