@@ -16,10 +16,17 @@
                 <?= $this->Form->text('description', ['placeholder' => '', 'required' => true]) ?>
                 <?= $this->Form->label('description', 'Description du paquet') ?>
             </div>
-            <div class="generate-flashcard input-flex">
-                <div class="input-group">
-                    <?= $this->Form->file('uploaded_file', ['label' => false, 'class' => 'form-control', 'id' => 'uploaded_file','name' => 'uploaded_file']) ?>
-                </div>
+            <div class="leitlearn_import_paquet_via_file">
+                <label for="uploaded_packet">
+                    <div class="icon">
+                        <span class="material-symbols-rounded">
+                            upload_file
+                        </span>
+                    </div>
+                    <h3 class="title">Parcourir les fichiers</h3>
+                    <span class="supported">Types de fichiers pris en charge : .csv, .apkg (Anki)</span>
+                </label>
+                <?= $this->Form->file('uploaded_file', ['name' => 'uploaded_file', 'id' => 'uploaded_packet', 'accept' => '.csv, .apkg']) ?>
             </div>
             <?= $this->Form->hidden('ia', ['value' => 0]); ?>
             <div class="loader-button">

@@ -488,7 +488,11 @@ class PacketsController extends AppController
                         $this->Flash->error(__('Erreur lors de la sauvegarde du paquet.'));
                     }
                 } elseif ($fileExtension === 'apkg') {
-                    $apkg_file_path = WWW_ROOT . 'temp_packet' . DS . $uploadedFile->getClientFilename();
+                    $folder = WWW_ROOT . 'temp_packet' . DS . AppSingleton::getUser($this->request->getSession())->user_uid;
+                    if (!is_dir($folder)) {
+                        mkdir($folder, 0777, false);
+                    }
+                    $apkg_file_path = $folder . DS . $uploadedFile->getClientFilename();
 
                     $uploadedFile->moveTo($apkg_file_path);
                     $this->importAnkiPackage($apkg_file_path);
@@ -505,7 +509,7 @@ class PacketsController extends AppController
 
     private function importAnkiPackage($apkg_file_path)
     {
-        $extracted_directory = WWW_ROOT . 'temp_packet' . DS;
+        $extracted_directory = WWW_ROOT . 'temp_packet' . DS . AppSingleton::getUser($this->request->getSession())->user_uid . DS;
         $archive = new ZipArchive;
 
         if ($archive->open($apkg_file_path) === TRUE) {
