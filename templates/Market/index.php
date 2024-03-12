@@ -58,7 +58,7 @@ $this->assign('title', 'Marché');
             </div>
         </section>
         <section class="section-paquet">
-            <div class="paquets">
+            <div class="packets">
                 <h2>Paquets publics</h2>
                 <div class="content">
                     <?= $cell = $this->cell('Packets::display', ['public']) ?>

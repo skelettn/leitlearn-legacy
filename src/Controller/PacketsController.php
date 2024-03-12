@@ -224,8 +224,13 @@ class PacketsController extends AppController
     {
         if ($this->request->is('post')) {
             $entity = $this->Packets->get($id);
-            if ($this->Packets->delete($entity)) {
-                $this->Flash->success('Votre paquet a été supprimé avec succès.');
+
+            if($entity->user_id == $this->request->getSession()->read('Auth.id')) {
+                if ($this->Packets->delete($entity)) {
+                    $this->Flash->success('Votre paquet a été supprimé avec succès.');
+                } else {
+                    $this->Flash->error('Une erreur s\'est produite lors de la suppression du paquet.');
+                }
             } else {
                 $this->Flash->error('Une erreur s\'est produite lors de la suppression du paquet.');
             }

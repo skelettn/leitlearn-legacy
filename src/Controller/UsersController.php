@@ -123,16 +123,16 @@ class UsersController extends AppController
             $data = $this->request->getData();
             $file = $this->request->getData('profile_picture');
             $extension = pathinfo($file->getClientFilename(), PATHINFO_EXTENSION);
-            $ext = ['jpg', 'avif', 'webp', 'jpeg'];
+            $ext = ['jpg', 'avif', 'webp', 'jpeg', 'png'];
 
-            if (in_array($extension, $ext) && $extension!='') {
+            if (in_array($extension, $ext) && $extension != '') {
                 $file_name = bin2hex(random_bytes(32));
                 $data['profile_picture'] = $file_name . '.' . $extension;
                 $filePath = WWW_ROOT . 'img/user_profile_pic' . DS . $data['profile_picture'];
                 $file->moveTo($filePath);
                 $this->deleteOldImage($user);
             }else{
-                $data['profile_picture']= $user->profile_picture;
+                $data['profile_picture'] = $user->profile_picture;
             }
             $user = $this->Users->patchEntity($user, $data);
 
@@ -175,6 +175,20 @@ class UsersController extends AppController
         $this->set(compact('user'));
         return $this->redirect('/users/settings');
 
+    }
+
+    public function delete()
+    {
+        $this->request->allowMethod(['post', 'delete']);
+        $user = $this->Users->get(AppSingleton::getUser($this->request->getSession())->id);
+
+        if ($this->Users->delete($user)) {
+            $this->Flash->success(__('L\'utilisateur a été supprimé.'));
+        } else {
+            $this->Flash->error(__('Erreur lors de la suppression de l\'utilisateur.'));
+        }
+
+        return $this->redirect('/users/logout');
     }
 
     /**

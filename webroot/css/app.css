@@ -79,7 +79,7 @@
 }
 
 .sidebar ul li.active {
-    background: var(--main-bg-color)
+    background: white;
 }
 
 .sidebar ul li:last-child {
@@ -88,6 +88,7 @@
 
 .sidebar ul li a {
     display: flex;
+    color: white;
 }
 
 .sidebar ul li span {
@@ -206,8 +207,10 @@
 }
 
 .modal .modal-header .title {
-    max-width: 65%;
+    max-width: 70%;
     color: black;
+    text-align: center;
+    font-size: 18px;
     word-break: break-word;
 }
 
