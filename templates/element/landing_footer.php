@@ -1,7 +1,21 @@
 <footer>
     <div class="footer-content">
         <p class="footer-desc">C'est le moment d'apprendre.</p>
-        <button class="page-redirect" data-redirection="/dashboard">Mon espace utilisateur <span class="material-symbols-rounded">arrow_forward</span></button>
+        <?php if($is_logged) : ?>
+            <?= $this->Html->link(
+                '<button>
+                Mon espace utilisateur
+                <span class="material-symbols-rounded">arrow_forward</span>
+            </button>',
+                '/dashboard',
+                ['escape' => false]
+            ) ?>
+        <?php else: ?>
+            <button class="modal-btn" data-modal="login-modal">
+                Commencer à apprendre
+                <span class="material-symbols-rounded">arrow_forward</span>
+            </button>
+        <?php endif; ?>
     </div>
     <div class="footer-data">
         <div class="languages">

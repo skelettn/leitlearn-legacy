@@ -354,7 +354,7 @@ form .edit-picture-group input{
     margin-bottom: 5px;
     max-height: 60px;
     color: black;
-    font-size: 18px;
+    font-size: 18px !important;
     overflow-y: scroll;
 }
 
@@ -430,6 +430,12 @@ form .edit-picture-group input{
     background: white;
     border-radius: 10px;
     z-index: 1;
+}
+
+.ai-packet.protected::before {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite !important;
 }
 
 .protected .hidden {

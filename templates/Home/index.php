@@ -12,10 +12,21 @@ $this->assign('title', 'Apprenez grâce aux flashcards');
         </div>
         <h1 class="title">Vous avez le pouvoir d'apprendre.</h1>
         <p class="desc">Découvrez la plate-forme qui permet d'appendre efficacement gratuitement.</p>
-        <button class="modal-btn" data-modal="login-modal">
-            Commencer à apprendre
-            <span class="material-symbols-rounded">arrow_forward</span>
-        </button>
+        <?php if($is_logged) : ?>
+            <?= $this->Html->link(
+                '<button>
+                Mon espace utilisateur
+                <span class="material-symbols-rounded">arrow_forward</span>
+            </button>',
+                '/dashboard',
+                ['escape' => false]
+            ) ?>
+        <?php else: ?>
+            <button class="modal-btn" data-modal="login-modal">
+                Commencer à apprendre
+                <span class="material-symbols-rounded">arrow_forward</span>
+            </button>
+        <?php endif; ?>
     </div>
     <video autoplay muted loop id="header-video">
         <source src="/videos/header.mp4" type="video/mp4">

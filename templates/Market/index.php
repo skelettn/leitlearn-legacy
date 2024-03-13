@@ -28,13 +28,7 @@ $this->assign('title', 'Marché');
             </div>
             <div class="scroll-menu">
                 <div class="scroll-content">
-                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
-                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
-                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
-                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
-                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
-                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
-                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
+                    <?= $cell = $this->cell('Packets::display', ['my', $user_data["id"]]) ?>
                 </div>
             </div>
         </section>
@@ -68,12 +62,6 @@ $this->assign('title', 'Marché');
             </div>
             <div class="scroll-menu">
                 <div class="scroll-content">
-                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
-                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
-                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
-                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
-                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
-                    <?= $cell = $this->cell('Packets::display', ['trend']) ?>
                     <?= $cell = $this->cell('Packets::display', ['trend']) ?>
                 </div>
             </div>

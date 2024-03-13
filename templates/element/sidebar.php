@@ -2,10 +2,10 @@
     <div class="sidebar-container">
         <div class="logo"></div>
         <ul>
-            <li class="<?= $this->getRequest()->getRequestTarget() === '/explore/p' ? 'active' : '' ?>">
+            <li class="<?= $this->getRequest()->getRequestTarget() === '/market' ? 'active' : '' ?>">
                 <?= $this->Html->link(
                     '<span class="material-symbols-rounded">explore</span>',
-                    '/explore/p',
+                    '/market',
                     ['escapeTitle' => false]
                 ); ?>
             </li>
@@ -13,13 +13,6 @@
                 <?= $this->Html->link(
                     '<span class="material-symbols-rounded">home</span>',
                     '/home',
-                    ['escapeTitle' => false]
-                ); ?>
-            </li>
-            <li class="<?= $this->getRequest()->getRequestTarget() === '/market' ? 'active' : '' ?>">
-                <?= $this->Html->link(
-                    '<span class="material-symbols-rounded">local_mall</span>',
-                    '/market',
                     ['escapeTitle' => false]
                 ); ?>
             </li>

@@ -85,58 +85,76 @@ if ($user->user_uid != $user_data['user_uid']) {
                 <?= $this->Html->image('/img/user_profile_pic/' . $user->profile_picture, ['class' => 'logo']) ?>
             </div>
         </div>
-        <section class="section-paquet profile-packets">
-            <h2 class="paquet-title">Paquets</h2>
+        <section class="section-packets profile-packets">
+            <div class="section-header profile">
+                <h2 class="paquet-title">
+                    Paquets
+                </h2>
+                <div class="scroll-buttons">
+                    <button class="prev-button scroll-button">
+                        <span class="material-symbols-rounded">
+                            chevron_left
+                        </span>
+                    </button>
+                    <button class="next-button scroll-button">
+                        <span class="material-symbols-rounded">
+                            chevron_right
+                        </span>
+                    </button>
+                </div>
+            </div>
             <div class="scroll-menu">
                 <div class="scroll-content">
                     <?= $cell = $this->cell('Packets::display', ['my_no_ia', $user->id, 'dashboard']) ?>
                 </div>
-                <button class="prev-button scroll-button">
-                    <span class="material-symbols-rounded">
-                        chevron_left
-                    </span>
-                </button>
-                <button class="next-button scroll-button">
-                    <span class="material-symbols-rounded">
-                        chevron_right
-                    </span>
-                </button>
             </div>
         </section>
-        <section class="section-paquet profile-packets">
-            <h2 class="paquet-title">Réservés aux amis</h2>
+        <section class="section-packets profile-packets">
+            <div class="section-header profile">
+                <h2 class="paquet-title">
+                    Réservés aux amis
+                </h2>
+                <div class="scroll-buttons">
+                    <button class="prev-button scroll-button">
+                        <span class="material-symbols-rounded">
+                            chevron_left
+                        </span>
+                    </button>
+                    <button class="next-button scroll-button">
+                        <span class="material-symbols-rounded">
+                            chevron_right
+                        </span>
+                    </button>
+                </div>
+            </div>
             <div class="scroll-menu">
                 <div class="scroll-content">
                     <?= $cell = $this->cell('Packets::protected', [$user->id, 'dashboard']) ?>
                 </div>
-                <button class="prev-button scroll-button">
-                    <span class="material-symbols-rounded">
-                        chevron_left
-                    </span>
-                </button>
-                <button class="next-button scroll-button">
-                    <span class="material-symbols-rounded">
-                        chevron_right
-                    </span>
-                </button>
             </div>
         </section>
-        <section class="section-paquet profile-packets">
-            <h2 class="paquet-title">Généré avec l'IA</h2>
+        <section class="section-packets profile-packets">
+            <div class="section-header profile">
+                <h2 class="paquet-title">
+                    Générés avec l'IA
+                </h2>
+                <div class="scroll-buttons">
+                    <button class="prev-button scroll-button">
+                        <span class="material-symbols-rounded">
+                            chevron_left
+                        </span>
+                    </button>
+                    <button class="next-button scroll-button">
+                        <span class="material-symbols-rounded">
+                            chevron_right
+                        </span>
+                    </button>
+                </div>
+            </div>
             <div class="scroll-menu">
                 <div class="scroll-content">
                     <?= $cell = $this->cell('Packets::display', ['my_ia', $user->id, 'dashboard']) ?>
                 </div>
-                <button class="prev-button scroll-button">
-                    <span class="material-symbols-rounded">
-                        chevron_left
-                    </span>
-                </button>
-                <button class="next-button scroll-button">
-                    <span class="material-symbols-rounded">
-                        chevron_right
-                    </span>
-                </button>
             </div>
         </section>
     </div>

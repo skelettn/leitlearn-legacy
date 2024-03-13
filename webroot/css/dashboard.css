@@ -200,9 +200,19 @@ main {
 }
 
 .dashboard section .section-header {
-    margin-bottom: 15px;
+    margin: 15px 0;
     padding-bottom: 15px;
     border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.dashboard section .section-header.column {
+    flex-direction: column;
+}
+
+.dashboard section .section-header.profile {
+    margin: 0;
+    padding: 0;
+    border-bottom: 0;
 }
 
 .dashboard section .section-header .actions {
@@ -1062,6 +1072,8 @@ main {
 /* Page de profil */
 
 .profile {
+    padding: 20px 0;
+    margin-bottom: 25px;
     border-bottom: 1px solid rgba(0,0,0,.125);
 }
 
@@ -1164,12 +1176,8 @@ main {
     color: black;
 }
 
-.dashboard .profile-packets .prev-button {
-    background: linear-gradient(270deg, transparent, white);
-}
-
-.dashboard .profile-packets .next-button {
-    background: linear-gradient(270deg, white, transparent);
+.dashboard .section-header .scroll-buttons .scroll-button:hover {
+    background: black;
 }
 
 /* modal media

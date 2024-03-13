@@ -5,7 +5,7 @@ $this->assign('title', 'Mon dashboard');
     <?= $this->element('dashboard_fixed_mobile') ?>
     <div class="container dashboard">
         <section>
-            <div class="section-header">
+            <div class="section-header column">
                 <h1 class="part-title">Mes paquets</h1>
                 <ul class="actions">
                     <li class="action active modal-btn" data-modal="create-packet">
@@ -27,7 +27,7 @@ $this->assign('title', 'Mon dashboard');
             </div>
         </section>
         <section>
-            <div class="section-header">
+            <div class="section-header column">
                 <h1 class="part-title">Mes amis</h1>
                 <ul class="actions">
                     <li class="action active modal-btn" data-modal="search-users">
