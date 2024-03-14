@@ -1,7 +1,7 @@
 <div class="modal detail-modal" id="detail-modal">
     <div class="modal-container">
         <div class="modal-header">
-            <h2 class="title" id="modal-title">Paquet Name</h2>
+            <h2 class="title" id="modal-title">Deck Name</h2>
             <div class="modal-close">
                 <span class="material-symbols-rounded">
                     close
@@ -37,9 +37,9 @@
             <div class="tabs">
                 <?php if ($is_logged) : ?>
                     <button class="switch-tab active" data-tab="detail-tab-paquets">Paquet</button>
-                    <button class="switch-tab" data-tab="detail-tab-flashcards">Flashcards</button>
+                    <button class="switch-tab" data-tab="detail-tab-flashcards">Cartes</button>
                 <?php else : ?>
-                    <button class="switch-tab active" data-tab="detail-tab-flashcards">Flashcards</button>
+                    <button class="switch-tab active" data-tab="detail-tab-flashcards">Cartes</button>
                 <?php endif;
                 ?>
             </div>
@@ -57,7 +57,7 @@
                 <?php if ($is_logged) : ?>
                     <div class="actions">
                         <select name="selected_packet" id="modal-detail-selected-packet" class="select-paquet"></select>
-                        <?= $this->Form->button('Importer la/les flashcards', ['name' => 'import-submit']) ?>
+                        <?= $this->Form->button('Importer la/les cartes', ['name' => 'import-submit']) ?>
                     </div>
                 <?php endif; ?>
             </div>

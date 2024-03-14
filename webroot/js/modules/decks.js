@@ -1,23 +1,18 @@
 import {api} from "../api.js";
-// import {updateExploreResults} from "./explore.js";
+import {updateMarketResults} from "./search.js";
 
 export const initDecks = () => {
-    fetchDecksFromExplore();
+    fetchDecksFromMarket();
 };
 
-const fetchDecksFromExplore = () => {
-    const explore_container_data = $('.explore-packets').data('category');
-    $('.explore_input').on('input', async function () {
+const fetchDecksFromMarket = () => {
+    $('#market_search').on('input', async function () {
         var query = $(this).val();
         if($.trim(query) !== '') {
             let data;
             try {
-                if (!explore_container_data || $.trim(explore_container_data) === '') {
-                    data = await api('/api/explore/get/', query);
-                } else {
-                    data = await api('/api/explore/get/', query, explore_container_data);
-                }
-                updateExploreResults(data);
+                data = await api('/api/explore/get/', query);
+                updateMarketResults(data);
             } catch (error) {
                 console.error('Une erreur est survenue lors de la récupération des paquets :', error);
             }

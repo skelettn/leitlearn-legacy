@@ -3,6 +3,7 @@ $this->assign('title', 'Marché');
 ?>
 <main>
     <div class="container">
+        <?php if($is_logged) : ?>
         <section class="section-packets me">
             <div class="filter"></div>
             <div class="section-header">
@@ -32,6 +33,7 @@ $this->assign('title', 'Marché');
                 </div>
             </div>
         </section>
+        <?php endif; ?>
         <section class="search">
             <div class="search-input">
                 <label for="market_search">
@@ -40,6 +42,9 @@ $this->assign('title', 'Marché');
                     </span>
                 </label>
                 <input type="text" name="" id="market_search" placeholder="Rechercher sur Leitlearn">
+            </div>
+            <div class="search-results">
+                <?= $cell = $this->cell('Packets::display_search', ['trend']) ?>
             </div>
         </section>
         <section class="section-packets">

@@ -53,23 +53,16 @@ class PacketsCell extends Cell
         $this->set('packets', $packets);
     }
 
-    public function display_explore(string $category = NULL)
+    public function display_search(string $filter = 'trend')
     {
-        if(!is_null($category)) {
-            $packets = $this->fetchTable("Packets")->find()
-                ->contain(['Flashcards', 'Keywords'])
-                ->where(['public' => 1])
-                ->matching('Keywords', function ($q) use ($category) {
-                    return $q->where(['Keywords.word' => $category]);
-                })
-                ->toArray();
-        } else {
-            $packets = $this->fetchTable("Packets")->find()
-                ->contain(['Flashcards'])
-                ->where(['public' => 1])
-                ->toArray();
-        }
+        $query = $this->fetchTable("Packets")
+            ->find()
+            ->contain(['Flashcards', 'Users', 'Keywords'])
+            ->where(['public' => 1])
+            ->order(['importation_count' => 'DESC'])
+            ->limit(10);;
 
+        $packets = $query->all();
         $this->set('packets', $packets);
     }
 }

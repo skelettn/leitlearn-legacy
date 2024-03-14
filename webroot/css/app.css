@@ -1586,8 +1586,10 @@ section.me {
     position: relative;
     width: 100%;
     padding: 25px;
-    background-color: #fce043;
-    background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
+    background-color: #ff7878;
+    background-image: linear-gradient(315deg, #ff7878 0%, #74d680 74%);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite !important;
     border-radius:  0 0 10px 10px;
 }
 
@@ -1638,6 +1640,7 @@ section.me .profile .text h2 {
 }
 
 section.search {
+    position: relative;
     margin: 10px 0 25px;
 }
 
@@ -1666,7 +1669,39 @@ section.search .search-input input {
 section.search .search-input input:focus,
 section.search .search-input input:active {
     outline: none;
+    border-radius: 10px 10px 0 0;
     border: 1px solid rgba(255, 255, 255, .4);
+}
+
+section.search .search-results {
+    position: absolute;
+    display: none;
+    width: 400px;
+    background: #111111;
+    border-radius: 0 0 10px 10px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-top: 0;
+    z-index: 2;
+}
+
+section.search .search-results.active {
+    display: block;
+}
+
+section.search .search-results .result {
+    padding: 15px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, .7);
+    transition: all .3s;
+    cursor: pointer;
+}
+
+section.search .search-results .result:hover {
+    background: #212121;
+}
+
+section.search .search-results .result:last-child {
+    border-radius: 0 0 10px 10px;
 }
 
 .section-packets {
