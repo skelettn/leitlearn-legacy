@@ -20,7 +20,7 @@ export function updateMarketResults(data) {
     }
 
     $.each(data, function (index, packet) {
-        let search_packet = $('<div class="result modal-btn" data-modal="detail-modal" data-paquet-id="'+ packet.id +'">'+ packet.name +'</div>');
+        let search_packet = $('<div class="result packet-item modal-btn" data-modal="detail-modal" data-paquet-id="'+ packet.id +'">'+ packet.name +'</div>');
 
         search_results.append(search_packet);
     });
