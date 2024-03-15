@@ -477,7 +477,7 @@ class PacketsController extends AppController
                             continue;
                         }
 
-                        $csvData[] = str_getcsv($csvRow, ","); // Séparer les colonnes
+                        $csvData[] = str_getcsv($csvRow, ";"); // Séparer les colonnes
                     }
 
                     $packet = $this->Packets->newEmptyEntity();

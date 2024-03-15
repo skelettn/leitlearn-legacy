@@ -65,4 +65,17 @@ class PacketsCell extends Cell
         $packets = $query->all();
         $this->set('packets', $packets);
     }
+
+    public function display_category(string $category)
+    {
+        $packets = $this->fetchTable("Packets")->find()
+            ->contain(['Flashcards', 'Keywords', 'Users'])
+            ->where(['public' => 1])
+            ->matching('Keywords', function ($q) use ($category) {
+                return $q->where(['Keywords.word' => $category]);
+            })
+            ->toArray();
+
+        $this->set('packets', $packets);
+    }
 }

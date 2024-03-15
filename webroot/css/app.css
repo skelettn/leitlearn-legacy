@@ -1648,7 +1648,7 @@ section.me .profile .text h2 {
 
 section.search {
     position: relative;
-    margin: 10px 0 25px;
+    margin: 25px 0;
 }
 
 section.search .search-input {
@@ -1717,7 +1717,7 @@ section.search .search-results .result:last-child {
 
 .section-header {
     display: flex;
-    align-items: normal;
+    align-items: center;
 }
 
 .section-header .scroll-buttons {
@@ -2039,7 +2039,7 @@ footer .footer-data .copyright img {
 
 @media screen and (max-width: 1560px) {
     .container {
-        padding: 0 30px;
+        padding: 0 30px 0 0;
     }
 
     footer .footer-content .footer-desc {

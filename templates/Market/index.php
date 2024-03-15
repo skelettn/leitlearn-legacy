@@ -49,7 +49,7 @@ $this->assign('title', 'Marché');
         </section>
         <section class="section-packets">
             <div class="section-header">
-                <h2 class="paquet-title">
+                <h2 class="packets-title">
                     Tendances
                 </h2>
                 <div class="scroll-buttons">
@@ -73,7 +73,7 @@ $this->assign('title', 'Marché');
         </section>
         <section class="section-packets">
             <div class="section-header">
-                <h2 class="paquet-title">
+                <h2 class="packets-title">
                     Généré avec l'IA
                 </h2>
                 <div class="scroll-buttons">
@@ -96,14 +96,14 @@ $this->assign('title', 'Marché');
             </div>
         </section>
         <section>
-            <h2 class="paquet-title">Catégories</h2>
+            <h2 class="packets-title">Catégories</h2>
             <div class="categories">
                 <?= $cell = $this->cell('Keywords::display', []) ?>
             </div>
         </section>
         <section class="section-packets">
             <div class="section-header">
-                <h2 class="paquet-title">
+                <h2 class="packets-title">
                     Les plus importés
                 </h2>
                 <div class="scroll-buttons">

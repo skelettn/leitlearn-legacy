@@ -9,7 +9,7 @@
                         </span>
                     </div>
                 </div>',
-    '/explore/p/'.$category->word,
+    '/market/'.strtolower($category->word),
     ['escapeTitle' => false],
     );
     ?>

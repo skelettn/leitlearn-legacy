@@ -24,4 +24,10 @@ class MarketController extends AppController
     public function index(): void
     {
     }
+
+    public function category(string $category)
+    {
+
+        $this->set(compact('category'));
+    }
 }

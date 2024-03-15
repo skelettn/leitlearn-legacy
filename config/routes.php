@@ -68,6 +68,17 @@ return function (RouteBuilder $routes): void {
          */
         $builder->connect('/pages/*', 'Pages::display');
 
+        $builder->connect(
+            '/market/{category}',
+            ['controller' => 'Market', 'action' => 'category']
+        )
+            ->setPatterns(
+                [
+                    'category' => '[a-z0-9\-]+',
+                ]
+            )
+            ->setPass(['category']);
+
         /*
          * Connect catchall routes for all controllers.
          *

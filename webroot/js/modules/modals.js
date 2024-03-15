@@ -5,26 +5,23 @@ export const initModals = () => {
 };
 
 const modalEventHandler = () => {
-    // Gestion des modals
-    const $modalBtns = $(".modal-btn");
-    const $modals = $(".modal");
-    const $closeBtns = $(".modal-close");
+    const $body = $("body");
 
-    $modalBtns.on("click", function () {
+    $body.on("click", ".modal-btn", function () {
         const modalId = $(this).data("modal");
         const $modal = $("#" + modalId);
 
-        $modals.removeClass("show");
+        $(".modal").removeClass("show");
         $modal.addClass("show");
     });
 
-    $closeBtns.on("click", function () {
-        const index = $closeBtns.index(this);
-        $modals.eq(index).removeClass("show");
+    $body.on("click", ".modal-close", function () {
+        const index = $(".modal-close").index(this);
+        $(".modal").eq(index).removeClass("show");
     });
 
-    $(window).on("click", function (event) {
-        $modals.each(function () {
+    $body.on("click", function (event) {
+        $(".modal").each(function () {
             if ($(event.target).is($(this))) {
                 $(this).removeClass("show");
             }
