@@ -59,19 +59,21 @@ const searchEvents = () => {
     let input = document.getElementById('market_search');
     let results = document.querySelector('.search-results');
 
-    input.addEventListener('focus', function() {
-        results.classList.add('active');
-    });
+    if(input) {
+        input.addEventListener('focus', function() {
+            results.classList.add('active');
+        });
 
-    input.addEventListener('blur', function(event) {
-        if (!results.contains(event.relatedTarget)) {
-            results.classList.remove('active');
-        }
-    });
+        input.addEventListener('blur', function(event) {
+            if (!results.contains(event.relatedTarget)) {
+                results.classList.remove('active');
+            }
+        });
 
-    results.addEventListener('mousedown', function(event) {
-        event.preventDefault();
-    });
+        results.addEventListener('mousedown', function(event) {
+            event.preventDefault();
+        });
+    }
 }
 
 const tabsEventHandler = () => {

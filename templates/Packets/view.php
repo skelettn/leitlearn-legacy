@@ -16,6 +16,15 @@ $this->assign('title', $packet->name);
                         '/packets/settings/' . $packet->id,
                         ['class' => 'action play-hidden', 'escapeTitle' => false],
                     ) ?>
+                    <?= $this->Form->postLink(
+                        '<span class="material-symbols-rounded">ios_share</span>',
+                        ['controller' => 'Packets', 'action' => 'export', $packet->id],
+                        [
+                            'confirm' => 'Êtes-vous sur de vouloir exporter le paquet ?',
+                            'class' => 'action play-hidden',
+                            'escapeTitle' => false
+                        ]
+                    ) ?>
                     <?php if($flashcards_numb != 0) : ?>
                     <button class="action play hidden" id="btn-retour">
                         Retour au paquet
@@ -43,6 +52,15 @@ $this->assign('title', $packet->name);
                         [
                             'confirm' => 'Êtes-vous sur de vouloir importer le paquet ?',
                             'escapeTitle' => false,
+                        ]
+                    ) ?>
+                    <?= $this->Form->postLink(
+                        '<span class="material-symbols-rounded">ios_share</span>',
+                        ['controller' => 'Packets', 'action' => 'export', $packet->id],
+                        [
+                            'confirm' => 'Êtes-vous sur de vouloir exporter le paquet ?',
+                            'class' => 'action play-hidden',
+                            'escapeTitle' => false
                         ]
                     ) ?>
                 <?php endif; ?>

@@ -1586,8 +1586,15 @@ section.me {
     position: relative;
     width: 100%;
     padding: 25px;
-    background-color: #ff7878;
-    background-image: linear-gradient(315deg, #ff7878 0%, #74d680 74%);
+    background-color:#99c2ff;
+    background-image:
+            radial-gradient(at 83% 74%, hsla(217,72%,63%,1) 0px, transparent 50%),
+            radial-gradient(at 96% 21%, hsla(17,90%,65%,1) 0px, transparent 50%),
+            radial-gradient(at 13% 86%, hsla(121,72%,70%,1) 0px, transparent 50%),
+            radial-gradient(at 76% 49%, hsla(36,88%,75%,1) 0px, transparent 50%),
+            radial-gradient(at 99% 47%, hsla(268,99%,74%,1) 0px, transparent 50%),
+            radial-gradient(at 65% 42%, hsla(326,98%,64%,1) 0px, transparent 50%),
+            radial-gradient(at 15% 9%, hsla(354,76%,63%,1) 0px, transparent 50%);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite !important;
     border-radius:  0 0 10px 10px;
@@ -1599,7 +1606,7 @@ section.me .filter {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, .8);
+    background: rgba(0, 0, 0, .7);
 }
 
 section.me .section-header {

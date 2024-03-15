@@ -71,7 +71,12 @@ class PacketsController extends AppController
             $is_my_packet = false;
         }
 
-        $creator = $this->Packets->Users->get($packet->creator_id);
+        try {
+            $creator = $this->Packets->Users->get($packet->creator_id);
+        }
+        catch (RecordNotFoundException $e) {
+            $creator = $this->Packets->Users->get($packet->user_id);
+        }
 
         $this->set(compact('packet', 'date', 'handlePlayBtn', 'handleRemainingTime', 'is_private', 'is_my_packet', 'leitlearn_folders', 'creator', 'flashcards_numb'));
     }
@@ -538,6 +543,38 @@ class PacketsController extends AppController
             $this->Flash->error(__('Échec de l\'ouverture de l\'archive .apkg.'));
         }
     }
+
+    public function export($packet_id)
+    {
+        $packet = $this->Packets->get($packet_id);
+        if (!$packet) {
+            $this->Flash->error(__('Paquet introuvable.'));
+            return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
+        }
+
+        $flashcards = $this->Packets->Flashcards->find()->where(['packet_id' => $packet_id])->toArray();
+        $csvData = [];
+        $csvData[] = ['Question', 'Réponse'];
+
+        foreach ($flashcards as $flashcard) {
+            $csvData[] = [$flashcard->question, $flashcard->answer];
+        }
+
+        $fileName = 'export_paquet_' . $packet_id . '.csv';
+        $this->response = $this->response->withType('csv')->withDownload($fileName);
+
+        $output = fopen('php://temp', 'w');
+        foreach ($csvData as $row) {
+            fputcsv($output, $row,';');
+        }
+        rewind($output);
+        $csv = stream_get_contents($output);
+        fclose($output);
+
+        $this->response->getBody()->write($csv);
+        return $this->response;
+    }
+
     private function apkgDatabase($database_path): ?\Cake\Http\Response
     {
             $pdo = new PDO('sqlite:' . $database_path);
