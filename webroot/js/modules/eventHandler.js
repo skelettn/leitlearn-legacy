@@ -50,7 +50,7 @@ const snackbarEventHandler = () => {
 
 const leitlearnLoadingEvent = () => {
     $(document).ready(function () {
-        var loaderWrapper = $(".loading-wrapper");
+        let loaderWrapper = $(".loading-wrapper");
         loaderWrapper.hide();
     });
 }

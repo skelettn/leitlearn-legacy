@@ -42,8 +42,8 @@ const initDashboardSidebar = ($openButton, $dashboardSidebar) => {
 };
 
 const initDashboardSidebarUserDetail = () => {
-    var $openButton = $('.leitlearn_dashboard_sidebar_open_user_detail_open');
-    var $userDetail = $('.leitlearn_dashboard_sidebar_open_user_detail_displayed');
+    let $openButton = $('.leitlearn_dashboard_sidebar_open_user_detail_open');
+    let $userDetail = $('.leitlearn_dashboard_sidebar_open_user_detail_displayed');
 
     $openButton.on('click', function () {
         $userDetail.toggleClass('show');

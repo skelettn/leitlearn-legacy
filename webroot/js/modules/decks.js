@@ -7,7 +7,7 @@ export const initDecks = () => {
 
 const fetchDecksFromMarket = () => {
     $('#market_search').on('input', async function () {
-        var query = $(this).val();
+        let query = $(this).val();
         if($.trim(query) !== '') {
             let data;
             try {

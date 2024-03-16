@@ -6,13 +6,13 @@ export const initUsers = () => {
 }
 
 const profilePictureEvent = () => {
-    var fileInput = $('#profile-picture');
-    var imgPreview = $('#profilePicturePreview');
+    let fileInput = $('#profile-picture');
+    let imgPreview = $('#profilePicturePreview');
 
     fileInput.on('change', function (event) {
-        var file = event.target.files[0];
+        let file = event.target.files[0];
         if (file) {
-            var reader = new FileReader();
+            let reader = new FileReader();
             reader.onload = function (e) {
                 imgPreview.attr('src', e.target.result);
             };
@@ -23,7 +23,7 @@ const profilePictureEvent = () => {
 const getUsers = () => {
     const search_users_container = $('.search-users-group');
     $('#search-users-input').on('input', async function () {
-        var query = $(this).val();
+        let query = $(this).val();
         if($.trim(query) !== '') {
             let data;
             try {

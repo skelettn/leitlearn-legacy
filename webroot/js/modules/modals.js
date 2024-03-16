@@ -31,7 +31,9 @@ const modalEventHandler = () => {
 };
 
 const fetchPacketDataThenUpdateModal = () => {
-    $('.packet-item').click(async function () {
+    const $body = $("body");
+
+    $body.on("click", ".packet-item", async function () {
         const paquet = $(this);
         const paquetId = paquet.data('paquet-id');
 
@@ -47,13 +49,13 @@ const fetchPacketDataThenUpdateModal = () => {
 
 const updateModalContent = (data) => {
     // Caching des sélecteurs jQuery
-    var modalTitle = $('#modal-title');
-    var modalDetailDescription = $('#modal-detail-description');
-    var packetId = $('#modal-detail-packet-id');
-    var keywordsContainer = $('#modal-detail-keys').empty();
-    var flashcardsTable = $('#modal-detail-flashcards').empty();
-    var selectedPacket = $('#modal-detail-selected-packet').empty();
-    var creatorPacket = $('#modal-detail-creator');
+    let modalTitle = $('#modal-title');
+    let modalDetailDescription = $('#modal-detail-description');
+    let packetId = $('#modal-detail-packet-id');
+    let keywordsContainer = $('#modal-detail-keys').empty();
+    let flashcardsTable = $('#modal-detail-flashcards').empty();
+    let selectedPacket = $('#modal-detail-selected-packet').empty();
+    let creatorPacket = $('#modal-detail-creator');
 
     // Mise à jour des éléments du modal
     modalTitle.text(data.name);
@@ -62,7 +64,7 @@ const updateModalContent = (data) => {
 
     // Attribution mots clés du paquet
     if (data.keywords && data.keywords.length > 0) {
-        var keywordElements = $.map(data.keywords, function (keyword, index) {
+        let keywordElements = $.map(data.keywords, function (keyword, index) {
             return $('<strong>').addClass('key').attr('id', 'modal-key' + (index + 1)).text(keyword.word);
         });
 
@@ -71,7 +73,7 @@ const updateModalContent = (data) => {
 
     // Attribution des nouvelles valeurs pour un paquet
     if (data.flashcards && data.flashcards.length > 0) {
-        var flashcardElements = $.map(data.flashcards, function (flashcard, index) {
+        let flashcardElements = $.map(data.flashcards, function (flashcard, index) {
             return $('<div>').addClass('flashcard').append(
                 $('<div>').addClass('question').html(flashcard.question),
                 $('<div>').addClass('answer').append(
@@ -94,9 +96,9 @@ const updateModalContent = (data) => {
     }
 
     // Récupérations des paquets de l'utilisateur
-    var userPackets = data.user_packets;
+    let userPackets = data.user_packets;
     if (userPackets && userPackets.length > 0) {
-        var packetOptions = $.map(userPackets, function (userPacket) {
+        let packetOptions = $.map(userPackets, function (userPacket) {
             return $('<option>').attr('value', userPacket.id).text(userPacket.name);
         });
 
@@ -104,7 +106,7 @@ const updateModalContent = (data) => {
     }
 
     // Mise à jour des informations du créateur
-    var creator = data.creator;
+    let creator = data.creator;
     creatorPacket.find('strong').text(creator.username);
     creatorPacket.find('img').attr('src', '/img/user_profile_pic/' + creator.profile_picture);
 };
