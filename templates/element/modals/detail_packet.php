@@ -47,7 +47,10 @@
                 <?=  $this->Form->create(null, ['url' => ['controller' => 'Packets', 'action' => 'import']]); ?>
                 <?= $this->Form->hidden('packet_id', ['value' => '', 'id' => 'modal-detail-packet-id']) ?>
                 <div class="tab detail-tab" id="detail-tab-paquets" style="display: flex;">
-                    <?= $this->Form->submit('Importer le paquet sur mon espace', ['name' => 'import-all-submit', 'class' => 'import-all']) ?>
+                    <div class="loader-button">
+                        <?= $this->Form->submit('Importer le paquet sur mon espace') ?>
+                        <span class="loader"></span>
+                    </div>
                 </div>
                 <?= $this->Form->end() ?>
             <?php endif; ?>
@@ -57,7 +60,10 @@
                 <?php if ($is_logged) : ?>
                     <div class="actions">
                         <select name="selected_packet" id="modal-detail-selected-packet" class="select-paquet"></select>
-                        <?= $this->Form->button('Importer la/les cartes', ['name' => 'import-submit']) ?>
+                        <div class="loader-button">
+                            <?= $this->Form->submit('Importer la/les cartes') ?>
+                            <span class="loader"></span>
+                        </div>
                     </div>
                 <?php endif; ?>
             </div>
