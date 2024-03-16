@@ -27,7 +27,7 @@ $cakeDescription = ' - Leitlearn';
         <?= $this->fetch('title') ?>
         <?= $cakeDescription ?>
     </title>
-    <?= $this->Html->meta('icon', 'img/leitlearn_2_logo_white.png') ?>
+    <?= $this->Html->meta('icon', 'img/favicon.jpg') ?>
     <?= $this->Html->css(['base', 'app']) ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>

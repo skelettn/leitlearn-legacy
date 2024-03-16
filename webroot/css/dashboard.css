@@ -12,14 +12,6 @@
     color: black;
 }
 
-.sidebar ul li.active {
-    background: black;
-}
-
-.sidebar ul li.active span {
-    color: white;
-}
-
 body {
     background: white;
     color: black;
