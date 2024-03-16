@@ -1,6 +1,6 @@
 <div class="sidebar">
     <div class="sidebar-container">
-        <div class="logo"></div>
+        <?= $this->Html->image('/img/leitlearn_2_logo.png', ['class' => 'logo']) ?>
         <ul>
             <li class="<?= $this->getRequest()->getRequestTarget() === '/market' ? 'active' : '' ?>">
                 <?= $this->Html->link(
