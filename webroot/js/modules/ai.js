@@ -23,12 +23,14 @@ export const initAi = () => {
 
 const aiRequestEvent = async () => {
     $('#leitlearn_ai_submit').on("click", async function () {
-        $(this).hide();  // Utilisez "this" pour faire référence à l'élément cliqué
-        loadingEvent();
-        let responses = await aiSendRequest();
-        removeLoading();
-        displayResponses(responses);
-        displayActions();
+        if($('#leitlearn_ai_input').val().length > 0) {
+            $(this).hide();  // Utilisez "this" pour faire référence à l'élément cliqué
+            loadingEvent();
+            let responses = await aiSendRequest();
+            removeLoading();
+            displayResponses(responses);
+            displayActions();
+        }
     });
 }
 

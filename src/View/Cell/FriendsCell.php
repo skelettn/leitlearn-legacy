@@ -7,18 +7,43 @@ class FriendsCell extends Cell
 {
     public function display()
     {
+        $loggedInUserId = $this->request->getSession()->read('Auth.id');
+
         $friends = $this->fetchTable("Friends")
             ->find()
-            ->contain(['Users'])
             ->where([
                 'OR' => [
-                    ['requester_id' => $this->request->getSession()->read('Auth.id')],
-                    ['recipient_id' => $this->request->getSession()->read('Auth.id')],
+                    ['requester_id' => $loggedInUserId],
+                    ['recipient_id' => $loggedInUserId],
                 ],
+                'status' => 'success'
             ])
-            ->where(['status' => 'success'])
-        ;
+            ->toArray();
 
-        $this->set('friends', $friends->toArray());
+        $friendUserIds = [];
+        foreach ($friends as $friend) {
+            if ($friend->requester_id != $loggedInUserId) {
+                $friendUserIds[] = $friend->requester_id;
+            }
+            if ($friend->recipient_id != $loggedInUserId) {
+                $friendUserIds[] = $friend->recipient_id;
+            }
+        }
+
+        $users = $this->fetchTable("Users")
+            ->find()
+            ->where(['Users.id IN' => $friendUserIds])
+            ->toArray();
+
+        foreach ($friends as $friend) {
+            foreach ($users as $user) {
+                if ($friend->requester_id == $user->id || $friend->recipient_id == $user->id) {
+                    $friend->user = $user;
+                    break;
+                }
+            }
+        }
+
+        $this->set('friends', $friends);
     }
 }

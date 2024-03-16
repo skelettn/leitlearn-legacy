@@ -14,11 +14,7 @@ if ($user->user_uid != $user_data['user_uid']) {
                         <span class="name"><?= $user->name ?> <?= $user->last_name ?></span>
                         <span class="username">@<?= $user->username ?></span>
                         <div class="stats">
-                            <span class="stat">
-                                0 Paquets
-                                ·
-                                0 Amis
-                            </span>
+                            <?= $cell = $this->cell('Users::display_public_data', [$user->id]) ?>
                         </div>
                     </div>
                     <?php

@@ -2,6 +2,10 @@
     color: rgba(255, 255, 255, .7);
 }
 
+.ai .ai-container {
+    margin-top: 30px;
+}
+
 .ai .ai-container .page-content {
     display: flex;
     margin-bottom: 35px;
@@ -228,7 +232,7 @@
 
 @media screen and (max-width: 620px) {
     .ai .header h1 {
-        padding: 20px 10px;
+        padding: 0 30px;
         width: 100%;
         font-size: 35px;
     }
@@ -252,6 +256,10 @@
 }
 
 @media screen and (max-width: 500px) {
+    .ai .header h1 {
+        padding: 0 15px;
+    }
+
     .ai .ai-container .page-content {
         margin-bottom: 230px;
     }

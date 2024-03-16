@@ -11,4 +11,22 @@ class UsersCell extends Cell
 
         $this->set('users', $users);
     }
+
+    public function display_public_data(int $user_id)
+    {
+        $friends = $this->fetchTable("Users")
+            ->find()
+            ->contain(['Friends'])
+            ->where(['Users.id' => $user_id])
+            ->count();
+
+        $packets = $this->fetchTable("Packets")
+            ->find()
+            ->contain(['Users'])
+            ->where(['Users.id' => $user_id])
+            ->count();
+
+        $this->set('friends', $friends);
+        $this->set('packets', $packets);
+    }
 }

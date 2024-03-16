@@ -206,6 +206,7 @@ main {
 }
 
 .dashboard section .section-header.column {
+    align-items: flex-start;
     flex-direction: column;
 }
 
@@ -675,8 +676,10 @@ main {
 }
 
 .packet-header .title sup {
+    width: auto;
+    height: max-content;
     margin-left: 5px;
-    width: 50px;
+    padding: 4px 8px;
     text-align: center;
 }
 
