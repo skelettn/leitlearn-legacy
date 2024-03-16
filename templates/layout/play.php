@@ -70,7 +70,7 @@ echo $this->element('modals/modify_packet');
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script type="module" src="/js/app.js?v=<?= random_int(1000000, 9999999) ?>"></script>
+<script type="module" src="/js/bundle.js?v=<?= random_int(1000000, 9999999) ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
 
 </body>
