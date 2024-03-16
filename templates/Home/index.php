@@ -4,7 +4,7 @@ $this->assign('title', 'Apprenez grâce aux flashcards');
 <header>
     <div class="header-content">
         <div class="logo">
-            <?= $this->Html->image('/img/leitlearn_2_logo_white.png', ['alt' => 'Leitlearn 2']) ?>
+            <?= $this->Html->image('/img/leitlearn_2_logo.png', ['alt' => 'Leitlearn 2']) ?>
         </div>
         <div class="new leitlearn-2">
             <?= $this->Html->image('/img/leitlearn_2_logo.png', ['alt' => 'Leitlearn 2']) ?>
@@ -154,7 +154,7 @@ $this->assign('title', 'Apprenez grâce aux flashcards');
                         <h6 class="desc">
                             Système d'amis, d'importation/d'exportation par CSV, des flashcards musiques et images, des meilleures performances et plus encore...
                         </h6>
-                        <a href="/blog/announcing-leitlearn-2" class="action white">Décourvrir</a>
+                        <a href="/articles/announcing-leitlearn-2" class="action white">Décourvrir</a>
                     </div>
                 </div>
             </section>

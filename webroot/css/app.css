@@ -1208,8 +1208,7 @@ header .logo {
 }
 
 header .logo img {
-    width: 45px;
-    height: 45px;
+    height: 50px;
     filter: drop-shadow(0 0 5px rgba(0, 0, 0, .3));
 }
 
@@ -1839,6 +1838,24 @@ section.search .search-results .result:last-child {
 
 .categories .category .icon span {
     font-size: 30px;
+}
+
+/* Styles pour la page articles */
+
+.article .article-header {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, .125);
+}
+
+.article .article-header .date {
+    color: rgba(255, 255, 255, .7);
+    font-weight: 500;
+}
+
+.article .article-content {
+    padding: 20px 0 30px;
 }
 
 

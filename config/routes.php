@@ -79,6 +79,17 @@ return function (RouteBuilder $routes): void {
             )
             ->setPass(['category']);
 
+        $builder->connect(
+            '/articles/{article_name}',
+            ['controller' => 'Articles', 'action' => 'view']
+        )
+            ->setPatterns(
+                [
+                    'article_name' => '[a-z0-9\-]+',
+                ]
+            )
+            ->setPass(['article_name']);
+
         /*
          * Connect catchall routes for all controllers.
          *
@@ -95,22 +106,10 @@ return function (RouteBuilder $routes): void {
         $builder->fallbacks();
     });
 
-    /*
-     * If you need a different set of middleware or none at all,
-     * open new scope and define routes there.
-     *
-     * ```
-     * $routes->scope('/api', function (RouteBuilder $builder): void {
-     *     // No $builder->applyMiddleware() here.
-     *
-     *     // Parse specified extensions from URLs
-     *     // $builder->setExtensions(['json', 'xml']);
-     *
-     *     // Connect API actions here.
-     * });
-     * ```
-     */
 
+    /*
+     * Routes for the Leitlearn API
+     */
     $routes->scope('/api', function (RouteBuilder $builder): void {
         $builder->connect(
             '/explore/get/{query}',
