@@ -115,11 +115,6 @@ class UsersController extends AppController
     {
         $user = $this->Users->get(AppSingleton::getUser($this->request->getSession())->id);
         if ($this->request->is(['post', 'put'])) {
-            /**
-             * Problème avec les dates de naissances
-             * + Récupérer les infos de la bd pour le formulaire
-             * + Vérifier si les champs sont vides
-             */
             $data = $this->request->getData();
             $file = $this->request->getData('profile_picture');
             $extension = pathinfo($file->getClientFilename(), PATHINFO_EXTENSION);

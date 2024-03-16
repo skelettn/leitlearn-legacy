@@ -54,9 +54,6 @@
                 <?= $this->Form->password('password', ['id' => 'register-password', 'placeholder' => '']) ?>
                 <?= $this->Form->label('register-password', 'Mot de passe') ?>
             </div>
-            <div class="birth">
-                <h3 class="info">Date de naissance</h3>
-            </div>
             <div class="loader-button">
                 <?= $this->Form->submit("S'inscrire") ?>
                 <span class="loader"></span>

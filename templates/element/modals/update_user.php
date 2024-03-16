@@ -1,3 +1,19 @@
+<?php
+$months = [
+    1 => 'Janvier',
+    2 => 'Février',
+    3 => 'Mars',
+    4 => 'Avril',
+    5 => 'Mai',
+    6 => 'Juin',
+    7 => 'Juillet',
+    8 => 'Août',
+    9 => 'Septembre',
+    10 => 'Octobre',
+    11 => 'Novembre',
+    12 => 'Décembre'
+];
+?>
 <div class="modal" id="update-userdata">
     <div class="modal-container">
         <div class="modal-header">
@@ -8,7 +24,6 @@
                 </span>
             </div>
         </div>
-
         <div class="modal-body">
             <?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'update'], 'type' => 'file']) ?>
             <div class="edit-picture-group">
@@ -25,7 +40,6 @@
                 )
                 ?>
             </div>
-
             <div class="input-flex">
                 <div class="input-group">
                     <?= $this->Form->input('name', ['id' => 'update-name', 'placeholder' => '', 'default' => $user_data['name']]); ?>
@@ -40,20 +54,9 @@
                 <?= $this->Form->input('username', ['id' => 'update-username', 'placeholder' => '', 'default' => $user_data['username']]); ?>
                 <?= $this->Form->label('update-username', 'Nom d\'utilisateur') ?>
             </div>
-
             <div class="input-group">
                 <?= $this->Form->input('email', ['id' => 'update-email', 'placeholder' => '', 'default' => $user_data['email']]); ?>
                 <?= $this->Form->label('update-email', 'Adresse e-mail') ?>
-            </div>
-            <div class="birth">
-                <h3 class="info">Date de naissance</h3>
-                <div class="selects">
-                    <?php
-                    //echo $this->Form->select('birth_day', range(1, 31), ['empty' => '-- Jour --']);
-                    //echo $this->Form->select('birth_month', $months, ['empty' => '-- Mois --']);
-                    // echo $this->Form->select('birth_year', range(1900, date('Y')), ['empty' => '-- Année --']);
-                    ?>
-                </div>
             </div>
             <div class="genre">
                 <h3 class="info">Genre</h3>

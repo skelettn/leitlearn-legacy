@@ -158,7 +158,6 @@ form .edit-picture-group {
     align-items: center;
     flex-direction: column;
     margin-bottom: 20px;
-
 }
 
 form .edit-picture-group .avatar {
@@ -168,30 +167,27 @@ form .edit-picture-group .avatar {
     cursor: pointer;
 }
 
-form .edit-picture-group label{
-    display: none;
-    opacity: 0.6;
+form .edit-picture-group label {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    border: #111111 5px solid;
-    border-radius: 50%;
-    cursor: pointer;
+    display: none;
     justify-content: center;
     align-items: center;
-
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 0, 0, .6);
+    border-radius: 50%;
+    transition: all .3s;
+    cursor: pointer;
 }
+
+form .edit-picture-group label:hover,
 form .edit-picture-group .avatar:hover ~ #label-picture {
     display: flex;
-    transition: ease 0.3s;
 }
 
-form .edit-picture-group label:hover {
-    display: flex;
-}
-
-form .edit-picture-group label span {
+.edit-picture-group label span {
     font-size: 30px;
+    color: rgba(255, 255, 255, .7);
 }
 
 form .edit-picture-group input{
@@ -531,6 +527,7 @@ form .edit-picture-group input{
     font-size: 20px;
 }
 
+.flashcards .flashcard .import-actions,
 .flashcards .flashcard .flashcard-actions {
     position: absolute;
     top: 10px;

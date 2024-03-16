@@ -271,11 +271,11 @@ $this->assign('title', $packet->name);
                 <div class="information made-by">
                     <div class="data">
                         <span>Crée le</span>
-                        <strong>le <?= date('d', strtotime($packet->dateCreation)) . ' ' . [
+                        <strong>le <?= date('d', strtotime($packet->created)) . ' ' . [
                                         '01' => 'janvier', '02' => 'février', '03' => 'mars', '04' => 'avril',
                                         '05' => 'mai', '06' => 'juin', '07' => 'juillet', '08' => 'août',
                                         '09' => 'septembre', '10' => 'octobre', '11' => 'novembre', '12' => 'décembre',
-                                    ][date('m', strtotime($packet->dateCreation))] . ' ' . date('Y', strtotime($packet->dateCreation)) ?></strong>
+                                    ][date('m', strtotime($packet->created))] . ' ' . date('Y', strtotime($packet->created)) ?></strong>
                     </div>
                 </div>
                 <div class="information">

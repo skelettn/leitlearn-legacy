@@ -192,7 +192,7 @@ class FlashcardsController extends AppController
     }
 
     /**
-     * Impotation de flashcards depuis le marché
+     * Importation de flashcards depuis le marché
      *
      * @return \Cake\Http\Response
      */
@@ -201,13 +201,20 @@ class FlashcardsController extends AppController
         if ($this->request->is(['post', 'put'])) {
             $valid = true;
 
+            if(!isset($this->request->getData()['selected_packet'])) {
+                $valid = false;
+            }
+
+
+            if(!isset($this->request->getData()['flashcards'])) {
+                $valid = false;
+            }
+
             try {
                 $packet = $this->Flashcards->Packets->get($this->request->getData()['selected_packet']);
             } catch (RecordNotFoundException $e) {
                 return $this->redirect(['controller' => 'Home', 'action' => 'index']);
             }
-
-            $flashcards = $this->request->getData()['flashcards'];
 
             if (
                 empty($this->request->getData()['flashcards'])
@@ -217,6 +224,7 @@ class FlashcardsController extends AppController
             }
 
             if ($valid) {
+                $flashcards = $this->request->getData()['flashcards'];
                 foreach ($flashcards as $flashcard) {
                     try {
                         $flashcard = $this->Flashcards->get($flashcard);
@@ -234,13 +242,13 @@ class FlashcardsController extends AppController
                     $flashcard = $this->Flashcards->newEntity($data);
 
                     if ($this->Flashcards->save($flashcard)) {
-                        $this->Flash->success('Flashcards importées avec succès.');
+                        $this->Flash->success('Cartes importées avec succès.');
                     } else {
-                        $this->Flash->error("Erreur dans l'importation des flashcards.");
+                        $this->Flash->error("Erreur dans l'importation des cartes.");
                     }
                 }
             } else {
-                $this->Flash->error("Erreur dans l'importation des flashcards.");
+                $this->Flash->error("Erreur dans l'importation des cartes.");
             }
         }
 

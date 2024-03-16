@@ -327,9 +327,13 @@ button[type=submit],
     width: 70%;
 }
 
-.modal.detail-modal .submit {
+.modal.detail-modal .loader-button {
     margin-top: 15px;
     width: 100%;
+}
+
+.modal.detail-modal #detail-tab-flashcards .loader-button {
+    margin-top: 0;
 }
 
 .tab span .search-result-null {
