@@ -33,10 +33,10 @@ $cakeDescription = ' - Leitlearn';
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
 </head>
 
-<body data-csrf-token="<?= $this->request->getAttribute('csrfToken'); ?>">
+<body data-csrf-token="<?= $this->request->getAttribute('csrfToken'); ?>" class="landing">
 <?php
 echo $this->Flash->render();
-echo $this->element('sidebar');
+echo $this->element('landing_sidebar');
 echo $this->fetch('content');
 ?>
 

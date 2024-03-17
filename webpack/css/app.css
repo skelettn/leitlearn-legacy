@@ -27,12 +27,15 @@
     left: 0;
     width: 80px;
     height: 100vh;
-    background-image: linear-gradient(to right, black, transparent);
+    background: white;
+    border-right: 1px solid rgba(0, 0, 0, .125);
     z-index: 8;
 }
 
-.sidebar.subsi-active {
-    background: white;
+.sidebar.landing {
+    background: transparent;
+    background-image: linear-gradient(to right, black, transparent);
+    border-right: 0;
 }
 
 .sidebar .sidebar-container {
@@ -50,6 +53,7 @@
     left: 50%;
     height: 50px;
     transform: translateX(-50%);
+    background-image: url('https://static.leitlearn.com/img/v2/leitlearn_2_logo.png');
 }
 
 .sidebar ul {
@@ -67,7 +71,7 @@
     width: 50px;
     height: 50px;
     margin-bottom: 20px;
-    color: white;
+    color: black;
     border-radius: 10px;
     transition: all .3s;
     cursor: pointer;
@@ -83,12 +87,17 @@
 
 .sidebar ul li a {
     display: flex;
-    color: white;
+    color: black;
 }
 
 .sidebar ul li span {
     font-size: 35px;
     transition: all .3s ease;
+}
+
+.sidebar.landing ul li,
+.sidebar.landing ul li a {
+    color: white;
 }
 
 .sidebar ul li:focus span,
@@ -2053,7 +2062,7 @@ footer .footer-data .copyright img {
 
 @media screen and (max-width: 1560px) {
     .container {
-        padding: 0 30px 0 0;
+        padding: 0 30px 0 80px;
     }
 
     footer .footer-content .footer-desc {
@@ -2192,29 +2201,17 @@ footer .footer-data .copyright img {
         background: transparent !important;
     }
 
-    .sidebar ul li.active span {
-        color: white;
-    }
-
-    .sidebar {
-        background: #111111 !important;
-    }
-
-    .sidebar ul li span,
-    .sidebar ul li.active span {
-        color: white !important;
+    .sidebar.landing {
+        background: #111111;
     }
 
     .sidebar ul li span {
         font-size: 30px;
     }
 
-    .sidebar.dash ul li span,
-    .sidebar.dash ul li.active span,
-    .sidebar.dash.subsi-active ul li.active span {
-        color: black !important;
+    .sidebar.landing ul li.active span {
+        color: white;
     }
-
 
     .modal .modal-container {
         width: 500px !important;
@@ -2274,7 +2271,7 @@ footer .footer-data .copyright img {
     }
 
     .container {
-        margin: 0;
+        padding: 0 30px;
     }
 
     section.me .profile .profile-picture {

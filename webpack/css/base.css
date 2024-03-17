@@ -17,9 +17,14 @@
 }
 
 body {
+    background: white;
+    color: black;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body.landing {
     background: black;
     color: white;
-    font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 a {

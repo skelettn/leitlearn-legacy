@@ -1,21 +1,5 @@
-.sidebar {
-    background: white;
-    border-right: 1px solid rgba(0, 0, 0, .125);
-}
 
-.sidebar .logo {
-    background-image: url('https://static.leitlearn.com/img/v2/leitlearn_2_logo.png');
-}
 
-.sidebar ul li,
-.sidebar ul li a {
-    color: black;
-}
-
-body {
-    background: white;
-    color: black;
-}
 
 main {
     margin-left: 15px;
@@ -1340,25 +1324,6 @@ main {
 }
 
 @media screen and (max-width: 620px) {
-    .sidebar {
-        background: white !important;
-    }
-
-    .sidebar,
-    .subsidebar {
-        background: white !important;
-    }
-
-    .subsidebar .subsidebar-header h2 {
-        color: black !important;
-    }
-
-    .sidebar ul li span,
-    .sidebar ul li.active span,
-    .sidebar.subsi-active ul li.active span {
-        color: black !important;
-    }
-
     .dashboard {
         margin: 60px 0 70px 0;
         padding: 20px;
