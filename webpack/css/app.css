@@ -1421,7 +1421,7 @@ footer button:active,
 
 .section-features .feature .media.leitlearn-2 {
     background: white;
-    background-image: url('/img/leitlearn_2_news.png');
+    background-image: url('https://static.leitlearn.com/img/v2/leitlearn_2_news.png');
     background-size: 60%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1868,7 +1868,7 @@ footer .footer-content {
     align-items: center;
     height: 350px;
     margin-bottom: 30px;
-    background-image: url('/img/leitlearn_footer_bg.jpg');
+    background-image: url('https://static.leitlearn.com/img/v2/leitlearn_footer_bg.jpg');
     background-size: cover;
     background-position: center center;
     border-radius: 10px;

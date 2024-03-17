@@ -28,10 +28,8 @@ $cakeDescription = ' - Leitlearn';
         <?= $cakeDescription ?>
     </title>
     <?= $this->Html->meta('icon', 'img/favicon.jpg') ?>
-    <?= $this->Html->css(['base', 'app']) ?>
     <?= $this->Html->css(['dashboard']) ?>
     <?= $this->fetch('meta') ?>
-    <?= $this->fetch('css') ?>
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.snow.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>

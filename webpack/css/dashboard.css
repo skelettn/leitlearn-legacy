@@ -4,7 +4,7 @@
 }
 
 .sidebar .logo {
-    background-image: url('/img/leitlearn_2_logo.png');
+    background-image: url('https://static.leitlearn.com/img/v2/leitlearn_2_logo.png');
 }
 
 .sidebar ul li,
@@ -1350,8 +1350,7 @@ main {
     }
 
     .subsidebar .subsidebar-header h2 {
-        color: black;
-    !important;
+        color: black !important;
     }
 
     .sidebar ul li span,
