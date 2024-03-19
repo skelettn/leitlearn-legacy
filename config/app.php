@@ -6,6 +6,7 @@ use Cake\Database\Driver\Mysql;
 use Cake\Log\Engine\FileLog;
 use Cake\Mailer\Transport\MailTransport;
 
+define('APP_ENV', getenv('APP_ENV') ?: 'development');
 return [
     /*
      * Debug Level:
