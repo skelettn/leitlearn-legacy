@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $session_uid
  * @property int $packet_id
+ * @property int $expected_folder
  * @property \Cake\I18n\DateTime $created
  * @property \Cake\I18n\DateTime $modified
  *
@@ -30,6 +31,7 @@ class Session extends Entity
     protected array $_accessible = [
         'session_uid' => true,
         'packet_id' => true,
+        'expected_folder' => true,
         'created' => true,
         'modified' => true,
         'packet' => true,

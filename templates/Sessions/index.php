@@ -5,24 +5,30 @@ $this->assign('title', "Session");
     <?= $this->element('dashboard_fixed_mobile') ?>
     <div class="container dashboard">
         <section>
-            <h2 class="section-title" id="title-game">Visualisation du jeu</h2>
+            <h2 class="section-title" id="title-game">Session en cours</h2>
             <div class="containerGame">
                 <div class="game" id="game-visu">
-                    <div class="progress">
-                        <progress value="0" max="100" id="progressBar"></progress>
-                    </div>
-                        <div class="card active flipped-card">
+                    <?php
+                    $firstCard = true;
+                    foreach ($flashcards as $flashcard) :
+                        ?>
+                        <div class="card <?= $firstCard ? 'active' : '' ?> flipped-card">
                                 <div class="card-front">
                                     <div class="content-flashcard">
-                                        <p>Question</p>
+                                        <p><?= $flashcard->question ?></p>
                                     </div>
+
                                 </div>
                                 <div class="card-back">
                                     <div class="content-flashcard">
-                                        <p>Réponse</p>
+                                        <p><?= $flashcard->answer ?></p>
                                     </div>
                                 </div>
                         </div>
+                        <?php
+                        $firstCard = false;
+                    endforeach;
+                    ?>
                     <div class="card finish flipped-card">
                         <div class="card-front">
                             <p>Vous avez terminé 🎉 🥳</p>
