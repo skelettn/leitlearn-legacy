@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * Session Entity
  *
  * @property int $id
+ * @property string $session_uid
  * @property int $packet_id
  * @property \Cake\I18n\DateTime $created
  * @property \Cake\I18n\DateTime $modified
@@ -27,6 +28,7 @@ class Session extends Entity
      * @var array<string, bool>
      */
     protected array $_accessible = [
+        'session_uid' => true,
         'packet_id' => true,
         'created' => true,
         'modified' => true,

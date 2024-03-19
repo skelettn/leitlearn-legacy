@@ -20,9 +20,10 @@ class SessionsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
+                'session_uid' => 'Lorem ipsum dolor sit amet',
                 'packet_id' => 1,
-                'created' => '2024-03-19 18:41:44',
-                'modified' => '2024-03-19 18:41:44',
+                'created' => '2024-03-19 18:44:17',
+                'modified' => '2024-03-19 18:44:17',
             ],
         ];
         parent::init();

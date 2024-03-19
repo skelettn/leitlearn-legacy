@@ -62,6 +62,12 @@ class SessionsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
+            ->scalar('session_uid')
+            ->maxLength('session_uid', 32)
+            ->requirePresence('session_uid', 'create')
+            ->notEmptyString('session_uid');
+
+        $validator
             ->integer('packet_id')
             ->notEmptyString('packet_id');
 
