@@ -4,28 +4,28 @@ namespace App\Controller;
 
 class SessionsController extends AppController
 {
+    private $packet;
+    private $flashcards;
+    private $session;
     public function index(string $session_uid)
     {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
-        $result = '';
-
-        for ($j = 0; $j < 4; $j++) {
-            $randomString = '';
-            for ($i = 0; $i < 7; $i++) {
-                $randomString .= $characters[rand(0, strlen($characters) - 1)];
-            }
-            $result .= $randomString;
-            if ($j < 3) {
-                $result .= '-';
-            }
-        }
-        dd($result);
-        $packet = $this->Sessions->contains(['Packets'])
+        $session = $this->Sessions
             ->find()
+            ->contain(['Packets'])
             ->where(['session_uid' => trim(htmlspecialchars($session_uid))])
             ->first();
 
-        $this->set(compact('packet'));
+        $packet = $this->Sessions->Packets
+            ->find()
+            ->contain(['Flashcards'])
+            ->where(['packet_uid' => $session->packet->packet_uid])
+            ->first();
+
+        $this->packet = $packet;
+        $this->session = $session;
+        $flashcards = $this->getFlashcards();
+
+        $this->set(compact('flashcards', 'session', 'packet'));
     }
 
     public function create()
@@ -36,5 +36,29 @@ class SessionsController extends AppController
     public function join()
     {
 
+    }
+
+    public function getFlashcards()
+    {
+        $flashcards = [];
+        foreach ($this->packet['flashcards'] as $flashcard) {
+            if ($flashcard->leitner_folder == $this->session['expected_folder'] - 1) {
+                $flashcards[] = $flashcard;
+            }
+        }
+
+        return $flashcards;
+    }
+
+    public function isFinished()
+    {
+        $finishedCardsCount = 0;
+        foreach ($this->packet['flashcards'] as $flashcard) {
+            if ($flashcard->leitner_folder == $this->session['expected_folder']) {
+                $finishedCardsCount++;
+            }
+        }
+
+        return $finishedCardsCount === count($this->packet['flashcards']);
     }
 }

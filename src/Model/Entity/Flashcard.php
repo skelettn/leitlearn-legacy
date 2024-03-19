@@ -13,7 +13,7 @@ use Cake\ORM\Entity;
  * @property string $question
  * @property string $answer
  * @property string|null $media
- * @property int $leitnerFolder
+ * @property int $leitner_folder
  * @property \Cake\I18n\DateTime|null $modified
  *
  * @property \App\Model\Entity\Packet $packet
@@ -34,7 +34,7 @@ class Flashcard extends Entity
         'question' => true,
         'answer' => true,
         'media' => true,
-        'leitnerFolder' => true,
+        'leitner_folder' => true,
         'modified' => true,
         'packet' => true,
     ];
