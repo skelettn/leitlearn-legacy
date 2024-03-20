@@ -73,6 +73,7 @@ echo $this->element('modals/update_user_password');
 <?php else : ?>
     <script src="<?= $this->Url->build('http://localhost:9000/bundle.js') ?>"></script>
 <?php endif; ?>
+
 </body>
 
 </html>

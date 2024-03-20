@@ -63,12 +63,38 @@ echo $this->element('modals/register');
 echo $this->element('modals/detail_packet');
 ?>
 
+<a href="javascript:openAxeptioCookies()">
+    Cliquez-ici pour modifier vos préférences en matière de cookies
+</a>
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <?php if (APP_ENV !== 'development') : ?>
     <script src="<?= $this->Url->build('/js/bundle.js') ?>"></script>
 <?php else : ?>
     <script src="<?= $this->Url->build('http://localhost:9000/bundle.js') ?>"></script>
 <?php endif; ?>
+
+<script>
+    window.axeptioSettings = {
+        clientId: "65fb42b2bc6af6b297fe1a25",
+        googleConsentMode: {
+            default: {
+                analytics_storage: "denied",
+                ad_storage: "denied",
+                ad_user_data: "denied",
+                ad_personalization: "denied",
+                wait_for_update: 500
+            }
+        }
+    };
+
+    (function(d, s) {
+        var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+        e.async = true; e.src = "//static.axept.io/sdk.js";
+        t.parentNode.insertBefore(e, t);
+    })(document, "script");
+</script>
+
 </body>
 
 </html>
