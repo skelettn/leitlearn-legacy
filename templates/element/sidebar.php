@@ -1,6 +1,6 @@
 <div class="sidebar">
     <div class="sidebar-container">
-        <?= $this->Html->image('https://static.leitlearn.com/img/v2/leitlearn_2_logo.webp', ['class' => 'logo']) ?>
+        <?= $this->Html->image('https://static.leitlearn.com/v2/img/leitlearn_2_logo.webp', ['class' => 'logo']) ?>
         <ul>
             <li class="<?= $this->getRequest()->getRequestTarget() === '/market' ? 'active' : '' ?>">
                 <?= $this->Html->link(
