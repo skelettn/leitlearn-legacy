@@ -1,7 +1,7 @@
 <?php
 $this->assign('title', 'Leitlearn AI');
 ?>
-<div class="ai">
+<div class="ai ai-page">
     <main>
         <div class="container ai-container">
             <div class="header">

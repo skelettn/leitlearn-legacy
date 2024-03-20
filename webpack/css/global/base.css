@@ -1,0 +1,50 @@
+main {
+    margin-left: 90px;
+}
+
+.container {
+    position: relative;
+    padding: 0 500px;
+}
+
+.ql-align-center {
+    text-align: center;
+}
+
+.ql-align-right {
+    text-align: right;
+}
+
+@media screen and (max-width: 2200px) {
+    .container {
+        padding: 0 400px;
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    .container {
+        padding: 0 100px;
+    }
+}
+
+@media screen and (max-width: 1560px) {
+    .container {
+        padding: 0 30px 0 80px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    main {
+        margin-left: 0 !important;
+    }
+
+    .container {
+        padding: 0 30px;
+    }
+}
+
+@media screen and (max-width: 461px) {
+    .container {
+        padding: 0 15px;
+    }
+}

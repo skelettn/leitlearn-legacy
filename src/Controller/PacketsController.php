@@ -347,6 +347,7 @@ class PacketsController extends AppController
         $this->response = $this->response->withType('application/json');
         $this->request->allowMethod(['post']);
 
+
         if ($this->request->is(['post', 'put'])) {
             $flashcards = json_decode($this->request->getData('flashcards'), true);
             $packet_name = $this->request->getData('query');
