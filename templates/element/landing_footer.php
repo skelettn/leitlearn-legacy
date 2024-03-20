@@ -134,7 +134,7 @@
         </ul>
         <div class="separator"></div>
         <div class="copyright">
-            <?= $this->Html->image('/img/leitlearn_2_logo.png') ?>
+            <?= $this->Html->image('/img/leitlearn_2_logo.webp') ?>
             &copy; 2023-2024 Leitlearn.com
         </div>
     </div>

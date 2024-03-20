@@ -27,7 +27,7 @@ $cakeDescription = ' - Leitlearn';
         <?= $this->fetch('title') ?>
         <?= $cakeDescription ?>
     </title>
-    <?= $this->Html->meta('icon', 'img/favicon.jpg') ?>
+    <?= $this->Html->meta('icon', 'https://static.leitlearn.com/img/v2/favicon.webp') ?>
     <?= $this->Html->css(['dashboard']) ?>
     <?= $this->fetch('meta') ?>
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.snow.css" rel="stylesheet">
