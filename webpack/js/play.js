@@ -1,3 +1,6 @@
+
+/*
+
 var checkboxText = $('#switch-17')[0];
 var checkboxLeit = $('#switch-10')[0];
 let flashcardsData;

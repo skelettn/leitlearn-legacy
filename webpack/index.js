@@ -7,6 +7,7 @@ import { initAi } from "./js/modules/ai.js";
 import { initUsers } from "./js/modules/users.js";
 import { initKeywords } from "./js/modules/keywords.js";
 import { initEventHandlers } from "./js/modules/eventHandler.js";
+import { initSessions } from "./js/modules/learn.js";
 import './css/index.css';
 
 $(document).ready(function () {
@@ -18,4 +19,5 @@ $(document).ready(function () {
     initUsers();
     initKeywords();
     initEventHandlers();
+    initSessions();
 });
