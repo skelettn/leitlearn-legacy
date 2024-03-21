@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -7,6 +8,7 @@ class SessionsController extends AppController
     private $packet;
     private $flashcards;
     private $session;
+
     public function index(string $session_uid)
     {
         $session = $this->Sessions
@@ -30,12 +32,10 @@ class SessionsController extends AppController
 
     public function create()
     {
-
     }
 
     public function join()
     {
-
     }
 
     public function getFlashcards()
@@ -53,12 +53,18 @@ class SessionsController extends AppController
     public function isFinished()
     {
         $finishedCardsCount = 0;
+        $count = 0;
         foreach ($this->packet['flashcards'] as $flashcard) {
+            $count++;
             if ($flashcard->leitner_folder == $this->session['expected_folder']) {
                 $finishedCardsCount++;
             }
         }
 
-        return $finishedCardsCount === count($this->packet['flashcards']);
+        if ($finishedCardsCount === $count) {
+            return true;
+        }
+
+        return false;
     }
 }

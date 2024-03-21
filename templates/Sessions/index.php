@@ -7,7 +7,10 @@ $this->assign('title', "Session");
         <section>
             <h2 class="section-title" id="title-game">Session en cours</h2>
             <div class="containerGame">
-                <div class="game" id="game-visu">
+                <div class="game" id="game-visu-session">
+                    <div class="progress">
+                        <progress value="0" max="100" id="progressBar-session"></progress>
+                    </div>
                     <?php
                     $firstCard = true;
                     foreach ($flashcards as $flashcard) :
@@ -39,7 +42,7 @@ $this->assign('title', "Session");
                     </div>
                     <div class="actions-btn">
 
-                        <div class="action-btn previus change-card" id="btn-visu-next" data-change-card="1">
+                        <div class="action-btn previus change-card" id="btn-fail" data-change-card="1">
                                 <span class="material-symbols-rounded">
                                     close
                                 </span>
@@ -54,7 +57,7 @@ $this->assign('title', "Session");
                                     volume_up
                                 </span>
                         </div>
-                        <div class="action-btn next change-card" id="btn-visu-prev" data-change-card="-1">
+                        <div class="action-btn next change-card" id="btn-valid" data-change-card="-1">
                                 <span class="material-symbols-rounded">
                                     check
                                 </span>
