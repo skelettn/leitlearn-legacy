@@ -1,5 +1,6 @@
 <?php
 $this->assign('title', 'Apprenez grâce aux flashcards');
+echo $this->cell('FeatureFlags::display', ['test_feature_flags']);
 ?>
 <header>
     <div class="header-content">
