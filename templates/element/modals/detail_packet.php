@@ -1,4 +1,4 @@
-<div class="modal detail-modal show" id="detail-modal">
+<div class="modal detail-modal" id="detail-modal">
     <div class="modal-container">
         <div class="modal-header">
             <h2 class="title" id="modal-title">Deck Name</h2>

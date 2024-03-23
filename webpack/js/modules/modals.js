@@ -59,6 +59,7 @@ const updateModalContent = (data) => {
     let flashcardsTable = $('#modal-detail-flashcards').empty();
     let selectedPacket = $('#modal-detail-selected-packet').empty();
     let creatorPacket = $('#modal-detail-creator');
+    let likesPacket = $('#modal-detail-likes');
 
     // Mise à jour des éléments du modal
     modalTitle.text(data.name);
@@ -73,6 +74,21 @@ const updateModalContent = (data) => {
 
         keywordsContainer.append(keywordElements);
     }
+
+    let $likes = $(data.likes);
+    let likes = 0;
+    let dislikes = 0;
+
+    $likes.each(function(index, element) {
+        if(element.liked) {
+            likes++;
+        } else {
+            dislikes++;
+        }
+    });
+
+    likesPacket.find('.l-numb').text(likes);
+    likesPacket.find('.d-numb').text(dislikes);
 
     // Attribution des nouvelles valeurs pour un paquet
     if (data.flashcards && data.flashcards.length > 0) {
