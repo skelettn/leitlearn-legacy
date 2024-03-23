@@ -57,7 +57,7 @@
             <?php if($flashcards_numb != 0): ?>
             <div class="switch-container">
                 <label class="switch">
-                    <input type="checkbox" name="public">
+                    <input type="checkbox" name="status">
                     <span></span>
                 </label>
                 <span class="action-name">Afficher le paquet sur le marché</span>

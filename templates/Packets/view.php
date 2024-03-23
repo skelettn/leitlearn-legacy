@@ -7,7 +7,6 @@ $this->assign('title', $packet->name);
         <div class="packet-header">
             <h1 class="title">
                 <?= $packet->name ?>
-                <sup>ID: <?= $packet->id ?></sup>
             </h1>
             <div class="actions" id="play-actions-btn">
                 <?php if ($is_my_packet) : ?>
@@ -69,7 +68,7 @@ $this->assign('title', $packet->name);
 
         <?php if($flashcards_numb != 0 && ($is_private && $is_my_packet) || (!$is_private)): ?>
         <section>
-            <h2 class="section-title" id="title-game">Visualisation du jeu</h2>
+            <h2 class="section-title" id="title-game">Visualisation du paquet</h2>
             <div class="containerGame">
                 <div class="game" id="game-visu">
                     <div class="progress">

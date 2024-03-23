@@ -169,7 +169,6 @@ main {
 .dashboard .part-title {
     font-size: 30px !important;
     font-weight: 600;
-    margin-bottom: 15px;
 }
 
 /* Page paquet */
@@ -195,9 +194,17 @@ main {
     border-bottom: 0;
 }
 
+.dashboard section .section-header .scroll-buttons .scroll-button,
+.dashboard section .section-header .scroll-buttons .scroll-button:hover {
+    color: rgba(0, 0, 0, .7);
+    background: white;
+    border: 1px solid rgba(0, 0, 0, .5);
+}
+
 .dashboard section .section-header .actions {
     display: flex;
     align-items: center;
+    margin-top: 15px;
     list-style: none;
 }
 
@@ -654,14 +661,6 @@ main {
     overflow: hidden;
 }
 
-.packet-header .title sup {
-    width: auto;
-    height: max-content;
-    margin-left: 5px;
-    padding: 4px 8px;
-    text-align: center;
-}
-
 .packet-header .actions {
     display: flex;
     align-items: center;
@@ -1062,7 +1061,6 @@ main {
     position: relative;
     display: flex;
     align-items: center;
-    padding-bottom: 30px;
 }
 
 .profile .profile-data .logo {
@@ -1299,10 +1297,6 @@ main {
         font-size: 20px;
     }
 
-    .packet-header .title sup {
-        display: none;
-    }
-
     .game .card {
         height: 200px;
     }
@@ -1321,15 +1315,12 @@ main {
         font-size: 20px;
     }
 
-    .packet-header .title sup {
-        display: none;
-    }
 }
 
 @media screen and (max-width: 620px) {
     .dashboard {
-        margin: 60px 0 70px 0;
-        padding: 20px;
+        margin: 80px 0 70px 0;
+        padding: 0 20px;
         width: calc(100%);
     }
 

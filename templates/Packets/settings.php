@@ -27,7 +27,7 @@ $this->assign('title', 'Paramètres de '.$packet->name);
                 </div>
                 <div class="info">
                     <p>Visibilité du paquet</p>
-                    <p><?= ($packet->public == 1) ? "Paquet public" : "Paquet privé"; ?></p>
+                    <p><?= ($packet->status == 1) ? "Ce paquet est visible sur le marché." : "Ce paquet n'est accessible que par vous-même."; ?></p>
                 </div>
             </div>
             <div class="infos general">
