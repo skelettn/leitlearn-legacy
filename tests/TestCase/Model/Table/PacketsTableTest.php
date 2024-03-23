@@ -27,6 +27,7 @@ class PacketsTableTest extends TestCase
         'app.Packets',
         'app.Users',
         'app.Flashcards',
+        'app.Sessions',
         'app.Keywords',
     ];
 

@@ -12,7 +12,6 @@ use Cake\Validation\Validator;
  * Users Model
  *
  * @property \App\Model\Table\PacketsTable&\Cake\ORM\Association\HasMany $Packets
- * @property \App\Model\Table\SocialProfilesTable&\Cake\ORM\Association\HasMany $SocialProfiles
  *
  * @method \App\Model\Entity\User newEmptyEntity()
  * @method \App\Model\Entity\User newEntity(array $data, array $options = [])
@@ -44,14 +43,18 @@ class UsersTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
+        $this->hasMany('AuthLogs', [
+            'foreignKey' => 'user_id',
+        ]);
+        $this->hasMany('Likes', [
+            'foreignKey' => 'user_id',
+        ]);
         $this->hasMany('Packets', [
             'foreignKey' => 'user_id',
         ]);
-
         $this->hasMany('Friends', [
             'foreignKey' => 'requester_id',
         ]);
-
         $this->hasMany('Friends', [
             'foreignKey' => 'recipient_id',
         ]);

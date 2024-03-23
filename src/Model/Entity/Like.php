@@ -6,19 +6,17 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Flashcard Entity
+ * Like Entity
  *
  * @property int $id
  * @property int $packet_id
- * @property string $question
- * @property string $answer
- * @property string|null $media
- * @property int $leitner_folder
- * @property \Cake\I18n\DateTime|null $modified
+ * @property int $user_id
+ * @property bool $liked
  *
  * @property \App\Model\Entity\Packet $packet
+ * @property \App\Model\Entity\User $user
  */
-class Flashcard extends Entity
+class Like extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -31,11 +29,9 @@ class Flashcard extends Entity
      */
     protected array $_accessible = [
         'packet_id' => true,
-        'question' => true,
-        'answer' => true,
-        'media' => true,
-        'leitner_folder' => true,
-        'modified' => true,
+        'user_id' => true,
+        'liked' => true,
         'packet' => true,
+        'user' => true,
     ];
 }
