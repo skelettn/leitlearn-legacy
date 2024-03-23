@@ -22,7 +22,7 @@ use Authentication\PasswordHasher\DefaultPasswordHasher;
  * @property bool $permission
  *
  * @property \App\Model\Entity\Packet[] $packets
- * @property \App\Model\Entity\SocialProfile[] $social_profiles
+ * @property \App\Model\Entity\Friend[] $friends
  */
 class User extends Entity
 {
@@ -47,7 +47,7 @@ class User extends Entity
         'profile_picture' => true,
         'permission' => true,
         'packets' => true,
-        'social_profiles' => true,
+        'friends' => true,
     ];
 
     /**
