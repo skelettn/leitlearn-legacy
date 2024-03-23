@@ -39,6 +39,9 @@ const fetchPacketDataThenUpdateModal = () => {
 
         try {
             const data = await api('/api/market/get/', paquetId);
+            if(data == 'This deck is private') {
+                window.location.href = "/home";
+            }
             updateModalContent(data);
             $('#detail-modal').addClass('show');
         } catch (error) {
@@ -119,7 +122,6 @@ const fetchFlashcardDataThenUpdateModal = () => {
 
         try {
             const data = await api('/api/flashcard/get/', flashcardId);
-            console.log(data);
             $('#modify-flashcard').addClass('show');
             updateModalFlashcardContent(data);
         } catch (error) {

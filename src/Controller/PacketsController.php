@@ -149,14 +149,19 @@ class PacketsController extends AppController
      * Récupère les données d'un paquet en JSON pour le market
      *
      * @param int $id
-     * @return void
+     * @return \Cake\Http\Response
      */
     public function getMarket(int $id)
     {
-        $this->autoRender = false; // Désactive le rendu automatique de la vue
+        $this->autoRender = false;
         $this->response = $this->response->withType('application/json');
 
         $packet = $this->Packets->get($id);
+
+        if($packet->status !== 0) {
+            return $this->response->withStringBody(json_encode('This deck is private'));
+        }
+
         $flashcards = $this->Packets->Flashcards->find()->where(['packet_id' => $id])->toArray();
 
         $packetKeywords = [];
