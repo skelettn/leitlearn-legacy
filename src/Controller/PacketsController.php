@@ -158,7 +158,8 @@ class PacketsController extends AppController
 
         $packet = $this->Packets->get($id);
 
-        if($packet->status !== 0) {
+        if($packet->status !== 1) {
+            $this->Flash->error('This deck is private.');
             return $this->response->withStringBody(json_encode('This deck is private'));
         }
 
