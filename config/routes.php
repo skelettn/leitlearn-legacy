@@ -209,5 +209,16 @@ return function (RouteBuilder $routes): void {
                 ]
             )
             ->setPass(['query']);
+
+        $builder->connect(
+            '/likes/get/{id}',
+            ['controller' => 'Likes', 'action' => 'get']
+        )
+            ->setPatterns(
+                [
+                    'id' => '\d+',
+                ]
+            )
+            ->setPass(['id']);
     });
 };

@@ -159,7 +159,7 @@ class PacketsController extends AppController
         try {
             $packet = $this->Packets
                 ->find()
-                ->contain(['Flashcards', 'Keywords', 'Likes'])
+                ->contain(['Flashcards', 'Keywords'])
                 ->where(['Packets.id' => $id])
                 ->firstOrFail();
         } catch (RecordNotFoundException $e) {
@@ -182,7 +182,6 @@ class PacketsController extends AppController
             'description' => $packet->description,
             'flashcards' => $packet->flashcards,
             'keywords' => $packet->keywords,
-            'likes' => $packet->likes,
             'user_packets' => $user_packets,
             'creator' => $this->Packets->Users->get($packet->creator_id),
         ];

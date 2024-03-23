@@ -8,6 +8,9 @@
                 </span>
             </div>
         </div>
+        <div class="loader-container" id="detail-modal-loader">
+            <span class="loader"></span>
+        </div>
         <div class="modal-body">
             <div class="detail">
                 <div class="creator-infos">
