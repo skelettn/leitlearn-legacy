@@ -63,10 +63,6 @@ echo $this->element('modals/register');
 echo $this->element('modals/detail_packet');
 ?>
 
-<a href="javascript:openAxeptioCookies()">
-    Cliquez-ici pour modifier vos préférences en matière de cookies
-</a>
-
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <?php if (APP_ENV !== 'development') : ?>
     <script src="<?= $this->Url->build('/js/bundle.js') ?>"></script>

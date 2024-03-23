@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Utility\AppSingleton;
 use Cake\Core\Configure;
 use Cake\Datasource\Exception\RecordNotFoundException;
+use Cake\Event\EventInterface;
 use Cake\Validation\Validator;
 use DateTime;
 use DateTimeImmutable;
@@ -15,6 +16,12 @@ use ZipArchive;
 
 class PacketsController extends AppController
 {
+    public function beforeFilter(EventInterface $event)
+    {
+        parent::beforeFilter($event);
+
+        $this->Authentication->allowUnauthenticated(['get', 'getMarket']);
+    }
 
     public function view(string $packet_uid)
     {

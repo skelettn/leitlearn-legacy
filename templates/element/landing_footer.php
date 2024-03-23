@@ -130,6 +130,13 @@
                         ['escape' => false]
                     ) ?>
                 </li>
+                <li class="footer-link">
+                    <?= $this->Html->link(
+                        'Gérer les cookies',
+                        'javascript:openAxeptioCookies()',
+                        ['escape' => false]
+                    ) ?>
+                </li>
             </ul>
         </ul>
         <div class="separator"></div>
