@@ -283,10 +283,10 @@ class PacketsController extends AppController
 
             $data = $this->request->getData();
 
-            if(!empty($data['public'])) {
-                $data['public'] = 1;
+            if(!empty($data['status'])) {
+                $data['status'] = 1;
             } else {
-                $data['public'] = 0;
+                $data['status'] = 0;
             }
 
             $packet = $this->Packets->patchEntity($packet, $data);

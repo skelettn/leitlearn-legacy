@@ -4,7 +4,7 @@
                 menu
             </span>
     </div>
-    <?= $this->Html->image('/img/leitlearn_2_logo.png', ['class' => 'logo','alt' => 'Leitlearn 2']) ?>
+    <?= $this->Html->image('https://static.leitlearn.com/v2/img/leitlearn_2_logo.webp', ['class' => 'logo','alt' => 'Leitlearn 2']) ?>
     <div class="user dashboard-sidebar-user fixed-nav">
         <div class="displayed page-redirect" data-redirection="/users/view/<?= $user_data['user_uid'] ?>">
             <?= $this->Html->image('/img/user_profile_pic/'. $user_data['profile_picture'], ['class' => 'avatar']) ?>
