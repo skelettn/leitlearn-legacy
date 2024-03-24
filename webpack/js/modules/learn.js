@@ -4,9 +4,10 @@ export const initSessions = () => {
     }
 
 let active_flashcard = document.querySelector('.card.active');
-let flashcards_count = document.getElementById('game-visu-session').childElementCount - 3;
-let correct_flashcards_count = 0;
 
+/**
+ * Gestion des énèvements si le bouton 'validé' est clické.
+ */
 function handleBtnValidClick()
 {
     let btn_valid = document.getElementById('btn-valid');
@@ -18,18 +19,22 @@ function handleBtnValidClick()
     }
 }
 
+/**
+ * Gestion des énèvements si le bouton 'échec' est clické.
+ */
 function handleBtnFailClick()
 {
     let btn_fail = document.getElementById('btn-fail');
     if (btn_fail) {
         btn_fail.addEventListener('click', function () {
-            //addElementBeforeFinish();
-            removeCardActiveAndFlipToNext();
+            addElementBeforeFinish();
         });
     }
 }
 
-
+/**
+ * Supprime la flashcard active et passe à l'autre flashcard.
+ */
 function removeCardActiveAndFlipToNext()
 {
     if (active_flashcard && !active_flashcard.classList.contains('finish')) {
@@ -38,13 +43,19 @@ function removeCardActiveAndFlipToNext()
     }
 }
 
+/**
+ * Ajoute la flashcard à la fin du jeu.
+ */
 function addElementBeforeFinish()
 {
+    let game_visu = document.getElementById('game-visu-session');
     let element = active_flashcard;
-    console.log(element);
+    element.classList.remove('active');
     let finish = document.getElementsByClassName('finish')[0];
-    console.log(finish);
     finish.parentNode.insertBefore(element, finish);
+    let new_first_flashcard = game_visu.children[1];
+    new_first_flashcard.classList.add('active');
+    active_flashcard = new_first_flashcard;
 }
 
 /**
@@ -59,12 +70,13 @@ function flipToNextCard()
     }
 }
 
-
 /**
  * Met à jour la barre de progression en fonction du nombre de cartes correctes.
  */
 function updateProgressBar()
 {
+    let correct_flashcards_count = 0;
+    let flashcards_count = document.getElementById('game-visu-session').childElementCount - 2;
     correct_flashcards_count++;
     const progressBar = document.getElementById('progressBar-session');
     progressBar.value = (correct_flashcards_count / flashcards_count) * 100;
@@ -72,7 +84,6 @@ function updateProgressBar()
         //boum();
     }
 }
-
 
 /**
  * Fait une animation conffeti à la fin de la session de jeu.

@@ -42,7 +42,7 @@ $this->assign('title', "Session");
                     </div>
                     <div class="actions-btn">
 
-                        <div class="action-btn previus change-card" id="btn-fail" data-change-card="1">
+                        <div class="action-btn" id="btn-fail">
                                 <span class="material-symbols-rounded">
                                     close
                                 </span>
@@ -57,7 +57,7 @@ $this->assign('title', "Session");
                                     volume_up
                                 </span>
                         </div>
-                        <div class="action-btn next change-card" id="btn-valid" data-change-card="-1">
+                        <div class="action-btn" id="btn-valid">
                                 <span class="material-symbols-rounded">
                                     check
                                 </span>
