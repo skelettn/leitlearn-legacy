@@ -6,15 +6,16 @@ $this->assign('title', 'Leitlearn AI');
         <div class="container ai-container">
             <div class="header">
                 <h1>
-                    <span>Bonjour&nbsp;&nbsp;<?= $user_data['username'] ?></span>
-                    <span>Que voulez-vous apprendre aujourd'hui ?</span>
+                    <span><?= __('Bonjour') ?>&nbsp;&nbsp;<?= $user_data['username'] ?></span>
+                    <span><?= __('Que voulez-vous apprendre aujourd\'hui ?') ?></span>
                 </h1>
             </div>
             <div class="page-content">
                 <div class="left">
                     <div class="prompt-form">
                         <div class="user-prompt-zone">
-                            <textarea id="leitlearn_ai_input" name="" placeholder="Saisissez ce que vous voulez apprendre"></textarea>
+                            <textarea id="leitlearn_ai_input" name="" placeholder=<?= __('Saisissez ce que vous voulez apprendre') ?>
+                            ></textarea>
                             <button class="submit" id="leitlearn_ai_submit">
                                 <?php
                                 echo '
@@ -24,7 +25,7 @@ $this->assign('title', 'Leitlearn AI');
                                 ?>
                             </button>
                         </div>
-                        <span class="warning">Leitlearn AI est encore en phase bêta et peut être instable. Tout contenu malveillant qui sera produit pourra entraîner des sanctions.</span>
+                        <span class="warning"><?= __('Leitlearn AI est encore en phase bêta et peut être instable. Tout contenu malveillant qui sera produit pourra entraîner des sanctions.') ?></span>
                     </div>
                 </div>
                 <div class="right ai-results" id="ai-results">

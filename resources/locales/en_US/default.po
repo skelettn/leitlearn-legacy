@@ -1,0 +1,159 @@
+#home english traduction
+msgid "Vous avez le pouvoir d'apprendre."
+msgstr "Learn without limits."
+
+msgid "Découvrez la plate-forme qui permet d'appendre efficacement gratuitement."
+msgstr "Explore the platform that enables efficient learning for free."
+
+msgid "Mon espace utilisateur"
+msgstr "Dashboard"
+
+msgid "est disponible"
+msgstr "is available"
+
+msgid "Commencer à apprendre"
+msgstr "Start learning"
+
+msgid "Essayez"
+msgstr "Try"
+
+msgid "Leitlearn AI"
+msgstr "Leitlearn AI"
+
+msgid "et"
+msgstr "and"
+
+msgid "Créez vos paquets"
+msgstr "Create your decks"
+
+msgid "Tendances"
+msgstr "Trends"
+
+msgid "Voir plus"
+msgstr "See more"
+
+msgid "Généré avec l'IA"
+msgstr "Generated with AI"
+
+
+msgid "Les plus importés"
+msgstr "Most imported"
+
+msgid "Créez vos paquets"
+msgstr "Create your decks "
+
+msgid "avec l'IA"
+msgstr " with AI"
+
+msgid "Générez vos flashcards puis créez votre paquet directement grâce à l'intelligence artificielle de Leitlearn."
+msgstr "Generate your flashcards and create your deck directly using Leitlearn's artificial intelligence."
+
+msgid "Parcourez notre"
+msgstr "Browse our"
+
+msgid "marché"
+msgstr "market"
+
+
+msgid "Explorez notre Marché, une fonctionnalité qui permet à nos utilisateurs de partager, d'importer des paquets et des flashcards. Créez, échangez et découvrez une variété de ressources éducatives."
+msgstr "Explore our Marketplace, a feature that allows our users to share, import decks and flashcards. Create, exchange, and discover a variety of educational resources."
+
+msgid "Parcourir"
+msgstr "Browse"
+
+msgid "Apprenez grâce à"
+msgstr "Learn with"
+
+msgid "Découvrez notre mode Leitner, une approche innovante pour un apprentissage plus efficace. Notre plateforme offre un espace dédié où les utilisateurs peuvent réviser selon une répétition journalière."
+msgstr "Discover our Leitner mode, an innovative approach for more effective learning. Our platform provides a dedicated space where users can review based on daily repetition."
+
+msgid "S'inscrire"
+msgstr "Sign up"
+
+msgid "Découvrez la mise à jour"
+msgstr "Discover the update"
+
+msgid "Système d'amis, d'importation/d'exportation par CSV, des flashcards musiques et images, des meilleures performances et plus encore..."
+msgstr "Friend system, CSV import/export, music and image flashcards, better performance, and more..."
+
+msgid "Découvrir"
+msgstr "Discover"
+
+#ia english traduction
+
+msgid "Bonjour"
+msgstr "Hello"
+
+msgid "Que voulez-vous apprendre aujourd'hui ?"
+msgstr "What do you want to learn today?"
+
+msgid "Saisissez ce que vous voulez apprendre"
+msgstr "Enter what you want to learn"
+
+msgid "Leitlearn AI est encore en phase bêta et peut être instable. Tout contenu malveillant qui sera produit pourra entraîner des sanctions."
+msgstr "Leitlearn AI is still in beta phase and may be unstable. Any malicious content produced may result in sanctions."
+
+#dashboard english traduction
+
+msgid "Mes paquets"
+msgstr "My decks"
+
+msgid "Créer un paquet"
+msgstr "Create a deck"
+
+msgid "Importer un paquet"
+msgstr "Import a deck"
+
+msgid "Mes amis"
+msgstr "My friends"
+
+msgid "Ajouter des amis"
+msgstr "Add friends"
+
+msgid "Découvrez les nouveautés"
+msgstr "Discover what's new"
+
+msgid "Suivi"
+msgstr "Tracking"
+
+msgid "Accédez à votre suivi d'avancement de chaque paquet directement dans la section statistique du paquet."
+msgstr "Access your progress tracking for each deck directly in the deck's statistics section."
+
+msgid "Marché"
+msgstr "Market"
+
+msgid "Explorez et utilisez les paquets et flashcards créés par d'autres utilisateurs sur votre espace personnel."
+msgstr "Explore and use decks and flashcards created by other users in your personal space."
+
+msgid "Mon dashboard"
+msgstr "My dashboard"
+
+msgid "Mon profil"
+msgstr "My profile"
+
+msgid "Statistiques"
+msgstr "Statistics"
+
+msgid "Paramètres de compte"
+msgstr "Account settings"
+
+msgid "Besoin d'aide ?"
+msgstr "Need help ?"
+
+msgid "Déconnexion"
+msgstr "Logout"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
