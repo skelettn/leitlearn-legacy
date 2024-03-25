@@ -144,6 +144,98 @@ msgid "Déconnexion"
 msgstr "Logout"
 
 
+#create paquet modal english traduction
+
+msgid "Nom du paquet"
+msgstr "Deck name"
+
+msgid "Description du paquet"
+msgstr "Deck description"
+
+msgid "Recherche de mots clés"
+msgstr "Keyword search"
+
+msgid "Créer le paquet"
+msgstr "Create the deck"
+
+#create flashcard modal english traduction
+
+msgid "Créer une flashcard"
+msgstr "Create a flashcard"
+
+msgid "Recto de la carte"
+msgstr "Front of the card"
+
+msgid "Verso de la carte"
+msgstr "Back of the card"
+
+msgid "Créer"
+msgstr "Create"
+
+#detail packet modal enlgish traduction
+
+msgid "Mots clés"
+msgstr "Keywords"
+
+msgid "Créateur du paquet"
+msgstr "Deck creator"
+
+msgid "Paquet"
+msgstr "Deck"
+
+msgid "Cartes"
+msgstr "Cards"
+
+msgid "Importer le paquet sur mon espace"
+msgstr "Import the deck to my space"
+
+msgid "Importer la/les cartes"
+msgstr "Import the card(s)"
+
+#import paquet modal english traduction
+
+msgid "Parcourir les fichiers"
+msgstr "Browse files"
+
+msgid "Types de fichiers pris en charge : .csv, .apkg (Anki)"
+msgstr "Supported file types: .csv, .apkg (Anki)"
+
+msgid "Importer le paquet"
+msgstr "Import the deck"
+
+#login modal english traduction
+
+msgid "Connexion"
+msgstr "Login"
+
+msgid "Adresse e-mail"
+msgstr "Email address"
+
+msgid "Mot de passe"
+msgstr "Password"
+
+msgid "Se connecter"
+msgstr "Log in"
+
+msgid "En continuant, tu acceptes les"
+msgstr "By continuing, you accept the"
+
+msgid "Conditions d'utilisation"
+msgstr "Terms of Use"
+
+msgid "de Leitlearn et confirmes avoir lu les"
+msgstr "of Leitlearn and confirm that you have read the"
+
+msgid "Politique de confidentialité"
+msgstr "Privacy Policy"
+
+msgid "de Leitlearn."
+msgstr "of Leitlearn."
+
+msgid "Vous n'avez pas de compte ?"
+msgstr "Don't have an account?"
+
+
 
 
 

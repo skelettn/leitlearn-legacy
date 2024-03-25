@@ -19,13 +19,13 @@
                     </div>
                     <div class="information">
                         <div class="data">
-                            <span>Mots clés</span>
+                            <span><?= __('Mots clés') ?></span>
                             <div class="keys" id="modal-detail-keys"></div>
                         </div>
                     </div>
                     <div class="information">
                         <div class="data">
-                            <span>Créateur du paquet</span>
+                            <span><?= __('Créateur du paquet') ?></span>
                             <div class="packet-creator" id="modal-detail-creator">
                                 <img class='avatar' src="" alt="avatar-user">
                                 <strong></strong>
@@ -36,10 +36,10 @@
             </div>
             <div class="tabs">
                 <?php if ($is_logged) : ?>
-                    <button class="switch-tab active" data-tab="detail-tab-paquets">Paquet</button>
-                    <button class="switch-tab" data-tab="detail-tab-flashcards">Cartes</button>
+                    <button class="switch-tab active" data-tab="detail-tab-paquets"><?= __('Paquet') ?></button>
+                    <button class="switch-tab" data-tab="detail-tab-flashcards"><?= __('Cartes') ?></button>
                 <?php else : ?>
-                    <button class="switch-tab active" data-tab="detail-tab-flashcards">Cartes</button>
+                    <button class="switch-tab active" data-tab="detail-tab-flashcards"><?= __('Cartes') ?></button>
                 <?php endif;
                 ?>
             </div>
@@ -48,7 +48,7 @@
                 <?= $this->Form->hidden('packet_id', ['value' => '', 'id' => 'modal-detail-packet-id']) ?>
                 <div class="tab detail-tab" id="detail-tab-paquets" style="display: flex;">
                     <div class="loader-button">
-                        <?= $this->Form->submit('Importer le paquet sur mon espace') ?>
+                        <?= $this->Form->submit(__('Importer le paquet sur mon espace')) ?>
                         <span class="loader"></span>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                     <div class="actions">
                         <select name="selected_packet" id="modal-detail-selected-packet" class="select-paquet"></select>
                         <div class="loader-button">
-                            <?= $this->Form->submit('Importer la/les cartes') ?>
+                            <?= $this->Form->submit(__('Importer la/les cartes')) ?>
                             <span class="loader"></span>
                         </div>
                     </div>
