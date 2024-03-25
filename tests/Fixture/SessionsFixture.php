@@ -23,8 +23,8 @@ class SessionsFixture extends TestFixture
                 'session_uid' => 'Lorem ipsum dolor sit amet',
                 'packet_id' => 1,
                 'expected_folder' => 1,
-                'created' => '2024-03-19 19:31:58',
-                'modified' => '2024-03-19 19:31:58',
+                'created' => '2024-03-25 10:43:28',
+                'modified' => '2024-03-25 10:43:28',
             ],
         ];
         parent::init();

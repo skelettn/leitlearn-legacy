@@ -27,6 +27,7 @@ class SessionsController extends AppController
         $this->session = $session;
         $flashcards = $this->getFlashcards();
 
+
         if ($this->isFinished()) {
             return $this->redirect('/deck/' . $packet->packet_uid);
         }
@@ -34,19 +35,11 @@ class SessionsController extends AppController
         $this->set(compact('flashcards', 'session', 'packet'));
     }
 
-    public function create()
-    {
-    }
-
-    public function join()
-    {
-    }
-
     public function getFlashcards()
     {
         $flashcards = [];
         foreach ($this->packet['flashcards'] as $flashcard) {
-            if ($flashcard->leitner_folder == $this->session['expected_folder'] - 1) {
+            if ($flashcard->leitner_folder === $this->session['expected_folder'] - 1) {
                 $flashcards[] = $flashcard;
             }
         }
@@ -66,7 +59,15 @@ class SessionsController extends AppController
         }
 
         if ($finishedCardsCount === $count) {
-            return true;
+            $id = $this->session->id;
+            $session = $this->Sessions->get(['id' => $id]);
+            $data['expected_folder'] = $session->expected_folder += 1;
+            $session = $this->Sessions->patchEntity($session, $data);
+            if ($this->Sessions->save($session)) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         return false;

@@ -1,11 +1,28 @@
 <?php
-$this->assign('title', "Session");
+$this->assign('title', 'Session');
 ?>
 <main class="dashboard-container">
     <?= $this->element('dashboard_fixed_mobile') ?>
     <div class="container dashboard">
+        <div class="packet-header">
+            <h1 class="title">
+                <?= $packet->name ?>
+            </h1>
+            <div class="actions" id="play-actions-btn">
+                        <?= $this->Html->link(
+                            'Retour <span class="material-symbols-rounded">undo</span>',
+                            '/deck/' . $packet->packet_uid,
+                            [
+                            'class' => 'action play btnPlay ',
+                            'escapeTitle' => false,
+                            'id' => 'btn-play',
+                            ]
+                        ) ?>
+
+            </div>
+        </div>
         <section>
-            <h2 class="section-title" id="title-game">Session en cours</h2>
+            <h2 class="session-title" id="title-game">Session en cours</h2>
             <div class="containerGame">
                 <div class="game" id="game-visu-session" data-idPacket = <?= $packet->id ?>>
                     <div class="progress">
@@ -40,9 +57,9 @@ $this->assign('title', "Session");
                             <p>Vous avez terminé 🎉 🥳</p>
                         </div>
                     </div>
-                    <div class="actions-btn">
+                    <div class="actions-btn" id="actions-btn">
 
-                        <div class="action-btn" id="btn-fail">
+                        <div class="action-btn " id="btn-fail">
                                 <span class="material-symbols-rounded">
                                     close
                                 </span>

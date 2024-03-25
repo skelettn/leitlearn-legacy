@@ -14,7 +14,7 @@ use Cake\ORM\Entity;
  * @property string|null $description
  * @property \Cake\I18n\DateTime|null $created
  * @property int $importation_count
- * @property bool $public
+ * @property int $status
  * @property bool $ia
  * @property int $user_id
  * @property int|null $creator_id
@@ -41,7 +41,7 @@ class Packet extends Entity
         'description' => true,
         'created' => true,
         'importation_count' => true,
-        'public' => true,
+        'status' => true,
         'ia' => true,
         'user_id' => true,
         'creator_id' => true,

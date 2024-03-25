@@ -27,7 +27,7 @@ class PacketsController extends AppController
         try {
             $packet = $this->Packets
                 ->find()
-                ->contain(['Flashcards', 'Keywords', 'Users'])
+                ->contain(['Flashcards', 'Keywords', 'Users', 'Sessions'])
                 ->where(['packet_uid' => $packet_uid])
                 ->first();
             ;
@@ -82,8 +82,9 @@ class PacketsController extends AppController
         catch (RecordNotFoundException $e) {
             $creator = $this->Packets->Users->get($packet->user_id);
         }
+        $session = $packet->sessions[0];
 
-        $this->set(compact('packet', 'date', 'handlePlayBtn', 'handleRemainingTime', 'is_private', 'is_my_packet', 'leitlearn_folders', 'creator', 'flashcards_numb'));
+        $this->set(compact('packet', 'date', 'handlePlayBtn', 'handleRemainingTime', 'is_private', 'is_my_packet', 'leitlearn_folders', 'creator', 'flashcards_numb', 'session'));
     }
 
     /**

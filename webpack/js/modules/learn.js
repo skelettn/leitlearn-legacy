@@ -87,6 +87,8 @@ function updateProgressBar()
     progressBar.value = (correct_flashcards_count / flashcards_count) * 100;
     if (correct_flashcards_count === flashcards_count) {
         //boum();
+        let action_btn = document.getElementById('actions-btn')
+        action_btn.style.display = 'none';
     }
 }
 
@@ -107,7 +109,6 @@ function increaseLeitnerFolder(id_flashcard, id_packet)
         },
     });
 }
-
 
 /**
  * Fait une animation confeti à la fin de la session de jeu.
