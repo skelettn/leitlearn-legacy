@@ -217,6 +217,10 @@
     margin-bottom: 15px;
 }
 
+.creator-infos .information:last-child {
+    margin-bottom: 0;
+}
+
 .creator-infos .information .profile-picture {
     width: 45px;
     height: 45px;

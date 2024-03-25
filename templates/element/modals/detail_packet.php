@@ -26,7 +26,9 @@
                             <div class="keys" id="modal-detail-keys"></div>
                         </div>
                     </div>
-                    <?= $this->cell('FeatureFlags::display', ['packet_modal_like_dislike']); ?>
+                    <?php if ($is_logged) : ?>
+                        <?= $this->cell('FeatureFlags::display', ['packet_modal_like_dislike']); ?>
+                    <?php endif; ?>
                     <div class="information">
                         <div class="data">
                             <span>Créateur du paquet</span>
