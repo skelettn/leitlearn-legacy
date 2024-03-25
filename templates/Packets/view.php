@@ -32,13 +32,17 @@ $this->assign('title', $packet->name);
                             web_traffic
                         </span>
                     </button>
-                    <button class="action play btnPlay <?= $handlePlayBtn ?>" id="btn-play">
-                        Lancer
-                        <span class="material-symbols-rounded">
-                            arrow_selector_tool
-                        </span>
-                    </button>
-                    <p class="<?= $handleRemainingTime ?>" id="remainingTime"></p>
+                        <?= $this->Html->link(
+                        'Lancer <span class="material-symbols-rounded">arrow_selector_tool</span>',
+                        ['controller' => 'Sessions', 'action' => 'index',$session->session_uid],
+                        [
+                            'class' => 'action play btnPlay ' . $handlePlayBtn,
+                            'escapeTitle' => false,
+                            'id' => 'btn-play'
+                        ]
+                    ) ?>
+
+                        <p class="<?= $handleRemainingTime ?>" id="remainingTime"></p>
                     <?php endif; ?>
                 <?php elseif (!$is_my_packet && !$is_private) : ?>
                     <?= $this->Form->postLink(
