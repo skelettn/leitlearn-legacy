@@ -71,7 +71,6 @@
                         <?= $this->Html->link(
                             __('Mon profil'),
                             '/user/'.$user_data['user_uid'],
-                            '/user/me',
                             ['escape' => false]
                         ) ?>
                     </li>
