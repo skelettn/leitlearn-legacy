@@ -11,7 +11,7 @@ $this->assign('title', 'Marché');
                     <?= $this->Html->image('/img/user_profile_pic/'. $user_data['profile_picture'], ['class' => 'profile-picture']) ?>
                     <div class="text">
                         <span><?= $user_data['username'] ?></span>
-                        <h2>Vos paquets</h2>
+                        <h2><?= __('Vos paquets') ?></h2>
                     </div>
                 </div>
                 <div class="scroll-buttons">
@@ -41,7 +41,7 @@ $this->assign('title', 'Marché');
                         search
                     </span>
                 </label>
-                <input type="text" name="" id="market_search" placeholder="Rechercher sur Leitlearn">
+                <input type="text" name="" id="market_search" placeholder='<?= __('Rechercher sur Leitlearn') ?>'>
             </div>
             <div class="search-results">
                 <?= $cell = $this->cell('Packets::display_search', ['trend']) ?>
@@ -50,7 +50,7 @@ $this->assign('title', 'Marché');
         <section class="section-packets">
             <div class="section-header">
                 <h2 class="packets-title">
-                    Tendances
+                    <?= __('Tendances') ?>
                 </h2>
                 <div class="scroll-buttons">
                     <button class="prev-button scroll-button">
@@ -74,7 +74,7 @@ $this->assign('title', 'Marché');
         <section class="section-packets">
             <div class="section-header">
                 <h2 class="packets-title">
-                    Généré avec l'IA
+                    <?= __('Généré avec l\'IA') ?>
                 </h2>
                 <div class="scroll-buttons">
                     <button class="prev-button scroll-button">
@@ -96,7 +96,7 @@ $this->assign('title', 'Marché');
             </div>
         </section>
         <section>
-            <h2 class="packets-title">Catégories</h2>
+            <h2 class="packets-title"><?=__('Catégories')?></h2>
             <div class="categories">
                 <?= $cell = $this->cell('Keywords::display', []) ?>
             </div>
@@ -104,7 +104,7 @@ $this->assign('title', 'Marché');
         <section class="section-packets">
             <div class="section-header">
                 <h2 class="packets-title">
-                    Les plus importés
+                    <?=__('Les plus importés')?>
                 </h2>
                 <div class="scroll-buttons">
                     <button class="prev-button scroll-button">
