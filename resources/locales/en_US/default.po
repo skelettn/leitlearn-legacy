@@ -352,10 +352,7 @@ msgid "cartes"
 msgstr "cards"
 
 msgid "Paquet généré avec l'intelligence artificielle"
-msgstr "Package generated with artificial intelligence"
-
-msgid "Paquet généré avec l'intelligence artificielle"
-msgstr "Package generated with artificial intelligence"
+msgstr "Deck generated with artificial intelligence"
 
 #landing footer english traduction
 
@@ -400,4 +397,18 @@ msgstr "About"
 
 msgid "Contactez-nous"
 msgstr "Contact Us"
+
+
+#category market english traduction
+
+msgid "Catégories"
+msgstr "Categories"
+
+#market index english traduction
+
+msgid "Vos paquets"
+msgstr "Your decks"
+
+msgid "Rechercher sur Leitlearn"
+msgstr "Search on Leitlearn"
 

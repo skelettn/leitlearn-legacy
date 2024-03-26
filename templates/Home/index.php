@@ -30,7 +30,7 @@ $this->assign('title', 'Apprenez grâce aux flashcards');
     </div>
     <video autoplay muted loop id="header-video">
         <source src="/videos/header.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        <?= __('Your browser does not support the video tag.') ?>
     </video>
 </header>
 
