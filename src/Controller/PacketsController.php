@@ -76,7 +76,7 @@ class PacketsController extends AppController
             $session = $packet->sessions[0];
             $date = $session->next_launch;
             $now = FrozenTime::now();
-            $this->set(compact('date', 'now'));
+            $this->set(compact('date', 'now', 'session'));
         }
 
 

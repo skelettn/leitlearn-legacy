@@ -14,6 +14,8 @@ class SessionsController extends AppController
     public function index(string $session_uid)
     {
 
+        $this->viewBuilder()->setLayout('play');
+
         $session = $this->Sessions
             ->find()
             ->contain(['Packets'])
@@ -33,6 +35,10 @@ class SessionsController extends AppController
         $now = new DateTime();
         if ($session->next_launch > $now) {
             return $this->redirect('/deck/' . $packet->packet_uid);
+        }
+
+        if ($session->expected_folder == 8) {
+            $this->delete($session->session_uid);
         }
 
         $this->set(compact('flashcards', 'session', 'packet'));
@@ -88,10 +94,10 @@ class SessionsController extends AppController
                 $this->matchUserWithPacketAndSessions(
                     $this->request->getSession()->read('Auth.id'),
                     $existingSession->packet_id,
-                    $existingSession->id
+                    $existingSession->session_uid
                 )
             ) {
-                return $this->redirect('/sessions/index/' . $existingSession->session_uid);
+                return $this->redirect('/session/' . $existingSession->session_uid);
             }
         } catch (RecordNotFoundException $e) {
         }
@@ -104,7 +110,7 @@ class SessionsController extends AppController
         if ($this->Sessions->save($session)) {
             $this->Flash->success('Session de jeu créée avec succès');
 
-            return $this->redirect('/sessions/index/' . $session->session_uid);
+            return $this->redirect('/session/' . $session->session_uid);
         } else {
             $this->Flash->error('Erreur lors de la création de la session de jeu');
         }
@@ -120,13 +126,13 @@ class SessionsController extends AppController
      * @param string $session_uid
      * @return bool
      */
-    public function matchUserWithPacketAndSessions(int $user_id, string $packet_uid, string $session_uid): bool
+    public function matchUserWithPacketAndSessions(int $user_id, int $packet_id, string $session_uid): bool
     {
         return $this->Sessions->Packets->find()
                 ->select()
                 ->where([
                     'user_id' => $user_id,
-                    'packet_uid' => $packet_uid,
+                    'id' => $packet_id,
                 ])
                 ->count() >= 1
             &&
@@ -136,5 +142,35 @@ class SessionsController extends AppController
                     'session_uid' => $session_uid,
                 ])
                 ->count() >= 1;
+    }
+
+    public function delete($session_uid)
+    {
+        $session = $this->Sessions->find()->contain(['Packets'])->where(['session_uid' => $session_uid])->firstOrFail();
+
+        if (
+            $this->matchUserWithPacketAndSessions(
+                $this->request->getSession()->read('Auth.id'),
+                $session->packet_id,
+                $session->session_uid
+            )
+        ) {
+            if ($this->Sessions->delete($session)) {
+                $packet = $this->Sessions->Packets
+                    ->find()
+                    ->contain(['Flashcards'])
+                    ->where(['packet_uid' => $session->packet->packet_uid])
+                    ->first();
+                foreach ($packet['flashcards'] as $flashcard) {
+                    $flashcard->leitner_folder = 1;
+                    $this->Sessions->Packets->Flashcards->save($flashcard);
+                }
+                $this->request->getFlash()->success('Session terminée !');
+            } else {
+                $this->request->getFlash()->success('Erreur dans le suppression de la session.');
+            }
+        }
+
+        return $this->redirect('/deck/' . $session->packet->packet_uid);
     }
 }

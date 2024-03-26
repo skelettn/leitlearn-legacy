@@ -33,7 +33,23 @@ $this->assign('title', $packet->name);
                         </span>
                     </button>
 
-                    <?php if (isset($date) && ($now < $date)) : ?>
+
+
+                        <?php if (isset($session)) : ?>
+                            <?= $this->Form->postLink(
+                                '<span class="material-symbols-rounded">history</span>',
+                                ['controller' => 'Sessions', 'action' => 'delete', $session->session_uid],
+                                [
+                                    'confirm' => 'Êtes-vous sur de vouloir réinitialiser la session ?',
+                                    'class' => 'action play-hidden',
+                                    'escapeTitle' => false,
+                                ]
+                            )
+                            ?>
+
+                        <?php endif; ?>
+
+                        <?php if (isset($date) && ($now < $date)) : ?>
                             <p class="<?= $handleRemainingTime ?>" id="remainingTime"></p>
                         <?php else : ?>
                             <?= $this->Form->postLink(
@@ -42,7 +58,7 @@ $this->assign('title', $packet->name);
                                 ['class' => 'action play btnPlay create-session-btn', 'escapeTitle' => false]
                             ) ?>
                         <?php endif; ?>
-                <?php endif; ?>
+                    <?php endif; ?>
 
 
 

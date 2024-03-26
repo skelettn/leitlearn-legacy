@@ -86,12 +86,12 @@ function updateProgressBar()
     const progressBar = document.getElementById('progressBar-session');
     progressBar.value = (correct_flashcards_count / flashcards_count) * 100;
     if (correct_flashcards_count === flashcards_count) {
-        //boum();
+        boum();
         let action_btn = document.getElementById('actions-btn')
         action_btn.style.display = 'none';
         let packet_id = document.getElementById('game-visu-session').getAttribute('data-idpacket');
-
         increaseSession(packet_id);
+
     }
 }
 

@@ -102,6 +102,17 @@ return function (RouteBuilder $routes): void {
             ->setPass(['deck_uid']);
 
         $builder->connect(
+            '/session/{session_uid}',
+            ['controller' => 'Sessions', 'action' => 'index']
+        )
+            ->setPatterns(
+                [
+                    'session_uid' => '[a-z0-9\-]+',
+                ]
+            )
+            ->setPass(['session_uid']);
+
+        $builder->connect(
             '/market/{category}',
             ['controller' => 'Market', 'action' => 'category']
         )
