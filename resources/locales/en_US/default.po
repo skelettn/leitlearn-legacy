@@ -346,7 +346,7 @@ msgstr "Confirm New Password"
 msgid "Modifier le mot de passe"
 msgstr "Change Password"
 
-#display cell
+#display cell english traduction
 
 msgid "cartes"
 msgstr "cards"
@@ -356,3 +356,48 @@ msgstr "Package generated with artificial intelligence"
 
 msgid "Paquet généré avec l'intelligence artificielle"
 msgstr "Package generated with artificial intelligence"
+
+#landing footer english traduction
+
+msgid "C'est le moment d'apprendre."
+msgstr "It's time to learn."
+
+msgid "Langue"
+msgstr "Language"
+
+msgid "Français"
+msgstr "French"
+
+msgid "Anglais"
+msgstr "English"
+
+msgid "Espagnol"
+msgstr "Spanish"
+
+msgid "Réseaux sociaux"
+msgstr "Social networks"
+
+msgid "Marché"
+msgstr "Market"
+
+msgid "Moi"
+msgstr "Me"
+
+msgid "Espace utilisateur"
+msgstr "User space"
+
+msgid "Paramètres"
+msgstr "Settings"
+
+msgid "Statut des serveurs"
+msgstr "Server Status"
+
+msgid "Aide"
+msgstr "Help"
+
+msgid "À-propos"
+msgstr "About"
+
+msgid "Contactez-nous"
+msgstr "Contact Us"
+

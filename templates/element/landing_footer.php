@@ -1,33 +1,33 @@
 <footer>
     <div class="footer-content">
-        <p class="footer-desc">C'est le moment d'apprendre.</p>
-        <?php if($is_logged) : ?>
+        <p class="footer-desc"><?= __('C\'est le moment d\'apprendre.') ?></p>
+        <?php if ($is_logged) : ?>
             <?= $this->Html->link(
-                '<button>
-                Mon espace utilisateur
+                '<button>' .
+                 __('Mon espace utilisateur') . '
                 <span class="material-symbols-rounded">arrow_forward</span>
             </button>',
                 '/dashboard',
                 ['escape' => false]
             ) ?>
-        <?php else: ?>
+        <?php else : ?>
             <button class="modal-btn" data-modal="login-modal">
-                Commencer à apprendre
+                <?= __('Commencer à apprendre') ?>
                 <span class="material-symbols-rounded">arrow_forward</span>
             </button>
         <?php endif; ?>
     </div>
     <div class="footer-data">
         <div class="languages">
-            <h4>Langue</h4>
+            <h4><?= __('Langue') ?></h4>
             <ul class="links">
-                <li class="link">Français</li>
-                <li class="link">Anglais</li>
-                <li class="link">Espagnol</li>
+                <li class="link"><?= __('Français') ?></li>
+                <li class="link"><?= __('Anglais') ?></li>
+                <li class="link"><?= __('Espagnol') ?></li>
             </ul>
         </div>
         <div class="social">
-            <h4>Réseaux sociaux</h4>
+            <h4><?= __('Réseaux sociaux') ?></h4>
             <ul class="links">
                 <li class="link">
                     <?= $this->Html->link(
@@ -44,53 +44,53 @@
                 <span>Pages</span>
                 <li class="footer-link">
                     <?= $this->Html->link(
-                        'Marché',
+                        __('Marché'),
                         '/market',
                         ['escape' => false]
                     ) ?>
                 </li>
                 <li class="footer-link">
                     <?= $this->Html->link(
-                        'Créer un compte',
+                        __('Créer un compte'),
                         '/users/register',
                         ['escape' => false]
                     ) ?>
                 </li>
                 <li class="footer-link">
                     <?= $this->Html->link(
-                        'Connexion',
+                        __('Connexion'),
                         '/users/login',
                         ['escape' => false]
                     ) ?>
                 </li>
             </ul>
-            <?php if($is_logged) : ?>
+            <?php if ($is_logged) : ?>
                 <ul class="footer-links">
-                    <span>Moi</span>
+                    <span><?= __('Moi') ?></span>
                     <li class="footer-link">
                         <?= $this->Html->link(
-                            'Mon profil',
+                            __('Mon profil'),
                             '/user/me',
                             ['escape' => false]
                         ) ?>
                     </li>
                     <li class="footer-link">
                         <?= $this->Html->link(
-                            'Espace utilisateur',
+                            __('Espace utilisateur'),
                             '/dashboard',
                             ['escape' => false]
                         ) ?>
                     </li>
                     <li class="footer-link">
                         <?= $this->Html->link(
-                            'Paramètres',
+                            __('Paramètres'),
                             '/settings',
                             ['escape' => false]
                         ) ?>
                     </li>
                     <li class="footer-link">
                         <?= $this->Html->link(
-                            'Déconnexion',
+                            __('Déconnexion'),
                             '/logout',
                             ['escape' => false]
                         ) ?>
@@ -98,17 +98,17 @@
                 </ul>
             <?php endif; ?>
             <ul class="footer-links">
-                <span>Aide</span>
+                <span><?= __('Aide') ?></span>
                 <li class="footer-link">
                     <?= $this->Html->link(
-                        'Statut des serveurs',
+                        __('Statut des serveurs'),
                         'https://leitlearn.instatus.com/',
                         ['escape' => false]
                     ) ?>
                 </li>
                 <li class="footer-link">
                     <?= $this->Html->link(
-                        'Documentation',
+                        __('Documentation'),
                         '/docs',
                         ['escape' => false]
                     ) ?>
@@ -118,14 +118,14 @@
                 <span>Leitlearn</span>
                 <li class="footer-link">
                     <?= $this->Html->link(
-                        'À-propos',
+                        __('À-propos'),
                         '/about',
                         ['escape' => false]
                     ) ?>
                 </li>
                 <li class="footer-link">
                     <?= $this->Html->link(
-                        'Contactez-nous',
+                        __('Contactez-nous'),
                         '/contact',
                         ['escape' => false]
                     ) ?>
