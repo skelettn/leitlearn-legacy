@@ -1,5 +1,5 @@
 <span class="stat">
-    <?= $packets ?> Paquets
+    <?= $packets ?> <?= __('Paquets') ?>
     &nbsp;·&nbsp;
-    <?= $friends ?> Amis
+    <?= $friends ?> <?= __('Amis') ?>
 </span>

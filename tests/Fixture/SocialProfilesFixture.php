@@ -29,12 +29,12 @@ class SocialProfilesFixture extends TestFixture
                 'last_name' => 'Lorem ipsum dolor sit amet',
                 'full_name' => 'Lorem ipsum dolor sit amet',
                 'email' => 'Lorem ipsum dolor sit amet',
-                'birth_date' => '2024-02-22',
+                'birth_date' => '2024-03-23',
                 'gender' => 'Lorem ipsum dolor sit amet',
                 'picture_url' => 'Lorem ipsum dolor sit amet',
                 'email_verified' => 1,
-                'created' => '2024-02-22 10:02:46',
-                'modified' => '2024-02-22 10:02:46',
+                'created' => '2024-03-23 16:40:56',
+                'modified' => '2024-03-23 16:40:56',
             ],
         ];
         parent::init();

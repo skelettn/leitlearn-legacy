@@ -1,0 +1,660 @@
+#home english traduction
+msgid "Vous avez le pouvoir d'apprendre."
+msgstr "Learn without limits."
+
+msgid "Découvrez la plate-forme qui permet d'appendre efficacement gratuitement."
+msgstr "Explore the platform that enables efficient learning for free."
+
+msgid "Mon espace utilisateur"
+msgstr "Dashboard"
+
+msgid "est disponible"
+msgstr "is available"
+
+msgid "Commencer à apprendre"
+msgstr "Start learning"
+
+msgid "Essayez"
+msgstr "Try"
+
+msgid "Leitlearn AI"
+msgstr "Leitlearn AI"
+
+msgid "et"
+msgstr "and"
+
+msgid "Créez vos paquets"
+msgstr "Create your decks"
+
+msgid "Tendances"
+msgstr "Trends"
+
+msgid "Voir plus"
+msgstr "See more"
+
+msgid "Généré avec l'IA"
+msgstr "Generated with AI"
+
+
+msgid "Les plus importés"
+msgstr "Most imported"
+
+msgid "Créez vos paquets"
+msgstr "Create your decks "
+
+msgid "avec l'IA"
+msgstr " with AI"
+
+msgid "Générez vos flashcards puis créez votre paquet directement grâce à l'intelligence artificielle de Leitlearn."
+msgstr "Generate your flashcards and create your deck directly using Leitlearn's artificial intelligence."
+
+msgid "Parcourez notre"
+msgstr "Browse our"
+
+msgid "marché"
+msgstr "market"
+
+
+msgid "Explorez notre Marché, une fonctionnalité qui permet à nos utilisateurs de partager, d'importer des paquets et des flashcards. Créez, échangez et découvrez une variété de ressources éducatives."
+msgstr "Explore our Marketplace, a feature that allows our users to share, import decks and flashcards. Create, exchange, and discover a variety of educational resources."
+
+msgid "Parcourir"
+msgstr "Browse"
+
+msgid "Apprenez grâce à"
+msgstr "Learn with"
+
+msgid "Découvrez notre mode Leitner, une approche innovante pour un apprentissage plus efficace. Notre plateforme offre un espace dédié où les utilisateurs peuvent réviser selon une répétition journalière."
+msgstr "Discover our Leitner mode, an innovative approach for more effective learning. Our platform provides a dedicated space where users can review based on daily repetition."
+
+msgid "S'inscrire"
+msgstr "Sign up"
+
+msgid "Découvrez la mise à jour"
+msgstr "Discover the update"
+
+msgid "Système d'amis, d'importation/d'exportation par CSV, des flashcards musiques et images, des meilleures performances et plus encore..."
+msgstr "Friend system, CSV import/export, music and image flashcards, better performance, and more..."
+
+msgid "Découvrir"
+msgstr "Discover"
+
+#ia english traduction
+
+msgid "Bonjour"
+msgstr "Hello"
+
+msgid "Que voulez-vous apprendre aujourd'hui ?"
+msgstr "What do you want to learn today?"
+
+msgid "Saisissez ce que vous voulez apprendre"
+msgstr "Enter what you want to learn"
+
+msgid "Leitlearn AI est encore en phase bêta et peut être instable. Tout contenu malveillant qui sera produit pourra entraîner des sanctions."
+msgstr "Leitlearn AI is still in beta phase and may be unstable. Any malicious content produced may result in sanctions."
+
+#dashboard english traduction
+
+msgid "Mes paquets"
+msgstr "My decks"
+
+msgid "Créer un paquet"
+msgstr "Create a deck"
+
+msgid "Importer un paquet"
+msgstr "Import a deck"
+
+msgid "Mes amis"
+msgstr "My friends"
+
+msgid "Ajouter des amis"
+msgstr "Add friends"
+
+msgid "Découvrez les nouveautés"
+msgstr "Discover what's new"
+
+msgid "Suivi"
+msgstr "Tracking"
+
+msgid "Accédez à votre suivi d'avancement de chaque paquet directement dans la section statistique du paquet."
+msgstr "Access your progress tracking for each deck directly in the deck's statistics section."
+
+msgid "Marché"
+msgstr "Market"
+
+msgid "Explorez et utilisez les paquets et flashcards créés par d'autres utilisateurs sur votre espace personnel."
+msgstr "Explore and use decks and flashcards created by other users in your personal space."
+
+msgid "Mon dashboard"
+msgstr "My dashboard"
+
+msgid "Mon profil"
+msgstr "My profile"
+
+msgid "Statistiques"
+msgstr "Statistics"
+
+msgid "Paramètres de compte"
+msgstr "Account settings"
+
+msgid "Besoin d'aide ?"
+msgstr "Need help ?"
+
+msgid "Déconnexion"
+msgstr "Logout"
+
+
+#create paquet modal english traduction
+
+msgid "Nom du paquet"
+msgstr "Deck name"
+
+msgid "Description du paquet"
+msgstr "Deck description"
+
+msgid "Recherche de mots clés"
+msgstr "Keyword search"
+
+msgid "Créer le paquet"
+msgstr "Create the deck"
+
+#create flashcard modal english traduction
+
+msgid "Créer une flashcard"
+msgstr "Create a flashcard"
+
+msgid "Recto de la carte"
+msgstr "Front of the card"
+
+msgid "Verso de la carte"
+msgstr "Back of the card"
+
+msgid "Créer"
+msgstr "Create"
+
+#detail packet modal enlgish traduction
+
+msgid "Mots clés"
+msgstr "Keywords"
+
+msgid "Créateur du paquet"
+msgstr "Deck creator"
+
+msgid "Paquet"
+msgstr "Deck"
+
+msgid "Cartes"
+msgstr "Flashcards"
+
+msgid "Importer le paquet sur mon espace"
+msgstr "Import the deck to my space"
+
+msgid "Importer la/les cartes"
+msgstr "Import the flashcard(s)"
+
+#import paquet modal english traduction
+
+msgid "Parcourir les fichiers"
+msgstr "Browse files"
+
+msgid "Types de fichiers pris en charge : .csv, .apkg (Anki)"
+msgstr "Supported file types: .csv, .apkg (Anki)"
+
+msgid "Importer le paquet"
+msgstr "Import the deck"
+
+#login modal english traduction
+
+msgid "Connexion"
+msgstr "Login"
+
+msgid "Adresse e-mail"
+msgstr "Email address"
+
+msgid "Mot de passe"
+msgstr "Password"
+
+msgid "Se connecter"
+msgstr "Log in"
+
+msgid "En continuant, tu acceptes les"
+msgstr "By continuing, you accept the"
+
+msgid "Conditions d'utilisation"
+msgstr "Terms of Use"
+
+msgid "de Leitlearn et confirmes avoir lu les"
+msgstr "of Leitlearn and confirm that you have read the"
+
+msgid "Politique de confidentialité"
+msgstr "Privacy Policy"
+
+msgid "de Leitlearn."
+msgstr "of Leitlearn."
+
+msgid "Vous n'avez pas de compte ?"
+msgstr "Don't have an account?"
+
+#modify flashcard modal english traduction
+
+msgid "Modifier la flashcard"
+msgstr "Edit the flashcard"
+
+#news modal english traduction
+
+msgid "Leitlearn 2 arrive!"
+msgstr "Leitlearn 2 is coming!"
+
+msgid "Découvrez la mise à jour Leitlearn 2 qui apporte de nombreuses nouveautés et correctifs."
+msgstr "Discover the Leitlearn 2 update that brings many new features and fixes."
+
+msgid "Cette mise à jour sera disponible entre le mois de mars et avril 2024."
+msgstr "This update will be available between March and April 2024."
+
+msgid "Voici les principales nouveautés associées à cette mise à jour :"
+msgstr "Here are the main innovations associated with this update:"
+
+msgid "Système de relations entre utilisateurs"
+msgstr "User relationship system"
+
+msgid "Découvrez les flashcards musiques et images pour mieux apprendre la géographie et les langues"
+msgstr "Discover music and image flashcards to better learn geography and languages"
+
+msgid "Importez et exportez vos paquets en CSV"
+msgstr "Import and export your decks in CSV"
+
+msgid "Une interface repensée pour une meilleure expérience utilisateur"
+msgstr "A redesigned interface for a better user experience"
+
+msgid "Et plus encore."
+msgstr "And more."
+
+msgid "Mise à jour&nbsp;&nbsp;1.0.1"
+msgstr "Update&nbsp;&nbsp;1.0.1"
+
+msgid "Cette mise à jour corrige certains problèmes majeurs avant Leitlearn 2."
+msgstr "This update addresses some major issues ahead of Leitlearn 2."
+
+#register modal english traduction
+
+msgid "Créer un compte"
+msgstr "Create your account"
+
+msgid "Utiliser Leitlearn Ai"
+msgstr "Use Leitlearn Ai"
+
+msgid "Créez vos paquets"
+msgstr "Create your decks"
+
+msgid "Partagez avec la communauté"
+msgstr "Share with the community"
+
+msgid "Prénom"
+msgstr "First name"
+
+msgid "Nom de famille"
+msgstr "Last name"
+
+msgid "Nom d'utilisateur"
+msgstr "Username"
+
+msgid "Vous avez déjà un compte ?"
+msgstr "Already have an account?"
+
+#search users modal english traduction
+
+msgid "Utilisateurs"
+msgstr "Users"
+
+#update user modal english traduction
+
+msgid "Modification du profil"
+msgstr "Edit Profile"
+
+msgid "Genre"
+msgstr "Gender"
+
+msgid "Homme"
+msgstr "Male"
+
+msgid "Femme"
+msgstr "Female"
+
+msgid "Non renseigné"
+msgstr "Not specified"
+
+msgid "-- Sélectionner --"
+msgstr "-- Select --"
+
+msgid "Sauvegarder"
+msgstr "Save"
+
+#update password modal english traduction
+
+msgid "Modification du mot de passe"
+msgstr "Change Password"
+
+msgid "Mot de passe actuel"
+msgstr "Current Password"
+
+msgid "Nouveau mot de passe"
+msgstr "New Password"
+
+msgid "Confirmez votre nouveau mot de passe"
+msgstr "Confirm New Password"
+
+msgid "Modifier le mot de passe"
+msgstr "Change Password"
+
+#display cell english traduction
+
+msgid "cartes"
+msgstr "flashcards"
+
+msgid "Paquet généré avec l'intelligence artificielle"
+msgstr "Deck generated with artificial intelligence"
+
+#landing footer english traduction
+
+msgid "C'est le moment d'apprendre."
+msgstr "It's time to learn."
+
+msgid "Langue"
+msgstr "Language"
+
+msgid "Français"
+msgstr "French"
+
+msgid "Anglais"
+msgstr "English"
+
+msgid "Espagnol"
+msgstr "Spanish"
+
+msgid "Réseaux sociaux"
+msgstr "Social networks"
+
+msgid "Marché"
+msgstr "Market"
+
+msgid "Moi"
+msgstr "Me"
+
+msgid "Espace utilisateur"
+msgstr "User space"
+
+msgid "Paramètres"
+msgstr "Settings"
+
+msgid "Statut des serveurs"
+msgstr "Server Status"
+
+msgid "Aide"
+msgstr "Help"
+
+msgid "À-propos"
+msgstr "About"
+
+msgid "Mentions légales"
+msgstr "Legal"
+
+msgid "Contactez-nous"
+msgstr "Contact Us"
+
+msgid "Gérer les cookies"
+msgstr "Manage cookies"
+
+
+#category market english traduction
+
+msgid "Catégories"
+msgstr "Categories"
+
+#market index english traduction
+
+msgid "Vos paquets"
+msgstr "Your decks"
+
+msgid "Rechercher sur Leitlearn"
+msgstr "Search on Leitlearn"
+
+
+#settings english traduction
+
+msgid "Paramètre de"
+msgstr "Settings of"
+
+msgid "Informations"
+msgstr "Information"
+
+msgid "Nom"
+msgstr "Name"
+
+msgid "Visibilité du paquet"
+msgstr "Deck Visibility"
+
+msgid "Autres"
+msgstr "Others"
+
+msgid "Suppression du paquet"
+msgstr "Delete the deck"
+
+msgid "Supprimer le paquet"
+msgstr "Delete"
+
+msgid "Êtes-vous sûr de vouloir supprimer le paquet ?"
+msgstr "Are you sure you want to delete the deck?"
+
+msgid "Êtes-vous sûr de vouloir exporter le paquet ?"
+msgstr "Are you sure you want to export the deck?"
+
+msgid "Importer le paquet"
+msgstr "Import the deck"
+
+msgid "Êtes-vous sûr de vouloir importer le paquet ?"
+msgstr "Are you sure you want to import the deck?"
+
+msgid "Êtes-vous sûr de vouloir exporter le paquet ?"
+msgstr "Are you sure you want to export the deck?"
+
+#login page english traduction
+
+msgid "Se connecter à Leitlearn"
+msgstr "Log in to Leitlearn"
+
+msgid "Connectez-vous pour utiliser toutes les fonctionnalités de Leitlearn"
+msgstr "Log in to access all Leitlearn features"
+
+#register page english traduction
+
+msgid "S'inscrire sur Leitlearn"
+msgstr "Sign up on Leitlearn"
+
+msgid "Inscrivez-vous pour utiliser toutes les fonctionnalités de Leitlearn"
+msgstr "Sign up to use all the features of Leitlearn"
+
+msgid "Date de naissance"
+msgstr "Date of Birth"
+
+#settings page english traduction
+
+msgid "Mon Compte"
+msgstr "My Account"
+
+msgid "Mes informations générales"
+msgstr "My general information"
+
+msgid "Mes coordonnées"
+msgstr "My contact details"
+
+msgid "Sécurité"
+msgstr "Security"
+
+msgid "Adresse email"
+msgstr "Email address"
+
+msgid "Suppression de compte"
+msgstr "Account Deletion"
+
+msgid "Supprimer"
+msgstr "Delete"
+
+#view user profile english traduction
+
+msgid "Accepter la demande en amis"
+msgstr "Accept friend request"
+
+msgid "Refuser la demande en amis"
+msgstr "Decline friend request"
+
+msgid "Vous êtes amis ensemble."
+msgstr "You are friends together."
+
+msgid "Ajouter en amis"
+msgstr "Add as friend"
+
+msgid "Supprimer des amis"
+msgstr "Remove friend"
+
+msgid "Paquets"
+msgstr "Decks"
+
+msgid "Réservés aux amis"
+msgstr "Reserved for friends"
+
+msgid "Générés avec l'IA"
+msgstr "Generated with AI"
+
+msgid "Amis"
+msgstr "Friends"
+
+#view deck english traduction
+
+msgid "Retour au paquet"
+msgstr "Back to Deck"
+
+msgid "Lancer"
+msgstr "Launch"
+
+msgid "Visualisation du paquet"
+msgstr "Deck Preview"
+
+msgid "Vous avez terminé"
+msgstr "You have finished"
+
+msgid "Vous n'avez aucune carte."
+msgstr "You have no flashcards."
+
+msgid "Jouable dans..."
+msgstr "Playable in..."
+
+msgid "Le contenu de la carte est verrouillé"
+msgstr "The content of the card is locked"
+
+msgid "Modifier la carte"
+msgstr "Edit card"
+
+msgid "Supprimer la carte"
+msgstr "Delete card"
+
+msgid "Visualisation de l'avancement"
+msgstr "Progress overview"
+
+msgid "Paramètres de jeu"
+msgstr "Game settings"
+
+msgid "Nombre de flashcards par dossier Leitner"
+msgstr "Number of flashcards per Leitner folder"
+
+msgid "Méthode par répétition (Leitner)"
+msgstr "Spaced repetition method (Leitner)"
+
+msgid "Algorithme pour apprendre sur une longue période. Basé sur la méthode de Leitner cette méthode vous permet d'apprendre en 7 jours vos cartes efficacement."
+msgstr "Algorithm for long-term learning. Based on the Leitner method, this method allows you to effectively learn your cards in 7 days."
+
+msgid "Nombre de flashcards"
+msgstr "Number of flashcards"
+
+msgid "Crée le"
+msgstr "Created on"
+
+msgid "Crée par"
+msgstr "Created by"
+
+
+#legal page english traduction
+
+msgid "Mentions légales"
+msgstr "Legal notice"
+
+msgid "Éditeurs du site :"
+msgstr "Site editors:"
+
+msgid "Nom : Kilian PEYRON, Léo TRUX, Aiman MANCHOUT, Louis GERNEZ"
+msgstr "Name: Kilian PEYRON, Léo TRUX, Aiman MANCHOUT, Louis GERNEZ"
+
+msgid "Adresse : Basé à Bourg-en-Bresse, France"
+msgstr "Address: Based in Bourg-en-Bresse, France"
+
+msgid "E-mail : kilianpeyn@gmail.com"
+msgstr "Email: kilianpeyn@gmail.com"
+
+msgid "Responsable de la publication : Kilian PEYRON"
+msgstr "Publication manager: Kilian PEYRON"
+
+msgid "Hébergeur du site :"
+msgstr "Site host:"
+
+msgid "SAS PulseHeberg"
+msgstr "SAS PulseHeberg"
+
+msgid "9 Boulevard de Strasbourg"
+msgstr "9 Boulevard de Strasbourg"
+
+msgid "83000 Toulon"
+msgstr "83000 Toulon"
+
+msgid "Société par Action Simplifiée"
+msgstr "Simplified Joint Stock Company"
+
+msgid "SIRET : 824 070 619 00039"
+msgstr "SIRET: 824 070 619 00039"
+
+msgid "Protection des données personnelles :"
+msgstr "Personal data protection:"
+
+msgid "Conformément à la loi \"Informatique et Libertés\" du 6 janvier 1978 modifiée et au Règlement Général sur la Protection des Données (RGPD) (UE) 2016/679, vous disposez d'un droit d'accès, de rectification et de suppression des données personnelles vous concernant. Pour exercer ce droit, veuillez contacter : kilianpeyn@gmail.com."
+msgstr "In accordance with the amended \"Computer and Freedoms\" law of January 6, 1978 and the General Data Protection Regulation (GDPR) (EU) 2016/679, you have the right to access, rectify and delete personal data concerning you. To exercise this right, please contact: kilianpeyn@gmail.com."
+
+msgid "Propriété intellectuelle :"
+msgstr "Intellectual property:"
+
+msgid "Le contenu de ce site web (textes, images, vidéos, etc.) est protégé par le droit de la propriété intellectuelle. Toute reproduction, totale ou partielle, est strictement interdite sans autorisation préalable des développeurs."
+msgstr "The content of this website (texts, images, videos, etc.) is protected by intellectual property law. Any total or partial reproduction is strictly prohibited without prior authorization from the developers."
+
+msgid "Responsabilité :"
+msgstr "Responsibility:"
+
+msgid "Les développeurs du site ne peuvent être tenus responsables des erreurs présentes sur le site, ni des éventuels dommages directs ou indirects pouvant résulter de l'utilisation du site ou de son contenu."
+msgstr "The site developers cannot be held responsible for errors on the site, nor for any direct or indirect damages that may result from the use of the site or its content."
+
+msgid "Liens hypertextes :"
+msgstr "Hyperlinks:"
+
+msgid "Ce site peut contenir des liens hypertextes vers d'autres sites internet. Les développeurs du site ne peuvent être tenus responsables du contenu de ces sites, ni des éventuels dommages pouvant résulter de leur utilisation."
+msgstr "This site may contain hyperlinks to other websites. The site developers cannot be held responsible for the content of these sites, nor for any damages that may result from their use."
+
+msgid "Cookies :"
+msgstr "Cookies:"
+
+msgid "Ce site peut utiliser des cookies pour améliorer l'expérience utilisateur. En naviguant sur ce site, vous acceptez l'utilisation des cookies conformément à notre politique en matière de cookies."
+msgstr "This site may use cookies to improve the user experience. By browsing this site, you accept the use of cookies in accordance with our cookie policy."
+
+msgid "Loi applicable et juridiction compétente :"
+msgstr "Applicable law and competent jurisdiction:"
+
+msgid "Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents."
+msgstr "These legal notices are subject to French law. In the event of a dispute, the French courts shall have sole jurisdiction."
+
+msgid "Date de dernière mise à jour :"
+msgstr "Last update date:"

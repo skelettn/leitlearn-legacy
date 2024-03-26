@@ -27,7 +27,7 @@ $cakeDescription = ' - Leitlearn';
         <?= $this->fetch('title') ?>
         <?= $cakeDescription ?>
     </title>
-    <?= $this->Html->meta('icon', 'img/favicon.jpg') ?>
+    <?= $this->Html->meta('icon', 'https://static.leitlearn.com/v2/img/favicon.webp') ?>
     <?= $this->fetch('meta') ?>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
@@ -69,6 +69,28 @@ echo $this->element('modals/detail_packet');
 <?php else : ?>
     <script src="<?= $this->Url->build('http://localhost:9000/bundle.js') ?>"></script>
 <?php endif; ?>
+
+<script>
+    window.axeptioSettings = {
+        clientId: "65fb42b2bc6af6b297fe1a25",
+        googleConsentMode: {
+            default: {
+                analytics_storage: "denied",
+                ad_storage: "denied",
+                ad_user_data: "denied",
+                ad_personalization: "denied",
+                wait_for_update: 500
+            }
+        }
+    };
+
+    (function(d, s) {
+        var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+        e.async = true; e.src = "//static.axept.io/sdk.js";
+        t.parentNode.insertBefore(e, t);
+    })(document, "script");
+</script>
+
 </body>
 
 </html>

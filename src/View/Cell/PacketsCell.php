@@ -11,16 +11,16 @@ class PacketsCell extends Cell
 
         switch ($filter) {
             case 'trend':
-                $query->where(['public' => 1])->limit(10);
+                $query->where(['status' => 1])->limit(10);
                 break;
             case 'import':
-                $query->where(['public' => 1])->order(['importation_count' => 'DESC'])->limit(10);
+                $query->where(['status' => 1])->order(['importation_count' => 'DESC'])->limit(10);
                 break;
             case 'ai':
-                $query->where(['ia' => 1, 'public' => 1])->limit(10);
+                $query->where(['ia' => 1, 'status' => 1])->limit(10);
                 break;
             case 'public':
-                $query->where(['public' => 1]);
+                $query->where(['status' => 1]);
                 break;
             case 'my':
                 $query->where(['user_id' => $logged_user_id]);
@@ -30,6 +30,11 @@ class PacketsCell extends Cell
                 break;
             case 'my_no_ia':
                 $query->where(['user_id' => $logged_user_id, 'ia' => 0]);
+                break;
+            case 'my_ia_public':
+                $query->where(['user_id' => $logged_user_id, 'ia' => 1, 'status' => 1]);
+            case 'my_no_ia_public':
+                $query->where(['user_id' => $logged_user_id, 'ia' => 0, 'status' => 1]);
                 break;
             default:
                 break;
@@ -46,7 +51,7 @@ class PacketsCell extends Cell
         $packets = $this->fetchTable("Packets")
             ->find()
             ->contain(['Flashcards', 'Users', 'Keywords'])
-            ->where(['public' => 0, 'user_id' => $user_id])
+            ->where(['status' => 2, 'user_id' => $user_id])
             ->all()
         ;
 
@@ -58,7 +63,7 @@ class PacketsCell extends Cell
         $query = $this->fetchTable("Packets")
             ->find()
             ->contain(['Flashcards', 'Users', 'Keywords'])
-            ->where(['public' => 1])
+            ->where(['status' => 1])
             ->order(['importation_count' => 'DESC'])
             ->limit(10);;
 
@@ -70,7 +75,7 @@ class PacketsCell extends Cell
     {
         $packets = $this->fetchTable("Packets")->find()
             ->contain(['Flashcards', 'Keywords', 'Users'])
-            ->where(['public' => 1])
+            ->where(['status' => 1])
             ->matching('Keywords', function ($q) use ($category) {
                 return $q->where(['Keywords.word' => $category]);
             })

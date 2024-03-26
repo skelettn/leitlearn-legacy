@@ -17,7 +17,7 @@ $months = [
 <div class="modal" id="update-userdata">
     <div class="modal-container">
         <div class="modal-header">
-            <h2 class="title">Modification du profil</h2>
+            <h2 class="title"><?= __('Modification du profil') ?></h2>
             <div class="modal-close">
                 <span class="material-symbols-rounded">
                     close
@@ -43,35 +43,35 @@ $months = [
             <div class="input-flex">
                 <div class="input-group">
                     <?= $this->Form->input('name', ['id' => 'update-name', 'placeholder' => '', 'default' => $user_data['name']]); ?>
-                    <?= $this->Form->label('update-name', 'Prénom') ?>
+                    <?= $this->Form->label('update-name', __('Prénom')) ?>
                 </div>
                 <div class="input-group">
                     <?= $this->Form->input('last_name', ['id' => 'update-lastname', 'placeholder' => '', 'default' => $user_data['last_name']]); ?>
-                    <?= $this->Form->label('update-lastname', 'Nom de famille') ?>
+                    <?= $this->Form->label('update-lastname', __('Nom de famille')) ?>
                 </div>
             </div>
             <div class="input-group">
                 <?= $this->Form->input('username', ['id' => 'update-username', 'placeholder' => '', 'default' => $user_data['username']]); ?>
-                <?= $this->Form->label('update-username', 'Nom d\'utilisateur') ?>
+                <?= $this->Form->label('update-username', __('Nom d\'utilisateur')) ?>
             </div>
             <div class="input-group">
                 <?= $this->Form->input('email', ['id' => 'update-email', 'placeholder' => '', 'default' => $user_data['email']]); ?>
-                <?= $this->Form->label('update-email', 'Adresse e-mail') ?>
+                <?= $this->Form->label('update-email', __('Adresse e-mail')) ?>
             </div>
             <div class="genre">
-                <h3 class="info">Genre</h3>
+                <h3 class="info"><?= __('Genre') ?></h3>
                 <div class="selects">
                     <?php
                     echo $this->Form->select(
                         'gender',
-                        ['M' => 'Homme', 'W' => 'Femme', 'O' => 'Non renseigné'],
-                        ['empty' => '-- Sélectionner --']
+                        ['M' => __('Homme'), 'W' => __('Femme'), 'O' => __('Non renseigné')],
+                        ['empty' => __('-- Sélectionner --')]
                     );
                     ?>
                 </div>
             </div>
             <div class="loader-button">
-                <?= $this->Form->submit('Sauvegarder'); ?>
+                <?= $this->Form->submit(__('Sauvegarder')); ?>
                 <span class="loader"></span>
             </div>
             <?= $this->Form->end(); ?>

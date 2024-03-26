@@ -30,10 +30,13 @@ class FriendsCell extends Cell
             }
         }
 
-        $users = $this->fetchTable("Users")
-            ->find()
-            ->where(['Users.id IN' => $friendUserIds])
-            ->toArray();
+        if(!empty($friendUserIds)) {
+            $users = $this->fetchTable("Users")
+                ->find()
+                ->where(['Users.id IN' => $friendUserIds])
+                ->toArray();
+        }
+
 
         foreach ($friends as $friend) {
             foreach ($users as $user) {

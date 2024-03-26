@@ -23,8 +23,8 @@ class FriendsFixture extends TestFixture
                 'requester_id' => 1,
                 'recipient_id' => 1,
                 'status' => 'Lorem ipsum dolor ',
-                'created' => '2024-02-22 10:02:44',
-                'modified' => '2024-02-22 10:02:44',
+                'created' => '2024-03-23 16:40:49',
+                'modified' => '2024-03-23 16:40:49',
             ],
         ];
         parent::init();

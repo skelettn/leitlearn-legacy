@@ -41,7 +41,7 @@ $this->assign('title', $category . ' - Marché');
             </div>
         </section>
         <section>
-            <h2 class="packets-title">Catégories</h2>
+            <h2 class="packets-title"><?= __('Catégories') ?></h2>
             <div class="categories">
                 <?= $cell = $this->cell('Keywords::display', []) ?>
             </div>

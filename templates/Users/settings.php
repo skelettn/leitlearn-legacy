@@ -6,11 +6,11 @@ $this->assign('title', 'Paramètres de compte');
     <div class="container dashboard">
         <section>
             <div class="section-header">
-                <h1 class="title part-title">Mon Compte</h1>
+                <h1 class="title part-title"><?= __('Mon Compte') ?></h1>
             </div>
             <div class="infos general">
                 <h5 class="infos-title">
-                    Mes informations générales
+                    <?= __('Mes informations générales') ?>
                     <button class="edit modal-btn" data-modal="update-userdata">
                         <span class="material-symbols-rounded">
                             edit
@@ -18,23 +18,23 @@ $this->assign('title', 'Paramètres de compte');
                     </button>
                 </h5>
                 <div class="info-picture">
-                    <?= $this->Html->image('/img/user_profile_pic/'. $user_data['profile_picture'], ['class' => 'avatar']) ?>
+                    <?= $this->Html->image('/img/user_profile_pic/' . $user_data['profile_picture'], ['class' => 'avatar']) ?>
                 </div>
                 <div class="info">
-                    <p>Nom</p>
+                    <p><?= __('Nom')?></p>
                     <p><?= $user_data['last_name'] ?></p>
                 </div>
                 <div class="info">
-                    <p>Prénom</p>
+                    <p><?=__('Prénom')?></p>
                     <p><?= $user_data['name'] ?></p>
                 </div>
                 <div class="info">
-                    <p>Nom d'utilisateur</p>
+                    <p><?=__('Nom d\'utilisateur')?></p>
                     <p><?= $user_data['username'] ?></p>
                 </div>
                 <div class="info">
-                    <p>Genre</p>
-                    <p><?= ($user_data['gender'] === 'M') ? 'Homme' : (($user_data['gender'] === 'W') ? 'Femme' : 'Non renseigné'); ?></p>
+                    <p><?= __('Genre')?></p>
+                    <p><?= $user_data['gender'] === 'M' ? __('Homme') : ($user_data['gender'] === 'W' ? __('Femme') : __('Non renseigné')); ?></p>
                 </div>
                 <div class="info">
                     <p>UID</p>
@@ -42,22 +42,23 @@ $this->assign('title', 'Paramètres de compte');
                 </div>
             </div>
             <div class="infos general">
-                <h5 class="infos-title">Mes coordonnées</h5>
+                <h5 class="infos-title"><?= __('Mes coordonnées') ?></h5>
                 <div class="info">
-                    <p>Adresse email</p>
+                    <p><?=__('Adresse email')?></p>
                     <p><?= $user_data['email'] ?></p>
                 </div>
             </div>
             <div class="infos general">
-                <h5 class="infos-title">Sécurité</h5>
+                <h5 class="infos-title"><?= __('Sécurité') ?></h5>
                 <div class="info modal-btn" data-modal="update-user-password">
-                    <p>Mot de passe</p>
+                    <p><?= __('Mot de passe')?></p>
                     <p>•••••••••••••••</p>
                 </div>
                 <div class="info">
-                    <p>Suppression de compte</p>
+                    <p><?= __('Suppression de compte') ?></p>
                     <?= $this->Form->postLink(
-                        '<button type="submit">Supprimer</button>',
+                        '<button type="submit">' . __('Supprimer')
+                        . '</button>',
                         ['controller' => 'Users', 'action' => 'delete'],
                         [
                             'confirm' => 'Êtes-vous sur de vouloir supprimer votre compte ?',

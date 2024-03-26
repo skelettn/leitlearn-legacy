@@ -3,42 +3,46 @@
     <ul class="dashboard-links">
         <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/dashboard' ? 'active' : '' ?>">
             <?= $this->Html->link(
-                '<span class="material-symbols-rounded">space_dashboard</span> Mon dashboard',
+                '<span class="material-symbols-rounded">space_dashboard</span>'. __('Mon dashboard')
+                ,
                 '/dashboard',
                 ['escapeTitle' => false]
             ); ?>
+
         </li>
         <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/users/view/' . $user_data['user_uid'] ? 'active' : '' ?>">
             <?= $this->Html->link(
-                '<span class="material-symbols-rounded">account_circle</span> Mon profil',
+                '<span class="material-symbols-rounded">account_circle</span>'. __('Mon profil')
+                ,
                 '/users/view/' . $user_data['user_uid'],
                 ['escapeTitle' => false]
             ); ?>
         </li>
         <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/stats' ? 'active' : '' ?>">
             <?= $this->Html->link(
-                '<span class="material-symbols-rounded">equalizer</span> Statistiques',
+                '<span class="material-symbols-rounded">equalizer</span>'. __('Statistiques')
+                ,
                 '/stats',
                 ['escapeTitle' => false]
             ); ?>
         </li>
         <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/users/settings' ? 'active' : '' ?>">
             <?= $this->Html->link(
-                '<span class="material-symbols-rounded">settings</span> Paramètres de compte',
+                '<span class="material-symbols-rounded">settings</span>'. __('Paramètres de compte'),
                 '/users/settings',
                 ['escapeTitle' => false]
             ); ?>
         </li>
         <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/docs' ? 'active' : '' ?>">
             <?= $this->Html->link(
-                '<span class="material-symbols-rounded">support</span> Besoin d\'aide ?',
+                '<span class="material-symbols-rounded">support</span>'. __('Besoin d\'aide ?'),
                 '/docs',
                 ['escapeTitle' => false]
             ); ?>
         </li>
         <li class="dashboard-link">
             <?= $this->Form->postLink(
-                '<span class="material-symbols-rounded">logout</span> Déconnexion',
+                '<span class="material-symbols-rounded">logout</span>'. __('Déconnexion'),
                 ['controller' => 'Users', 'action' => 'logout'],
                 ['escapeTitle' => false]
             ) ?>

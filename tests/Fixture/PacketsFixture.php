@@ -23,13 +23,13 @@ class PacketsFixture extends TestFixture
                 'packet_uid' => 'Lorem ipsum dolor sit amet',
                 'name' => 'Lorem ipsum dolor sit amet',
                 'description' => 'Lorem ipsum dolor sit amet',
-                'created' => '2024-03-25 10:45:36',
+                'created' => '2024-03-23 16:40:54',
                 'importation_count' => 1,
                 'status' => 1,
                 'ia' => 1,
                 'user_id' => 1,
                 'creator_id' => 1,
-                'modified' => '2024-03-25 10:45:36',
+                'modified' => '2024-03-23 16:40:54',
             ],
         ];
         parent::init();

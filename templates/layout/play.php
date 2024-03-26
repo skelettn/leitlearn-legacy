@@ -27,7 +27,7 @@ $cakeDescription = ' - Leitlearn';
         <?= $this->fetch('title') ?>
         <?= $cakeDescription ?>
     </title>
-    <?= $this->Html->meta('icon', 'img/favicon.jpg') ?>
+    <?= $this->Html->meta('icon', 'https://static.leitlearn.com/v2/img/favicon.webp') ?>
     <?= $this->Html->css(['dashboard']) ?>
     <?= $this->fetch('meta') ?>
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.snow.css" rel="stylesheet">
@@ -74,7 +74,6 @@ echo $this->element('modals/modify_packet');
     <script src="<?= $this->Url->build('http://localhost:9000/bundle.js') ?>"></script>
 <?php endif; ?>
 <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
-
 </body>
 
 </html>

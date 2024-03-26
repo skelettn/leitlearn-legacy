@@ -1,7 +1,7 @@
 <?php
 $this->assign('title', 'Mon profil');
 if ($user->user_uid != $user_data['user_uid']) {
-    $this->assign('title', 'Profil de '.$user->username);
+    $this->assign('title', 'Profil de ' . $user->username);
 }
 ?>
 <main class="dashboard-container">
@@ -25,9 +25,10 @@ if ($user->user_uid != $user_data['user_uid']) {
                                     ' <button class="action">
                                         <span class="material-symbols-rounded">
                                             person_add
-                                        </span>
-                                        Ajouter en amis
-                                    </button>',
+                                        </span>' .
+                                    __('Ajouter en amis') .
+
+                                    '</button>',
                                     ['controller' => 'Friends', 'action' => 'request', $user->user_uid],
                                     ['escapeTitle' => false,]
                                 ) ?>
@@ -41,8 +42,9 @@ if ($user->user_uid != $user_data['user_uid']) {
                                         ' <button class="action">
                                         <span class="material-symbols-rounded">
                                             person_add
-                                        </span>
-                                        Accepter la demande en amis
+                                        </span>' .
+                                        __('Accepter la demande en amis')
+                                        . '
                                     </button>',
                                         ['controller' => 'Friends', 'action' => 'accept', $user->user_uid],
                                         ['escapeTitle' => false,]
@@ -51,8 +53,10 @@ if ($user->user_uid != $user_data['user_uid']) {
                                         ' <button class="action">
                                         <span class="material-symbols-rounded">
                                             person_add
-                                        </span>
-                                        Refuser la demande en amis
+                                        </span>' .
+                                        __('Refuser la demande en amis')
+                                        . '
+                                 
                                     </button>',
                                         ['controller' => 'Friends', 'action' => 'delete', $user->user_uid],
                                         ['escapeTitle' => false,]
@@ -61,16 +65,16 @@ if ($user->user_uid != $user_data['user_uid']) {
                             <?php endif; ?>
                         <?php else : ?>
                             <div class="status">
-                                Vous êtes amis ensemble.
+                                <?= __('Vous êtes amis ensemble.') ?>
                             </div>
                             <div class="actions">
                                 <?= $this->Form->postLink(
                                     ' <button class="action">
                                         <span class="material-symbols-rounded">
                                             person_add
-                                        </span>
-                                       Supprimer des amis
-                                    </button>',
+                                        </span>' .
+                                        __('Supprimer des amis') .
+                                    '</button>',
                                     ['controller' => 'Friends', 'action' => 'delete', $user->user_uid],
                                     ['escapeTitle' => false,]
                                 ) ?>
@@ -84,7 +88,7 @@ if ($user->user_uid != $user_data['user_uid']) {
         <section class="section-packets profile-packets">
             <div class="section-header profile">
                 <h2 class="paquet-title">
-                    Paquets
+                    <?= __('Paquets') ?>
                 </h2>
                 <div class="scroll-buttons">
                     <button class="prev-button scroll-button">
@@ -101,14 +105,14 @@ if ($user->user_uid != $user_data['user_uid']) {
             </div>
             <div class="scroll-menu">
                 <div class="scroll-content">
-                    <?= $cell = $this->cell('Packets::display', ['my_no_ia', $user->id, 'dashboard']) ?>
+                    <?= $cell = $this->cell('Packets::display', ['my_no_ia_public', $user->id, 'dashboard']) ?>
                 </div>
             </div>
         </section>
         <section class="section-packets profile-packets">
             <div class="section-header profile">
                 <h2 class="paquet-title">
-                    Réservés aux amis
+                    <?= __('Réservés aux amis') ?>
                 </h2>
                 <div class="scroll-buttons">
                     <button class="prev-button scroll-button">
@@ -132,7 +136,7 @@ if ($user->user_uid != $user_data['user_uid']) {
         <section class="section-packets profile-packets">
             <div class="section-header profile">
                 <h2 class="paquet-title">
-                    Générés avec l'IA
+                    <?= __('Générés avec l\'IA') ?>
                 </h2>
                 <div class="scroll-buttons">
                     <button class="prev-button scroll-button">
@@ -149,7 +153,7 @@ if ($user->user_uid != $user_data['user_uid']) {
             </div>
             <div class="scroll-menu">
                 <div class="scroll-content">
-                    <?= $cell = $this->cell('Packets::display', ['my_ia', $user->id, 'dashboard']) ?>
+                    <?= $cell = $this->cell('Packets::display', ['my_ia_public', $user->id, 'dashboard']) ?>
                 </div>
             </div>
         </section>

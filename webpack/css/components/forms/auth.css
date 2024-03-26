@@ -41,12 +41,8 @@
 
 .auth-form .auth-form-container .auth-form-header .logo {
     margin: auto;
-    width: 35px;
     height: 45px;
     transform: translateX(-50%);
-    background-image: url(https://static.leitlearn.com/img/leitlearn-logo.png);
-    background-size: cover;
-    background-position: center center;
     object-fit: cover;
     cursor: pointer;
 }

@@ -47,6 +47,8 @@ class PagesController extends AppController
      */
     public function display(string ...$path): ?Response
     {
+        $this->viewBuilder()->setLayout('home_market');
+
         if (!$path) {
             return $this->redirect('/');
         }

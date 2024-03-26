@@ -11,21 +11,21 @@
             <div class="news-container">
                 <div class="news">
                     <div class="news-thumbnail" style="background-image: url('https://static.leitlearn.com/img/leitlearn_2_news.png')"></div>
-                    <h2 class="news-title">Leitlearn 2 arrive!</h2>
-                    <p class="news-desc">Découvrez la mise à jour Leitlearn 2 qui apporte de nombreuses nouveautés et correctifs.</p>
-                    <p class="news-desc">Cette mise à jour sera disponible entre le mois de mars et avril 2024.</p>
-                    <p class="news-desc">Voici les principales nouveautés associées à cette mise à jour :</p>
+                    <h2 class="news-title"><?= __('Leitlearn 2 arrive!') ?></h2>
+                    <p class="news-desc"><?= __('Découvrez la mise à jour Leitlearn 2 qui apporte de nombreuses nouveautés et correctifs.') ?></p>
+                    <p class="news-desc"><?= __('Cette mise à jour sera disponible entre le mois de mars et avril 2024.') ?></p>
+                    <p class="news-desc"><?= __('Voici les principales nouveautés associées à cette mise à jour :') ?></p>
                     <ul>
-                        <li>Système de relations entre utilisateurs</li>
-                        <li>Découvrez les flashcards musiques et images pour mieux apprendre la géographie et les langues</li>
-                        <li>Importez et exportez vos paquets en CSV</li>
-                        <li>Une interface repensée pour une meilleure expérience utilisateur</li>
-                        <li>Et plus encore.</li>
+                        <li><?= __('Système de relations entre utilisateurs') ?></li>
+                        <li><?= __('Découvrez les flashcards musiques et images pour mieux apprendre la géographie et les langues') ?></li>
+                        <li><?= __('Importez et exportez vos paquets en CSV') ?></li>
+                        <li><?= __('Une interface repensée pour une meilleure expérience utilisateur') ?></li>
+                        <li><?= __('Et plus encore.') ?></li>
                     </ul>
                 </div>
                 <div class="news">
-                    <h2 class="news-title">Mise à jour&nbsp;&nbsp;1.0.1</h2>
-                    <p class="news-desc">Cette mise à jour corrige certains problèmes majeurs avant Leitlearn 2.</p>
+                    <h2 class="news-title"><?= __('Mise à jour&nbsp;&nbsp;1.0.1') ?></h2>
+                    <p class="news-desc"><?= __('Cette mise à jour corrige certains problèmes majeurs avant Leitlearn 2.') ?></p>
                 </div>
             </div>
         </div>

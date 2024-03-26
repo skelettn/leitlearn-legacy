@@ -8,6 +8,7 @@ use Cake\Core\Configure;
 use Cake\Datasource\Exception\RecordNotFoundException;
 use Cake\I18n\Date;
 use Cake\I18n\FrozenTime;
+use Cake\Event\EventInterface;
 use Cake\Validation\Validator;
 use DateTime;
 use DateTimeImmutable;
@@ -17,6 +18,12 @@ use ZipArchive;
 
 class PacketsController extends AppController
 {
+    public function beforeFilter(EventInterface $event)
+    {
+        parent::beforeFilter($event);
+
+        $this->Authentication->allowUnauthenticated(['get', 'getMarket']);
+    }
 
     public function view(string $packet_uid)
     {
@@ -104,7 +111,7 @@ class PacketsController extends AppController
         if(!is_null($category)) {
             $paquets = $this->Packets->find()
                 ->contain(['Keywords'])
-                ->where(['public' => 1])
+                ->where(['status' => 1])
                 ->matching('Keywords', function ($q) use ($category) {
                     return $q->where(['Keywords.word' => $category]);
                 })
@@ -112,7 +119,7 @@ class PacketsController extends AppController
         } else {
             $paquets = $this->Packets->find()
                 ->contain(['Keywords'])
-                ->where(['public' => 1])
+                ->where(['status' => 1])
                 ->toArray();
         }
 
@@ -139,23 +146,28 @@ class PacketsController extends AppController
      * Récupère les données d'un paquet en JSON pour le market
      *
      * @param int $id
-     * @return void
+     * @return \Cake\Http\Response
      */
     public function getMarket(int $id)
     {
-        $this->autoRender = false; // Désactive le rendu automatique de la vue
+        $this->autoRender = false;
         $this->response = $this->response->withType('application/json');
 
-        $packet = $this->Packets->get($id);
-        $flashcards = $this->Packets->Flashcards->find()->where(['packet_id' => $id])->toArray();
-
-        $packetKeywords = [];
-        $keywords = $this->Packets->Keywords->find()->toArray();
-        foreach ($keywords as $keyword) {
-            if ($keyword['exist'] == 1) {
-                $packetKeywords[] = $keyword;
-            }
+        try {
+            $packet = $this->Packets
+                ->find()
+                ->contain(['Flashcards', 'Keywords'])
+                ->where(['Packets.id' => $id])
+                ->firstOrFail();
+        } catch (RecordNotFoundException $e) {
+            return $this->redirect(['controller' => 'Home', 'action' => 'index']);
         }
+
+        if($packet->status !== 1) {
+            $this->Flash->error('This deck is private.');
+            return $this->response->withStringBody(json_encode('This deck is private'));
+        }
+
         $user_packets = [];
         if ($this->request->getSession()->check('Auth.id')) {
             $user_packets = $this->Packets->find()->where(['user_id' => AppSingleton::getUser($this->request->getSession())->id])->toArray();
@@ -165,8 +177,8 @@ class PacketsController extends AppController
             'id' => $packet->id,
             'name' => $packet->name,
             'description' => $packet->description,
-            'flashcards' => $flashcards,
-            'keywords' => $packetKeywords,
+            'flashcards' => $packet->flashcards,
+            'keywords' => $packet->keywords,
             'user_packets' => $user_packets,
             'creator' => $this->Packets->Users->get($packet->creator_id),
         ];
@@ -246,10 +258,10 @@ class PacketsController extends AppController
 
             $data = $this->request->getData();
 
-            if(!empty($data['public'])) {
-                $data['public'] = 1;
+            if(!empty($data['status'])) {
+                $data['status'] = 1;
             } else {
-                $data['public'] = 0;
+                $data['status'] = 0;
             }
 
             $packet = $this->Packets->patchEntity($packet, $data);
@@ -297,13 +309,9 @@ class PacketsController extends AppController
                 foreach ($this->request->getData('keywords') as $keyword) {
                     $keywordEntity = $this->Packets->Keywords->findOrCreate(['id' => $keyword]);
                     $keywordsEntities[] = $keywordEntity;
-
                 }
                 $packet->keywords = $keywordsEntities;
             }
-
-
-
             if ($this->Packets->save($packet, ['associated' => ['Keywords','Sessions']])) {
                 $this->Flash->success('Votre paquet a été créé avec succès.');
             } else {

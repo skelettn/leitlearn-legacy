@@ -1,7 +1,7 @@
 <div class="modal" id="modify-flashcard">
     <div class="modal-container wider">
         <div class="modal-header">
-            <h2 class="title">Modifier la flashcard</h2>
+            <h2 class="title"><?= __('Modifier la flashcard') ?></h2>
             <div class="modal-close">
                 <span class="material-symbols-rounded">
                     close

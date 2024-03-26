@@ -59,9 +59,8 @@ return function (RouteBuilder $routes): void {
          */
         $builder->connect('/', ['controller' => 'Home', 'action' => 'index']);
 
-        // Pages statiques
-        // Page de documentation
-        $builder->connect('/documentation', ['controller' => 'Pages', 'action' => 'display', 'documentation']);
+        // Legal
+        $builder->connect('/legal', ['controller' => 'Pages', 'action' => 'display', 'legal']);
 
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
@@ -221,5 +220,16 @@ return function (RouteBuilder $routes): void {
                 ]
             )
             ->setPass(['query']);
+
+        $builder->connect(
+            '/likes/get/{id}',
+            ['controller' => 'Likes', 'action' => 'get']
+        )
+            ->setPatterns(
+                [
+                    'id' => '\d+',
+                ]
+            )
+            ->setPass(['id']);
     });
 };

@@ -13,7 +13,7 @@
                 <span class="material-symbols-rounded">
                     style
                 </span>
-                <?= count($packet->flashcards) ?> cartes
+                <?= count($packet->flashcards) ?> <?= __('cartes') ?>
             </div>
         </div>
         <div class="author">

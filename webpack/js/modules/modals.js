@@ -1,4 +1,5 @@
 import { api } from '../api.js';
+import {initLikes} from './likes.js';
 export const initModals = () => {
     modalEventHandler();
     fetchPacketDataThenUpdateModal();
@@ -36,19 +37,30 @@ const fetchPacketDataThenUpdateModal = () => {
     $body.on("click", ".packet-item", async function () {
         const paquet = $(this);
         const paquetId = paquet.data('paquet-id');
+        const modalBody = $('#detail-modal').find('.modal-body');
+
+        $('#detail-modal').addClass('show');
+        $('#detail-modal-loader').show();
+        modalBody.hide();
 
         try {
             const data = await api('/api/market/get/', paquetId);
+            if(data == 'This deck is private') {
+                window.location.href = "/home";
+            }
             updateModalContent(data);
-            $('#detail-modal').addClass('show');
         } catch (error) {
             console.error('Une erreur est survenue lors de la gestion du modal :', error);
+        } finally {
+            setTimeout(() => {
+                modalBody.show();
+                $('#detail-modal-loader').hide();
+            }, 1000);
         }
     });
 }
 
 const updateModalContent = (data) => {
-    // Caching des sélecteurs jQuery
     let modalTitle = $('#modal-title');
     let modalDetailDescription = $('#modal-detail-description');
     let packetId = $('#modal-detail-packet-id');
@@ -57,7 +69,6 @@ const updateModalContent = (data) => {
     let selectedPacket = $('#modal-detail-selected-packet').empty();
     let creatorPacket = $('#modal-detail-creator');
 
-    // Mise à jour des éléments du modal
     modalTitle.text(data.name);
     modalDetailDescription.text(data.description);
     packetId.val(data.id);
@@ -71,7 +82,8 @@ const updateModalContent = (data) => {
         keywordsContainer.append(keywordElements);
     }
 
-    // Attribution des nouvelles valeurs pour un paquet
+    initLikes(data);
+
     if (data.flashcards && data.flashcards.length > 0) {
         let flashcardElements = $.map(data.flashcards, function (flashcard, index) {
             return $('<div>').addClass('flashcard').append(
@@ -105,7 +117,6 @@ const updateModalContent = (data) => {
         selectedPacket.append(packetOptions);
     }
 
-    // Mise à jour des informations du créateur
     let creator = data.creator;
     creatorPacket.find('strong').text(creator.username);
     creatorPacket.find('img').attr('src', '/img/user_profile_pic/' + creator.profile_picture);
@@ -119,7 +130,6 @@ const fetchFlashcardDataThenUpdateModal = () => {
 
         try {
             const data = await api('/api/flashcard/get/', flashcardId);
-            console.log(data);
             $('#modify-flashcard').addClass('show');
             updateModalFlashcardContent(data);
         } catch (error) {

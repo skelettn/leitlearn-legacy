@@ -1,7 +1,7 @@
 <div class="modal" id="search-users">
     <div class="modal-container">
         <div class="modal-header">
-            <h2 class="title">Utilisateurs</h2>
+            <h2 class="title"><?= __('Utilisateurs') ?></h2>
             <div class="modal-close">
                 <span class="material-symbols-rounded">
                     close
