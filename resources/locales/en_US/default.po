@@ -277,7 +277,7 @@ msgstr "This update addresses some major issues ahead of Leitlearn 2."
 
 #register modal english traduction
 
-msgid "Créer votre compte"
+msgid "Créer un compte"
 msgstr "Create your account"
 
 msgid "Utiliser Leitlearn Ai"
@@ -329,17 +329,19 @@ msgstr "-- Select --"
 msgid "Sauvegarder"
 msgstr "Save"
 
+#update password modal english traduction
 
+msgid "Modification du mot de passe"
+msgstr "Change Password"
 
+msgid "Mot de passe actuel"
+msgstr "Current Password"
 
+msgid "Nouveau mot de passe"
+msgstr "New Password"
 
+msgid "Confirmez votre nouveau mot de passe"
+msgstr "Confirm New Password"
 
-
-
-
-
-
-
-
-
-
+msgid "Modifier le mot de passe"
+msgstr "Change Password"
