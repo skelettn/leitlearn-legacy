@@ -6,6 +6,8 @@ namespace App\Controller;
 use App\Utility\AppSingleton;
 use Cake\Core\Configure;
 use Cake\Datasource\Exception\RecordNotFoundException;
+use Cake\I18n\Date;
+use Cake\I18n\FrozenTime;
 use Cake\Validation\Validator;
 use DateTime;
 use DateTimeImmutable;
@@ -30,13 +32,11 @@ class PacketsController extends AppController
                 ->contain(['Flashcards', 'Keywords', 'Users', 'Sessions'])
                 ->where(['packet_uid' => $packet_uid])
                 ->first();
-            ;
         } catch (RecordNotFoundException $e) {
             // Si le paquet n'est pas trouvé on redirige vers dashboard
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
 
-        $handlePlayBtn = null;
         $handleRemainingTime = null;
         $leitlearn_folders = null;
         $date = null;
@@ -44,21 +44,9 @@ class PacketsController extends AppController
         $flashcards_numb = count($packet->flashcards);
 
         if($flashcards_numb != 0) {
-            $all_appearances = $this->Packets->Flashcards->find()
-                ->select('modified')
-                ->where(['packet_id' => $packet->id])
-                ->groupBy('modified')
-                ->limit(1)
-                ->first();
-
-            $date = $all_appearances->modified;
-
-            $handlePlayBtn = $this->handlePlayBtn($date);
-            $handleRemainingTime = $this->handleRemainingTime($date);
-
             $leitlearn_folders = [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0];
             foreach ($packet->flashcards as $flashcard) {
-                $folder = $flashcard->leitnerFolder;
+                $folder = $flashcard->leitner_folder;
                 if (isset($leitlearn_folders[$folder])) {
                     $leitlearn_folders[$folder]++;
                 }
@@ -82,15 +70,17 @@ class PacketsController extends AppController
         catch (RecordNotFoundException $e) {
             $creator = $this->Packets->Users->get($packet->user_id);
         }
-        if($packet->session == [])
+
+        if(!empty($packet->sessions))
         {
-            $session = null;
-        } else {
             $session = $packet->sessions[0];
+            $date = $session->next_launch;
+            $now = FrozenTime::now();
+            $this->set(compact('date', 'now'));
         }
 
 
-        $this->set(compact('packet', 'date', 'handlePlayBtn', 'handleRemainingTime', 'is_private', 'is_my_packet', 'leitlearn_folders', 'creator', 'flashcards_numb', 'session'));
+        $this->set(compact('packet', 'handleRemainingTime', 'is_private', 'is_my_packet', 'leitlearn_folders', 'creator', 'flashcards_numb'));
     }
 
     /**
@@ -213,27 +203,6 @@ class PacketsController extends AppController
         $this->set(compact('packet', 'flashcards_numb' ,'dashboard_sidebar_title'));
     }
 
-    /**
-     * Handle the visibility of the play-button
-     *
-     * @param $date
-     * @return string
-     */
-    public function handlePlayBtn($date)
-    {
-        return (new DateTime() >= new DateTimeImmutable((string)$date)) ? '' : 'hidden';
-    }
-
-    /**
-     * Handle the visibility of the remainingTime
-     *
-     * @param $date
-     * @return string
-     */
-    public function handleRemainingTime($date)
-    {
-        return (new DateTime() >= new DateTimeImmutable((string)$date)) ? 'hidden' : '';
-    }
 
     /**
      * Suppression d'un paquet
@@ -318,7 +287,7 @@ class PacketsController extends AppController
             $data = $this->request->getData();
 
             // Créateur du paquet
-            $data['packet_uid'] = $this->generatePacketsUID();
+            $data['packet_uid'] = $this->generateUID();
             $data['user_id'] = $this->request->getSession()->read('Auth.id');
             $data['creator_id'] = $this->request->getSession()->read('Auth.id');
 
@@ -428,7 +397,7 @@ class PacketsController extends AppController
                 if ($valid) {
                     $packet_data = [
                         'id' => $packet->id,
-                        'packet_uid' => $this->generatePacketsUID(),
+                        'packet_uid' => $this->generateUID(),
                         'name' => $packet->name,
                         'description' => $packet->description,
                         'ia' => $packet->ia,
@@ -505,7 +474,7 @@ class PacketsController extends AppController
                     }
 
                     $packet = $this->Packets->newEmptyEntity();
-                    $data['packet_uid'] = $this->generatePacketsUID();
+                    $data['packet_uid'] = $this->generateUID();
                     $data['user_id'] = $this->request->getSession()->read('Auth.id');
                     $data['creator_id'] = $this->request->getSession()->read('Auth.id');
                     $packet = $this->Packets->patchEntity($packet, $data);
@@ -641,24 +610,4 @@ class PacketsController extends AppController
 
         return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
     }
-
-    public function generatePacketsUID()
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
-        $result = '';
-
-        for ($j = 0; $j < 4; $j++) {
-            $randomString = '';
-            for ($i = 0; $i < 7; $i++) {
-                $randomString .= $characters[rand(0, strlen($characters) - 1)];
-            }
-            $result .= $randomString;
-            if ($j < 3) {
-                $result .= '-';
-            }
-        }
-
-        return $result;
-    }
-
 }

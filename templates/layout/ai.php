@@ -42,7 +42,11 @@ echo $this->fetch('content');
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script type="module" src="/js/bundle.js?v=<?= random_int(1000000, 9999999) ?>"></script>
+<?php if (APP_ENV !== 'development') : ?>
+    <script src="<?= $this->Url->build('/js/bundle.js') ?>"></script>
+<?php else : ?>
+    <script src="<?= $this->Url->build('http://localhost:9000/bundle.js') ?>"></script>
+<?php endif; ?>
 </body>
 
 </html>

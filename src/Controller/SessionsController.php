@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Datasource\Exception\RecordNotFoundException;
+use DateTime;
 
 class SessionsController extends AppController
 {
@@ -29,11 +30,10 @@ class SessionsController extends AppController
         $this->session = $session;
         $flashcards = $this->getFlashcards();
 
-        /*
-        if ($this->isFinished()) {
+        $now = new DateTime();
+        if ($session->next_launch > $now) {
             return $this->redirect('/deck/' . $packet->packet_uid);
         }
-        */
 
         $this->set(compact('flashcards', 'session', 'packet'));
     }
@@ -58,10 +58,13 @@ class SessionsController extends AppController
 
         $session = $this->Sessions->find()->contain(['Packets'])->where(['packet_id' => $data['packet']])->first();
 
+        $now = new DateTime();
+        $now->modify('+1 days');
+        $session_folder['next_launch'] = $now;
 
-            $session_folder['expected_folder'] = $session->expected_folder += 1;
+        $session_folder['expected_folder'] = $session->expected_folder += 1;
 
-            $session = $this->Sessions->patchEntity($session, $session_folder);
+        $session = $this->Sessions->patchEntity($session, $session_folder);
 
         if ($this->Sessions->save($session)) {
             $response = $this->Sessions->save($session);
@@ -80,18 +83,23 @@ class SessionsController extends AppController
                 'limit' => 1,
             ])->first();
 
-            if ($existingSession) {
+            if (
+                $existingSession &&
+                $this->matchUserWithPacketAndSessions(
+                    $this->request->getSession()->read('Auth.id'),
+                    $existingSession->packet_id,
+                    $existingSession->id
+                )
+            ) {
                 return $this->redirect('/sessions/index/' . $existingSession->session_uid);
             }
         } catch (RecordNotFoundException $e) {
         }
 
         $session = $this->Sessions->newEmptyEntity();
-        $session->session_uid = $this->generate_long_uid();
+        $session->session_uid = $this->generateUID();
         $session->expected_folder = 2;
         $session->packet_id = $id;
-
-            //verifier si packet mien et session mien
 
         if ($this->Sessions->save($session)) {
             $this->Flash->success('Session de jeu créée avec succès');
@@ -101,7 +109,32 @@ class SessionsController extends AppController
             $this->Flash->error('Erreur lors de la création de la session de jeu');
         }
 
-        // Rediriger vers une page de deck par défaut si quelque chose ne va pas
         return $this->redirect('/deck/' . $id);
+    }
+
+    /**
+     * Vérifie si un utilisateur est le propriétaire du paquet et de la session
+     *
+     * @param int $user_id
+     * @param string $packet_uid
+     * @param string $session_uid
+     * @return bool
+     */
+    public function matchUserWithPacketAndSessions(int $user_id, string $packet_uid, string $session_uid): bool
+    {
+        return $this->Sessions->Packets->find()
+                ->select()
+                ->where([
+                    'user_id' => $user_id,
+                    'packet_uid' => $packet_uid,
+                ])
+                ->count() >= 1
+            &&
+            $this->Sessions->find()
+                ->select()
+                ->where([
+                    'session_uid' => $session_uid,
+                ])
+                ->count() >= 1;
     }
 }
