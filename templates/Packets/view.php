@@ -7,7 +7,6 @@ $this->assign('title', $packet->name);
         <div class="packet-header">
             <h1 class="title">
                 <?= $packet->name ?>
-                <sup>ID: <?= $packet->id ?></sup>
             </h1>
             <div class="actions" id="play-actions-btn">
                 <?php if ($is_my_packet) : ?>

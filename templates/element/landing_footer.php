@@ -118,7 +118,7 @@
                 <span>Leitlearn</span>
                 <li class="footer-link">
                     <?= $this->Html->link(
-                        'Mentions légales',
+                        __('Mentions légales'),
                         '/legal',
                         ['escape' => false]
                     ) ?>

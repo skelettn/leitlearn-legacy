@@ -395,8 +395,14 @@ msgstr "Help"
 msgid "À-propos"
 msgstr "About"
 
+msgid "Mentions légales"
+msgstr "Legal"
+
 msgid "Contactez-nous"
 msgstr "Contact Us"
+
+msgid "Gérer les cookies"
+msgstr "Manage cookies"
 
 
 #category market english traduction
