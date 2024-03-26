@@ -95,6 +95,9 @@ function updateProgressBar()
     }
 }
 
+/**
+ * Met à jour le dossier leitner de la flashcard.
+ */
 function increaseLeitnerFolder(id_flashcard, packet_id)
 {
     let csrfToken = document.body.dataset.csrfToken;
@@ -113,6 +116,9 @@ function increaseLeitnerFolder(id_flashcard, packet_id)
     });
 }
 
+/**
+ * Met à jour le dossier leitner de la session.
+ */
 function increaseSession(packet_id)
 {
     let csrfToken = document.body.dataset.csrfToken;

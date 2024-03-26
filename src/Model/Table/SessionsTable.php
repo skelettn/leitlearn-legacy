@@ -75,6 +75,10 @@ class SessionsTable extends Table
             ->integer('expected_folder')
             ->notEmptyString('expected_folder');
 
+        $validator
+            ->dateTime('next_launch')
+            ->notEmptyDateTime('next_launch');
+
         return $validator;
     }
 

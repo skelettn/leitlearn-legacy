@@ -125,4 +125,23 @@ class AppController extends Controller
     {
         return iconv('UTF-8', 'ASCII//TRANSLIT', $string);
     }
+
+    public function generateUID()
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+        $result = '';
+
+        for ($j = 0; $j < 4; $j++) {
+            $randomString = '';
+            for ($i = 0; $i < 7; $i++) {
+                $randomString .= $characters[rand(0, strlen($characters) - 1)];
+            }
+            $result .= $randomString;
+            if ($j < 3) {
+                $result .= '-';
+            }
+        }
+
+        return $result;
+    }
 }

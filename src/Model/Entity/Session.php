@@ -14,6 +14,7 @@ use Cake\ORM\Entity;
  * @property int $expected_folder
  * @property \Cake\I18n\DateTime $created
  * @property \Cake\I18n\DateTime $modified
+ * @property \Cake\I18n\DateTime $next_launch
  *
  * @property \App\Model\Entity\Packet $packet
  */
@@ -34,6 +35,7 @@ class Session extends Entity
         'expected_folder' => true,
         'created' => true,
         'modified' => true,
+        'next_launch' => true,
         'packet' => true,
     ];
 }

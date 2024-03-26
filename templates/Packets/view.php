@@ -32,16 +32,25 @@ $this->assign('title', $packet->name);
                             web_traffic
                         </span>
                     </button>
-                        <?=
-                        $this->Form->postLink(
-                            'Lancer <span class="material-symbols-rounded">undo</span>',
-                            ['controller' => 'Sessions', 'action' => 'createOrRedirect', $packet->id],
-                            ['class' => 'action play btnPlay create-session-btn', 'escapeTitle' => false]
-                        );
-                        ?>
 
-                        <p class="<?= $handleRemainingTime ?>" id="remainingTime"></p>
-                    <?php endif; ?>
+                    <?php if (isset($date) && ($now < $date)) : ?>
+                            <p class="<?= $handleRemainingTime ?>" id="remainingTime"></p>
+                        <?php else : ?>
+                            <?= $this->Form->postLink(
+                                'Lancer <span class="material-symbols-rounded">undo</span>',
+                                ['controller' => 'Sessions', 'action' => 'createOrRedirect', $packet->id],
+                                ['class' => 'action play btnPlay create-session-btn', 'escapeTitle' => false]
+                            ) ?>
+                        <?php endif; ?>
+                <?php endif; ?>
+
+
+
+
+
+
+
+
                 <?php elseif (!$is_my_packet && !$is_private) : ?>
                     <?= $this->Form->postLink(
                         '<button class="action play">
