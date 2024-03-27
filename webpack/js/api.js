@@ -1,9 +1,9 @@
-export const api = async (url, value, second = null) => {
+export const api = async(url, value, second = null) => {
     let response;
     try {
         let query;
-        if($.trim(second) !== '') {
-            query = `${url}${value}/${second}`;
+        if ($.trim(second) !== "") {
+            query = `${url}${value} / ${second}`;
         } else {
             query = `${url}${value}`;
         }
