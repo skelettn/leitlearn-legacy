@@ -86,6 +86,8 @@ function updateProgressBar()
     const progressBar = document.getElementById('progressBar-session');
     progressBar.value = (correct_flashcards_count / flashcards_count) * 100;
     if (correct_flashcards_count === flashcards_count) {
+        let packet_id = document.getElementById('game-visu-session').getAttribute('data-idpacket');
+        isFinished(packet_id);
         boum();
         let action_btn = document.getElementById('actions-btn')
         action_btn.style.display = 'none';
@@ -106,6 +108,26 @@ function increaseLeitnerFolder(id_flashcard, packet_id)
     $.ajax({
         type: "POST",
         url: "/flashcards/increase",
+        data: data,
+        success: function (response) {
+            console.log(response);
+        },
+    });
+}
+
+/**
+ * Vérifie si la session est terminée
+ */
+function isFinished(packet_id)
+{
+    let csrfToken = document.body.dataset.csrfToken;
+    let data = {
+        _csrfToken: csrfToken,
+        packet : packet_id
+    };
+    $.ajax({
+        type: "POST",
+        url: "/sessions/isFinished",
         data: data,
         success: function (response) {
             console.log(response);

@@ -36,6 +36,47 @@ class SessionsController extends AppController
         $this->set(compact('flashcards', 'session', 'packet'));
     }
 
+    public function isFinished()
+    {
+        $this->autoRender = false;
+        $this->response = $this->response->withType('application/json');
+        $data = $this->request->getData();
+
+        $session = $this->Sessions->find()->contain(['Packets'])->where(['packet_id' => $data['packet']])->first();
+
+        $packet =  $this->Sessions->Packets
+            ->find()
+            ->contain(['Flashcards'])
+            ->where(['packet_uid' => $session->packet->packet_uid])
+            ->first();
+
+        if (
+            $this->matchUserWithPacketAndSessions(
+                $this->request->getSession()->read('Auth.id'),
+                $packet->id,
+                $session->session_uid
+            )
+        ) {
+            $flashcards = $packet['flashcards'];
+            $finished_count = 0;
+            foreach ($flashcards as $flashcard) {
+                if ($flashcard['leitner_folder'] >= 7) {
+                    $finished_count++;
+                }
+                if ($finished_count === count($flashcards)) {
+                    $this->delete($session->session_uid);
+                    $response = ['status' => 'success', 'message' => 'La mise à jour a été effectuée.'];
+                } else {
+                    $response = ['status' => 'error', 'message' => 'La mise à jour a échouée.'];
+                }
+            }
+        } else {
+            $response = ['status' => 'error', 'message' => 'Le paquet ne vous inpartient pas.'];
+        }
+
+        return $this->response->withStringBody(json_encode($response));
+    }
+
     public function getFlashcards()
     {
         $now = new DateTime();
@@ -48,6 +89,7 @@ class SessionsController extends AppController
 
         return $flashcards;
     }
+
     function createOrRedirect($id = null)
     {
         try {
