@@ -71,14 +71,6 @@ class SessionsTable extends Table
             ->integer('packet_id')
             ->notEmptyString('packet_id');
 
-        $validator
-            ->integer('expected_folder')
-            ->notEmptyString('expected_folder');
-
-        $validator
-            ->dateTime('next_launch')
-            ->notEmptyDateTime('next_launch');
-
         return $validator;
     }
 

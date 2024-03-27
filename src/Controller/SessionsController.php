@@ -33,15 +33,6 @@ class SessionsController extends AppController
         $this->session = $session;
         $flashcards = $this->getFlashcards();
 
-        $now = new DateTime();
-        if ($session->next_launch > $now) {
-            return $this->redirect('/deck/' . $packet->packet_uid);
-        }
-
-        if ($session->expected_folder == 8) {
-            $this->delete($session->session_uid);
-        }
-
         $this->set(compact('flashcards', 'session', 'packet'));
     }
 
@@ -50,40 +41,13 @@ class SessionsController extends AppController
         $now = new DateTime();
         $flashcards = [];
         foreach ($this->packet['flashcards'] as $flashcard) {
-            if ($now >= $flashcard['arrived']) {
+            if ($now >= $flashcard['arrived'] && $flashcards['leitner_folder'] < 7) {
                 $flashcards[] = $flashcard;
             }
         }
 
         return $flashcards;
     }
-
-
-    public function increase()
-    {
-        $this->autoRender = false;
-        $this->response = $this->response->withType('application/json');
-        $data = $this->request->getData();
-
-        $session = $this->Sessions->find()->contain(['Packets'])->where(['packet_id' => $data['packet']])->first();
-
-        $now = new DateTime();
-        $now->modify('+1 days');
-        $session_folder['next_launch'] = $now;
-
-        $session_folder['expected_folder'] = $session->expected_folder += 1;
-
-        $session = $this->Sessions->patchEntity($session, $session_folder);
-
-        if ($this->Sessions->save($session)) {
-            $response = $this->Sessions->save($session);
-        } else {
-            $response = ['status' => 'error', 'message' => 'La mise à jour a échoué.'];
-        }
-
-        return $this->response->withStringBody(json_encode($response));
-    }
-
     function createOrRedirect($id = null)
     {
         try {
@@ -107,7 +71,6 @@ class SessionsController extends AppController
 
         $session = $this->Sessions->newEmptyEntity();
         $session->session_uid = $this->generateUID();
-        $session->expected_folder = 2;
         $session->packet_id = $id;
 
         if ($this->Sessions->save($session)) {
@@ -166,6 +129,8 @@ class SessionsController extends AppController
                     ->first();
                 foreach ($packet['flashcards'] as $flashcard) {
                     $flashcard->leitner_folder = 1;
+                    $now = FrozenTime::now();
+                    $flashcard->arrived = $now;
                     $this->Sessions->Packets->Flashcards->save($flashcard);
                 }
                 $this->request->getFlash()->success('Session terminée !');

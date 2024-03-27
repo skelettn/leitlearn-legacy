@@ -4,16 +4,14 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Utility\AppSingleton;
-use Cake\Core\Configure;
 use Cake\Datasource\Exception\RecordNotFoundException;
-use Cake\I18n\Date;
-use Cake\I18n\FrozenTime;
 use Cake\Event\EventInterface;
+use Cake\Http\Response;
+use Cake\I18n\Date;
+use Cake\I18n\DateTime;
+use Cake\I18n\FrozenTime;
 use Cake\Validation\Validator;
-use DateTime;
-use DateTimeImmutable;
 use PDO;
-use PDOException;
 use ZipArchive;
 
 class PacketsController extends AppController
@@ -44,13 +42,16 @@ class PacketsController extends AppController
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
 
+        foreach ($packet->flashcards as $flashcard) {
+            $flashcard->time_string = $this->timeFormat($flashcard['arrived']);
+        }
+
         $handleRemainingTime = null;
         $leitlearn_folders = null;
-        $date = null;
 
         $flashcards_numb = count($packet->flashcards);
 
-        if($flashcards_numb != 0) {
+        if ($flashcards_numb != 0) {
             $leitlearn_folders = [1 => 0, 2 => 0, 3 => 0, 4 => 0, 5 => 0, 6 => 0, 7 => 0];
             foreach ($packet->flashcards as $flashcard) {
                 $folder = $flashcard->leitner_folder;
@@ -73,28 +74,77 @@ class PacketsController extends AppController
 
         try {
             $creator = $this->Packets->Users->get($packet->creator_id);
-        }
-        catch (RecordNotFoundException $e) {
+        } catch (RecordNotFoundException $e) {
             $creator = $this->Packets->Users->get($packet->user_id);
         }
 
-        if(!empty($packet->sessions))
-        {
+        if (!empty($packet->sessions)) {
             $session = $packet->sessions[0];
-            $date = $session->next_launch;
-            $now = FrozenTime::now();
-            $this->set(compact('date', 'now', 'session'));
+            $date = $this->getPlayableFlashcardDate($packet['flashcards']);
+            $now = new DateTime();
+            $dateString = $date->format('Y-m-d\TH:i:s.uP');
+            $this->set(compact('date', 'dateString', 'now', 'session'));
         }
 
-
         $this->set(compact('packet', 'handleRemainingTime', 'is_private', 'is_my_packet', 'leitlearn_folders', 'creator', 'flashcards_numb'));
+    }
+
+    /**
+     * Crées un string pour identifier le temps restant avant
+     * la prochaine apparition de la flashcard
+     *
+     * @param $time
+     * @return string
+     */
+    public function timeFormat($time)
+    {
+        if (is_string($time)) {
+            $time = new \Cake\I18n\DateTime($time);
+            dd($time);
+        }
+        $now = new \Cake\I18n\DateTime();
+        if ($time <= $now) {
+            return 'Jouable maintenant';
+        }
+
+        $interval = $now->diff($time);
+
+        if ($interval->days > 0) {
+            return 'Jouable dans ' . $interval->days . ' jours';
+        } elseif ($interval->h > 0) {
+            return 'Jouable dans ' . $interval->h . ' h';
+        } elseif ($interval->i > 0) {
+            return 'Jouable dans ' . $interval->i . ' min';
+        } elseif ($interval->s > 0) {
+            return $interval->s . ' s';
+        } else {
+            return 'Jouable maintenant';
+        }
+    }
+
+    /**
+     * Récupère la date de la flashcard qui va etre jouable en première
+     *
+     * @param array $flashcards le tableau de flashcards
+     * @return \DateTime
+     */
+    public function getPlayableFlashcardDate(array $flashcards)
+    {
+        $min_date = $flashcards[0]['arrived'];
+        foreach ($flashcards as $flashcard) {
+            if ($flashcard['arrived'] < $min_date) {
+                 $min_date = $flashcard['arrived'];
+            }
+        }
+
+        return $min_date;
     }
 
     /**
      * Récupère un paquet en fonction de la requête
      *
      * @param string|null $query La requête de recherche
-     * @return \App\Controller\json
+     * @return Response
      */
     public function get(?string $query = null, ?string $category = null)
     {
@@ -108,7 +158,7 @@ class PacketsController extends AppController
         $searchTerm = $this->removeAccents(trim($query));
         $escapedTerm = preg_quote($searchTerm, '/');
 
-        if(!is_null($category)) {
+        if (!is_null($category)) {
             $paquets = $this->Packets->find()
                 ->contain(['Keywords'])
                 ->where(['status' => 1])
@@ -163,8 +213,9 @@ class PacketsController extends AppController
             return $this->redirect(['controller' => 'Home', 'action' => 'index']);
         }
 
-        if($packet->status !== 1) {
+        if ($packet->status !== 1) {
             $this->Flash->error('This deck is private.');
+
             return $this->response->withStringBody(json_encode('This deck is private'));
         }
 
@@ -199,7 +250,6 @@ class PacketsController extends AppController
                 ->contain(['Flashcards', 'Keywords', 'Users'])
                 ->where(['packet_uid' => $packet_uid])
                 ->first();
-            ;
         } catch (RecordNotFoundException $e) {
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
@@ -210,11 +260,10 @@ class PacketsController extends AppController
 
         $flashcards_numb = count($packet->flashcards);
 
-        $dashboard_sidebar_title = 'Paramètre de '. $packet->name;
+        $dashboard_sidebar_title = 'Paramètre de ' . $packet->name;
 
-        $this->set(compact('packet', 'flashcards_numb' ,'dashboard_sidebar_title'));
+        $this->set(compact('packet', 'flashcards_numb', 'dashboard_sidebar_title'));
     }
-
 
     /**
      * Suppression d'un paquet
@@ -222,12 +271,12 @@ class PacketsController extends AppController
      * @param int $id
      * @return \Cake\Http\Response|null
      */
-    public function remove(int $id): ?\Cake\Http\Response
+    public function remove(int $id): ?Response
     {
         if ($this->request->is('post')) {
             $entity = $this->Packets->get($id);
 
-            if($entity->user_id == $this->request->getSession()->read('Auth.id')) {
+            if ($entity->user_id == $this->request->getSession()->read('Auth.id')) {
                 if ($this->Packets->delete($entity)) {
                     $this->Flash->success('Votre paquet a été supprimé avec succès.');
                 } else {
@@ -247,7 +296,7 @@ class PacketsController extends AppController
      * @param int $id
      * @return \Cake\Http\Response|null
      */
-    public function modify(int $id): ?\Cake\Http\Response
+    public function modify(int $id): ?Response
     {
         $packet = $this->Packets->find()
             ->where(['id' => $id])
@@ -255,10 +304,9 @@ class PacketsController extends AppController
             ->firstOrFail();
 
         if ($this->request->is(['post', 'put'])) {
-
             $data = $this->request->getData();
 
-            if(!empty($data['status'])) {
+            if (!empty($data['status'])) {
                 $data['status'] = 1;
             } else {
                 $data['status'] = 0;
@@ -267,11 +315,10 @@ class PacketsController extends AppController
             $packet = $this->Packets->patchEntity($packet, $data);
 
             $keywordsEntities = [];
-            if($this->request->getData('keywords')!=null){
+            if ($this->request->getData('keywords') != null) {
                 foreach ($this->request->getData('keywords') as $keyword) {
                     $keywordEntity = $this->Packets->Keywords->findOrCreate(['id' => $keyword]);
                     $keywordsEntities[] = $keywordEntity;
-
                 }
                 $packet->keywords = $keywordsEntities;
             }
@@ -291,7 +338,7 @@ class PacketsController extends AppController
      *
      * @return \Cake\Http\Response|null
      */
-    public function create(): ?\Cake\Http\Response
+    public function create(): ?Response
     {
         $packet = $this->Packets->newEmptyEntity();
 
@@ -305,7 +352,7 @@ class PacketsController extends AppController
 
             $packet = $this->Packets->patchEntity($packet, $data);
 
-            if($this->request->getData('keywords')!=null){
+            if ($this->request->getData('keywords') != null) {
                 foreach ($this->request->getData('keywords') as $keyword) {
                     $keywordEntity = $this->Packets->Keywords->findOrCreate(['id' => $keyword]);
                     $keywordsEntities[] = $keywordEntity;
@@ -327,7 +374,7 @@ class PacketsController extends AppController
      *
      * @return \Cake\Http\Response
      */
-    public function aiResponse(): \Cake\Http\Response
+    public function aiResponse(): Response
     {
         $this->autoRender = false; // Désactive le rendu automatique de la vue
         $this->response = $this->response->withType('application/json');
@@ -382,10 +429,10 @@ class PacketsController extends AppController
      *
      * @return \Cake\Http\Response
      */
-    public function import($packet_id = null): ?\Cake\Http\Response
+    public function import($packet_id = null): ?Response
     {
         if ($this->request->is(['post', 'put'])) {
-            if(isset($this->request->getData()['packet_id'])) {
+            if (isset($this->request->getData()['packet_id'])) {
                 $packet_id = $this->request->getData()['packet_id'];
             }
 
@@ -394,7 +441,7 @@ class PacketsController extends AppController
             try {
                 $packet = $this->Packets->get($packet_id);
 
-                if($packet->user_id == AppSingleton::getUser($this->request->getSession())->id) {
+                if ($packet->user_id == AppSingleton::getUser($this->request->getSession())->id) {
                     $valid = false;
                 }
 
@@ -449,7 +496,7 @@ class PacketsController extends AppController
      *
      * @return \Cake\Http\Response|null
      */
-    public function importViaFile(): ?\Cake\Http\Response
+    public function importViaFile(): ?Response
     {
         if ($this->request->is('post')) {
             // Validation des données
@@ -478,7 +525,7 @@ class PacketsController extends AppController
                             continue;
                         }
 
-                        $csvData[] = str_getcsv($csvRow, ";"); // Séparer les colonnes
+                        $csvData[] = str_getcsv($csvRow, ';'); // Séparer les colonnes
                     }
 
                     $packet = $this->Packets->newEmptyEntity();
@@ -501,6 +548,7 @@ class PacketsController extends AppController
                         }
 
                         $this->Flash->error(__('Votre paquet a été crée avec succès.'));
+
                         return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
                     } else {
                         $this->Flash->error(__('Erreur lors de la sauvegarde du paquet.'));
@@ -516,21 +564,23 @@ class PacketsController extends AppController
                     $this->importAnkiPackage($apkg_file_path);
                 } else {
                     $this->Flash->error(__('Format de fichier non pris en charge.'));
+
                     return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
                 }
             } else {
                 $this->Flash->error(__('Erreur de validation.'));
             }
         }
+
         return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
     }
 
     private function importAnkiPackage($apkg_file_path)
     {
         $extracted_directory = WWW_ROOT . 'temp_packet' . DS . AppSingleton::getUser($this->request->getSession())->user_uid . DS;
-        $archive = new ZipArchive;
+        $archive = new ZipArchive();
 
-        if ($archive->open($apkg_file_path) === TRUE) {
+        if ($archive->open($apkg_file_path) === true) {
             $archive->extractTo($extracted_directory);
             $archive->close();
 
@@ -538,7 +588,7 @@ class PacketsController extends AppController
             if (
                 file_exists($apkg_file_path)
             ) {
-                unlink($extracted_directory .'media');
+                unlink($extracted_directory . 'media');
                 unlink($apkg_file_path);
             }
         } else {
@@ -551,6 +601,7 @@ class PacketsController extends AppController
         $packet = $this->Packets->get($packet_id);
         if (!$packet) {
             $this->Flash->error(__('Paquet introuvable.'));
+
             return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
         }
 
@@ -567,17 +618,18 @@ class PacketsController extends AppController
 
         $output = fopen('php://temp', 'w');
         foreach ($csvData as $row) {
-            fputcsv($output, $row,';');
+            fputcsv($output, $row, ';');
         }
         rewind($output);
         $csv = stream_get_contents($output);
         fclose($output);
 
         $this->response->getBody()->write($csv);
+
         return $this->response;
     }
 
-    private function apkgDatabase($database_path): ?\Cake\Http\Response
+    private function apkgDatabase($database_path): ?Response
     {
             $pdo = new PDO('sqlite:' . $database_path);
             $results = $pdo->query('SELECT * FROM notes');
@@ -588,32 +640,32 @@ class PacketsController extends AppController
             $data['creator_id'] = $this->request->getSession()->read('Auth.id');
 
             $packet = $this->Packets->patchEntity($packet, $data);
-            if ($this->Packets->save($packet)) {
-                $packetId = $packet->id;
+        if ($this->Packets->save($packet)) {
+            $packetId = $packet->id;
 
-                foreach ($results as $flashcardData) {
-                    $flashcard = explode("\x1F", $flashcardData['flds']);
-                    $question = $flashcard[0];
-                    $answer = $flashcard[1];
+            foreach ($results as $flashcardData) {
+                $flashcard = explode("\x1F", $flashcardData['flds']);
+                $question = $flashcard[0];
+                $answer = $flashcard[1];
 
-                    $flashcard = $this->Packets->Flashcards->newEntity([
-                        'packet_id' => $packetId,
-                        'question' => $question,
-                        'answer' => $answer,
-                    ]);
+                $flashcard = $this->Packets->Flashcards->newEntity([
+                    'packet_id' => $packetId,
+                    'question' => $question,
+                    'answer' => $answer,
+                ]);
 
-                    $this->Packets->Flashcards->save($flashcard);
-                }
-                if (
-                    file_exists($database_path)
-                ) {
-                    unlink($database_path);
-                }
-
-                $this->Flash->error(__('Votre paquet a été crée avec succès.'));
-            } else {
-                $this->Flash->error(__('Erreur lors de la sauvegarde du paquet.'));
+                $this->Packets->Flashcards->save($flashcard);
             }
+            if (
+                file_exists($database_path)
+            ) {
+                unlink($database_path);
+            }
+
+            $this->Flash->error(__('Votre paquet a été crée avec succès.'));
+        } else {
+            $this->Flash->error(__('Erreur lors de la sauvegarde du paquet.'));
+        }
             $pdo = null;
 
         return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);

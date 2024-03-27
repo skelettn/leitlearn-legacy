@@ -42,7 +42,6 @@ $this->assign('title', $packet->name);
                                 ]
                             )
                             ?>
-
                         <?php endif; ?>
 
                         <?php if (isset($date) && ($now < $date)) : ?>
@@ -192,7 +191,7 @@ $this->assign('title', $packet->name);
                             <span class="material-symbols-rounded">
                                 schedule
                             </span>
-                            <?= __('Jouable dans...') ?>
+                            <?= $flashcard->time_string ?>
                         </div>
                         <?php if (($is_private && $is_my_packet) || (!$is_private)) : ?>
                             <div class="question"><?= $flashcard->question ?></div>
@@ -310,7 +309,7 @@ $this->assign('title', $packet->name);
     if (remainingTime) {
         function updateRemainingTime() {
             currentDate = new Date();
-            lastRevisionDate = new Date('<?= addslashes($date) ?>')
+            lastRevisionDate = new Date('<?= addslashes($dateString) ?>')
             nextRevisionDate = new Date(lastRevisionDate);
             nextRevisionDate.setDate(lastRevisionDate.getDate());
 
@@ -329,7 +328,7 @@ $this->assign('title', $packet->name);
 
             remainingTimeElement = document.getElementById('remainingTime');
 
-            remainingTimeElement.textContent = hoursRemaining + 'H ' + minutesRemaining + 'min ' + secondsRemainingFinal + 's';
+            remainingTimeElement.textContent = hoursRemaining + 'h ' + minutesRemaining + 'min ' + secondsRemainingFinal + 's';
         }
 
         setInterval(updateRemainingTime, 1000);
