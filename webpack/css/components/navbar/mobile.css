@@ -1,0 +1,35 @@
+.fixed-nav-mobile {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    align-items: center;
+    width: 100%;
+    padding: 10px 15px;
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    z-index: 5;
+}
+
+.fixed-nav-mobile .open-sidebar {
+    display: flex;
+}
+
+.fixed-nav-mobile .open-sidebar span {
+    font-size: 30px;
+}
+
+.fixed-nav-mobile .logo {
+    height: 35px;
+    margin-left: 15px;
+}
+
+.fixed-nav-mobile .user.fixed-nav {
+    margin-left: auto;
+}
+
+@media screen and (max-width: 620px) {
+    .fixed-nav-mobile {
+        display: flex;
+    }
+}

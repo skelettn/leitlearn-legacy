@@ -1,0 +1,106 @@
+.profile {
+    padding: 20px 0;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.profile .profile-data {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.profile .profile-data .logo {
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    border-radius: 50%;
+}
+
+.profile .profile-data .personal-infos {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile .profile-data .personal-infos .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile .profile-data .personal-infos .info .name {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.profile .profile-data .personal-infos .info .username {
+    margin-top: 5px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, .4);
+}
+
+.profile .profile-data .personal-infos a {
+    margin: 0 0 auto auto;
+}
+
+.profile .profile-data .personal-infos .actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile .profile-data .personal-infos .action {
+    padding: 8px 12px;
+    margin-right: 10px;
+    font-size: 14px;
+    background: var(--main-bg-color);
+}
+
+.profile .profile-data .personal-infos .action span {
+    margin-right: 7px;
+    font-size: 22px;
+}
+
+.profile .profile-data .personal-infos .action:hover {
+    transform: scale(1.02);
+}
+
+.profile .profile-data .personal-infos .status {
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.profile .profile-data .stats {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    list-style: none;
+}
+
+.profile .profile-data .stats .stat {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, .3);
+}
+
+.profile .profile-data .stats .stat:last-child {
+    margin-right: 0;
+}
+
+.profile .profile-data .stats .stat .value {
+    font-weight: 600;
+}
+
+.profile .profile-data .stats .stat .name {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, .3);
+}
+
+@media screen and (max-width: 620px) {
+    .profile .profile-data .logo {
+        width: 80px;
+        height: 80px;
+    }
+}
