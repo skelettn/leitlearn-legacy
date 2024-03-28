@@ -8,8 +8,10 @@
 @import url('forms/loader.css');
 @import url('modals/modals.css');
 @import url('navbar/navbar.css');
+@import url('navbar/mobile.css');
 @import url('packets/packets.css');
 @import url('packets/scroll_menu.css');
 @import url('sidebar/sidebar.css');
 @import url('snackbar/snackbar.css');
 @import url('tabs/tabs.css');
+@import url('switch/switch.css');

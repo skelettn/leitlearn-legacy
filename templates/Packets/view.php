@@ -82,8 +82,8 @@ $this->assign('title', $packet->name);
         <?php if ($flashcards_numb != 0 && ($is_private && $is_my_packet) || (!$is_private)) : ?>
         <section>
             <h2 class="section-title" id="title-game"><?= __('Visualisation du paquet') ?></h2>
-            <div class="containerGame">
-                <div class="game" id="game-visu">
+            <div class="overview-container">
+                <div class="overview" id="game-visu">
                     <div class="progress">
                         <progress value="0" max="100" id="progressBar"></progress>
                     </div>

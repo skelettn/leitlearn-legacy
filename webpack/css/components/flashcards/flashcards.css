@@ -118,3 +118,20 @@
 .flashcards .flashcard .flashcard-actions .flashcard-action span:active {
     transform: scale(0.90);
 }
+
+@media screen and (max-width: 620px) {
+    .dashboard .flashcard form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .flashcards .flashcard .question,
+    .flashcards .flashcard .answer {
+        max-width: initial;
+        margin-bottom: 15px;
+    }
+
+    .flashcards .flashcard .actions {
+        margin-left: auto;
+    }
+}
