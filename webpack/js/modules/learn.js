@@ -3,7 +3,7 @@ import {api} from "../api.js";
 export const initSessions = () => {
         handleBtnValidClick();
         handleBtnFailClick();
-    }
+}
 
 let active_flashcard = document.querySelector('.card.active');
 

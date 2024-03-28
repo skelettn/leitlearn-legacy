@@ -152,5 +152,4 @@ const createDeck = () => {
             window.location.href = "/dashboard";
         },
     });
-
 }

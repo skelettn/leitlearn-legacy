@@ -4,7 +4,6 @@ import {updateMarketResults} from "./search.js";
 export const initDecks = () => {
     fetchDecksFromMarket();
 };
-
 const fetchDecksFromMarket = () => {
     $('#market_search').on('input', async function () {
         let query = $(this).val();
