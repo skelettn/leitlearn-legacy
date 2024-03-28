@@ -278,8 +278,8 @@ footer button:active,
 
 .section-features .feature .media.leitlearn-2 {
     background: white;
-    background-image: url('https://static.leitlearn.com/v2/img/leitlearn_2_news.png');
-    background-size: 60%;
+    background-image: url('https://static.leitlearn.com/img/v2/leitlearn_2_landing.gif');
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
