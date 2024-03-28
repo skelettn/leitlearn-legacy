@@ -403,13 +403,16 @@ class PacketsController extends AppController
     public function insert(int $id, string $name, array $flashcards, array $keywords)
     {
         $data = [
+            'packet_uid' => $this->generateUID(),
             'name' => $name,
             'ia' => 1,
+            'status' => 0,
             'user_id' => $id,
             'creator_id' => $id,
         ];
 
-        $packet = $this->Packets->newEntity($data);
+        $packet = $this->Packets->newEmptyEntity();
+        $packet = $this->Packets->patchEntity($packet, $data);
 
         if ($this->Packets->save($packet)) {
             $latestPaquetID = $this->getLastPacket();
