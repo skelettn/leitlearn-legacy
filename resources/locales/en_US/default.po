@@ -602,23 +602,23 @@ msgstr "Email: kilianpeyn@gmail.com"
 msgid "Responsable de la publication : Kilian PEYRON"
 msgstr "Publication manager: Kilian PEYRON"
 
+msgid "Contributeurs :"
+msgstr "Contributors :"
+
 msgid "Hébergeur du site :"
-msgstr "Site host:"
+msgstr "Web hosting :"
 
-msgid "SAS PulseHeberg"
-msgstr "SAS PulseHeberg"
+msgid "OVHcloud"
+msgstr "OVHcloud"
 
-msgid "9 Boulevard de Strasbourg"
-msgstr "9 Boulevard de Strasbourg"
+msgid "2, rue Kellermann"
+msgstr "2, rue Kellermann"
 
-msgid "83000 Toulon"
-msgstr "83000 Toulon"
+msgid "59100 Roubaix"
+msgstr "59100 Roubaix"
 
 msgid "Société par Action Simplifiée"
 msgstr "Simplified Joint Stock Company"
-
-msgid "SIRET : 824 070 619 00039"
-msgstr "SIRET: 824 070 619 00039"
 
 msgid "Protection des données personnelles :"
 msgstr "Personal data protection:"

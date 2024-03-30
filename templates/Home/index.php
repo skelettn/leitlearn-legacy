@@ -4,8 +4,8 @@ echo $this->cell('FeatureFlags::display', ['test_feature_flags']);
 ?>
 <header>
     <div class="header-content">
-        <div class="logo"> <?= $this->Html->image('https://static.leitlearn.com/v2/img/leitlearn_2_logo.webp', ['alt' => 'Leitlearn 2']) ?> </div>
-        <div class="new leitlearn-2"> <?= $this->Html->image('https://static.leitlearn.com/v2/img/leitlearn_2_logo.webp', ['alt' => 'Leitlearn 2']) ?> <?= __('est disponible') ?> </div>
+        <div class="logo"> <?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp', ['alt' => 'Leitlearn 2']) ?> </div>
+        <div class="new leitlearn-2"> <?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp', ['alt' => 'Leitlearn 2']) ?> <?= __('est disponible') ?> </div>
         <h1 class="title"> <?= __('Vous avez le pouvoir d\'apprendre.') ?> </h1>
         <p class="desc"> <?=__('Découvrez la plate-forme qui permet d\'appendre efficacement gratuitement.')?> </p> <?php if ($is_logged) : ?> <?= $this->Html->link(
             '
@@ -19,7 +19,7 @@ echo $this->cell('FeatureFlags::display', ['test_feature_flags']);
         </button> <?php endif; ?>
     </div>
     <video autoplay muted loop id="header-video">
-        <source src="https://static.leitlearn.com/v2/videos/header.mp4" type="video/mp4"> <?= __('Your browser does not support the video tag.') ?>
+        <source src="https://static.kilianpeyron.fr/leitlearn/videos/header.mp4" type="video/mp4"> <?= __('Your browser does not support the video tag.') ?>
     </video>
 </header>
 <main>

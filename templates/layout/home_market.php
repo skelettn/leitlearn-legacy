@@ -29,7 +29,7 @@ $cakeDescription = ' - Leitlearn';
         <?= $this->fetch('title') ?>
         <?= $cakeDescription ?>
     </title>
-    <?= $this->Html->meta('icon', 'https://static.leitlearn.com/v2/img/favicon.webp') ?>
+    <?= $this->Html->meta('icon', 'https://static.kilianpeyron.fr/leitlearn/img/favicon.webp') ?>
     <?= $this->fetch('meta') ?>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
