@@ -269,16 +269,16 @@ footer button:active,
 }
 
 .section-features .feature .media.market {
-    background-image: url('https://static.leitlearn.com/img/market.jpg');
+    background-image: url('https://static.kilianpeyron.fr/leitlearn/img/market.jpg');
 }
 
 .section-features .feature .media.learn {
-    background-image: url('https://static.leitlearn.com/img/learn.jpg');
+    background-image: url('https://static.kilianpeyron.fr/leitlearn/img/learn.jpg');
 }
 
 .section-features .feature .media.leitlearn-2 {
     background: white;
-    background-image: url('https://static.leitlearn.com/img/v2/leitlearn_2_landing.gif');
+    background-image: url('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_landing.gif');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
