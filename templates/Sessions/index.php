@@ -20,12 +20,11 @@ $this->assign('title', 'Session');
                 ) ?>
 
             </div>
-
         </div>
         <section>
             <h2 class="session-title" id="title-game">Session en cours</h2>
-            <div class="containerGame">
-                <div class="game" id="game-visu-session" data-idPacket = <?= $packet->id ?>>
+            <div class="overview-container">
+                <div class="overview" id="game-visu-session" data-idPacket = <?= $packet->id ?>>
                     <div class="progress">
                         <progress value="0" max="100" id="progressBar-session"></progress>
                     </div>
@@ -59,7 +58,6 @@ $this->assign('title', 'Session');
                         </div>
                     </div>
                     <div class="actions-btn" id="actions-btn">
-
                         <div class="action-btn " id="btn-fail">
                                 <span class="material-symbols-rounded">
                                     close

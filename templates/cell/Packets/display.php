@@ -1,5 +1,5 @@
 <?php foreach ($packets as $packet): ?>
-    <div class="packet <?php echo $display === 'dashboard' ? 'page-redirect ' : 'modal-btn '; ?>packet-item <?php echo $packet->ia ? 'ai-packet' : ''; ?>"
+    <div class="packet <?php echo $display === 'dashboard' ? 'page-redirect ' : 'modal-btn packet-item'; ?> <?php echo $packet->ia ? 'ai-packet' : ''; ?>"
         <?php if ($display === 'dashboard'): ?>
             data-redirection="/deck/<?= $packet->packet_uid ?>"
         <?php else: ?>

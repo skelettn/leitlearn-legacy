@@ -270,11 +270,15 @@ $this->assign('title', $packet->name);
                 <div class="information made-by">
                     <div class="data">
                         <span><?= __('Crée le') ?></span>
-                        <strong><?= date('d', strtotime($packet->created)) . ' ' . [
-                                        '01' => 'janvier', '02' => 'février', '03' => 'mars', '04' => 'avril',
-                                        '05' => 'mai', '06' => 'juin', '07' => 'juillet', '08' => 'août',
-                                        '09' => 'septembre', '10' => 'octobre', '11' => 'novembre', '12' => 'décembre',
-                                    ][date('m', strtotime($packet->created))] . ' ' . date('Y', strtotime($packet->created)) ?></strong>
+                        <strong>
+                            <?= $packet->created->format('d') ?>
+                            <?= [
+                                '01' => 'janvier', '02' => 'février', '03' => 'mars', '04' => 'avril',
+                                '05' => 'mai', '06' => 'juin', '07' => 'juillet', '08' => 'août',
+                                '09' => 'septembre', '10' => 'octobre', '11' => 'novembre', '12' => 'décembre',
+                            ][date_format($packet->created, 'm')] ?>
+                            <?= $packet->created->format('Y') ?>
+                        </strong>
                     </div>
                 </div>
                 <div class="information">
@@ -290,48 +294,7 @@ $this->assign('title', $packet->name);
 </main>
 
 <script>
-    function toggleDropdown(button) {
-        var dropdownContent = button.nextElementSibling;
-        if (dropdownContent.classList.contains('show')) {
-            dropdownContent.classList.remove('show');
-        } else {
-            dropdownContent.classList.add('show');
-        }
-    }
-</script>
-
-<script>
-    var currentDate, lastRevisionDate, nextRevisionDate, timeDiff, secondsRemaining, secondsRemainingFinal, hoursRemaining, minutesRemaining, remainingTimeElement;
-    const remainingTime = document.querySelector("#remainingTime");
-
-    if (remainingTime) {
-        function updateRemainingTime() {
-            currentDate = new Date();
-            lastRevisionDate = new Date('<?= addslashes($dateString) ?>')
-            nextRevisionDate = new Date(lastRevisionDate);
-            nextRevisionDate.setDate(lastRevisionDate.getDate());
-
-            timeDiff = nextRevisionDate.getTime() - currentDate.getTime();
-
-
-            if (timeDiff < 0) {
-                nextRevisionDate.setDate(nextRevisionDate.getDate());
-                timeDiff = nextRevisionDate.getTime() - currentDate.getTime();
-            }
-
-            secondsRemaining = Math.floor(timeDiff / 1000);
-            secondsRemainingFinal = secondsRemaining % 60;
-            hoursRemaining = Math.floor(secondsRemaining / 3600);
-            minutesRemaining = Math.floor((secondsRemaining % 3600) / 60);
-
-            remainingTimeElement = document.getElementById('remainingTime');
-
-            remainingTimeElement.textContent = hoursRemaining + 'h ' + minutesRemaining + 'min ' + secondsRemainingFinal + 's';
-        }
-
-        setInterval(updateRemainingTime, 1000);
-        updateRemainingTime();
-    }
+    function _0x144a(_0x188dc8,_0x104577){const _0xaf6a63=_0xaf6a();return _0x144a=function(_0x144a4d,_0x518286){_0x144a4d=_0x144a4d-0x11d;let _0x27896e=_0xaf6a63[_0x144a4d];return _0x27896e;},_0x144a(_0x188dc8,_0x104577);}function _0xaf6a(){const _0x59ea78=['111qiESbi','10736099rGlLYh','32373XpXvlM','8516599dBSWWD','remove','classList','6168qabQhW','show','154052bfRoWN','905WBesSQ','3114VnjqTl','1907920Mupqmr','1970PWrtSk','2050JvDSKm'];_0xaf6a=function(){return _0x59ea78;};return _0xaf6a();}(function(_0x2bb4b6,_0x4683e0){const _0x405af7=_0x144a,_0x2a8dac=_0x2bb4b6();while(!![]){try{const _0x8b36ea=-parseInt(_0x405af7(0x124))/0x1*(-parseInt(_0x405af7(0x125))/0x2)+-parseInt(_0x405af7(0x129))/0x3*(parseInt(_0x405af7(0x123))/0x4)+-parseInt(_0x405af7(0x128))/0x5*(parseInt(_0x405af7(0x121))/0x6)+parseInt(_0x405af7(0x11e))/0x7+-parseInt(_0x405af7(0x126))/0x8+parseInt(_0x405af7(0x11d))/0x9*(-parseInt(_0x405af7(0x127))/0xa)+parseInt(_0x405af7(0x12a))/0xb;if(_0x8b36ea===_0x4683e0)break;else _0x2a8dac['push'](_0x2a8dac['shift']());}catch(_0x15e83c){_0x2a8dac['push'](_0x2a8dac['shift']());}}}(_0xaf6a,0xc54ff));function toggleDropdown(_0x128a55){const _0x294644=_0x144a;let _0x168acb=_0x128a55['nextElementSibling'];_0x168acb['classList']['contains'](_0x294644(0x122))?_0x168acb[_0x294644(0x120)][_0x294644(0x11f)](_0x294644(0x122)):_0x168acb[_0x294644(0x120)]['add']('show');}
 
     const data = {
         labels: ['1', '2', '3', '4', '5', '6', '7'],
@@ -371,5 +334,6 @@ $this->assign('title', $packet->name);
             }
         }
     };
-    var barChart = new Chart(document.getElementById("barChart"), config);
+
+    let barChart = new Chart(document.getElementById("barChart"), config);
 </script>
