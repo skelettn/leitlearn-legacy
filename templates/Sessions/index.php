@@ -10,7 +10,7 @@ $this->assign('title', 'Session');
             </h1>
             <div class="actions" id="play-actions-btn">
                 <?= $this->Html->link(
-                    'Retour <span class="material-symbols-rounded">undo</span>',
+                    __('Retour') . '<span class="material-symbols-rounded">undo</span>',
                     '/deck/' . $packet->packet_uid,
                     [
                         'class' => 'action play btnPlay ',
@@ -22,7 +22,7 @@ $this->assign('title', 'Session');
             </div>
         </div>
         <section>
-            <h2 class="session-title" id="title-game">Session en cours</h2>
+            <h2 class="session-title" id="title-game"><?=__('Session en cours');?></h2>
             <div class="overview-container">
                 <div class="overview" id="game-visu-session" data-idPacket = <?= $packet->id ?>>
                     <div class="progress">

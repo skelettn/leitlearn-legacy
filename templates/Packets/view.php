@@ -46,7 +46,7 @@ $this->assign('title', $packet->name);
 
                         <?php if (!isset($date) || ($now > $date)) : ?>
                             <?= $this->Form->postLink(
-                                'Lancer <span class="material-symbols-rounded">undo</span>',
+                                __('Lancer') . '<span class="material-symbols-rounded">undo</span>',
                                 ['controller' => 'Sessions', 'action' => 'createOrRedirect', $packet->id],
                                 ['class' => 'action play btnPlay create-session-btn', 'escapeTitle' => false]
                             ) ?>

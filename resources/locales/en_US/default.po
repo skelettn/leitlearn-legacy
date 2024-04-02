@@ -563,6 +563,9 @@ msgstr "Progress overview"
 msgid "Paramètres de jeu"
 msgstr "Game settings"
 
+msgid "Lancer"
+msgstr "Launch"
+
 msgid "Nombre de flashcards par dossier Leitner"
 msgstr "Number of flashcards per Leitner folder"
 
@@ -658,3 +661,119 @@ msgstr "These legal notices are subject to French law. In the event of a dispute
 
 msgid "Date de dernière mise à jour :"
 msgstr "Last update date:"
+
+#session view
+
+msgid "Retour"
+msgstr "Back"
+
+msgid "Session en cours"
+msgstr "Session in progress"
+
+
+#users controller
+
+msgid "Connecté à Leitlearn"
+msgstr "Connected to Leitlearn"
+
+msgid "Adresse e-mail ou mot de passe incorrect"
+msgstr "Email address or password incorrect"
+
+msgid "Votre compte a été créé avec succès"
+msgstr "Your account has been created successfully"
+
+msgid "Erreur lors de la création de compte"
+msgstr "Error creating account"
+
+msgid "L'utilisateur a été mis à jour avec succès."
+msgstr "The user has been successfully updated."
+
+msgid "Erreur lors de la mise à jour de l'utilisateur. Veuillez réessayer."
+msgstr "Error updating user. Please try again."
+
+msgid "jpg, avif ou webp seulement pris en compte"
+msgstr "jpg, avif or webp only supported"
+
+
+#flashcards controller
+
+msgid "Une erreur s'est produite lors de la suppression de la flashcards."
+msgstr "An error occurred while deleting the flashcard."
+
+msgid "Flashcard modifié avec succès."
+msgstr "Flashcard successfully modified."
+
+msgid "Une erreur s'est produite lors de la modification de la flashcard."
+msgstr "An error occurred while modifying the flashcard."
+
+msgid "Votre carte a été crée avec succès."
+msgstr "Your card has been successfully created."
+
+msgid "Une erreur s'est produite lors de la création de la carte."
+msgstr "An error occurred while creating the card."
+
+msgid "Cartes importées avec succès."
+msgstr "Cards imported successfully."
+
+msgid "Erreur dans l'importation des cartes."
+msgstr "Error importing cards."
+
+#friends controller
+
+msgid "Votre demande d'amis a été envoyé avec succès."
+msgstr "Your friend request has been sent successfully."
+
+msgid "Une erreur s'est produite."
+msgstr "An error occurred."
+
+msgid "Une demande d'amis est déjà en cours vers cet utilisateur."
+msgstr "A friend request is already pending for this user."
+
+msgid "Vous avez accepté la demande de l'utilisateur."
+msgstr "You have accepted the user's request."
+
+msgid "Une erreur est survenue."
+msgstr "An error occurred."
+
+msgid "Vous avez refusé la demande de l'utilisateur."
+msgstr "You have declined the user's request."
+
+msgid "Une erreur est survenue."
+msgstr "An error occurred."
+
+#packets controller
+
+msgid "Votre paquet a été supprimé avec succès."
+msgstr "Your deck has been successfully deleted."
+
+msgid "Une erreur s'est produite lors de la suppression du paquet."
+msgstr "An error occurred while deleting the deck."
+
+msgid "Votre paquet a été modifié avec succès."
+msgstr "Your deck has been successfully modified."
+
+msgid "Une erreur s'est produite lors de la modification du paquet."
+msgstr "An error occurred while modifying the deck."
+
+msgid "Votre paquet a été créé avec succès."
+msgstr "Your deck has been successfully created."
+
+msgid "Une erreur s'est produite lors de la création du paquet."
+msgstr "An error occurred while creating the deck."
+
+msgid "Votre paquet a été importé avec succès."
+msgstr "Your deck has been imported successfully."
+
+msgid "Erreur dans l'importation du paquet."
+msgstr "Error importing the deck."
+
+msgid "Le paquet demandé n'existe pas."
+msgstr "The requested deck does not exist."
+
+msgid "Session terminée !"
+msgstr "Session ended!"
+
+msgid "Erreur dans le suppression de la session."
+msgstr "Error deleting session."
+
+

@@ -61,13 +61,13 @@ class UsersController extends AppController
         // If the user is logged in send them away.
         if ($result->isValid()) {
             $target = $this->Authentication->getLoginRedirect() ?? '/dashboard';
-            $this->Flash->error('Connecté à Leitlearn');
+            $this->Flash->error(__('Connecté à Leitlearn'));
 
             return $this->redirect($target);
         }
 
         if ($this->request->is('post')) {
-            $this->Flash->error('Adresse e-mail ou mot de passe incorrect');
+            $this->Flash->error(__('Adresse e-mail ou mot de passe incorrect'));
         }
     }
 
@@ -84,10 +84,10 @@ class UsersController extends AppController
             $this->Users->patchEntity($user, $data);
             $this->Users->save($user);
             if ($this->Users->save($user)) {
-                $this->Flash->success('Votre compte a été crée avec succès');
+                $this->Flash->success(__('Votre compte a été créé avec succès'));
                 $this->redirect('/dashboard');
             } else {
-                $this->Flash->error('Erreur lors de la création de compte');
+                $this->Flash->error(__('Erreur lors de la création de compte'));
             }
         }
 
@@ -132,12 +132,12 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $data);
 
             if ($this->Users->save($user)) {
-                $this->Flash->success('L\'utilisateur a été mis à jour avec succès.');
+                $this->Flash->success(__('L\'utilisateur a été mis à jour avec succès.'));
             } else {
-                $this->Flash->error('Erreur lors de la mise à jour de l\'utilisateur. Veuillez réessayer.');
+                $this->Flash->error(__('Erreur lors de la mise à jour de l\'utilisateur. Veuillez réessayer.'));
             }
         } else {
-            $this->Flash->error('jpg, avif ou webp seulement pris en compte');
+            $this->Flash->error(__('jpg, avif ou webp seulement pris en compte'));
         }
         return $this->redirect('/users/settings');
     }

@@ -43,12 +43,12 @@ class FriendsController extends AppController
                 $request = $this->Friends->patchEntity($request, $data);
 
                 if ($this->Friends->save($request)) {
-                    $this->Flash->success('Votre demande d\'amis a été envoyé avec succès.');
+                    $this->Flash->success(__('Votre demande d\'amis a été envoyé avec succès.'));
                 } else {
-                    $this->Flash->error('Une erreur s\'est produite..');
+                    $this->Flash->error(__('Une erreur s\'est produite.'));
                 }
             } else {
-                $this->Flash->error('Une demande d\'amis est déjà en cours vers cet utilisateur');
+                $this->Flash->error(__('Une demande d\'amis est déjà en cours vers cet utilisateur'));
             }
         }
 
@@ -70,9 +70,9 @@ class FriendsController extends AppController
             $relation = $this->Friends->patchEntity($relation, $data);
 
             if ($this->Friends->save($relation)) {
-                $this->Flash->success('Vous avez accepté la demande de l\'utilisateur');
+                $this->Flash->success(__('Vous avez accepté la demande de l\'utilisateur'));
             } else {
-                $this->Flash->success('Une erreur est survenue');
+                $this->Flash->success(__('Une erreur est survenue'));
             }
         }
 
@@ -91,9 +91,9 @@ class FriendsController extends AppController
         $relation = $this->getRelation($user->id, $this->request->getSession()->read('Auth.id'));
         if (!is_null($relation)) {
             if ($this->Friends->delete($relation)) {
-                $this->Flash->success('Vous avez refusé la demande de l\'utilisateur');
+                $this->Flash->success(__('Vous avez refusé la demande de l\'utilisateur'));
             } else {
-                $this->Flash->success('Une erreur est survenue');
+                $this->Flash->success(__('Une erreur est survenue'));
             }
         }
 

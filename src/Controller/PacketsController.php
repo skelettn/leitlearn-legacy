@@ -278,12 +278,12 @@ class PacketsController extends AppController
 
             if ($entity->user_id == $this->request->getSession()->read('Auth.id')) {
                 if ($this->Packets->delete($entity)) {
-                    $this->Flash->success('Votre paquet a été supprimé avec succès.');
+                    $this->Flash->success(__('Votre paquet a été supprimé avec succès.'));
                 } else {
-                    $this->Flash->error('Une erreur s\'est produite lors de la suppression du paquet.');
+                    $this->Flash->error(__('Une erreur s\'est produite lors de la suppression du paquet.'));
                 }
             } else {
-                $this->Flash->error('Une erreur s\'est produite lors de la suppression du paquet.');
+                $this->Flash->error(__('Une erreur s\'est produite lors de la suppression du paquet.'));
             }
         }
 
@@ -324,9 +324,9 @@ class PacketsController extends AppController
             }
 
             if ($this->Packets->save($packet, ['associated' => ['Keywords']])) {
-                $this->Flash->success('Votre paquet a été modifié avec succès.');
+                $this->Flash->success(__('Votre paquet a été modifié avec succès.'));
             } else {
-                $this->Flash->error('Une erreur s\'est produite lors de la modification du paquet.');
+                $this->Flash->error(__('Une erreur s\'est produite lors de la modification du paquet.'));
             }
         }
 
@@ -360,9 +360,9 @@ class PacketsController extends AppController
                 $packet->keywords = $keywordsEntities;
             }
             if ($this->Packets->save($packet, ['associated' => ['Keywords','Sessions']])) {
-                $this->Flash->success('Votre paquet a été créé avec succès.');
+                $this->Flash->success(__('Votre paquet a été créé avec succès.'));
             } else {
-                $this->Flash->error('Une erreur s\'est produite lors de la création du paquet.');
+                $this->Flash->error(__('Une erreur s\'est produite lors de la création du paquet.'));
             }
         }
 
@@ -482,12 +482,12 @@ class PacketsController extends AppController
                         $flashcard = $this->Packets->Flashcards->newEntity($data);
                         $this->Packets->Flashcards->save($flashcard);
                     }
-                    $this->Flash->success('Votre paquet a été importé avec succès.');
+                    $this->Flash->success(__('Votre paquet a été importé avec succès.'));
                 } else {
-                    $this->Flash->error("Erreur dans l'importation du paquet.");
+                    $this->Flash->error(__('Erreur dans l\'importation du paquet.'));
                 }
             } catch (RecordNotFoundException $e) {
-                $this->Flash->error("Le paquet demandé n'existe pas");
+                $this->Flash->error(__('Le paquet demandé n\'existe pas'));
             }
         }
 
