@@ -47,7 +47,7 @@
                 <?= $this->Form->label('register-username', __('Nom d\'utilisateur')) ?>
             </div>
             <div class="input-group">
-                <?= $this->Form->text('email', ['id' => 'register-email', 'placeholder' => '']) ?>
+                <?= $this->Form->email('email', ['id' => 'register-email', 'placeholder' => '']) ?>
                 <?= $this->Form->label('register-email', __('Adresse e-mail')) ?>
             </div>
             <div class="input-group">

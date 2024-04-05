@@ -17,14 +17,17 @@ $this->assign('title', 'Connexion');
                 <h5 class="desc"><?= __('Connectez-vous pour utiliser toutes les fonctionnalités de Leitlearn') ?></h5>
                 <?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'login']]) ?>
                 <div class="input-group">
-                    <?= $this->Form->text('email', ['id' => 'login-page-email', 'placeholder' => '']) ?>
+                    <?= $this->Form->email('email', ['id' => 'login-page-email', 'placeholder' => '']) ?>
                     <?= $this->Form->label('login-page-email', __('Adresse e-mail')) ?>
                 </div>
                 <div class="input-group">
                     <?= $this->Form->password('password', ['id' => 'login-page-password', 'placeholder' => '']) ?>
                     <?= $this->Form->label('login-page-password', __('Mot de passe')) ?>
                 </div>
-                <?= $this->Form->submit(__('Se connecter')) ?>
+                <div class="loader-button">
+                    <?= $this->Form->submit(__('Se connecter')) ?>
+                    <span class="loader"></span>
+                </div>
                 <?= $this->Form->end() ?>
             </div>
         </div>

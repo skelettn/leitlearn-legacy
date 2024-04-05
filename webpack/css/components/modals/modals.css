@@ -912,3 +912,9 @@ modal .modal-header .modal-close:active {
         padding: 10px;
     }
 }
+
+@media screen and (max-height: 600px) {
+    .modal .modal-container .modal-body .features {
+        display: none;
+    }
+}
