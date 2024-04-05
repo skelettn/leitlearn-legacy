@@ -31,14 +31,17 @@ $this->assign('title', 'Inscription');
                     <?= $this->Form->label('register-page-username', __("Nom d'utilisateur")) ?>
                 </div>
                 <div class="input-group">
-                    <?= $this->Form->text('email', ['id' => 'login-page-email', 'placeholder' => '']) ?>
+                    <?= $this->Form->email('email', ['id' => 'login-page-email', 'placeholder' => '']) ?>
                     <?= $this->Form->label('login-page-email', __('Adresse e-mail')) ?>
                 </div>
                 <div class="input-group">
                     <?= $this->Form->password('password', ['id' => 'login-page-password', 'placeholder' => '']) ?>
                     <?= $this->Form->label('login-page-password', __('Mot de passe')) ?>
                 </div>
-                <?= $this->Form->submit(__("S'inscrire")) ?>
+                <div class="loader-button">
+                    <?= $this->Form->submit(__('S\'inscrire')) ?>
+                    <span class="loader"></span>
+                </div>
                 <?= $this->Form->end() ?>
             </div>
         </div>
