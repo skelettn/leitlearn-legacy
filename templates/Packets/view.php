@@ -43,6 +43,7 @@ $this->assign('title', $packet->name);
                                 [
                                     'confirm' => 'Êtes-vous sur de vouloir réinitialiser la session ?',
                                     'class' => 'action play-hidden',
+                                    'title' => 'Réinitialiser la session',
                                     'escapeTitle' => false,
                                 ]
                             )
