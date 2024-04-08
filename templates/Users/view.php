@@ -52,7 +52,7 @@ if ($user->user_uid != $user_data['user_uid']) {
                                     <?= $this->Form->postLink(
                                         ' <button class="action">
                                         <span class="material-symbols-rounded">
-                                            person_add
+                                            person_remove
                                         </span>' .
                                         __('Refuser la demande en amis')
                                         . '
@@ -71,7 +71,7 @@ if ($user->user_uid != $user_data['user_uid']) {
                                 <?= $this->Form->postLink(
                                     ' <button class="action">
                                         <span class="material-symbols-rounded">
-                                            person_add
+                                            person_remove
                                         </span>' .
                                         __('Supprimer des amis') .
                                     '</button>',

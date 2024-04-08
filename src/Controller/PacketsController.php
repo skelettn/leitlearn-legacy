@@ -385,7 +385,7 @@ class PacketsController extends AppController
             $packet_name = $this->request->getData('query');
 
             $response = ['status' => 'success'];
-            $this->insert(AppSingleton::getUser($this->request->getSession())->id, $packet_name, $flashcards, [$packet_name]);
+            $this->insert($this->request->getSession()->read('Auth.id'), $packet_name, $flashcards, [$packet_name]);
         }
 
         return $this->response->withStringBody(json_encode($response));
