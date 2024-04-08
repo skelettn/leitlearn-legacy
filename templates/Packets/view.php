@@ -91,7 +91,7 @@ $this->assign('title', $packet->name);
             <div class="overview-container">
                 <div class="overview" id="game-visu">
                     <div class="progress">
-                        <progress value="0" max="100" id="progressBar"></progress>
+                        <progress value="0" max="100" id="deck-visualisation-progress"></progress>
                     </div>
                     <?php
                     $firstCard = true;
@@ -133,32 +133,13 @@ $this->assign('title', $packet->name);
                         </div>
                     </div>
                     <div class="actions-btn">
-                        <div class="action-btn next change-card" id="btn-visu-prev" data-change-card="-1">
+                        <div class="action-btn next change-card" id="deck-visualisation-previous" data-change-card="-1">
                             <span class="material-symbols-rounded">
                                 chevron_left
                             </span>
                         </div>
-                        <div class="action-btn next hidden" id="btn-valid">
-                            <span class="material-symbols-rounded">
-                                check
-                            </span>
-                        </div>
-                        <div class="action-btn">
-                            <span class="material-symbols-rounded">
-                                screen_rotation
-                            </span>
-                        </div>
-                        <div class="action-btn">
-                            <span class="material-symbols-rounded">
-                                volume_up
-                            </span>
-                        </div>
-                        <div class="action-btn next hidden" id="btn-echec">
-                            <span class="material-symbols-rounded">
-                                close
-                            </span>
-                        </div>
-                        <div class="action-btn previus change-card" id="btn-visu-next" data-change-card="1">
+                        <?= $this->cell('FeatureFlags::display', ['deck_session_features_experiment']) ?>
+                        <div class="action-btn previus change-card" id="deck-visualisation-next" data-change-card="1">
                             <span class="material-symbols-rounded">
                                 chevron_right
                             </span>

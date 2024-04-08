@@ -15,8 +15,8 @@ const flipCardEvent = () => {
 
 const changeCardEvent = () => {
     let $currentCardIndex = 0;
-    const $cards = $('.game .card');
-    const $progressBar = $('#progressBar');
+    const $cards = $('.overview .card');
+    const $progressBar = $('#deck-visualisation-progress');
 
     $('.change-card').on('click', function () {
         const indexChange = parseInt($(this).data("change-card"));
