@@ -11,7 +11,7 @@
         <div class="modal-body">
             <?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'login']]) ?>
             <div class="input-group">
-                <?= $this->Form->text('email', ['id' => 'login-email', 'placeholder' => '']) ?>
+                <?= $this->Form->email('email', ['id' => 'login-email', 'placeholder' => '']) ?>
                 <?= $this->Form->label('login-email', __('Adresse e-mail')) ?>
             </div>
             <div class="input-group">

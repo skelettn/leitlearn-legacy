@@ -30,7 +30,7 @@
             <ul class="links">
                 <li class="link">
                     <?= $this->Html->link(
-                        $this->Html->image('https://static.leitlearn.com/img/x-social-media-white-icon.webp', ['alt' => 'X']),
+                        $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/x-social-media-white-icon.webp', ['alt' => 'X']),
                         'https://x.com/Leitlearn',
                         ['class' => 'social', 'target' => '_blank', 'escapeTitle' => false]
                     ) ?>
@@ -107,6 +107,14 @@
                 </li>
                 <li class="footer-link">
                     <?= $this->Html->link(
+                        __('Trello'),
+                        'https://trello.com/b/iUvzfXzs/leitlearn',
+                        ['target' => '_blank'],
+                        ['escape' => false]
+                    ) ?>
+                </li>
+                <li class="footer-link">
+                    <?= $this->Html->link(
                         __('Documentation'),
                         '/docs',
                         ['escape' => false]
@@ -143,6 +151,6 @@
             <?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp') ?>
             &copy; 2023-2024 Leitlearn.com
         </div>
-        <div class="version">2.0 Pre-Version</div>
+        <div class="version">2.0 RC 2 Pre-Version</div>
     </div>
 </footer>

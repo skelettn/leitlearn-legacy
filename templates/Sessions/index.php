@@ -63,16 +63,7 @@ $this->assign('title', 'Session');
                                     close
                                 </span>
                         </div>
-                        <div class="action-btn">
-                                <span class="material-symbols-rounded">
-                                    screen_rotation
-                                </span>
-                        </div>
-                        <div class="action-btn">
-                                <span class="material-symbols-rounded">
-                                    volume_up
-                                </span>
-                        </div>
+                        <?= $this->cell('FeatureFlags::display', ['deck_session_features_experiment']) ?>
                         <div class="action-btn" id="btn-valid">
                                 <span class="material-symbols-rounded">
                                     check

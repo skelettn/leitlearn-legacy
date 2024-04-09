@@ -16,9 +16,7 @@
                     ['escapeTitle' => false]
                 ); ?>
             </li>
-            <li class="modal-btn" data-modal="turbo-modal">
-                <span class="material-symbols-rounded">rocket_launch</span>
-            </li>
+            <?= $this->cell('FeatureFlags::display', ['leitlearn_plus_sidebar_link']) ?>
             <?php if (!$is_logged) : ?>
                 <li class="modal-btn" data-modal="login-modal">
                     <span class="material-symbols-rounded" style="font-variation-settings: 'FILL';">person</span>

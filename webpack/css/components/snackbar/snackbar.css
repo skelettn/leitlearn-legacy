@@ -25,3 +25,21 @@
     color: black;
     text-align: center;
 }
+
+@media screen and (max-width: 620px) {
+    .snackbar {
+        bottom: 80px;
+        min-width: 400px;
+    }
+    .snackbar.show {
+        visibility: visible;
+        -webkit-animation: leitlearn_fadein_responsive 0.5s, leitlearn_fadeout_responsive 0.5s 2.5s;
+        animation: leitlearn_fadein_responsive 0.5s, leitlearn_fadeout_responsive 0.5s 2.5s;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .snackbar {
+        min-width: 300px;
+    }
+}

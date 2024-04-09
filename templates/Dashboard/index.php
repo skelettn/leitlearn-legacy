@@ -44,17 +44,17 @@ $this->assign('title', 'Mon dashboard');
             <h2 class="part-title"><?= __('Découvrez les nouveautés') ?></h2>
             <div class="features">
                 <div class="feature">
-                    <div class="media" style="background-image: url('/img/andre-hunter-AQ908FfdAMw-unsplash.jpg');"></div>
+                    <div class="media" style="background-image: url('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_landing.gif');"></div>
                     <div class="data">
-                        <h4 class="title"><?= __('Suivi') ?></h4>
-                        <p class="desc"><?= __('Accédez à votre suivi d\'avancement de chaque paquet directement dans la section statistique du paquet.') ?></p>
+                        <h4 class="title"><?= __('Importation de paquets') ?></h4>
+                        <p class="desc"><?= __('Vous pouvez désormais importer facilement des paquets de données via des fichiers CSV et des fichiers Anki.') ?></p>
                     </div>
                 </div>
                 <div class="feature">
-                    <div class="media" style="background-image: url('/img/andre-hunter-AQ908FfdAMw-unsplash.jpg');"></div>
+                    <div class="media" style="background-image: url('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_landing.gif');"></div>
                     <div class="data">
-                        <h4 class="title"><?= __('Marché') ?></h4>
-                        <p class="desc"><?= __('Explorez et utilisez les paquets et flashcards créés par d\'autres utilisateurs sur votre espace personnel.') ?></p>
+                        <h4 class="title"><?= __('Relations') ?></h4>
+                        <p class="desc"><?= __('Nouveau système d\'amis, rendant la connexion et le partage avec la communauté plus simple que jamais.') ?></p>
                     </div>
                 </div>
             </div>

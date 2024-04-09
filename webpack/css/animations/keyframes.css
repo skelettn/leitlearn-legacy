@@ -60,6 +60,54 @@
     }
 }
 
+@-webkit-keyframes leitlearn_fadein_responsive {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 80px;
+        opacity: 1;
+    }
+}
+
+@keyframes leitlearn_fadein_responsive {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 80px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes leitlearn_fadeout_responsive {
+    from {
+        bottom: 80px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes leitlearn_fadeout_responsive {
+    from {
+        bottom: 80px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
 @keyframes scaleAnimation {
     0% {
         transform: scale(1);

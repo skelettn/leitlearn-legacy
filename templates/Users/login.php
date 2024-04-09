@@ -1,3 +1,6 @@
+<?php
+$this->assign('title', 'Connexion');
+?>
 <main>
     <div class="auth-form">
         <div class="auth-form-container">
@@ -7,21 +10,24 @@
                         close
                     </span>
                 </div>
-                <?= $this->Html->image('https://static.leitlearn.com/v2/img/leitlearn_2_logo.webp', ['class' => 'logo', 'alt' => 'Leitlearn 2']) ?>
+                <?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp', ['class' => 'logo', 'alt' => 'Leitlearn 2']) ?>
             </div>
             <div class="auth-form-body">
                 <h3 class="title"><?= __('Se connecter à Leitlearn') ?></h3>
                 <h5 class="desc"><?= __('Connectez-vous pour utiliser toutes les fonctionnalités de Leitlearn') ?></h5>
                 <?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'login']]) ?>
                 <div class="input-group">
-                    <?= $this->Form->text('email', ['id' => 'login-page-email', 'placeholder' => '']) ?>
+                    <?= $this->Form->email('email', ['id' => 'login-page-email', 'placeholder' => '']) ?>
                     <?= $this->Form->label('login-page-email', __('Adresse e-mail')) ?>
                 </div>
                 <div class="input-group">
                     <?= $this->Form->password('password', ['id' => 'login-page-password', 'placeholder' => '']) ?>
                     <?= $this->Form->label('login-page-password', __('Mot de passe')) ?>
                 </div>
-                <?= $this->Form->submit(__('Se connecter')) ?>
+                <div class="loader-button">
+                    <?= $this->Form->submit(__('Se connecter')) ?>
+                    <span class="loader"></span>
+                </div>
                 <?= $this->Form->end() ?>
             </div>
         </div>

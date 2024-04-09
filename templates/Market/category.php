@@ -19,7 +19,7 @@ $this->assign('title', $category . ' - Marché');
         <section class="section-packets">
             <div class="section-header">
                 <h2 class="packets-title">
-                    <?= ucfirst($category) ?>
+                    <?= __(ucfirst($category)) ?>
                 </h2>
                 <div class="scroll-buttons">
                     <button class="prev-button scroll-button">

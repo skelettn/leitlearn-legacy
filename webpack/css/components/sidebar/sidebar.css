@@ -54,6 +54,12 @@
     cursor: pointer;
 }
 
+.sidebar ul li img.leitlearn_plus {
+    width: 28px;
+    height: 32px;
+    transition: all .3s ease;
+}
+
 .sidebar ul li.active {
     background: var(--main-bg-color);
 }
@@ -72,7 +78,9 @@
     transition: all .3s ease;
 }
 
-.sidebar ul li span:hover {
+.sidebar ul li span:hover,
+.sidebar ul li img:hover
+{
     transform: scale(1.03);
 }
 
@@ -84,6 +92,11 @@
 .sidebar ul li:focus span,
 .sidebar ul li:active span {
     font-size: 30px;
+}
+
+.sidebar ul li:focus img,
+.sidebar ul li:active img {
+    transform: scale(.95);
 }
 
 .sidebar ul li.active span {

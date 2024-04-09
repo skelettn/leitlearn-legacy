@@ -13,7 +13,11 @@ $this->assign('title', $packet->name);
                     <?= $this->Html->link(
                         '<span class="material-symbols-rounded">tune</span>',
                         '/deck/settings/' . $packet->packet_uid,
-                        ['class' => 'action play-hidden', 'escapeTitle' => false],
+                        [
+                            'class' => 'action play-hidden',
+                            'title' => 'Paramètres du paquet',
+                            'escapeTitle' => false,
+                        ],
                     ) ?>
                     <?= $this->Form->postLink(
                         '<span class="material-symbols-rounded">ios_share</span>',
@@ -21,6 +25,7 @@ $this->assign('title', $packet->name);
                         [
                             'confirm' => __('Êtes-vous sûr de vouloir exporter le paquet ?'),
                             'class' => 'action play-hidden',
+                            'title' => 'Exporter le paquet en CSV',
                             'escapeTitle' => false,
                         ]
                     ) ?>
@@ -38,6 +43,7 @@ $this->assign('title', $packet->name);
                                 [
                                     'confirm' => 'Êtes-vous sur de vouloir réinitialiser la session ?',
                                     'class' => 'action play-hidden',
+                                    'title' => 'Réinitialiser la session',
                                     'escapeTitle' => false,
                                 ]
                             )
@@ -46,7 +52,7 @@ $this->assign('title', $packet->name);
 
                         <?php if (!isset($date) || ($now > $date)) : ?>
                             <?= $this->Form->postLink(
-                                __('Lancer') . '<span class="material-symbols-rounded">undo</span>',
+                                'Lancer <span class="material-symbols-rounded">start</span>',
                                 ['controller' => 'Sessions', 'action' => 'createOrRedirect', $packet->id],
                                 ['class' => 'action play btnPlay create-session-btn', 'escapeTitle' => false]
                             ) ?>
@@ -85,7 +91,7 @@ $this->assign('title', $packet->name);
             <div class="overview-container">
                 <div class="overview" id="game-visu">
                     <div class="progress">
-                        <progress value="0" max="100" id="progressBar"></progress>
+                        <progress value="0" max="100" id="deck-visualisation-progress"></progress>
                     </div>
                     <?php
                     $firstCard = true;
@@ -127,32 +133,13 @@ $this->assign('title', $packet->name);
                         </div>
                     </div>
                     <div class="actions-btn">
-                        <div class="action-btn next change-card" id="btn-visu-prev" data-change-card="-1">
+                        <div class="action-btn next change-card" id="deck-visualisation-previous" data-change-card="-1">
                             <span class="material-symbols-rounded">
                                 chevron_left
                             </span>
                         </div>
-                        <div class="action-btn next hidden" id="btn-valid">
-                            <span class="material-symbols-rounded">
-                                check
-                            </span>
-                        </div>
-                        <div class="action-btn">
-                            <span class="material-symbols-rounded">
-                                screen_rotation
-                            </span>
-                        </div>
-                        <div class="action-btn">
-                            <span class="material-symbols-rounded">
-                                volume_up
-                            </span>
-                        </div>
-                        <div class="action-btn next hidden" id="btn-echec">
-                            <span class="material-symbols-rounded">
-                                close
-                            </span>
-                        </div>
-                        <div class="action-btn previus change-card" id="btn-visu-next" data-change-card="1">
+                        <?= $this->cell('FeatureFlags::display', ['deck_session_features_experiment']) ?>
+                        <div class="action-btn previus change-card" id="deck-visualisation-next" data-change-card="1">
                             <span class="material-symbols-rounded">
                                 chevron_right
                             </span>
