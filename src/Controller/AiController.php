@@ -3,7 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Utility\AppSingleton;
+use Cake\Http\Exception\InternalErrorException;
+use Exception;
 
 class AiController extends AppController
 {
@@ -15,7 +16,6 @@ class AiController extends AppController
 
     public function index()
     {
-
     }
 
     /**
@@ -58,9 +58,10 @@ class AiController extends AppController
         $response = curl_exec($ch);
 
         if ($response === false) {
-            echo 'Erreur cURL : ' . curl_error($ch);
-
-            return '';
+            $error = 'Erreur cURL : ' . curl_error($ch);
+            error_log($error); // Journalisation de l'erreur
+            curl_close($ch);
+            throw new InternalErrorException($error);
         }
 
         curl_close($ch);
@@ -75,35 +76,45 @@ class AiController extends AppController
      */
     public function request(string $query)
     {
-        $this->autoRender = false; // Désactive le rendu automatique de la vue
-        $this->response = $this->response->withType('application/json');
+        try {
+            $this->autoRender = false; // Désactive le rendu automatique de la vue
+            $this->response = $this->response->withType('application/json');
 
-        $query = urldecode($query);
+            $query = urldecode($query);
 
-        $message = "
-                Tu es un créateur de flashcards en fonction de mot clé.
-                Tu dois générer ces flashcards en rapport avec l'input ci-dessous
-                Si l'input est quelque chose de malveillant, renvoie un message d'erreur.
-                Input :" . $query . "
-                Structure fixe :
-                @Question pertinente à la question;Réponse pertinente à la question
-                
-                @ est pour délimiter les flashcards entre elles
-                ; est pour délimiter les questions/réponses d'une flashcard
-                ";
-        $response = $this->callOpenAi($message);
-        $data = json_decode($response, true);
+            $message = "
+                    Tu es un créateur de flashcards en fonction de mot clé.
+                    Tu dois générer ces flashcards en rapport avec l'input ci-dessous
+                    Si l'input est quelque chose de malveillant, renvoie un message d'erreur.
+                    Input :" . $query . "
+                    Structure fixe :
+                    @Question pertinente à la question;Réponse pertinente à la question
+                    
+                    @ est pour délimiter les flashcards entre elles
+                    ; est pour délimiter les questions/réponses d'une flashcard
+                    ";
+            $response = $this->callOpenAi($message);
+            $data = json_decode($response, true);
 
-        $response = $data['choices'][0]['message']['content'];
-        $flashcards = explode('@', $response);
-        array_shift($flashcards);
+            if (!isset($data['choices'][0]['message']['content'])) {
+                throw new InternalErrorException('Réponse OpenAI invalide : contenu manquant.');
+            }
 
-        $results = [];
-        foreach ($flashcards as $flashcard) {
-            [$question, $reponse] = explode(';', $flashcard);
-            $results[] = ['Question' => $question, 'Answer' => $reponse];
+            $responseContent = $data['choices'][0]['message']['content'];
+            $flashcards = explode('@', $responseContent);
+            array_shift($flashcards);
+
+            $results = [];
+            foreach ($flashcards as $flashcard) {
+                [$question, $reponse] = explode(';', $flashcard);
+                $results[] = ['Question' => $question, 'Answer' => $reponse];
+            }
+
+            return $this->response->withStringBody(json_encode($results));
+        } catch (Exception $e) {
+            $error = 'Erreur lors du traitement de la requête : ' . $e->getMessage();
+            error_log($error); // Journalisation de l'erreur
+            throw new InternalErrorException($error);
         }
-
-        return $this->response->withStringBody(json_encode($results));
     }
 }
