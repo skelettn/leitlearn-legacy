@@ -28,6 +28,7 @@ const aiRequestEvent = async() => {
             loadingEvent();
             let responses = await aiSendRequest();
             console.log(responses);
+            console.log(1);
             removeLoading();
             displayResponses(responses);
             displayActions();
