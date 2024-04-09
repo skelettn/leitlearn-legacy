@@ -8,7 +8,6 @@
                 '/dashboard',
                 ['escapeTitle' => false]
             ); ?>
-
         </li>
         <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/users/view/' . $user_data['user_uid'] ? 'active' : '' ?>">
             <?= $this->Html->link(
@@ -18,14 +17,7 @@
                 ['escapeTitle' => false]
             ); ?>
         </li>
-        <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/stats' ? 'active' : '' ?>">
-            <?= $this->Html->link(
-                '<span class="material-symbols-rounded">equalizer</span>'. __('Statistiques')
-                ,
-                '/stats',
-                ['escapeTitle' => false]
-            ); ?>
-        </li>
+        <?= $this->cell('FeatureFlags::display', ['leitlearn_stats_page_link']) ?>
         <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/users/settings' ? 'active' : '' ?>">
             <?= $this->Html->link(
                 '<span class="material-symbols-rounded">settings</span>'. __('Paramètres de compte'),
@@ -33,10 +25,10 @@
                 ['escapeTitle' => false]
             ); ?>
         </li>
-        <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/docs' ? 'active' : '' ?>">
+        <li class="dashboard-link">
             <?= $this->Html->link(
                 '<span class="material-symbols-rounded">support</span>'. __('Besoin d\'aide ?'),
-                '/docs',
+                'mailto:kilianpeyn@gmail.com',
                 ['escapeTitle' => false]
             ); ?>
         </li>

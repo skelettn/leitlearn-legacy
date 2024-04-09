@@ -119,7 +119,7 @@ echo $this->cell('FeatureFlags::display', ['test_feature_flags']);
                 <div class="content">
                     <h3 class="title"> <?= __('Découvrez la mise à jour') . ' '?> <span class="dashed">Leitlearn 2.0</span>
                     </h3>
-                    <h6 class="desc"> <?= __('Système d\'amis, d\'importation/d\'exportation par CSV, des flashcards musiques et images, des meilleures performances et plus encore...') ?> </h6>
+                    <h6 class="desc"> <?= __('Système d\'amis, d\'importation/d\'exportation par CSV et Anki, nouveau système de flashcards, des meilleures performances et plus encore...') ?> </h6>
                     <a href="/articles/announcing-leitlearn-2" class="action white"> <?= __('Découvrir') ?> </a>
                 </div>
             </div>

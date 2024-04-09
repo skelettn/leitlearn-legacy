@@ -1,0 +1,59 @@
+msgid "Languages"
+msgstr "Langues"
+
+msgid "Mathematics"
+msgstr "Mathématiques"
+
+msgid "History"
+msgstr "Histoire"
+
+msgid "Geography"
+msgstr "Géographie"
+
+msgid "Literature"
+msgstr "Littérature"
+
+msgid "Arts"
+msgstr "Arts"
+
+msgid "Music"
+msgstr "Musique"
+
+msgid "Social Sciences"
+msgstr "Sciences Sociales"
+
+msgid "Programming"
+msgstr "Programmation"
+
+msgid "Psychology"
+msgstr "Psychologie"
+
+msgid "Philosophy"
+msgstr "Philosophie"
+
+msgid "Economics"
+msgstr "Économie"
+
+msgid "Biology"
+msgstr "Biologie"
+
+msgid "Chemistry"
+msgstr "Chimie"
+
+msgid "Cooking"
+msgstr "Cuisine"
+
+msgid "Health"
+msgstr "Santé"
+
+msgid "Sports"
+msgstr "Sport"
+
+msgid "Technology"
+msgstr "Technologie"
+
+msgid "Cinema"
+msgstr "Cinéma"
+
+msgid "Science"
+msgstr "Science"

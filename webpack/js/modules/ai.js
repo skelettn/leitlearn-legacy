@@ -21,9 +21,9 @@ export const initAi = () => {
     aiRequestEvent();
 };
 
-const aiRequestEvent = async () => {
+const aiRequestEvent = async() => {
     $('#leitlearn_ai_submit').on("click", async function () {
-        if($('#leitlearn_ai_input').val().length > 0) {
+        if ($('#leitlearn_ai_input').val().length > 0) {
             $(this).hide();  // Utilisez "this" pour faire référence à l'élément cliqué
             loadingEvent();
             let responses = await aiSendRequest();
@@ -34,12 +34,14 @@ const aiRequestEvent = async () => {
     });
 }
 
-async function aiSendRequest() {
+async function aiSendRequest()
+{
     let query = $('#leitlearn_ai_input').val();
     return await api('/api/ai/request/', query);
 }
 
-async function loadingEvent() {
+async function loadingEvent()
+{
     for (let i = 1; i <= 5; i++) {
         const flashcard = createFlashcard("ai-skeleton", "ai-skeleton");
         $(".ai-flashcards").append(flashcard);
@@ -65,7 +67,7 @@ const removeLoading = () => {
 }
 
 const displayResponses = (response) => {
-    $.each(response, function(index, element) {
+    $.each(response, function (index, element) {
         let flashcard = createFlashcard("question", "content show", element.Question, element.Answer);
         $(".ai-flashcards").append(flashcard);
 
@@ -107,7 +109,7 @@ const displayActions = () => {
     keep.on("click", createDeck);
 }
 
-const resetAndReload = async () => {
+const resetAndReload = async() => {
     $('.ai-flashcards').empty();
     $('#ai-results .actions').remove();
 
@@ -122,7 +124,7 @@ const createDeck = () => {
     let flashcards = [];
     let aiFlashcards = $('.flashcards').children();
 
-    aiFlashcards.each(function(index, flashcard) {
+    aiFlashcards.each(function (index, flashcard) {
         let question = $(flashcard).find('.question').text().trim();
         let answer = $(flashcard).find('.content').text().trim();
         question = question.replace('question:', '').trim();
@@ -148,7 +150,7 @@ const createDeck = () => {
         type: "POST",
         url: "/packets/aiResponse",
         data: data,
-        success: function(response) {
+        success: function (response) {
             window.location.href = "/dashboard";
         },
     });

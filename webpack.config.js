@@ -22,5 +22,8 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             }
         ]
+    },
+    performance : {
+        hints : false
     }
 };

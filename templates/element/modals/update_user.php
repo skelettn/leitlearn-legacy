@@ -55,7 +55,7 @@ $months = [
                 <?= $this->Form->label('update-username', __('Nom d\'utilisateur')) ?>
             </div>
             <div class="input-group">
-                <?= $this->Form->input('email', ['id' => 'update-email', 'placeholder' => '', 'default' => $user_data['email']]); ?>
+                <?= $this->Form->email('email', ['id' => 'update-email', 'placeholder' => '', 'default' => $user_data['email']]); ?>
                 <?= $this->Form->label('update-email', __('Adresse e-mail')) ?>
             </div>
             <div class="genre">

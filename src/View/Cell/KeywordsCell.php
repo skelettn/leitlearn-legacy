@@ -1,13 +1,15 @@
 <?php
+declare(strict_types=1);
+
 namespace App\View\Cell;
 
 use Cake\View\Cell;
 
 class KeywordsCell extends Cell
 {
-    public function display()
+    public function display(): void
     {
-        $keywords = $this->fetchTable("Keywords")->find();
+        $keywords = $this->fetchTable('Keywords')->find();
 
         foreach ($keywords as $keyword) {
             $keyword->bg = $this->getStyles($keyword->word, 'bg');
@@ -18,14 +20,14 @@ class KeywordsCell extends Cell
         $this->set('keywords', $keywords->toArray());
     }
 
-    public function selected(int $packet_id = NULL)
+    public function selected(?int $packet_id = null): void
     {
-        $keywords = $this->fetchTable("Keywords")->find()->toArray();
+        $keywords = $this->fetchTable('Keywords')->find()->toArray();
 
-        if(!is_null($packet_id)) {
+        if (!is_null($packet_id)) {
             foreach ($keywords as $keyword) {
                 if (
-                    $this->fetchTable("PacketsKeywords")
+                    $this->fetchTable('PacketsKeywords')
                         ->find()
                         ->where(['packet_id' => $packet_id, 'keyword_id' => $keyword['id']])
                         ->count() == 1
@@ -38,116 +40,116 @@ class KeywordsCell extends Cell
         $this->set('keywords', $keywords);
     }
 
-    public function getStyles(string $word, string $field) {
-        $validFields = array(
+    public function getStyles(string $word, string $field)
+    {
+        $validFields = [
             'icon',
             'bg',
-            'fill'
-        );
+            'fill',
+        ];
 
-
-        $categoryData = array(
-            'Mathematiques' => array(
+        $categoryData = [
+            'Mathematics' => [
                 'icon' => 'function',
                 'bg' => '#0074D9',
-                'fill' => '#B3E0FF'
-            ),
-            'Langues' => array(
+                'fill' => '#B3E0FF',
+            ],
+            'Languages' => [
                 'icon' => 'translate',
                 'bg' => '#2ECC40',
-                'fill' => '#DFF9E2'
-            ),
-            'Histoire' => array(
+                'fill' => '#DFF9E2',
+            ],
+            'History' => [
                 'icon' => 'history_edu',
                 'bg' => '#FF4136',
-                'fill' => '#FFC3B0'
-            ),
-            'Geographie' => array(
+                'fill' => '#FFC3B0',
+            ],
+            'Geography' => [
                 'icon' => 'public',
                 'bg' => '#FF851B',
-                'fill' => '#FFD8B2'
-            ),
-            'Litterature' => array(
+                'fill' => '#FFD8B2',
+            ],
+            'Literature' => [
                 'icon' => 'book',
                 'bg' => '#B10DC9',
-                'fill' => '#E8CEF7'
-            ),
-            'Arts' => array(
+                'fill' => '#E8CEF7',
+            ],
+            'Arts' => [
                 'icon' => 'palette',
                 'bg' => '#FFDC00',
-                'fill' => '#FFF8C6'
-            ),
-            'Musique' => array(
+                'fill' => '#FFF8C6',
+            ],
+            'Music' => [
                 'icon' => 'music_note',
                 'bg' => '#FF6300',
-                'fill' => '#FFD1B2'
-            ),
-            'Sociales' => array(
+                'fill' => '#FFD1B2',
+            ],
+            'Social Sciences' => [
                 'icon' => 'groups',
                 'bg' => '#7D3C98',
-                'fill' => '#D8B4E2'
-            ),
-            'Programmation' => array(
+                'fill' => '#D8B4E2',
+            ],
+            'Programming' => [
                 'icon' => 'code',
                 'bg' => '#39CCCC',
-                'fill' => '#B2EBF2'
-            ),
-            'Psychologie' => array(
+                'fill' => '#B2EBF2',
+            ],
+            'Psychology' => [
                 'icon' => 'psychology',
                 'bg' => '#001F3F',
-                'fill' => '#428BCA'
-            ),
-            'Philosophie' => array(
+                'fill' => '#428BCA',
+            ],
+            'Philosophy' => [
                 'icon' => 'light',
                 'bg' => '#4B0082',
-                'fill' => '#9678D3'
-            ),
-            'Economie' => array(
+                'fill' => '#9678D3',
+            ],
+            'Economics' => [
                 'icon' => 'account_balance',
                 'bg' => '#FF851B',
-                'fill' => '#FFD8B2'
-            ),
-            'Biologie' => array(
+                'fill' => '#FFD8B2',
+            ],
+            'Biology' => [
                 'icon' => 'biotech',
                 'bg' => '#39CCCC',
-                'fill' => '#B2EBF2'
-            ),
-            'Chimie' => array(
+                'fill' => '#B2EBF2',
+            ],
+            'Chemistry' => [
                 'icon' => 'science',
                 'bg' => '#FFDC00',
-                'fill' => '#FFF8C6'
-            ),
-            'Cuisine' => array(
+                'fill' => '#FFF8C6',
+            ],
+            'Cooking' => [
                 'icon' => 'skillet',
                 'bg' => '#FF6300',
-                'fill' => '#FFD1B2'
-            ),
-            'Sante' => array(
+                'fill' => '#FFD1B2',
+            ],
+            'Health' => [
                 'icon' => 'spa',
                 'bg' => '#39CCCC',
-                'fill' => '#B2EBF2'
-            ),
-            'Sport' => array(
+                'fill' => '#B2EBF2',
+            ],
+            'Sports' => [
                 'icon' => 'fitness_center',
                 'bg' => '#001F3F',
-                'fill' => '#428BCA'
-            ),
-            'Technologie' => array(
+                'fill' => '#428BCA',
+            ],
+            'Technology' => [
                 'icon' => 'devices',
                 'bg' => '#34495E',
-                'fill' => '#BDC3C7'
-            ),
-            'Cinema' => array(
+                'fill' => '#BDC3C7',
+            ],
+            'Cinema' => [
                 'icon' => 'movie',
                 'bg' => '#B10DC9',
-                'fill' => '#E8CEF7'
-            ),
-            'Science' => array(
+                'fill' => '#E8CEF7',
+            ],
+            'Science' => [
                 'icon' => 'genetics',
                 'bg' => '#8E44AD',
-                'fill' => '#D8B4E2'
-            )
-        );
+                'fill' => '#D8B4E2',
+            ],
+        ];
 
         if (isset($categoryData[$word]) && in_array($field, $validFields)) {
             return $categoryData[$word][$field];

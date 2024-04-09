@@ -280,6 +280,7 @@ main {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: 15px;
 }
 
 .dashboard section.new .features .feature {
@@ -452,13 +453,29 @@ main {
     font-weight: 500;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, .125);
+    overflow-y: scroll;
+}
+
+.overview .card-front .content-flashcard,
+.overview .card-back .content-flashcard,
+.overview .info .content-flashcard {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 30px;
 }
 
 .overview .card-front p,
 .overview .card-back p {
-    max-width: 400px;
+    max-width: 100%;
     text-align: center;
     word-break: break-word;
+}
+
+.overview .card-front iframe,
+.overview .card-back  iframe {
+    width: 100%;
+    height: 350px;
 }
 
 .overview .info {
@@ -483,13 +500,8 @@ main {
     z-index: 0;
 }
 
-.overview .card-front audio,
 .overview .card-front img {
-    margin-top: 20px;
-}
-
-.overview .card-front img {
-    max-width: 300px;
+    max-width: 100%;
     border-radius: 10px;
 }
 

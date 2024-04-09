@@ -42,6 +42,11 @@
     font-weight: 500;
 }
 
+.flashcards .flashcard .question img ,
+.flashcards .flashcard .answer img {
+    max-width: 100%;
+}
+
 .flashcards .flashcard .question ol,
 .flashcards .flashcard .answer ol,
 .flashcards .flashcard .question ul,

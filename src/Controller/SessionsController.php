@@ -175,9 +175,9 @@ class SessionsController extends AppController
                     $flashcard->arrived = $now;
                     $this->Sessions->Packets->Flashcards->save($flashcard);
                 }
-                $this->request->getFlash()->success('Session terminée !');
+                $this->request->getFlash()->success(__('Session terminée !'));
             } else {
-                $this->request->getFlash()->success('Erreur dans le suppression de la session.');
+                $this->request->getFlash()->success(__('Erreur dans le suppression de la session.'));
             }
         }
 

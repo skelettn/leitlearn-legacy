@@ -6,10 +6,7 @@ namespace App\Controller;
 use App\Utility\AppSingleton;
 use Cake\Datasource\Exception\RecordNotFoundException;
 use Cake\Http\Response;
-use Cake\I18n\DateTime;
 use Cake\I18n\FrozenTime;
-use Cake\I18n\Time;
-use DateInterval;
 
 class FlashcardsController extends AppController
 {
@@ -36,12 +33,12 @@ class FlashcardsController extends AppController
                     $this->Flashcards->deleteAll(['id' => $id, 'packet_id' => $packet->id]);
                     $this->Flash->success('Votre flashcards a été supprimé avec succès.');
                 } else {
-                    $this->Flash->error('Une erreur s\'est produite lors de la suppression de la flashcards.');
+                    $this->Flash->error(__('Une erreur s\'est produite lors de la suppression de la flashcards.'));
                 }
 
                 return $this->redirect('/deck/' . $packet->packet_uid);
             } else {
-                $this->Flash->error('Une erreur s\'est produite lors de la suppression de la flashcards.');
+                $this->Flash->error(__('Une erreur s\'est produite lors de la suppression de la flashcards.'));
             }
         }
 
@@ -82,12 +79,12 @@ class FlashcardsController extends AppController
                 $data['id'] = $flashcard_id;
                 $flashcard = $this->Flashcards->patchEntity($flashcard, $data);
                 if ($this->Flashcards->save($flashcard)) {
-                    $this->Flash->success('Flashcard modifié avec succès.');
+                    $this->Flash->success(__('Flashcard modifié avec succès.'));
 
                     return $this->redirect('/deck/' . $packet->packet_uid);
                 }
             } else {
-                $this->Flash->error('Une erreur s\'est produite lors de la modification de la flashcard.');
+                $this->Flash->error(__('Une erreur s\'est produite lors de la modification de la flashcard.'));
             }
         }
 
@@ -117,12 +114,12 @@ class FlashcardsController extends AppController
                 $flashcard = $this->Flashcards->patchEntity($flashcard, $data);
 
                 if ($this->Flashcards->save($flashcard)) {
-                    $this->Flash->success('Votre carte a été crée avec succès.');
+                    $this->Flash->success(__('Votre carte a été crée avec succès.'));
                 } else {
-                    $this->Flash->success('Une erreur s\'est produite lors de la création de la carte.');
+                    $this->Flash->success(__('Une erreur s\'est produite lors de la création de la carte.'));
                 }
             } else {
-                $this->Flash->success('Une erreur s\'est produite lors de la création de la carte.');
+                $this->Flash->success(__('Une erreur s\'est produite lors de la création de la carte.'));
             }
         }
 
@@ -147,13 +144,10 @@ class FlashcardsController extends AppController
         if ($flashcard && $this->matchUserWithPacket($this->request->getSession()->read('Auth.id'), $packet->packet_uid)) {
             $data_flashcard['leitner_folder'] = $flashcard->leitner_folder += 1;
 
-
-
             $now = FrozenTime::now();
             $days_to_add = $data_flashcard['leitner_folder'];
-            $now = $now->modify('+' .$days_to_add . ' days');
+            $now = $now->modify('+' . $days_to_add . ' days');
             $data_flashcard['arrived'] = $now;
-
 
             $this->Flashcards->patchEntity($flashcard, $data_flashcard);
 
@@ -219,13 +213,13 @@ class FlashcardsController extends AppController
                     $flashcard = $this->Flashcards->newEntity($data);
 
                     if ($this->Flashcards->save($flashcard)) {
-                        $this->Flash->success('Cartes importées avec succès.');
+                        $this->Flash->success(__('Cartes importées avec succès.'));
                     } else {
                         $this->Flash->error("Erreur dans l'importation des cartes.");
                     }
                 }
             } else {
-                $this->Flash->error("Erreur dans l'importation des cartes.");
+                $this->Flash->error(__("Erreur dans l\'importation des cartes."));
             }
         }
 
