@@ -8,7 +8,7 @@
 use Cake\Core\Configure;
 use Cake\Error\Debugger;
 
-$this->layout = 'error';
+$this->layout = 'home_market';
 
 if (Configure::read('debug')) :
     $this->layout = 'dev_error';
