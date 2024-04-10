@@ -639,36 +639,37 @@ class PacketsController extends AppController
             $packet = $this->Packets->newEmptyEntity();
             $data = $this->request->getData();
 
+            $data['packet_uid'] = $this->generateUID();
             $data['user_id'] = $this->request->getSession()->read('Auth.id');
             $data['creator_id'] = $this->request->getSession()->read('Auth.id');
 
             $packet = $this->Packets->patchEntity($packet, $data);
-        if ($this->Packets->save($packet)) {
-            $packetId = $packet->id;
 
-            foreach ($results as $flashcardData) {
-                $flashcard = explode("\x1F", $flashcardData['flds']);
-                $question = $flashcard[0];
-                $answer = $flashcard[1];
+            if ($this->Packets->save($packet)) {
+                $packetId = $packet->id;
 
-                $flashcard = $this->Packets->Flashcards->newEntity([
-                    'packet_id' => $packetId,
-                    'question' => $question,
-                    'answer' => $answer,
-                ]);
+                foreach ($results as $flashcardData) {
+                    $flashcard = explode("\x1F", $flashcardData['flds']);
+                    $question = $flashcard[0];
+                    $answer = $flashcard[1];
 
-                $this->Packets->Flashcards->save($flashcard);
+                    $flashcard = $this->Packets->Flashcards->newEntity([
+                        'packet_id' => $packetId,
+                        'question' => $question,
+                        'answer' => $answer,
+                    ]);
+
+                    $this->Packets->Flashcards->save($flashcard);
+                }
+                if (file_exists($database_path)
+                ) {
+                    unlink($database_path);
+                }
+
+                $this->Flash->error(__('Votre paquet a été crée avec succès.'));
+            } else {
+                $this->Flash->error(__('Erreur lors de la sauvegarde du paquet.'));
             }
-            if (
-                file_exists($database_path)
-            ) {
-                unlink($database_path);
-            }
-
-            $this->Flash->error(__('Votre paquet a été crée avec succès.'));
-        } else {
-            $this->Flash->error(__('Erreur lors de la sauvegarde du paquet.'));
-        }
             $pdo = null;
 
         return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
