@@ -156,6 +156,6 @@
             <?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp', ['alt' => 'Leitlearn']) ?>
             &copy; 2023-2024 Leitlearn.com
         </div>
-        <div class="version">2.0 RC 2 Pre-Version</div>
+        <div class="version">2.0 RC 3 Pre-Version</div>
     </div>
 </footer>
