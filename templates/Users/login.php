@@ -1,20 +1,18 @@
 <?php
 $this->assign('title', 'Connexion');
 ?>
+<?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp', ['class' => 'fixed-logo-left', 'alt' => 'Leitlearn 2']) ?>
 <main>
+    <div class="auth-content">
+        <h1>Démarrez sur Leitlearn</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium culpa cum dicta dolorem doloremque earum error facere inventore ipsum itaque iure molestiae odit perspiciatis praesentium reiciendis repellendus repudiandae sequi, veniam.</p>
+    </div>
     <div class="auth-form">
-        <div class="auth-form-container">
             <div class="auth-form-header">
-                <div class="close page-redirect" data-redirection="/home">
-                    <span class="material-symbols-rounded">
-                        close
-                    </span>
-                </div>
-                <?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp', ['class' => 'logo', 'alt' => 'Leitlearn 2']) ?>
+                <h3><?= __('Rejoignez Leitlearn') ?></h3>
+                <p><?= __('Pas de compte ? Connectez-vous') ?></p>
             </div>
             <div class="auth-form-body">
-                <h3 class="title"><?= __('Se connecter à Leitlearn') ?></h3>
-                <h5 class="desc"><?= __('Connectez-vous pour utiliser toutes les fonctionnalités de Leitlearn') ?></h5>
                 <?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'login']]) ?>
                 <div class="input-group">
                     <?= $this->Form->email('email', ['id' => 'login-page-email', 'placeholder' => '']) ?>
@@ -24,12 +22,37 @@ $this->assign('title', 'Connexion');
                     <?= $this->Form->password('password', ['id' => 'login-page-password', 'placeholder' => '']) ?>
                     <?= $this->Form->label('login-page-password', __('Mot de passe')) ?>
                 </div>
-                <div class="loader-button">
-                    <?= $this->Form->submit(__('Se connecter')) ?>
-                    <span class="loader"></span>
+                <div class="input-group">
+                    <?= $this->Form->email('email', ['id' => 'login-page-email', 'placeholder' => '']) ?>
+                    <?= $this->Form->label('login-page-email', __('Adresse e-mail')) ?>
                 </div>
-                <?= $this->Form->end() ?>
+                <div class="input-group">
+                    <?= $this->Form->password('password', ['id' => 'login-page-password', 'placeholder' => '']) ?>
+                    <?= $this->Form->label('login-page-password', __('Mot de passe')) ?>
+                </div>
+                <div class="input-group">
+                    <?= $this->Form->email('email', ['id' => 'login-page-email', 'placeholder' => '']) ?>
+                    <?= $this->Form->label('login-page-email', __('Adresse e-mail')) ?>
+                </div>
+                <div class="input-group">
+                    <?= $this->Form->password('password', ['id' => 'login-page-password', 'placeholder' => '']) ?>
+                    <?= $this->Form->label('login-page-password', __('Mot de passe')) ?>
+                </div>
+                <div class="input-group">
+                    <?= $this->Form->email('email', ['id' => 'login-page-email', 'placeholder' => '']) ?>
+                    <?= $this->Form->label('login-page-email', __('Adresse e-mail')) ?>
+                </div>
+                <div class="input-group">
+                    <?= $this->Form->password('password', ['id' => 'login-page-password', 'placeholder' => '']) ?>
+                    <?= $this->Form->label('login-page-password', __('Mot de passe')) ?>
+                </div>
+            </div>
+        <div class="auth-form-submit">
+            <div class="loader-button">
+                <?= $this->Form->submit(__('Se connecter')) ?>
+                <span class="loader"></span>
             </div>
         </div>
+        <?= $this->Form->end() ?>
     </div>
 </main>

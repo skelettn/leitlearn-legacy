@@ -1,4 +1,7 @@
 /* Colors */
 :root {
     --main-bg-color: #FFE30A;
+    --second-bg-color: #F0F2F6;
+    --text-black-color: #3C4A5B;
+    --text-light-color: rgb(104, 119, 141);
 }

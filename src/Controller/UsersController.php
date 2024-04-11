@@ -14,7 +14,7 @@ class UsersController extends AppController
     public function initialize(): void
     {
         parent::initialize();
-        $this->viewBuilder()->setLayout('home_market');
+        $this->viewBuilder()->setLayout('refresh/auth');
     }
 
     public function beforeFilter(EventInterface $event)
