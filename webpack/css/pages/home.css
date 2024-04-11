@@ -108,16 +108,6 @@ header .new.leitlearn-2 img {
     margin-right: 5px;
 }
 
-header .logo {
-    display: none;
-    margin-bottom: 15px;
-}
-
-header .logo img {
-    height: 50px;
-    filter: drop-shadow(0 0 5px rgba(0, 0, 0, .3));
-}
-
 header .title {
     max-width: 1200px;
     line-height: 130px;
@@ -502,13 +492,13 @@ footer button:active,
         display: none;
     }
 
-    header .logo {
-        display: block;
-    }
-
     header button,
     footer button {
         padding: 10px 15px;
+    }
+
+    .fixed-infos {
+        position: static;
     }
 
     .section-feature.new {

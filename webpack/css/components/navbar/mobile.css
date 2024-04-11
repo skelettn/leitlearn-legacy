@@ -11,6 +11,11 @@
     z-index: 5;
 }
 
+.fixed-nav-mobile.landing {
+    background: linear-gradient(180deg, black, transparent);
+    border-bottom: 0;
+}
+
 .fixed-nav-mobile .open-sidebar {
     display: flex;
 }
@@ -22,6 +27,11 @@
 .fixed-nav-mobile .logo {
     height: 35px;
     margin-left: 15px;
+}
+
+.fixed-nav-mobile.landing .logo {
+    margin: auto;
+    height: 40px;
 }
 
 .fixed-nav-mobile .user.fixed-nav {

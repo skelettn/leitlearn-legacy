@@ -39,6 +39,7 @@ $cakeDescription = ' - Leitlearn';
 <?php
 echo $this->Flash->render();
 echo $this->element('landing_sidebar');
+echo $this->element('landing_fixed_mobile');
 echo $this->fetch('content');
 ?>
 
@@ -59,7 +60,6 @@ echo $this->fetch('content');
 </span>
 
 <?php
-echo $this->element('modals/news');
 echo $this->element('modals/login');
 echo $this->element('modals/register');
 echo $this->element('modals/detail_packet');

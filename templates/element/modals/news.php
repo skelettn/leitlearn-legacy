@@ -10,7 +10,7 @@
         <div class="modal-body">
             <div class="news-container">
                 <div class="news">
-                    <div class="news-thumbnail" style="background-image: url('https://static.leitlearn.com/img/leitlearn_2_news.png')"></div>
+                    <div class="news-thumbnail"></div>
                     <h2 class="news-title"><?= __('Leitlearn 2 arrive!') ?></h2>
                     <p class="news-desc"><?= __('Découvrez la mise à jour Leitlearn 2 qui apporte de nombreuses nouveautés et correctifs.') ?></p>
                     <p class="news-desc"><?= __('Cette mise à jour sera disponible entre le mois de mars et avril 2024.') ?></p>
