@@ -46,7 +46,7 @@ return [
             'port' => '10306',
 
             'username' => 'test',
-            'password' => 'jC8zFvwp36DNvR7TWNe8nGedeYCVj',
+            'password' => 'pass',
 
             'database' => 'database',
             /*
