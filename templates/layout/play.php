@@ -18,7 +18,7 @@
 $cakeDescription = ' - Leitlearn';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
     <?= $this->Html->charset() ?>

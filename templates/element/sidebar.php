@@ -1,6 +1,6 @@
 <div class="sidebar">
     <div class="sidebar-container">
-        <?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp', ['class' => 'logo']) ?>
+        <?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp', ['class' => 'logo', 'alt' => 'Leitlearn']) ?>
         <ul>
             <li class="<?= $this->getRequest()->getRequestTarget() === '/market' ? 'active' : '' ?>">
                 <?= $this->Html->link(

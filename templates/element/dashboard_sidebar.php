@@ -67,7 +67,7 @@
                 </ul>
             </div>
             <div class="displayed leitlearn_dashboard_sidebar_open_user_detail_open">
-                <?= $this->Html->image('/img/user_profile_pic/'. $user_data['profile_picture'], ['class' => 'avatar']) ?>
+                <?= $this->Html->image('/img/user_profile_pic/'. $user_data['profile_picture'], ['class' => 'avatar', 'alt' => 'Profile Picture']) ?>
                 <div class="detail">
                     <span class="name"><?= $user_data['name'] ?> <?= $user_data['last_name'] ?></span>
                     <span class="alias"><?= $user_data['username'] ?></span>

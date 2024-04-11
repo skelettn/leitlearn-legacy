@@ -12,3 +12,4 @@
 <meta name="twitter:title" content="Leitlearn">
 <meta name="twitter:description" content="Générez vos flashcards puis créer votre paquet directement grâce à l'intelligence artificielle de Leitlearn.">
 <meta name="twitter:image" content="https://pbs.twimg.com/profile_banners/1745386993142362112/1710614312/1500x500">
+<link rel="canonical" href="https://leitlearn.com/home">

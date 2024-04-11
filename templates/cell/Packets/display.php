@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="author">
-            <?= $this->Html->image('/img/user_profile_pic/' . h($packet->user->profile_picture), ['class' => 'profile-picture']) ?>
+            <?= $this->Html->image('/img/user_profile_pic/' . h($packet->user->profile_picture), ['class' => 'profile-picture', 'alt' => 'Profile Picture']) ?>
             <span class="author-name"><?= h($packet->user->username) ?></span>
         </div>
         <?php if ($packet->ia) : ?>

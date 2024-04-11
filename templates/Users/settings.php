@@ -18,7 +18,7 @@ $this->assign('title', 'Paramètres de compte');
                     </button>
                 </h5>
                 <div class="info-picture">
-                    <?= $this->Html->image('/img/user_profile_pic/' . $user_data['profile_picture'], ['class' => 'avatar']) ?>
+                    <?= $this->Html->image('/img/user_profile_pic/' . $user_data['profile_picture'], ['class' => 'avatar', 'alt' => 'Profile Picture']) ?>
                 </div>
                 <div class="info">
                     <p><?= __('Nom')?></p>

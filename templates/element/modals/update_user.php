@@ -11,7 +11,7 @@ $months = [
     9 => 'Septembre',
     10 => 'Octobre',
     11 => 'Novembre',
-    12 => 'Décembre'
+    12 => 'Décembre',
 ];
 ?>
 <div class="modal" id="update-userdata">
@@ -27,18 +27,21 @@ $months = [
         <div class="modal-body">
             <?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'update'], 'type' => 'file']) ?>
             <div class="edit-picture-group">
-                <?= $this->Html->image('/img/user_profile_pic/'.$user_data['profile_picture'], ['class' => 'avatar', 'id' => 'profilePicturePreview']) ?>
+                <?= $this->Html->image(
+                    '/img/user_profile_pic/' . $user_data['profile_picture'],
+                    ['class' => 'avatar', 'id' => 'profilePicturePreview', 'alt' => 'Profile Picture']
+                ) ?>
                 <?= $this->Form->label(
                     'profile_picture',
                     '<span class="material-symbols-rounded">edit</span>',
                     ['id' => 'label-picture', 'escape' => false]
                 )
-                ?>
+?>
                 <?= $this->Form->control(
                     'profile_picture',
                     ['id' => 'profile-picture', 'style' => 'display: none;', 'type' => 'file']
                 )
-                ?>
+?>
             </div>
             <div class="input-flex">
                 <div class="input-group">

@@ -82,7 +82,7 @@ if ($user->user_uid != $user_data['user_uid']) {
                         <?php endif; ?>
                     <?php endif; ?>
                 </div>
-                <?= $this->Html->image('/img/user_profile_pic/' . $user->profile_picture, ['class' => 'logo']) ?>
+                <?= $this->Html->image('/img/user_profile_pic/' . $user->profile_picture, ['class' => 'logo', 'alt' => 'Profile Picture']) ?>
             </div>
         </div>
         <section class="section-packets profile-packets">

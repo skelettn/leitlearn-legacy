@@ -26,7 +26,7 @@ class LangController extends AppController
      */
     public function change(string $lang)
     {
-        if (!in_array($lang, ['en_US', 'fr_FR'])) {
+        if (!in_array($lang, ['en-US', 'fr-FR'])) {
             throw new NotFoundException(__('Langue invalide'));
         }
 
