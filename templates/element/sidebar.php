@@ -4,14 +4,14 @@
         <ul>
             <li class="<?= $this->getRequest()->getRequestTarget() === '/market' ? 'active' : '' ?>">
                 <?= $this->Html->link(
-                    '<span class="material-symbols-rounded">explore</span>',
+                    '<span class="material-symbols-rounded' . ($this->getRequest()->getRequestTarget() === '/market' ? ' active-icon' : '') . '">explore</span>',
                     '/market',
                     ['escapeTitle' => false]
                 ); ?>
             </li>
             <li class="<?= $this->getRequest()->getRequestTarget() === '/home' ? 'active' : '' ?>">
                 <?= $this->Html->link(
-                    '<span class="material-symbols-rounded">home</span>',
+                    '<span class="material-symbols-rounded' . ($this->getRequest()->getRequestTarget() === '/home' ? ' active-icon' : '') . '">home</span>',
                     '/home',
                     ['escapeTitle' => false]
                 ); ?>
@@ -24,7 +24,7 @@
             <?php else: ?>
                 <li class="<?= $this->getRequest()->getRequestTarget() === '/dashboard' ? 'active' : '' ?>">
                     <?= $this->Html->link(
-                        '<span class="material-symbols-rounded">person</span>',
+                        '<span class="material-symbols-rounded active-icon">person</span>',
                         '/dashboard',
                         ['escapeTitle' => false]
                     ); ?>

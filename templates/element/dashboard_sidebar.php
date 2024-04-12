@@ -3,7 +3,7 @@
     <ul class="dashboard-links">
         <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/dashboard' ? 'active' : '' ?>">
             <?= $this->Html->link(
-                '<span class="material-symbols-rounded">space_dashboard</span>'. __('Mon dashboard')
+                '<span class="material-symbols-rounded' . ($this->getRequest()->getRequestTarget() === '/dashboard' ? ' active-icon' : '') . '">space_dashboard</span>'. __('Mon dashboard')
                 ,
                 '/dashboard',
                 ['escapeTitle' => false]
@@ -11,7 +11,7 @@
         </li>
         <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/users/view/' . $user_data['user_uid'] ? 'active' : '' ?>">
             <?= $this->Html->link(
-                '<span class="material-symbols-rounded">account_circle</span>'. __('Mon profil')
+                '<span class="material-symbols-rounded' . ($this->getRequest()->getRequestTarget() === '/users/view/' . $user_data['user_uid'] ? ' active-icon' : '') . '">account_circle</span>'. __('Mon profil')
                 ,
                 '/users/view/' . $user_data['user_uid'],
                 ['escapeTitle' => false]
@@ -20,7 +20,7 @@
         <?= $this->cell('FeatureFlags::display', ['leitlearn_stats_page_link']) ?>
         <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/users/settings' ? 'active' : '' ?>">
             <?= $this->Html->link(
-                '<span class="material-symbols-rounded">settings</span>'. __('Paramètres de compte'),
+                '<span class="material-symbols-rounded' . ($this->getRequest()->getRequestTarget() === '/users/settings' ? ' active-icon' : '') . '">settings</span>'. __('Paramètres de compte'),
                 '/users/settings',
                 ['escapeTitle' => false]
             ); ?>

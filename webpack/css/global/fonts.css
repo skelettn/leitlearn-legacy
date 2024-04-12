@@ -6,3 +6,11 @@
     --font-family-primary: 'Plus Jakarta Sans', sans-serif;
     --font-family-secondary: "PT Serif", serif;
 }
+
+.material-symbols-rounded.active-icon {
+    font-variation-settings:
+            'FILL' 1,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 48;
+}
