@@ -61,7 +61,7 @@ class UsersController extends AppController
         // If the user is logged in send them away.
         if ($result->isValid()) {
             $target = $this->Authentication->getLoginRedirect() ?? '/dashboard';
-            $this->Flash->error(__('Connecté à Leitlearn'));
+            $this->Flash->success(__('Connecté à Leitlearn'));
 
             return $this->redirect($target);
         }

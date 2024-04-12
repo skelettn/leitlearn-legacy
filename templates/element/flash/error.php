@@ -10,5 +10,10 @@ if (!isset($params['escape']) || $params['escape'] !== false) {
 }
 ?>
 <div id="snackbar" class="snackbar show message error" onclick="this.classList.add('hidden');">
+    <div class="icon">
+        <span class="material-symbols-rounded">
+            error
+        </span>
+    </div>
     <span><?= $message ?></span>
 </div>

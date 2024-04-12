@@ -1,7 +1,11 @@
 <?php
 $this->assign('title', 'Inscription');
+echo $this->Html->link(
+    $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp', ['class' => 'fixed-logo-left', 'alt' => 'Leitlearn 2']),
+    '/home',
+    ['escape' => false]
+);
 ?>
-<?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp', ['class' => 'fixed-logo-left', 'alt' => 'Leitlearn 2']) ?>
 <main>
     <div class="auth-content">
         <h1>Démarrez sur Leitlearn</h1>
