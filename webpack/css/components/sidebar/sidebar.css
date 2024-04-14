@@ -28,9 +28,10 @@
     position: absolute;
     top: 20px;
     left: 50%;
-    height: 50px;
+    height: 35px;
     transform: translateX(-50%);
     background-image: url('https://static.leitlearn.com/img/v2/leitlearn_2_logo.png');
+    cursor: pointer;
 }
 
 .sidebar ul {

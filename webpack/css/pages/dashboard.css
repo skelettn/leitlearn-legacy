@@ -221,7 +221,7 @@ main {
 
 .dashboard section .section-header .actions .action.active {
     background: var(--main-bg-color);
-    color: black;
+    color: white;
 }
 
 .dashboard section .section-header .actions .action:last-child {
@@ -710,7 +710,8 @@ main {
     height: auto;
     padding: 8px 15px;
     background: var(--main-bg-color);
-    color: black;
+    color: white;
+    font-family: var(--font-family-secondary);
 }
 
 .packet-header .actions .action.play.hidden,
