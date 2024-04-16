@@ -550,7 +550,7 @@ class PacketsController extends AppController
                             $this->Packets->Flashcards->save($flashcard);
                         }
 
-                        $this->Flash->error(__('Votre paquet a été crée avec succès.'));
+                        $this->Flash->success(__('Votre paquet a été crée avec succès.'));
 
                         return $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
                     } else {
@@ -666,7 +666,7 @@ class PacketsController extends AppController
                     unlink($database_path);
                 }
 
-                $this->Flash->error(__('Votre paquet a été crée avec succès.'));
+                $this->Flash->success(__('Votre paquet a été crée avec succès.'));
             } else {
                 $this->Flash->error(__('Erreur lors de la sauvegarde du paquet.'));
             }

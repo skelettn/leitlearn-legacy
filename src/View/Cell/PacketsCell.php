@@ -7,7 +7,7 @@ class PacketsCell extends Cell
 {
     public function display(string $filter, int $logged_user_id = null, string $display = "base")
     {
-        $query = $this->fetchTable("Packets")->find()->contain(['Flashcards', 'Users', 'Keywords']);
+        $query = $this->fetchTable("Packets")->find()->contain(['Flashcards', 'Users', 'Keywords', 'Likes']);
 
         switch ($filter) {
             case 'trend':
@@ -33,6 +33,7 @@ class PacketsCell extends Cell
                 break;
             case 'my_ia_public':
                 $query->where(['user_id' => $logged_user_id, 'ia' => 1, 'status' => 1]);
+                break;
             case 'my_no_ia_public':
                 $query->where(['user_id' => $logged_user_id, 'ia' => 0, 'status' => 1]);
                 break;
