@@ -153,7 +153,7 @@
         </ul>
         <div class="separator"></div>
         <div class="copyright">
-            <?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp', ['alt' => 'Leitlearn']) ?>
+            <?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_white.webp', ['alt' => 'Leitlearn']) ?>
             &copy; 2023-2024 Leitlearn.com
         </div>
         <div class="version">2.0 RC 4 Pre-Version</div>
