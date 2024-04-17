@@ -8,11 +8,44 @@ main.refresh .refresh-grid {
     height: 100vh;
     display: grid;
     gap: 32px;
-    grid-template-areas: "panel-left panel-center panel-right";
+    grid-template-areas:
+        "panel-left panel-center panel-right";
     grid-template-columns: repeat(3, minmax(auto, 390px));
-    grid-template-rows: minmax(auto, 610px);
+    grid-template-rows: 610px;
     place-content: center;
     -webkit-box-pack: center;
+}
+
+main.refresh .refresh-grid .panel-right {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+main.refresh .refresh-grid .panel-right-top,
+main.refresh .refresh-grid .panel-right-bottom {
+    flex: 1 1 0%;
+}
+
+main.refresh .refresh-grid .panel-left {
+    grid-area: panel-left;
+}
+
+main.refresh .refresh-grid .panel-center {
+    grid-area: panel-center;
+}
+
+main.refresh .refresh-grid .panel-right {
+    grid-area: panel-right;
+}
+
+main.refresh .refresh-grid .panel-right-top {
+    grid-area: panel-right-top;
+    margin-bottom: 32px;
+}
+
+main.refresh .refresh-grid .panel-right-bottom {
+    grid-area: panel-right-bottom;
 }
 
 main.refresh .refresh-grid .grid-item {
@@ -108,4 +141,21 @@ main.refresh .refresh-grid .grid-item .item-decks .deck .deck-header .deck-data 
 main.refresh .refresh-grid .grid-item .item-decks .deck .deck-name {
     margin-top: 7px;
     font-size: 18px;
+}
+
+main.refresh .refresh-grid .grid-item .item-body {
+    height: 100%;
+}
+
+main.refresh .refresh-grid .grid-item .go-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+main.refresh .refresh-grid .grid-item .go-back img {
+    width: 80px;
+    margin-bottom: 15px;
 }
