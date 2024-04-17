@@ -60,20 +60,9 @@
             </div>
         </div>
         <div class="panel-right">
-            <div class="grid-item grid-stats panel-right-top">
+            <div class="grid-item grid-actions panel-right-top">
                 <div class="item-header">
-                    <h2>Statistiques</h2>
-                </div>
-                <div class="item-body">
-                    <div class="go-back">
-                        <?= $this->Html->image('/img/leitlearn-come-back-later.png', ['alt' => 'Please come back later.']) ?>
-                        <h4><?= __('Merci de revenir plus tard.') ?></h4>
-                    </div>
-                </div>
-            </div>
-            <div class="grid-item grid-actions panel-right-bottom">
-                <div class="item-header">
-                    <h2>Moi (<?= $user_data['username'] ?>)</h2>
+                    <h2>Moi</h2>
                 </div>
                 <div class="item-body">
                     <div class="user">
@@ -88,7 +77,7 @@
                         ); ?>
                         <?= $this->Html->link(
                             'Paramètres de compte',
-                            '/settings',
+                            '/users/settings',
                             ['class' => 'action', 'escapeTitle' => false]
                         ); ?>
                         <?= $this->Html->link(
@@ -96,6 +85,17 @@
                             '',
                             ['class' => 'action primary', 'escapeTitle' => false]
                         ); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item grid-stats panel-right-bottom">
+                <div class="item-header">
+                    <h2>Statistiques</h2>
+                </div>
+                <div class="item-body">
+                    <div class="go-back">
+                        <?= $this->Html->image('/img/leitlearn-come-back-later.png', ['alt' => 'Please come back later.']) ?>
+                        <h4><?= __('Merci de revenir plus tard.') ?></h4>
                     </div>
                 </div>
             </div>
