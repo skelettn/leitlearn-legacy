@@ -47,6 +47,14 @@ class PacketsCell extends Cell
         $this->set('display', $display);
     }
 
+    public function display_refreshed(string $filter, int $logged_user_id = null, string $display = "base")
+    {
+        $this->display($filter, $logged_user_id, $display);
+        $user = $this->fetchTable('Users')->find()->where(['id' => $logged_user_id])->first();
+
+        $this->set('user', $user);
+    }
+
     public function protected(int $user_id)
     {
         $packets = $this->fetchTable("Packets")

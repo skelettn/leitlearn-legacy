@@ -2,6 +2,21 @@
 $this->assign('title', 'Mon dashboard');
 ?>
 <main class="dashboard-container">
+    <div class="new-ui">
+        <div class="switch-container">
+            <h5 class="action-name"><?= __('Activer la nouvelle interface') ?></h5>
+            <?= $this->Form->postLink(
+                '<label class="switch">
+                    <input type="checkbox" name="status">
+                    <span></span>
+                </label>',
+                ['controller' => 'Dashboard', 'action' => 'enableNewUi'],
+                [
+                    'escapeTitle' => false,
+                ]
+            ) ?>
+        </div>
+    </div>
     <?= $this->element('dashboard_fixed_mobile') ?>
     <div class="container dashboard">
         <section>
