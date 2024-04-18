@@ -4,22 +4,22 @@ main.refresh {
     background: var(--second-bg-color);
 }
 
-main.refresh .new-ui {
+main .new-ui {
     position: absolute;
     top: 5px;
     right: 32px;
 }
 
-main.refresh .new-ui h5 {
+main .new-ui h5 {
     margin-right: 5px;
 }
 
-main.refresh .new-ui .switch-container .switch {
+main .new-ui .switch-container .switch {
     width: 54px;
     height: 20px;
 }
 
-main.refresh .new-ui .switch-container .switch input+span:before {
+main .new-ui .switch-container .switch input+span:before {
     width: 16px;
     height: 16px;
 }

@@ -2,10 +2,16 @@
     <div class="new-ui">
         <div class="switch-container">
             <h5 class="action-name"><?= __('Activer la nouvelle interface') ?></h5>
-            <label class="switch">
-                <input type="checkbox" name="status">
-                <span></span>
-            </label>
+            <?= $this->Form->postLink(
+                '<label class="switch">
+        <input type="checkbox" name="status"' . ($this->request->getSession()->check('leitlearn_2_new_ui_enabled') ? ' checked' : '') . '>
+        <span></span>
+    </label>',
+                ['controller' => 'Dashboard', 'action' => 'enableNewUi'],
+                [
+                    'escapeTitle' => false,
+                ]
+            ) ?>
         </div>
     </div>
     <div class="refresh-grid">
@@ -14,7 +20,7 @@
                 <h2>Mes paquets</h2>
                 <div class="filters">
                     <div class="filter active">
-                        <h5>En ligne</h5>
+                        <h5>Tous</h5>
                     </div>
                     <div class="filter">
                         <h5>Privés</h5>
@@ -28,24 +34,7 @@
                 </div>
             </div>
             <div class="item-decks">
-                <?php for ($i = 1; $i <= 10; $i++) : ?>
-                    <div class="deck">
-                        <div class="deck-header">
-                            <div class="deck-data">
-                                <div class="creator">
-                                    <?= $this->Html->image('/img/user_profile_pic/'. $user_data['profile_picture'], ['class' => 'avatar', 'alt' => 'Profile Picture']) ?>
-                                    <h6 class="name"><?= $user_data['username'] ?></h6>
-                                </div>
-                                ⋅
-                                <div class="flashcards">
-                                    <h6 class="count">0</h6>
-                                    <span>flashcards</span>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="deck-name">Deck Name</h4>
-                    </div>
-                <?php endfor ?>
+                <?= $cell = $this->cell('Packets::display_refreshed', ['my', $user_data["id"], 'dashboard']) ?>
             </div>
         </div>
         <div class="grid-item grid-feed panel-center">
