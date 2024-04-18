@@ -32,6 +32,10 @@ class UsersController extends AppController
      */
     public function view(string $user_uid): void
     {
+        if ($this->request->getSession()->check('leitlearn_2_new_ui_enabled')) {
+            $this->redirect('/profile_new/' . $user_uid);
+        }
+
         $user = $this->Users->find()->where(['user_uid' => $user_uid])->first();
 
         if (!$user) {
@@ -42,6 +46,38 @@ class UsersController extends AppController
 
         $this->viewBuilder()->setLayout('default');
         $this->set(compact('user', 'relation'));
+    }
+
+    public function viewRefreshed(string $user_uid): void
+    {
+        $user = $this->Users->find()->where(['user_uid' => $user_uid])->first();
+
+        if (!$user) {
+            $this->redirect(['controller' => 'Dashboard', 'action' => 'index']);
+        }
+
+        $relation = $this->getRelation($user->id, $this->request->getSession()->read('Auth.id'));
+
+        $this->viewBuilder()->setLayout('dashboard_refresh');
+        $this->set(compact('user', 'relation'));
+    }
+
+    /**
+     * Enable the new UI
+     *
+     * @return void
+     */
+    public function enableNewUi()
+    {
+        if (!$this->request->getSession()->check('leitlearn_2_new_ui_enabled')) {
+            $this->request->getSession()->write('leitlearn_2_new_ui_enabled', 1);
+            $this->Flash->success('Voici un aperçu de la nouvelle interface');
+            $this->redirect('/dashboard/refresh');
+        } else {
+            $this->Flash->success('Vous êtes revenu à l\'ancienne interface.');
+            $this->request->getSession()->delete('leitlearn_2_new_ui_enabled');
+            $this->redirect('/dashboard');
+        }
     }
 
     public function settings()

@@ -9,11 +9,11 @@
                 ['escapeTitle' => false]
             ); ?>
         </li>
-        <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/users/view/' . $user_data['user_uid'] ? 'active' : '' ?>">
+        <li class="dashboard-link <?= $this->getRequest()->getRequestTarget() === '/profile/' . $user_data['user_uid'] ? 'active' : '' ?>">
             <?= $this->Html->link(
                 '<span class="material-symbols-rounded' . ($this->getRequest()->getRequestTarget() === '/users/view/' . $user_data['user_uid'] ? ' active-icon' : '') . '">account_circle</span>'. __('Mon profil')
                 ,
-                '/users/view/' . $user_data['user_uid'],
+                '/profile/' . $user_data['user_uid'],
                 ['escapeTitle' => false]
             ); ?>
         </li>
@@ -47,7 +47,7 @@
                     <li class="link">
                         <?= $this->Html->link(
                             '<span class="material-symbols-rounded">account_circle</span> Mon profil',
-                            '/users/view/' . $user_data["user_uid"],
+                            '/profile/' . $user_data["user_uid"],
                             ['escapeTitle' => false]
                         ) ?>
                     </li>

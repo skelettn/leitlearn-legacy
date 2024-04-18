@@ -53,7 +53,7 @@ $this->assign('title', 'Mon dashboard');
                     </li>
                 </ul>
             </div>
-            <?= $this->cell('Friends::display') ?>
+            <?= $this->cell('Friends::display', [$user_data['id']]) ?>
         </section>
         <section class="new">
             <h2 class="part-title"><?= __('Découvrez les nouveautés') ?></h2>

@@ -82,6 +82,28 @@ return function (RouteBuilder $routes): void {
             ->setPass(['user_uid']);
 
         $builder->connect(
+            '/profile/{user_uid}',
+            ['controller' => 'Users', 'action' => 'view']
+        )
+            ->setPatterns(
+                [
+                    'user_uid' => '[a-z0-9_\-\.]+',
+                ]
+            )
+            ->setPass(['user_uid']);
+
+        $builder->connect(
+            '/profile_new/{user_uid}',
+            ['controller' => 'Users', 'action' => 'viewRefreshed']
+        )
+            ->setPatterns(
+                [
+                    'user_uid' => '[a-z0-9_\-\.]+',
+                ]
+            )
+            ->setPass(['user_uid']);
+
+        $builder->connect(
             '/deck/{deck_uid}',
             ['controller' => 'Packets', 'action' => 'view']
         )

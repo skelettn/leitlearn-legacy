@@ -5,16 +5,15 @@ use Cake\View\Cell;
 
 class FriendsCell extends Cell
 {
-    public function display()
+    public function display(string $user_id)
     {
-        $loggedInUserId = $this->request->getSession()->read('Auth.id');
 
         $friends = $this->fetchTable("Friends")
             ->find()
             ->where([
                 'OR' => [
-                    ['requester_id' => $loggedInUserId],
-                    ['recipient_id' => $loggedInUserId],
+                    ['requester_id' => $user_id],
+                    ['recipient_id' => $user_id],
                 ],
                 'status' => 'success'
             ])
@@ -22,10 +21,10 @@ class FriendsCell extends Cell
 
         $friendUserIds = [];
         foreach ($friends as $friend) {
-            if ($friend->requester_id != $loggedInUserId) {
+            if ($friend->requester_id != $user_id) {
                 $friendUserIds[] = $friend->requester_id;
             }
-            if ($friend->recipient_id != $loggedInUserId) {
+            if ($friend->recipient_id != $user_id) {
                 $friendUserIds[] = $friend->recipient_id;
             }
         }

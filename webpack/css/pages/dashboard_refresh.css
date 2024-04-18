@@ -144,6 +144,7 @@ main.refresh .refresh-grid .grid-item .item-decks {
 
 main.refresh .refresh-grid .grid-item .item-body {
     height: 100%;
+    overflow-y: scroll;
 }
 
 main.refresh .refresh-grid .grid-item .user {
@@ -193,4 +194,28 @@ main.refresh .refresh-grid .grid-item .go-back {
 main.refresh .refresh-grid .grid-item .go-back img {
     width: 80px;
     margin-bottom: 15px;
+}
+
+main.refresh .friends {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+main.refresh .friends .friend {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: var(--second-bg-color);
+    background-size: cover;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+main.refresh .friends .friend:active {
+    transform: scale(.95);
+}
+
+main.refresh .friends .friend:not(:last-child) {
+    margin-right: 15px;
 }
