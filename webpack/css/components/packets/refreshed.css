@@ -1,0 +1,64 @@
+main.refresh .item-decks .deck {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    background: var(--second-bg-color);
+    cursor: pointer;
+}
+
+main.refresh .item-decks .deck:not(:first-child) {
+    margin-top: 10px;
+}
+
+main.refresh .item-decks .deck .deck-header .deck-data,
+main.refresh .item-decks .deck .deck-header .deck-data .creator,
+main.refresh .item-decks .deck .deck-header .deck-data .flashcards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+main.refresh .item-decks .deck .deck-header .deck-data .creator .avatar {
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+main.refresh .item-decks .deck .deck-header .deck-data .creator h6,
+main.refresh .item-decks .deck .deck-header .deck-data .flashcards h6,
+main.refresh .item-decks .deck .deck-header .deck-data .flashcards span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+main.refresh .item-decks .deck .deck-header .deck-data .creator h6 {
+    font-weight: 500;
+}
+
+main.refresh .item-decks .deck .deck-header .deck-data .flashcards span {
+    margin-left: 4px;
+}
+
+main.refresh .item-decks .deck .deck-header .deck-ai {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 22px;
+    border-radius: 0 8px 0 8px;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+main.refresh .item-decks .deck .deck-name {
+    margin-top: 7px;
+    font-size: 18px;
+}

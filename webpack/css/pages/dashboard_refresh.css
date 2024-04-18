@@ -102,6 +102,7 @@ main.refresh .refresh-grid .grid-item .filters .filter {
 main.refresh .refresh-grid .grid-item .filters .filter.active {
     background: var(--main-bg-color);
     color: white;
+    transition: all .3s;
 }
 
 main.refresh .refresh-grid .grid-item .filters .filter:not(:last-child) {
@@ -112,55 +113,6 @@ main.refresh .refresh-grid .grid-item .item-decks {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-}
-
-main.refresh .refresh-grid .grid-item .item-decks .deck {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    background: var(--second-bg-color);
-    cursor: pointer;
-}
-
-main.refresh .refresh-grid .grid-item .item-decks .deck:not(:first-child) {
-    margin-top: 10px;
-}
-
-main.refresh .refresh-grid .grid-item .item-decks .deck .deck-header .deck-data,
-main.refresh .refresh-grid .grid-item .item-decks .deck .deck-header .deck-data .creator,
-main.refresh .refresh-grid .grid-item .item-decks .deck .deck-header .deck-data .flashcards {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-main.refresh .refresh-grid .grid-item .item-decks .deck .deck-header .deck-data .creator .avatar {
-    margin-right: 5px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-}
-
-main.refresh .refresh-grid .grid-item .item-decks .deck .deck-header .deck-data .creator h6,
-main.refresh .refresh-grid .grid-item .item-decks .deck .deck-header .deck-data .flashcards h6,
-main.refresh .refresh-grid .grid-item .item-decks .deck .deck-header .deck-data .flashcards span {
-    font-size: 13px;
-    font-weight: 600;
-}
-
-main.refresh .refresh-grid .grid-item .item-decks .deck .deck-header .deck-data .creator h6 {
-    font-weight: 500;
-}
-
-main.refresh .refresh-grid .grid-item .item-decks .deck .deck-header .deck-data .flashcards span {
-    margin-left: 4px;
-}
-
-main.refresh .refresh-grid .grid-item .item-decks .deck .deck-name {
-    margin-top: 7px;
-    font-size: 18px;
 }
 
 main.refresh .refresh-grid .grid-item .item-body {

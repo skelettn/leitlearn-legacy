@@ -19,16 +19,16 @@
             <div class="item-header">
                 <h2>Mes paquets</h2>
                 <div class="filters">
-                    <div class="filter active">
+                    <div class="filter active" data-filter-action="all">
                         <h5>Tous</h5>
                     </div>
-                    <div class="filter">
+                    <div class="filter" data-filter-action="0">
                         <h5>Privés</h5>
                     </div>
-                    <div class="filter">
+                    <div class="filter" data-filter-action="2">
                         <h5>Amis uniquement</h5>
                     </div>
-                    <div class="filter">
+                    <div class="filter" data-filter-action="ai">
                         <h5>IA</h5>
                     </div>
                 </div>
