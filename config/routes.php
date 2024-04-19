@@ -82,6 +82,11 @@ return function (RouteBuilder $routes): void {
             ->setPass(['user_uid']);
 
         $builder->connect(
+            '/settings',
+            ['controller' => 'Users', 'action' => 'settings']
+        );
+
+        $builder->connect(
             '/profile/{user_uid}',
             ['controller' => 'Users', 'action' => 'view']
         )

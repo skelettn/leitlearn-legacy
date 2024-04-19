@@ -21,18 +21,18 @@ $this->assign('title', 'Paramètres de compte');
         <div class="grid-item grid-packets panel-left">
             <div class="item-header">
                 <div class="item-flex">
-                    <h2>Actions</h2>
+                    <h2>Paramètres</h2>
                 </div>
             </div>
             <div class="item-body">
                 <ul class="item-links">
                     <li class="item-link active">
-                        <span class="material-symbols-rounded active-icon">manage_accounts</span>
+                        <span class="material-symbols-rounded active-icon">admin_panel_settings</span>
                         <h3>Gérer le compte</h3>
                     </li>
                     <li class="item-link">
                         <span class="material-symbols-rounded active-icon">translate</span>
-                        <h3>Langue</h3>
+                        <h3>Langues</h3>
                     </li>
                 </ul>
             </div>
@@ -50,6 +50,18 @@ $this->assign('title', 'Paramètres de compte');
                         <li class="action">
                             <span>Supprimer le compte</span>
                             <button class="alert">Supprimer</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="setting">
+                    <h2>Langues</h2>
+                    <ul class="setting-actions">
+                        <li class="action">
+                            <span>Choisir la langue</span>
+                            <select name="" id="">
+                                <option value="fr-FR"><?= __('Français') ?></option>
+                                <option value="en-US"><?= __('Anglais') ?></option>
+                            </select>
                         </li>
                     </ul>
                 </div>
