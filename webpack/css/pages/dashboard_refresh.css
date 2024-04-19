@@ -276,7 +276,8 @@ main.refresh .setting .setting-actions .action:not(:last-child) {
     margin-bottom: 15px;
 }
 
-main.refresh .setting .setting-actions .action button {
+main.refresh .setting .setting-actions .action button,
+main.refresh .setting .setting-actions .action select {
     margin-left: auto;
 }
 
@@ -284,6 +285,7 @@ main.refresh .setting .setting-actions .action button {
     color: var(--main-bg-color);
     background: transparent;
     font-weight: 500;
+    font-size: 15px;
     border: 0;
     cursor: pointer;
 }
