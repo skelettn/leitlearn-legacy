@@ -36,6 +36,12 @@ main.refresh .refresh-grid {
     -webkit-box-pack: center;
 }
 
+main.refresh .refresh-grid.panel-full {
+    grid-template-areas:
+        "panel-left panel-center";
+    grid-template-columns: 390px 780px;
+}
+
 main.refresh .refresh-grid .panel-right {
     display: flex;
     flex-direction: column;
@@ -147,6 +153,28 @@ main.refresh .refresh-grid .grid-item .item-body {
     overflow-y: scroll;
 }
 
+main.refresh .item-body .item-links {
+    display: flex;
+    flex-direction: column;
+}
+
+main.refresh .item-body .item-links .item-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+main.refresh .item-body .item-links .item-link.active {
+    color: var(--main-bg-color);
+}
+
+main.refresh .item-body .item-links .item-link span {
+    margin-right: 10px;
+    font-size: 37px;
+}
+
 main.refresh .refresh-grid .grid-item .user {
     display: flex;
     align-items: center;
@@ -218,4 +246,54 @@ main.refresh .friends .friend:active {
 
 main.refresh .friends .friend:not(:last-child) {
     margin-right: 15px;
+}
+
+main.refresh .setting .setting-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+main.refresh .setting {
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--second-bg-color);
+}
+
+main.refresh .setting:not(:first-child) {
+    padding: 15px 0;
+}
+
+main.refresh .setting h2 {
+    margin-bottom: 10px;
+}
+
+main.refresh .setting .setting-actions .action {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+main.refresh .setting .setting-actions .action:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+main.refresh .setting .setting-actions .action button {
+    margin-left: auto;
+}
+
+main.refresh .setting .setting-actions .action button {
+    color: var(--main-bg-color);
+    background: transparent;
+    font-weight: 500;
+    border: 0;
+    cursor: pointer;
+}
+
+main.refresh .setting .setting-actions .action button.alert {
+    color: #D6221D;
+}
+
+main.refresh .version {
+    margin-top: 10px;
+    color: rgba(0, 0, 0, .4);
+    text-align: right;
 }

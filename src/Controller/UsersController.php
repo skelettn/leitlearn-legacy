@@ -82,10 +82,7 @@ class UsersController extends AppController
 
     public function settings()
     {
-        $dashboard_sidebar_title = "Paramètres";
-
-        $this->viewBuilder()->setLayout('default');
-        $this->set(compact( 'dashboard_sidebar_title'));
+        $this->viewBuilder()->setLayout('dashboard_refresh');
     }
 
     /**

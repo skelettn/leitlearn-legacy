@@ -1,72 +1,60 @@
 <?php
 $this->assign('title', 'Paramètres de compte');
 ?>
-<main>
-    <?= $this->element('dashboard_fixed_mobile') ?>
-    <div class="container dashboard">
-        <section>
-            <div class="section-header">
-                <h1 class="title part-title"><?= __('Mon Compte') ?></h1>
-            </div>
-            <div class="infos general">
-                <h5 class="infos-title">
-                    <?= __('Mes informations générales') ?>
-                    <button class="edit modal-btn" data-modal="update-userdata">
-                        <span class="material-symbols-rounded">
-                            edit
-                        </span>
-                    </button>
-                </h5>
-                <div class="info-picture">
-                    <?= $this->Html->image('/img/user_profile_pic/' . $user_data['profile_picture'], ['class' => 'avatar', 'alt' => 'Profile Picture']) ?>
-                </div>
-                <div class="info">
-                    <p><?= __('Nom')?></p>
-                    <p><?= $user_data['last_name'] ?></p>
-                </div>
-                <div class="info">
-                    <p><?=__('Prénom')?></p>
-                    <p><?= $user_data['name'] ?></p>
-                </div>
-                <div class="info">
-                    <p><?=__('Nom d\'utilisateur')?></p>
-                    <p><?= $user_data['username'] ?></p>
-                </div>
-                <div class="info">
-                    <p><?= __('Genre')?></p>
-                    <p><?= $user_data['gender'] === 'M' ? __('Homme') : ($user_data['gender'] === 'W' ? __('Femme') : __('Non renseigné')); ?></p>
-                </div>
-                <div class="info">
-                    <p>UID</p>
-                    <p><?= $user_data['user_uid'] ?></p>
+<main class="refresh">
+    <div class="new-ui">
+        <div class="switch-container">
+            <h5 class="action-name"><?= __('Activer la nouvelle interface') ?></h5>
+            <?= $this->Form->postLink(
+                '<label class="switch">
+                    <input type="checkbox" name="status"' . ($this->request->getSession()->check('leitlearn_2_new_ui_enabled') ? ' checked' : '') . '>
+                    <span></span>
+                </label>',
+                ['controller' => 'Dashboard', 'action' => 'enableNewUi'],
+                [
+                    'escapeTitle' => false,
+                ]
+            ) ?>
+        </div>
+    </div>
+    <div class="refresh-grid panel-full">
+        <div class="grid-item grid-packets panel-left">
+            <div class="item-header">
+                <div class="item-flex">
+                    <h2>Actions</h2>
                 </div>
             </div>
-            <div class="infos general">
-                <h5 class="infos-title"><?= __('Mes coordonnées') ?></h5>
-                <div class="info">
-                    <p><?=__('Adresse email')?></p>
-                    <p><?= $user_data['email'] ?></p>
-                </div>
+            <div class="item-body">
+                <ul class="item-links">
+                    <li class="item-link active">
+                        <span class="material-symbols-rounded active-icon">manage_accounts</span>
+                        <h3>Gérer le compte</h3>
+                    </li>
+                    <li class="item-link">
+                        <span class="material-symbols-rounded active-icon">translate</span>
+                        <h3>Langue</h3>
+                    </li>
+                </ul>
             </div>
-            <div class="infos general">
-                <h5 class="infos-title"><?= __('Sécurité') ?></h5>
-                <div class="info modal-btn" data-modal="update-user-password">
-                    <p><?= __('Mot de passe')?></p>
-                    <p>•••••••••••••••</p>
+            <?= $this->element('modals/refreshed/update_user'); ?>
+        </div>
+        <div class="grid-item grid-feed panel-center">
+            <div class="item-body">
+                <div class="setting">
+                    <h2>Gérer le compte</h2>
+                    <ul class="setting-actions">
+                        <li class="action">
+                            <span>Modifier le mot de passe</span>
+                            <button>Modifier</button>
+                        </li>
+                        <li class="action">
+                            <span>Supprimer le compte</span>
+                            <button class="alert">Supprimer</button>
+                        </li>
+                    </ul>
                 </div>
-                <div class="info">
-                    <p><?= __('Suppression de compte') ?></p>
-                    <?= $this->Form->postLink(
-                        '<button type="submit">' . __('Supprimer')
-                        . '</button>',
-                        ['controller' => 'Users', 'action' => 'delete'],
-                        [
-                            'confirm' => 'Êtes-vous sur de vouloir supprimer votre compte ?',
-                            'escapeTitle' => false,
-                        ]
-                    ) ?>
-                </div>
+                <h6 class="version">Leitlearn 2.0 RC 4</h6>
             </div>
-        </section>
+        </div>
     </div>
 </main>
