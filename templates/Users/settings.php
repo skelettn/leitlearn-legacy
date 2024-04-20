@@ -6,7 +6,7 @@ $this->assign('title', 'Paramètres de compte');
         <div class="grid-item grid-packets panel-left">
             <div class="item-header">
                 <div class="item-flex">
-                    <h2>Paramètres</h2>
+                    <h2><?= __('Paramètres') ?></h2>
                     <ul class="header-actions">
                         <?= $this->Html->link(
                             '<li class="action">
@@ -24,11 +24,11 @@ $this->assign('title', 'Paramètres de compte');
                 <ul class="item-links">
                     <li class="item-link">
                         <span class="material-symbols-rounded active-icon">admin_panel_settings</span>
-                        <h3>Gérer le compte</h3>
+                        <h3><?= __('Gérer le compte') ?></h3>
                     </li>
                     <li class="item-link">
                         <span class="material-symbols-rounded active-icon">translate</span>
-                        <h3>Langues</h3>
+                        <h3><?= __('Langues') ?></h3>
                     </li>
                 </ul>
             </div>
@@ -36,14 +36,14 @@ $this->assign('title', 'Paramètres de compte');
         <div class="grid-item grid-feed panel-center">
             <div class="item-body">
                 <div class="setting">
-                    <h2>Gérer le compte</h2>
+                    <h2><?= __('Gérer le compte') ?></h2>
                     <ul class="setting-actions">
                         <li class="action">
-                            <span>Modifier le mot de passe</span>
-                            <button class="modal-btn" data-modal="update-user-password">Modifier</button>
+                            <span><?= __('Modifier le mot de passe') ?></span>
+                            <button class="modal-btn" data-modal="update-user-password"><?= __('Modifier') ?></button>
                         </li>
                         <li class="action">
-                            <span>Supprimer le compte</span>
+                            <span><?= __('Supprimer le compte') ?></span>
                             <?= $this->Form->postLink(
                                 '<button class="alert">' . __('Supprimer') . '</button>',
                                 ['controller' => 'Users', 'action' => 'delete'],
@@ -56,10 +56,10 @@ $this->assign('title', 'Paramètres de compte');
                     </ul>
                 </div>
                 <div class="setting">
-                    <h2>Langues</h2>
+                    <h2><?= __('Langues') ?></h2>
                     <ul class="setting-actions">
                         <li class="action">
-                            <span>Choisir la langue</span>
+                            <span><?= __('Choisir la langue') ?></span>
                             <select name="" id="setting-lang">
                                 <option value="fr-FR" <?= ($locale == 'fr-FR') ? 'selected' : '' ?>><?= __('Français') ?></option>
                                 <option value="en-US" <?= ($locale == 'en-US') ? 'selected' : '' ?>><?= __('Anglais') ?></option>

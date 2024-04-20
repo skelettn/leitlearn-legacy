@@ -8,6 +8,6 @@
             </div>
         <?php endforeach; ?>
     <?php else : ?>
-        <h4 class="no-friends">Vous n'avez pas d'amis.</h4>
+        <h4 class="no-friends"><?= __('Vous n\'avez pas d\'amis.') ?></h4>
     <?php endif; ?>
 </div>

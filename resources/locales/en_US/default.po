@@ -775,3 +775,48 @@ msgstr "Session ended!"
 
 msgid "Erreur dans le suppression de la session."
 msgstr "Error deleting session."
+
+# Dashboard Refreshed
+
+msgid "Moi"
+msgstr "Me"
+
+msgid "Merci de revenir plus tard."
+msgstr "Please come back later."
+
+msgid "Mes paquets"
+msgstr "My decks"
+
+msgid "Tous"
+msgstr "All"
+
+msgid "Privés"
+msgstr "Privates"
+
+msgid "Amis uniquement"
+msgstr "Friends only"
+
+msgid "IA"
+msgstr "AI"
+
+msgid "Paramètres"
+msgstr "Settings"
+
+msgid "Gérer le compte"
+msgstr "Manage account"
+
+msgid "Choisir la langue"
+msgstr "Choose a language"
+
+msgid "Supprimer le compte"
+msgstr "Delete account"
+
+msgid "Modifier"
+msgstr "Modify"
+
+msgid "Modifier le mot de passe"
+msgstr "Change password"
+
+msgid "Vous n'avez pas d'amis."
+msgstr "You have no friends."
+
