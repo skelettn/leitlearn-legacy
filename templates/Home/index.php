@@ -100,7 +100,7 @@ echo $this->cell('FeatureFlags::display', ['test_feature_flags']);
                 <div class="content">
                     <h3 class="title"> <?= __('Parcourez notre') ?> <span class="pink"> <?= __('marché') ?> </span>
                     </h3>
-                    <h6 class="desc"> <?= __('Explorez notre Marché, une fonctionnalité qui permet à nos utilisateurs de partager, d\'importer des paquets et des flashcards. Créez, échangez et découvrez une variété de ressources éducatives.') ?> </h6>
+                    <p class="desc"> <?= __('Explorez notre Marché, une fonctionnalité qui permet à nos utilisateurs de partager, d\'importer des paquets et des flashcards. Créez, échangez et découvrez une variété de ressources éducatives.') ?> </p>
                     <a href="/market" class="action pink"> <?= __('Parcourir') ?> </a>
                 </div>
             </div>
@@ -109,7 +109,7 @@ echo $this->cell('FeatureFlags::display', ['test_feature_flags']);
                 <div class="content">
                     <h3 class="title"> <?= __('Apprenez grâce à') . ' ' ?> <span class="yellow">Leitner</span>
                     </h3>
-                    <h6 class="desc"> <?= __('Découvrez notre mode Leitner, une approche innovante pour un apprentissage plus efficace. Notre plateforme offre un espace dédié où les utilisateurs peuvent réviser selon une répétition journalière.') ?> </h6>
+                    <p class="desc"> <?= __('Découvrez notre mode Leitner, une approche innovante pour un apprentissage plus efficace. Notre plateforme offre un espace dédié où les utilisateurs peuvent réviser selon une répétition journalière.') ?> </p>
                     <a href="#" class="action yellow modal-btn" data-modal="register-modal"> <?= __('S\'inscrire') ?> </a>
                 </div>
             </div>
@@ -118,7 +118,7 @@ echo $this->cell('FeatureFlags::display', ['test_feature_flags']);
                 <div class="content">
                     <h3 class="title"> <?= __('Découvrez la mise à jour') . ' '?> <span class="dashed">Leitlearn 2.0</span>
                     </h3>
-                    <h6 class="desc"> <?= __('Système d\'amis, d\'importation/d\'exportation par CSV et Anki, nouveau système de flashcards, des meilleures performances et plus encore...') ?> </h6>
+                    <p class="desc"> <?= __('Système d\'amis, d\'importation/d\'exportation par CSV et Anki, nouveau système de flashcards, des meilleures performances et plus encore...') ?> </p>
                     <a href="/articles/announcing-leitlearn-2" class="action white"> <?= __('Découvrir') ?> </a>
                 </div>
             </div>

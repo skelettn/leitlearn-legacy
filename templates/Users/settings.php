@@ -2,21 +2,6 @@
 $this->assign('title', 'Paramètres de compte');
 ?>
 <main class="refresh">
-    <div class="new-ui">
-        <div class="switch-container">
-            <h5 class="action-name"><?= __('Activer la nouvelle interface') ?></h5>
-            <?= $this->Form->postLink(
-                '<label class="switch">
-                    <input type="checkbox" name="status"' . ($this->request->getSession()->check('leitlearn_2_new_ui_enabled') ? ' checked' : '') . '>
-                    <span></span>
-                </label>',
-                ['controller' => 'Dashboard', 'action' => 'enableNewUi'],
-                [
-                    'escapeTitle' => false,
-                ]
-            ) ?>
-        </div>
-    </div>
     <div class="refresh-grid panel-full">
         <div class="grid-item grid-packets panel-left">
             <div class="item-header">
