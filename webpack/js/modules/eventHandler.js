@@ -167,7 +167,11 @@ const animateFormButtons = () => {
     };
 };
 
-document.getElementById('setting-lang').addEventListener('change', function() {
-    let selectedValue = this.value;
-    window.location.href = '/lang/change/' + selectedValue;
-});
+let settingLang = document.getElementById('setting-lang');
+
+if (settingLang) {
+    settingLang.addEventListener('change', function () {
+        let selectedValue = this.value;
+        window.location.href = '/lang/change/' + selectedValue;
+    });
+}
