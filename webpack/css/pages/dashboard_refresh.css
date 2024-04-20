@@ -316,6 +316,11 @@ main.refresh .setting .setting-actions .action button.alert {
     color: #D6221D;
 }
 
+main.refresh .setting .setting-actions .action select {
+    padding: 4px 9px;
+    margin-right: 0;
+}
+
 main.refresh .version {
     margin-top: 10px;
     color: rgba(0, 0, 0, .4);

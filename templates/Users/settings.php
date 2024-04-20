@@ -11,7 +11,7 @@ $this->assign('title', 'Paramètres de compte');
             </div>
             <div class="item-body">
                 <ul class="item-links">
-                    <li class="item-link active">
+                    <li class="item-link">
                         <span class="material-symbols-rounded active-icon">admin_panel_settings</span>
                         <h3>Gérer le compte</h3>
                     </li>
@@ -49,9 +49,9 @@ $this->assign('title', 'Paramètres de compte');
                     <ul class="setting-actions">
                         <li class="action">
                             <span>Choisir la langue</span>
-                            <select name="" id="">
-                                <option value="fr-FR"><?= __('Français') ?></option>
-                                <option value="en-US"><?= __('Anglais') ?></option>
+                            <select name="" id="setting-lang">
+                                <option value="fr-FR" <?= ($locale == 'fr-FR') ? 'selected' : '' ?>><?= __('Français') ?></option>
+                                <option value="en-US" <?= ($locale == 'en-US') ? 'selected' : '' ?>><?= __('Anglais') ?></option>
                             </select>
                         </li>
                     </ul>

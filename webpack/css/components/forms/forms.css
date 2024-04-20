@@ -89,7 +89,7 @@ form .birth select:last-child {
     margin: 0;
 }
 
-form select {
+select {
     padding: 10px 15px;
     margin: 0 10px 0 0;
     border-radius: 10px;
