@@ -17,10 +17,10 @@
                 ); ?>
             </li>
             <?= $this->cell('FeatureFlags::display', ['leitlearn_plus_sidebar_link']) ?>
-            <li class="<?= $this->getRequest()->getRequestTarget() === '/stats' ? 'active' : '' ?>">
+            <li class="<?= $this->getRequest()->getRequestTarget() === '/decks' ? 'active' : '' ?>">
                 <?= $this->Html->link(
-                    '<span class="material-symbols-rounded' . ($this->getRequest()->getRequestTarget() === '/stats' ? ' active-icon' : '') . '">area_chart</span>',
-                    '/stats',
+                    '<span class="material-symbols-rounded' . ($this->getRequest()->getRequestTarget() === '/decks' ? ' active-icon' : '') . '">style</span>',
+                    '/decks',
                     ['escapeTitle' => false]
                 ); ?>
             </li>

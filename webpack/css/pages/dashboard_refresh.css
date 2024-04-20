@@ -336,6 +336,11 @@ main.refresh .version {
         grid-template-columns: repeat(3, minmax(auto, 330px));
         grid-template-rows: 550px;
     }
+
+    main.refresh .refresh-grid.panel-full {
+        margin: 0 32px;
+        grid-template-columns: 1fr 2fr;
+    }
 }
 
 @media (max-width: 1185px) {
@@ -352,7 +357,8 @@ main.refresh .version {
 }
 
 @media (max-width: 1000px) {
-    main.refresh .refresh-grid {
+    main.refresh .refresh-grid,
+    main.refresh .refresh-grid.panel-full {
         margin: 0;
         grid-template-areas: "panel-center";
         grid-template-columns: 1fr;
@@ -367,5 +373,9 @@ main.refresh .version {
 @media (max-width: 620px) {
     main.refresh {
         padding-left: 0;
+    }
+
+    main.refresh .refresh-grid .grid-item .item-decks {
+        padding-bottom: 40px;
     }
 }
