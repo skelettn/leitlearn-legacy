@@ -1,5 +1,6 @@
 main.refresh {
-    padding-left: 80px;
+    margin-left: 0;
+    padding-left: 65px;
     height: 100vh;
     background: var(--second-bg-color);
 }
@@ -115,6 +116,10 @@ main.refresh .refresh-grid .grid-item .item-header .item-flex .header-actions .a
 
 main.refresh .refresh-grid .grid-item .item-header .item-flex .header-actions .action:not(:last-child) {
     margin-right: 10px;
+}
+
+main.refresh .refresh-grid .grid-item .item-header .item-flex .header-actions a {
+    color: black;
 }
 
 main.refresh .refresh-grid .grid-item .filters {
@@ -304,7 +309,6 @@ main.refresh .setting .setting-actions .action select {
 }
 
 main.refresh .setting .setting-actions .action button {
-    color: var(--main-bg-color);
     background: transparent;
     font-weight: 500;
     font-size: 15px;

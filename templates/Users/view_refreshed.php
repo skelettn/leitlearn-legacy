@@ -29,9 +29,18 @@ if ($user->user_uid != $user_data['user_uid']) {
                         <ul class="header-actions">
                             <li class="action active modal-btn" data-modal="update-userdata">
                                 <span class="material-symbols-rounded">
-                                edit
-                            </span>
+                                    edit
+                                </span>
                             </li>
+                            <?= $this->Html->link(
+                                '<li class="action">
+                                    <span class="material-symbols-rounded">
+                                        settings
+                                    </span>
+                                </li>',
+                                '/settings',
+                                ['escapeTitle' => false]
+                            ); ?>
                         </ul>
                     <?php else : ?>
                     <h2>Profil de <?= $user->username ?></h2>

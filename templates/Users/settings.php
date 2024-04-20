@@ -7,6 +7,17 @@ $this->assign('title', 'Paramètres de compte');
             <div class="item-header">
                 <div class="item-flex">
                     <h2>Paramètres</h2>
+                    <ul class="header-actions">
+                        <?= $this->Html->link(
+                            '<li class="action">
+                                    <span class="material-symbols-rounded">
+                                        chevron_left
+                                    </span>
+                                </li>',
+                            '/dashboard',
+                            ['escapeTitle' => false]
+                        ); ?>
+                    </ul>
                 </div>
             </div>
             <div class="item-body">
