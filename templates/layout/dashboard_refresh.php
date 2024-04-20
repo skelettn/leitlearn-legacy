@@ -56,14 +56,6 @@ echo $this->fetch('content');
     </span>
 </span>
 
-<?php
-echo $this->element('modals/detail_packet');
-echo $this->element('modals/search_users');
-echo $this->element('modals/update_user');
-echo $this->element('modals/update_user_password');
-
-?>
-
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <?php if (APP_ENV !== 'development') : ?>
     <script src="<?= $this->Url->build('/js/bundle.js') ?>"></script>

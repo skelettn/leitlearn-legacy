@@ -82,7 +82,7 @@
                         ); ?>
                         <?= $this->Html->link(
                             'Paramètres de compte',
-                            '/users/settings',
+                            '/settings',
                             ['class' => 'action', 'escapeTitle' => false]
                         ); ?>
                         <?= $this->Html->link(

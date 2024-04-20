@@ -62,8 +62,6 @@ echo $this->element('modals/detail_packet');
 echo $this->element('modals/create_packet');
 echo $this->element('modals/import_packet');
 echo $this->element('modals/search_users');
-echo $this->element('modals/update_user');
-echo $this->element('modals/update_user_password');
 
 ?>
 

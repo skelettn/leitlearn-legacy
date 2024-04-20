@@ -17,8 +17,7 @@ if ($user->user_uid != $user_data['user_uid']) {
                             <?= $cell = $this->cell('Users::display_public_data', [$user->id]) ?>
                         </div>
                     </div>
-                    <?php
-                    if (is_null($relation)) : ?>
+                    <?php if (is_null($relation)) : ?>
                         <?php if ($user->user_uid != $user_data['user_uid']) : ?>
                             <div class="actions">
                                 <?= $this->Form->postLink(

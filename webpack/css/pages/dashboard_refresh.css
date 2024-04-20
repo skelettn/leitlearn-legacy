@@ -172,7 +172,7 @@ main.refresh .item-body .item-links .item-link.active {
 
 main.refresh .item-body .item-links .item-link span {
     margin-right: 10px;
-    font-size: 37px;
+    font-size: 34px;
 }
 
 main.refresh .refresh-grid .grid-item .user {
@@ -194,12 +194,23 @@ main.refresh .refresh-grid .grid-item .actions {
 }
 
 main.refresh .refresh-grid .grid-item .actions .action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     padding: 10px 15px;
     text-align: center;
     color: black;
+    font-size: 16px;
+    border: 0;
     font-weight: 500;
     background: var(--second-bg-color);
     border-radius: 25px;
+    cursor: pointer;
+}
+
+main.refresh .refresh-grid .grid-item .actions .action span {
+    margin-right: 7px;
 }
 
 main.refresh .refresh-grid .grid-item .actions .action:not(:last-child) {
@@ -248,6 +259,16 @@ main.refresh .friends .friend:not(:last-child) {
     margin-right: 15px;
 }
 
+main.refresh .item-body .friend-status {
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--main-bg-color);
+}
+
+main.refresh .item-body .no-friends {
+    margin: 45px auto 0;
+}
+
 main.refresh .setting .setting-actions {
     display: flex;
     flex-direction: column;
@@ -276,6 +297,7 @@ main.refresh .setting .setting-actions .action:not(:last-child) {
     margin-bottom: 15px;
 }
 
+main.refresh .setting .setting-actions .action a,
 main.refresh .setting .setting-actions .action button,
 main.refresh .setting .setting-actions .action select {
     margin-left: auto;

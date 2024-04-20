@@ -36,7 +36,6 @@ $this->assign('title', 'Paramètres de compte');
                     </li>
                 </ul>
             </div>
-            <?= $this->element('modals/refreshed/update_user'); ?>
         </div>
         <div class="grid-item grid-feed panel-center">
             <div class="item-body">
@@ -45,11 +44,18 @@ $this->assign('title', 'Paramètres de compte');
                     <ul class="setting-actions">
                         <li class="action">
                             <span>Modifier le mot de passe</span>
-                            <button>Modifier</button>
+                            <button class="modal-btn" data-modal="update-user-password">Modifier</button>
                         </li>
                         <li class="action">
                             <span>Supprimer le compte</span>
-                            <button class="alert">Supprimer</button>
+                            <?= $this->Form->postLink(
+                                '<button class="alert">' . __('Supprimer') . '</button>',
+                                ['controller' => 'Users', 'action' => 'delete'],
+                                [
+                                    'confirm' => 'Êtes-vous sur de vouloir supprimer votre compte ?',
+                                    'escapeTitle' => false,
+                                ]
+                            ) ?>
                         </li>
                     </ul>
                 </div>
@@ -67,6 +73,7 @@ $this->assign('title', 'Paramètres de compte');
                 </div>
                 <h6 class="version">Leitlearn 2.0 RC 4</h6>
             </div>
+            <?= $this->element('modals/update_user_password'); ?>
         </div>
     </div>
 </main>
