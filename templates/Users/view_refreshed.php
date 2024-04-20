@@ -21,7 +21,29 @@ if ($user->user_uid != $user_data['user_uid']) {
         </div>
     </div>
     <div class="refresh-grid">
-        <div class="grid-item grid-packets panel-left">
+        <div class="grid-item grid-feed panel-left">
+            <div class="item-header">
+                <h2>Paquets</h2>
+                <div class="filters">
+                    <div class="filter active" data-filter-action="all">
+                        <h5>Tous</h5>
+                    </div>
+                    <div class="filter" data-filter-action="0">
+                        <h5>Privés</h5>
+                    </div>
+                    <div class="filter" data-filter-action="2">
+                        <h5>Amis uniquement</h5>
+                    </div>
+                    <div class="filter" data-filter-action="ai">
+                        <h5>IA</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="item-decks">
+                <?= $this->cell('Packets::display_refreshed', ['my', $user->id, 'dashboard']) ?>
+            </div>
+        </div>
+        <div class="grid-item grid-packets panel-center">
             <div class="item-header">
                 <div class="item-flex">
                     <?php if ($user->user_uid === $user_data['user_uid']) : ?>
@@ -121,28 +143,6 @@ if ($user->user_uid != $user_data['user_uid']) {
                 </div>
             </div>
             <?= $this->element('modals/refreshed/update_user'); ?>
-        </div>
-        <div class="grid-item grid-feed panel-center">
-            <div class="item-header">
-                <h2>Paquets</h2>
-                <div class="filters">
-                    <div class="filter active" data-filter-action="all">
-                        <h5>Tous</h5>
-                    </div>
-                    <div class="filter" data-filter-action="0">
-                        <h5>Privés</h5>
-                    </div>
-                    <div class="filter" data-filter-action="2">
-                        <h5>Amis uniquement</h5>
-                    </div>
-                    <div class="filter" data-filter-action="ai">
-                        <h5>IA</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="item-decks">
-                <?= $this->cell('Packets::display_refreshed', ['my', $user->id, 'dashboard']) ?>
-            </div>
         </div>
         <div class="panel-right">
             <div class="grid-item grid-actions panel-right-top">

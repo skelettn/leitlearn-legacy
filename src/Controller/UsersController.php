@@ -163,7 +163,7 @@ class UsersController extends AppController
                 $filePath = WWW_ROOT . 'img/user_profile_pic' . DS . $data['profile_picture'];
                 $file->moveTo($filePath);
                 $this->deleteOldImage($user);
-            }else{
+            } else {
                 $data['profile_picture'] = $user->profile_picture;
             }
             $user = $this->Users->patchEntity($user, $data);
@@ -176,7 +176,8 @@ class UsersController extends AppController
         } else {
             $this->Flash->error(__('jpg, avif ou webp seulement pris en compte'));
         }
-        return $this->redirect('/users/settings');
+
+        return $this->redirect('/profile/' . $user->user_uid);
     }
 
     public function updatePassword(?string $id = null)
@@ -184,9 +185,8 @@ class UsersController extends AppController
         $user = $this->Users->get($this->request->getSession()->read('Auth.id'));
 
         if (!empty($this->request->getData())) {
-
-            $data= $this->request->getData();
-            if ((new DefaultPasswordHasher)->check($data['current_password'], $user->password)) {
+            $data = $this->request->getData();
+            if ((new DefaultPasswordHasher())->check($data['current_password'], $user->password)) {
                 if ($data['new_password'] === $data['confirm_new_password']) {
                     $user->password = $data['confirm_new_password'];
 
@@ -200,13 +200,12 @@ class UsersController extends AppController
                 }
             } else {
                 $this->Flash->error(__('Mot de passe est incorrect'));
-
             }
         }
 
         $this->set(compact('user'));
-        return $this->redirect('/users/settings');
 
+        return $this->redirect('/users/settings');
     }
 
     public function delete()
@@ -228,7 +227,7 @@ class UsersController extends AppController
      *
      * @param int $requester_id
      * @param int $recipient_id
-     * @return App\Model\Entity\Friend|null
+     * @return \App\Controller\App\Model\Entity\Friend|null
      */
     public function getRelation(int $requester_id, int $recipient_id)
     {
@@ -260,7 +259,7 @@ class UsersController extends AppController
         $searchTerm = $this->removeAccents(trim($query));
         $escapedTerm = preg_quote($searchTerm, '/');
 
-        if(!is_null($query)) {
+        if (!is_null($query)) {
             $users = $this->Users->find()
                 ->contain(['Friends'])
                 ->where(['username LIKE' => '%' . $query . '%'])

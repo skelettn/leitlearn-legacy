@@ -87,6 +87,11 @@ return function (RouteBuilder $routes): void {
         );
 
         $builder->connect(
+            '/logout',
+            ['controller' => 'Users', 'action' => 'logout']
+        );
+
+        $builder->connect(
             '/profile/{user_uid}',
             ['controller' => 'Users', 'action' => 'view']
         )

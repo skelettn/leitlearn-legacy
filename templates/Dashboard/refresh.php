@@ -87,7 +87,7 @@
                         ); ?>
                         <?= $this->Html->link(
                             'Déconnexion',
-                            '',
+                            '/logout',
                             ['class' => 'action primary', 'escapeTitle' => false]
                         ); ?>
                     </div>
