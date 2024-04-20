@@ -166,3 +166,8 @@ const animateFormButtons = () => {
         return isValid;
     };
 };
+
+document.getElementById('setting-lang').addEventListener('change', function() {
+    let selectedValue = this.value;
+    window.location.href = '/lang/change/' + selectedValue;
+});

@@ -8,6 +8,7 @@ use App\Utility\AppSingleton;
 use Authentication\PasswordHasher\DefaultPasswordHasher;
 use Cake\Event\EventInterface;
 use Cake\Http\Response;
+use Cake\I18n\I18n;
 
 class UsersController extends AppController
 {
@@ -82,7 +83,10 @@ class UsersController extends AppController
 
     public function settings()
     {
+        $locale = I18n::getLocale();
         $this->viewBuilder()->setLayout('dashboard_refresh');
+
+        $this->set(compact('locale'));
     }
 
     /**
