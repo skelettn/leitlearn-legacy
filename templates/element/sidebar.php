@@ -17,7 +17,7 @@
                 ); ?>
             </li>
             <?= $this->cell('FeatureFlags::display', ['leitlearn_plus_sidebar_link']) ?>
-            <li class="<?= $this->getRequest()->getRequestTarget() === '/decks' ? 'active' : '' ?>">
+            <li class="<?= $this->getRequest()->getRequestTarget() === '/decks' ? 'active' : '' ?> mobile-only">
                 <?= $this->Html->link(
                     '<span class="material-symbols-rounded' . ($this->getRequest()->getRequestTarget() === '/decks' ? ' active-icon' : '') . '">style</span>',
                     '/decks',

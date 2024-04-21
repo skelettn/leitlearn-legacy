@@ -55,6 +55,10 @@
     cursor: pointer;
 }
 
+.sidebar ul li.mobile-only {
+    display: none;
+}
+
 .sidebar ul li img.leitlearn_plus {
     width: 28px;
     height: 32px;
@@ -130,6 +134,10 @@
 
     .sidebar ul li {
         margin-bottom: 0;
+    }
+
+    .sidebar ul li.mobile-only {
+        display: flex;
     }
 
     .sidebar ul li:nth-child(1) {

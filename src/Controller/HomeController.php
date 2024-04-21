@@ -3,9 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use Cake\Core\Configure;
 use Cake\Event\EventInterface;
-use Cake\I18n\I18n;
 
 class HomeController extends AppController
 {
@@ -24,5 +22,8 @@ class HomeController extends AppController
 
     public function index()
     {
+        if ($this->request->getSession()->check('Auth.id')) {
+            return $this->redirect('/dashboard');
+        }
     }
 }
