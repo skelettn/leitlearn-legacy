@@ -13,3 +13,9 @@
 <meta name="twitter:description" content="Générez vos flashcards puis créer votre paquet directement grâce à l'intelligence artificielle de Leitlearn.">
 <meta name="twitter:image" content="https://pbs.twimg.com/profile_banners/1745386993142362112/1710614312/1500x500">
 <link rel="canonical" href="<?= $this->Url->build(['controller' => $this->request->getParam('controller'), 'action' => $this->request->getParam('action'), 'id' => $this->request->getParam('id')], ['fullBase' => true]); ?>" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
