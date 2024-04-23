@@ -56,51 +56,18 @@
                 <li class="footer-link">
                     <?= $this->Html->link(
                         __('Créer un compte'),
-                        '/users/register',
+                        '/auth/register',
                         ['escape' => false]
                     ) ?>
                 </li>
                 <li class="footer-link">
                     <?= $this->Html->link(
                         __('Connexion'),
-                        '/users/login',
+                        '/auth/login',
                         ['escape' => false]
                     ) ?>
                 </li>
             </ul>
-            <?php if ($is_logged) : ?>
-                <ul class="footer-links">
-                    <h4><?= __('Moi') ?></h4>
-                    <li class="footer-link">
-                        <?= $this->Html->link(
-                            __('Mon profil'),
-                            '/user/' . $user_data['user_uid'],
-                            ['escape' => false]
-                        ) ?>
-                    </li>
-                    <li class="footer-link">
-                        <?= $this->Html->link(
-                            __('Espace utilisateur'),
-                            '/dashboard',
-                            ['escape' => false]
-                        ) ?>
-                    </li>
-                    <li class="footer-link">
-                        <?= $this->Html->link(
-                            __('Paramètres'),
-                            '/settings',
-                            ['escape' => false]
-                        ) ?>
-                    </li>
-                    <li class="footer-link">
-                        <?= $this->Html->link(
-                            __('Déconnexion'),
-                            '/logout',
-                            ['escape' => false]
-                        ) ?>
-                    </li>
-                </ul>
-            <?php endif; ?>
             <ul class="footer-links">
                 <h4><?= __('Aide') ?></h4>
                 <li class="footer-link">
@@ -115,13 +82,6 @@
                         __('Trello'),
                         'https://trello.com/b/iUvzfXzs/leitlearn',
                         ['target' => '_blank'],
-                        ['escape' => false]
-                    ) ?>
-                </li>
-                <li class="footer-link">
-                    <?= $this->Html->link(
-                        __('Documentation'),
-                        '/docs',
                         ['escape' => false]
                     ) ?>
                 </li>

@@ -9,7 +9,7 @@ echo $this->Html->link(
 <main>
     <div class="auth-content">
         <h1>Démarrez sur Leitlearn</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium culpa cum dicta dolorem doloremque earum error facere inventore ipsum itaque iure molestiae odit perspiciatis praesentium reiciendis repellendus repudiandae sequi, veniam.</p>
+        <p>Accédez à l’intégralité de nos services en vous connectant dès maintenant. Profitez d’une expérience personnalisée et tirez le meilleur parti de toutes les fonctionnalités exclusives offertes aux membres de notre communauté.</p>
     </div>
     <div class="auth-form">
         <?= $this->Form->create(null, ['url' => ['controller' => 'Users', 'action' => 'login']]) ?>
