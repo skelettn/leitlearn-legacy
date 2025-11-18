@@ -30,7 +30,7 @@
             <ul class="links">
                 <li class="link">
                     <?= $this->Html->link(
-                        $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/x-social-media-white-icon.webp', ['alt' => 'X']),
+                        $this->Html->image('/img/x-social-media-white-icon.webp', ['alt' => 'X']),
                         'https://x.com/Leitlearn',
                         [
                             'class' => 'social',
@@ -113,7 +113,7 @@
         </ul>
         <div class="separator"></div>
         <div class="copyright">
-            <?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_white.webp', ['alt' => 'Leitlearn']) ?>
+            <?= $this->Html->image('/img/leitlearn_white.webp', ['alt' => 'Leitlearn']) ?>
             &copy; 2023-2024 Leitlearn.com
         </div>
         <div class="version">2.0 RC 5 Pre-Version</div>

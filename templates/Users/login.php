@@ -1,7 +1,7 @@
 <?php
 $this->assign('title', 'Connexion');
 echo $this->Html->link(
-    $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp', ['class' => 'fixed-logo-left', 'alt' => 'Leitlearn 2']),
+    $this->Html->image('/img/leitlearn_2_logo.webp', ['class' => 'fixed-logo-left', 'alt' => 'Leitlearn 2']),
     '/home',
     ['escape' => false]
 );
