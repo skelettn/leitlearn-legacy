@@ -342,7 +342,7 @@ main {
     margin-right: 10px;
     min-width: 50px;
     height: 50px;
-    background-image: url('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_brain_7437345.png');
+    /* background-image: url('/webroot/img/leitlearn_brain_7437345.png'); */
     background-size: cover;
 }
 

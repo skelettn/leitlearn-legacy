@@ -4,7 +4,7 @@ echo $this->cell('FeatureFlags::display', ['test_feature_flags']);
 ?>
 <header>
     <div class="header-content">
-        <div class="new leitlearn-2"> <?= $this->Html->image('https://static.kilianpeyron.fr/leitlearn/img/leitlearn_2_logo.webp', ['alt' => 'Leitlearn 2']) ?> <?= __('est disponible') ?> </div>
+        <div class="new leitlearn-2"> <?= $this->Html->image('/img/leitlearn_2_logo.webp', ['alt' => 'Leitlearn 2']) ?> <?= __('est disponible') ?> </div>
         <h1 class="title"> <?= __('Vous avez le pouvoir d\'apprendre.') ?> </h1>
         <p class="desc"> <?=__('Découvrez la plate-forme qui permet d\'appendre efficacement gratuitement.')?> </p> <?php if ($is_logged) : ?> <?= $this->Html->link(
             '
