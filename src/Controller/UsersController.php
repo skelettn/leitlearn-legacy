@@ -231,7 +231,8 @@ class UsersController extends AppController
      */
     public function getRelation(int $requester_id, int $recipient_id)
     {
-        $relation = $this->Users->Friends->find()
+        $friendsTable = $this->fetchTable('Friends');
+        $relation = $friendsTable->find()
             ->where([
                 'OR' => [
                     ['requester_id' => $requester_id, 'recipient_id' => $recipient_id],
@@ -261,7 +262,7 @@ class UsersController extends AppController
 
         if (!is_null($query)) {
             $users = $this->Users->find()
-                ->contain(['Friends'])
+                ->contain(['FriendsRequested', 'FriendsReceived'])
                 ->where(['username LIKE' => '%' . $query . '%'])
                 ->limit(20)
                 ->toArray();

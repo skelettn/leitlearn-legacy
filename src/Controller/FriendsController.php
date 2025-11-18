@@ -8,6 +8,14 @@ use Cake\Http\Response;
 
 class FriendsController extends AppController
 {
+    protected $Users;
+
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->Users = $this->fetchTable('Users');
+    }
+
     /**
      * Ajoute une relation entre 2 utilisateurs
      *
@@ -16,7 +24,7 @@ class FriendsController extends AppController
      */
     public function request(string $user_uid): Response
     {
-        $user = $this->Friends->Users->find()->where(['user_uid' => $user_uid])->firstOrFail();
+        $user = $this->Users->find()->where(['user_uid' => $user_uid])->firstOrFail();
 
         $this->request->allowMethod(['post', 'request']);
         if ($this->request->is(['post', 'put'])) {
@@ -63,7 +71,7 @@ class FriendsController extends AppController
      */
     public function accept(string $requester_id): Response
     {
-        $user = $this->Friends->Users->find()->where(['user_uid' => $requester_id])->firstOrFail();
+        $user = $this->Users->find()->where(['user_uid' => $requester_id])->firstOrFail();
         $relation = $this->getRelation($user->id, $this->request->getSession()->read('Auth.id'));
         if (!is_null($relation)) {
             $data = ['status' => 'success'];
@@ -87,7 +95,7 @@ class FriendsController extends AppController
      */
     public function delete(string $requester_id): Response
     {
-        $user = $this->Friends->Users->find()->where(['user_uid' => $requester_id])->firstOrFail();
+        $user = $this->Users->find()->where(['user_uid' => $requester_id])->firstOrFail();
         $relation = $this->getRelation($user->id, $this->request->getSession()->read('Auth.id'));
         if (!is_null($relation)) {
             if ($this->Friends->delete($relation)) {

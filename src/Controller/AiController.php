@@ -27,7 +27,7 @@ class AiController extends AppController
     public function callOpenAi(string $message): bool|string
     {
         $openai_endpoint = 'https://api.openai.com/v1/chat/completions';
-        $openai_token = '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';
+        $openai_token = env('OPENAI_API_KEY');
         $data = [
             'model' => 'gpt-3.5-turbo',
             'messages' => [

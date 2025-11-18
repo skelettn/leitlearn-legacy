@@ -1,6 +1,6 @@
 {
-    "name": "cakephp/app",
-    "description": "CakePHP skeleton app",
+    "name": "leitlearn/legacy",
+    "description": "Leitlearn Legacy App",
     "homepage": "https://cakephp.org",
     "type": "project",
     "license": "MIT",

@@ -7,9 +7,19 @@ use Cake\View\Cell;
 
 class KeywordsCell extends Cell
 {
+    protected $Keywords;
+    protected $PacketsKeywords;
+
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->Keywords = $this->fetchTable('Keywords');
+        $this->PacketsKeywords = $this->fetchTable('PacketsKeywords');
+    }
+
     public function display(): void
     {
-        $keywords = $this->fetchTable('Keywords')->find();
+        $keywords = $this->Keywords->find();
 
         foreach ($keywords as $keyword) {
             $keyword->bg = $this->getStyles($keyword->word, 'bg');
@@ -22,12 +32,12 @@ class KeywordsCell extends Cell
 
     public function selected(?int $packet_id = null): void
     {
-        $keywords = $this->fetchTable('Keywords')->find()->toArray();
+        $keywords = $this->Keywords->find()->toArray();
 
         if (!is_null($packet_id)) {
             foreach ($keywords as $keyword) {
                 if (
-                    $this->fetchTable('PacketsKeywords')
+                    $this->PacketsKeywords
                         ->find()
                         ->where(['packet_id' => $packet_id, 'keyword_id' => $keyword['id']])
                         ->count() == 1

@@ -48,10 +48,12 @@ class FriendsTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Users', [
+        $this->belongsTo('Requester', [
+            'className' => 'Users',
             'foreignKey' => 'requester_id',
         ]);
-        $this->belongsTo('Users', [
+        $this->belongsTo('Recipient', [
+            'className' => 'Users',
             'foreignKey' => 'recipient_id',
         ]);
     }
@@ -89,8 +91,8 @@ class FriendsTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn(['requester_id'], 'Users'), ['errorField' => 'requester_id']);
-        $rules->add($rules->existsIn(['recipient_id'], 'Users'), ['errorField' => 'recipient_id']);
+        $rules->add($rules->existsIn(['requester_id'], 'Requester'), ['errorField' => 'requester_id']);
+        $rules->add($rules->existsIn(['recipient_id'], 'Recipient'), ['errorField' => 'recipient_id']);
 
         return $rules;
     }

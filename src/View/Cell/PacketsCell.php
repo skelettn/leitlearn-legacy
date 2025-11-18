@@ -5,9 +5,19 @@ use Cake\View\Cell;
 
 class PacketsCell extends Cell
 {
+    protected $Packets;
+    protected $Users;
+
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->Packets = $this->fetchTable('Packets');
+        $this->Users = $this->fetchTable('Users');
+    }
+
     public function display(string $filter, int $logged_user_id = null, string $display = "base")
     {
-        $query = $this->fetchTable("Packets")->find()->contain(['Flashcards', 'Users', 'Keywords', 'Likes']);
+        $query = $this->Packets->find()->contain(['Flashcards', 'Users', 'Keywords', 'Likes']);
 
         switch ($filter) {
             case 'trend':
@@ -50,14 +60,14 @@ class PacketsCell extends Cell
     public function display_refreshed(string $filter, int $logged_user_id = null, string $display = "base")
     {
         $this->display($filter, $logged_user_id, $display);
-        $user = $this->fetchTable('Users')->find()->where(['id' => $logged_user_id])->first();
+        $user = $this->Users->find()->where(['id' => $logged_user_id])->first();
 
         $this->set('user', $user);
     }
 
     public function protected(int $user_id)
     {
-        $packets = $this->fetchTable("Packets")
+        $packets = $this->Packets
             ->find()
             ->contain(['Flashcards', 'Users', 'Keywords'])
             ->where(['status' => 2, 'user_id' => $user_id])
@@ -69,7 +79,7 @@ class PacketsCell extends Cell
 
     public function display_search(string $filter = 'trend')
     {
-        $query = $this->fetchTable("Packets")
+        $query = $this->Packets
             ->find()
             ->contain(['Flashcards', 'Users', 'Keywords'])
             ->where(['status' => 1])
@@ -82,7 +92,7 @@ class PacketsCell extends Cell
 
     public function display_category(string $category)
     {
-        $packets = $this->fetchTable("Packets")->find()
+        $packets = $this->Packets->find()
             ->contain(['Flashcards', 'Keywords', 'Users'])
             ->where(['status' => 1])
             ->matching('Keywords', function ($q) use ($category) {

@@ -52,10 +52,12 @@ class UsersTable extends Table
         $this->hasMany('Packets', [
             'foreignKey' => 'user_id',
         ]);
-        $this->hasMany('Friends', [
+        $this->hasMany('FriendsRequested', [
+            'className' => 'Friends',
             'foreignKey' => 'requester_id',
         ]);
-        $this->hasMany('Friends', [
+        $this->hasMany('FriendsReceived', [
+            'className' => 'Friends',
             'foreignKey' => 'recipient_id',
         ]);
     }

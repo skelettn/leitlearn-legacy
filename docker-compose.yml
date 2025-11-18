@@ -1,0 +1,51 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: leitlearn-php
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/var/www/html
+      - ./docker/php/conf/php.ini:/usr/local/etc/php/php.ini
+    networks:
+      - cakephp
+
+  mysql:
+    image: mysql:8.3
+    container_name: leitlearn-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: leitlearn
+      MYSQL_USER: leitlearn
+      MYSQL_PASSWORD: leitlearn
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      cakephp:
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    platform: linux/amd64
+    container_name: leitlearn-phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: leitlearn-mysql
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    networks:
+      - cakephp
+
+volumes:
+  mysql-data:
+
+networks:
+  cakephp:

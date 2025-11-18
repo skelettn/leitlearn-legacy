@@ -5,11 +5,22 @@ use Cake\View\Cell;
 
 class FriendsCell extends Cell
 {
+    protected $Friends;
+    protected $Users;
+
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->Friends = $this->fetchTable('Friends');
+        $this->Users = $this->fetchTable('Users');
+    }
+
     public function display(string $user_id)
     {
 
-        $friends = $this->fetchTable("Friends")
+        $friends = $this->Friends
             ->find()
+            ->contain(['Requester', 'Recipient'])
             ->where([
                 'OR' => [
                     ['requester_id' => $user_id],
@@ -19,30 +30,12 @@ class FriendsCell extends Cell
             ])
             ->toArray();
 
-        $friendUserIds = [];
+        // Attacher l'utilisateur ami à chaque relation
         foreach ($friends as $friend) {
             if ($friend->requester_id != $user_id) {
-                $friendUserIds[] = $friend->requester_id;
-            }
-            if ($friend->recipient_id != $user_id) {
-                $friendUserIds[] = $friend->recipient_id;
-            }
-        }
-
-        if(!empty($friendUserIds)) {
-            $users = $this->fetchTable("Users")
-                ->find()
-                ->where(['Users.id IN' => $friendUserIds])
-                ->toArray();
-        }
-
-
-        foreach ($friends as $friend) {
-            foreach ($users as $user) {
-                if ($friend->requester_id == $user->id || $friend->recipient_id == $user->id) {
-                    $friend->user = $user;
-                    break;
-                }
+                $friend->user = $friend->requester;
+            } else {
+                $friend->user = $friend->recipient;
             }
         }
 
